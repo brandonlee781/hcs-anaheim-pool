@@ -50,7 +50,7 @@ export const teams: { [key: string]: Team } = {
   g1: {
     name: 'Gamers First',
     pool: Pool.B,
-    color: '#141517',
+    color: '#eee',
   },
   fnatic: {
     name: 'Fnatic',
