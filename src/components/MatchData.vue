@@ -1,7 +1,7 @@
 <template>
   <div class="background" :style="{ borderColor: color }"></div>
   <div class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center">
-    <div class="match-teams text-lg xl:text-sm lg:hidden xl:block">
+    <div class="match-teams text-sm lg:hidden xl:block">
       {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
     </div>
     <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
@@ -9,8 +9,8 @@
       <span>vs</span>
       <span>{{ teams[match.team2].name }}</span>
     </div>
-    <div class="lg:hidden pl-4 leading-8">
-      <a class="underline leading-4" :href="match.stream.link" target="_blank">
+    <div class="lg:hidden pl-4">
+      <a class="underline text-xs leading-4" :href="match.stream.link" target="_blank">
         {{ match.stream.name }}
       </a>
     </div>
