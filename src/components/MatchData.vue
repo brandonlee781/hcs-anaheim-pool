@@ -1,7 +1,14 @@
 <template>
-  <div class="background" :style="{ borderColor: color }"></div>
+  <div class="background" :style="{ borderColor: !isMobile ? color : 'transparent' }"></div>
   <div class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center">
-    <div class="match-teams text-sm lg:hidden xl:block">
+    <div
+      class="match-teams text-sm lg:hidden xl:block"
+      :style="{
+        textDecoration: isMobile ? 'underline' : 'none',
+        textDecorationThickness: '3px',
+        textDecorationColor: color,
+      }"
+    >
       {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
     </div>
     <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
@@ -21,8 +28,11 @@
 import { Match, teams } from '@/data';
 import useTeam from '@/composables/useTeam';
 import { computed } from 'vue';
+import useWindowWidth from '@/composables/useWindowWidth';
 
 const { hoveredTeam } = useTeam()
+const { windowWidth } = useWindowWidth()
+const isMobile = computed(() => windowWidth.value <= 1024)
 
 const props = defineProps<{ match: Match }>()
 const color = computed(() => {
@@ -50,5 +60,11 @@ const color = computed(() => {
   border-width: 8px;
   border-style: solid;
   pointer-events: none;
+}
+
+@media(min-width: 1024px) {
+  .background {
+    border: none;
+  }
 }
 </style>
