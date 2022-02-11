@@ -11,7 +11,7 @@
           <span v-if="header.text && !header.link">
             {{ header.text }}
           </span>
-          <a v-else :href="header.link" class="underline">
+          <a v-else :href="header.link" class="underline" target="_blank">
             {{ header.text }}
           </a>
         </th>

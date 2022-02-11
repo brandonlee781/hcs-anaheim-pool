@@ -5,7 +5,7 @@
       {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
     </span>
     <span class="inline-block xl:hidden pl-4 leading-8">
-      <a class="underline leading-4" :href="match.stream.link">
+      <a class="underline leading-4" :href="match.stream.link" target="_blank">
         {{ match.stream.name }}
       </a>
     </span>
@@ -45,5 +45,6 @@ const color = computed(() => {
   box-sizing: border-box;
   border-width: 8px;
   border-style: solid;
+  pointer-events: none;
 }
 </style>
