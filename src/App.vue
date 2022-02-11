@@ -1,40 +1,42 @@
 <template>
-  <div class="max-w-full py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4 mx-4 xl:mx-0">
-    <div>
-      <p class="text-gray-200">
-        All times are automatically converted to your timezone.
-        <span class="hidden xl:inline">Hover over</span>
-        <span class="xs:inline xl:hidden">Click</span>
-        a team in the pools below to highlight them in the schedule.
-      </p>
+  <div class="">
+    <div class="py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4 mx-2 xl:mx-0">
+      <div>
+        <p class="text-gray-200">
+          All times are automatically converted to your timezone.
+          <span class="hidden xl:inline">Hover over</span>
+          <span class="xs:inline xl:hidden">Click</span>
+          a team in the pools below to highlight them in the schedule.
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="flex flex-col px-4 xl:px-0">
-    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-      <ScheduleTable class="min-w-full" />
+    <div class="flex flex-col items-center">
+      <div class="min-w-full shadow border-b border-gray-200 sm:rounded-lg px-2 xl:px-0">
+        <ScheduleTable class="max-w-full" />
+      </div>
     </div>
-  </div>
-  <div class="pools">
-    <PoolTable
-     class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-      title="Pool A"
-      :teams="poolA"
-    />
-    <PoolTable
-      class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-      title="Pool B"
-      :teams="poolB"
-    />
-    <PoolTable
-      class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-      title="Pool C"
-      :teams="poolC"
-    />
-    <PoolTable
-      class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-      title="Pool D"
-      :teams="poolD"
-    />
+    <div class="pools">
+      <PoolTable
+       class="shadow border-b border-gray-200 sm:rounded-lg"
+        title="Pool A"
+        :teams="poolA"
+      />
+      <PoolTable
+        class="shadow border-b border-gray-200 sm:rounded-lg"
+        title="Pool B"
+        :teams="poolB"
+      />
+      <PoolTable
+        class="shadow border-b border-gray-200 sm:rounded-lg"
+        title="Pool C"
+        :teams="poolC"
+      />
+      <PoolTable
+        class="shadow border-b border-gray-200 sm:rounded-lg"
+        title="Pool D"
+        :teams="poolD"
+      />
+    </div>
   </div>
 </template>
 
@@ -70,7 +72,7 @@ const poolD = Object.keys(teams)
     grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 .pools table {
-  margin: 16px;
+  margin: 8px;
 }
 
 @media (min-width:1200px) {

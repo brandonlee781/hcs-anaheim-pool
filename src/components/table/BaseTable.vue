@@ -1,5 +1,5 @@
 <template>
-  <table class="divide-y divide-gray-200">
+  <table class="table-auto min-w-full divide-y divide-gray-200">
     <thead class="bg-gray-700">
       <tr>
         <th
@@ -8,10 +8,7 @@
           class="px-6 py-3 text-left text-xs font-medium text-gray-100 uppercase tracking-wider"
           :key="index"
         >
-          <span v-if="typeof header === 'string'">
-            {{ header  }}
-          </span>
-          <span v-else-if="header.text && !header.link">
+          <span v-if="header.text && !header.link">
             {{ header.text }}
           </span>
           <a v-else :href="header.link" class="underline">
@@ -28,7 +25,7 @@
 
 <script setup lang="ts">
 // eslint-disable-next-line no-undef
-const props = defineProps<{ headers: string | { text: string; link: string}[] }>()
+const props = defineProps<{ headers: { text: string; link?: string}[] }>()
 </script>
 
 <style scoped>

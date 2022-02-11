@@ -11,6 +11,30 @@ export enum Stream {
   Red,
   Blue
 }
+
+export type TStream = {
+  name: string;
+  link: string;
+}
+export const streams: { [key in Stream]: TStream } = {
+  [Stream.Halo]: {
+    name: 'A Stream (Halo)',
+    link: 'https://www.twitch.tv/halo',
+  },
+  [Stream.Xbox]: {
+    name: 'B Stream (Xbox)',
+    link: 'https://www.twitch.tv/xbox',
+  },
+  [Stream.Red]: {
+    name: 'C Stream (HCS_Red)',
+    link: 'https://www.twitch.tv/hcs_red',
+  },
+  [Stream.Blue]: {
+    name: 'D Stream (HCS_Blue)',
+    link: 'https://www.twitch.tv/hcs_blue',
+  },
+}
+
 export type Team = {
   name: string;
   pool: Pool;
@@ -100,7 +124,7 @@ export const teams: { [key: string]: Team } = {
 }
 
 export type Match = {
-  stream: Stream;
+  stream: TStream;
   team1: string;
   team2: string;
   timeslot: number;
@@ -108,42 +132,42 @@ export type Match = {
 }
 export const matches: Match[] = [
   {
-    stream: Stream.Halo,
+    stream: streams[Stream.Halo],
     team1: 'sen',
     team2: 'oxg',
     timeslot: 0,
     pool: Pool.A,
   },
   {
-    stream: Stream.Halo,
+    stream: streams[Stream.Halo],
     team1: 'g2',
     team2: 'comp',
     timeslot: 1,
     pool: Pool.C,
   },
   {
-    stream: Stream.Halo,
+    stream: streams[Stream.Halo],
     team1: 'c9',
     team2: 'oxg',
     timeslot: 2,
     pool: Pool.A,
   },
   {
-    stream: Stream.Halo,
+    stream: streams[Stream.Halo],
     team1: 'og',
     team2: 'comp',
     timeslot: 3,
     pool: Pool.C,
   },
   {
-    stream: Stream.Halo,
+    stream: streams[Stream.Halo],
     team1: 'c9',
     team2: 'sen',
     timeslot: 4,
     pool: Pool.A,
   },
   {
-    stream: Stream.Halo,
+    stream: streams[Stream.Halo],
     team1: 'og',
     team2: 'g2',
     timeslot: 5,
@@ -151,7 +175,7 @@ export const matches: Match[] = [
   },
   // b stream
   {
-    stream: Stream.Xbox,
+    stream: streams[Stream.Xbox],
     team1: 'ssg',
     team2: 'g1',
     timeslot: 0,
@@ -159,35 +183,35 @@ export const matches: Match[] = [
   },
 
   {
-    stream: Stream.Xbox,
+    stream: streams[Stream.Xbox],
     team1: 'kcp',
     team2: 'xset',
     timeslot: 1,
     pool: Pool.D,
   },
   {
-    stream: Stream.Xbox,
+    stream: streams[Stream.Xbox],
     team1: 'faze',
     team2: 'g1',
     timeslot: 2,
     pool: Pool.B,
   },
   {
-    stream: Stream.Xbox,
+    stream: streams[Stream.Xbox],
     team1: 'eu',
     team2: 'xset',
     timeslot: 3,
     pool: Pool.D,
   },
   {
-    stream: Stream.Xbox,
+    stream: streams[Stream.Xbox],
     team1: 'faze',
     team2: 'ssg',
     timeslot: 4,
     pool: Pool.B,
   },
   {
-    stream: Stream.Xbox,
+    stream: streams[Stream.Xbox],
     team1: 'eu',
     team2: 'kcp',
     timeslot: 5,
@@ -195,7 +219,7 @@ export const matches: Match[] = [
   },
   // c stream
   {
-    stream: Stream.Red,
+    stream: streams[Stream.Red],
     team1: 'c9',
     team2: 'esa',
     timeslot: 0,
@@ -203,35 +227,35 @@ export const matches: Match[] = [
   },
 
   {
-    stream: Stream.Red,
+    stream: streams[Stream.Red],
     team1: 'og',
     team2: 'uyu',
     timeslot: 1,
     pool: Pool.C,
   },
   {
-    stream: Stream.Red,
+    stream: streams[Stream.Red],
     team1: 'sen',
     team2: 'esa',
     timeslot: 2,
     pool: Pool.A,
   },
   {
-    stream: Stream.Red,
+    stream: streams[Stream.Red],
     team1: 'g2',
     team2: 'uyu',
     timeslot: 3,
     pool: Pool.C,
   },
   {
-    stream: Stream.Red,
+    stream: streams[Stream.Red],
     team1: 'esa',
     team2: 'oxg',
     timeslot: 4,
     pool: Pool.A,
   },
   {
-    stream: Stream.Red,
+    stream: streams[Stream.Red],
     team1: 'comp',
     team2: 'uyu',
     timeslot: 5,
@@ -239,7 +263,7 @@ export const matches: Match[] = [
   },
   // d stream
   {
-    stream: Stream.Blue,
+    stream: streams[Stream.Blue],
     team1: 'faze',
     team2: 'fnatic',
     timeslot: 0,
@@ -247,35 +271,35 @@ export const matches: Match[] = [
   },
 
   {
-    stream: Stream.Blue,
+    stream: streams[Stream.Blue],
     team1: 'eu',
     team2: 'tor',
     timeslot: 1,
     pool: Pool.D,
   },
   {
-    stream: Stream.Blue,
+    stream: streams[Stream.Blue],
     team1: 'ssg',
     team2: 'fnatic',
     timeslot: 2,
     pool: Pool.B,
   },
   {
-    stream: Stream.Blue,
+    stream: streams[Stream.Blue],
     team1: 'kcp',
     team2: 'tor',
     timeslot: 3,
     pool: Pool.D,
   },
   {
-    stream: Stream.Blue,
+    stream: streams[Stream.Blue],
     team1: 'g1',
     team2: 'fnatic',
     timeslot: 4,
     pool: Pool.B,
   },
   {
-    stream: Stream.Blue,
+    stream: streams[Stream.Blue],
     team1: 'tor',
     team2: 'xset',
     timeslot: 5,

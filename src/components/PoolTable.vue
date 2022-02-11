@@ -1,5 +1,5 @@
 <template>
-  <BaseTable :headers="[title]">
+  <BaseTable :headers="[{ text: title }]">
     <tr v-for="(team) in teams" :key="team.name">
       <Data
         class="team-data cursor-pointer"

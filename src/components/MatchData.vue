@@ -1,11 +1,13 @@
 <template>
   <div class="background" :style="{ borderColor: color }"></div>
-  <div>
-    <span class="match-teams text-xl xl:text-sm">
+  <div class="max-w-full flex flex-col sm:flex-row flex-wrap">
+    <span class="match-teams inline-block text-lg xl:text-sm">
       {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
     </span>
-    <span class="inline-block xl:hidden pl-4">
-     {{ streams[match.stream] }}
+    <span class="inline-block xl:hidden pl-4 leading-8">
+      <a class="underline leading-4" :href="match.stream.link">
+        {{ match.stream.name }}
+      </a>
     </span>
   </div>
 </template>
@@ -30,12 +32,6 @@ const color = computed(() => {
   }
   return 'transparent'
 })
-const streams = [
-  'A Stream (Halo)',
-  'B Stream (Xbox)',
-  'C Stream (HCS_Red)',
-  'D Stream (HCS_Blue)',
-]
 </script>
 
 <style scoped>

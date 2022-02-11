@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import Data from '@/components/table/BaseData.vue'
-import { matches } from '@/data';
+import { matches, streams } from '@/data';
 import { format } from 'date-fns'
 import useWindowWidth from '@/composables/useWindowWidth';
 import BaseTable from './table/BaseTable.vue';
@@ -46,28 +46,16 @@ const timeslots = computed(() => defaultTimeslots.map((time: Date) => format(tim
 const headers = computed(() => {
   if (windowWidth.value >= 1200) {
     return [
-      'Timeslot',
-      {
-        text: 'A Stream (Halo)',
-        link: 'https://www.twitch.tv/halo',
-      },
-      {
-        text: 'B Stream (Xbox)',
-        link: 'https://www.twitch.tv/xbox',
-      },
-      {
-        text: 'C Stream (HCS_Red)',
-        link: 'https://www.twitch.tv/hcs_red',
-      },
-      {
-        text: 'D Stream (HCS_Blue)',
-        link: 'https://www.twitch.tv/hcs_blue',
-      },
+      { text: 'Timeslot' },
+      ...Object.values(streams).map((st) => ({
+        text: st.name,
+        link: st.link,
+      })),
     ]
   }
   return [
-    'Timeslot',
-    'Matches',
+    { text: 'Timeslot' },
+    { text: 'Matches' },
   ]
 })
 
