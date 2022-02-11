@@ -3,12 +3,12 @@
     <Data @click="() => (show = !show)">{{ time }}</Data>
     <Data
       v-for="(match, i) in matches"
-      class="hidden xl:table-cell"
+      class="hidden lg:table-cell"
       :key="`match-${time}-${i}`"
     >
       <MatchData :match="match" :time="time"/>
     </Data>
-    <Data class="table-cell xl:hidden">
+    <Data class="table-cell lg:hidden">
       <template v-if="show">
         <MatchData
           v-for="(match, i) in matches"

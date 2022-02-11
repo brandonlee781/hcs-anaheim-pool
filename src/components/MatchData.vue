@@ -1,14 +1,19 @@
 <template>
   <div class="background" :style="{ borderColor: color }"></div>
-  <div class="max-w-full flex flex-col sm:flex-row flex-wrap">
-    <span class="match-teams inline-block text-lg xl:text-sm">
+  <div class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center">
+    <div class="match-teams text-lg xl:text-sm lg:hidden xl:block">
       {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
-    </span>
-    <span class="inline-block xl:hidden pl-4 leading-8">
+    </div>
+    <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
+      <span>{{ teams[match.team1].name }}</span>
+      <span>vs</span>
+      <span>{{ teams[match.team2].name }}</span>
+    </div>
+    <div class="lg:hidden pl-4 leading-8">
       <a class="underline leading-4" :href="match.stream.link" target="_blank">
         {{ match.stream.name }}
       </a>
-    </span>
+    </div>
   </div>
 </template>
 
@@ -16,7 +21,6 @@
 import { Match, teams } from '@/data';
 import useTeam from '@/composables/useTeam';
 import { computed } from 'vue';
-import Data from '@/components/table/BaseData.vue'
 
 const { hoveredTeam } = useTeam()
 

@@ -5,7 +5,7 @@
         <th
           v-for="(header, index) in headers"
           scope="col"
-          class="px-6 py-3 text-left text-xs font-medium text-gray-100 uppercase tracking-wider"
+          class="px-6 py-3 text-left text-xs font-medium text-gray-100 uppercase tracking-wider lg:text-center"
           :key="index"
         >
           <span v-if="header.text && !header.link">
@@ -24,8 +24,7 @@
 </template>
 
 <script setup lang="ts">
-// eslint-disable-next-line no-undef
-const props = defineProps<{ headers: { text: string; link?: string}[] }>()
+defineProps<{ headers: { text: string; link?: string}[] }>()
 </script>
 
 <style scoped>

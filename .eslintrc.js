@@ -18,6 +18,9 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
     'no-undef': 'off',
-    'no-return-assign': 'off'
+    'no-return-assign': 'off',
+    'vue/max-len': ['error', { "code": 100, "ignoreHTMLAttributeValues": true }],
+    'max-len': 'off',
+    // 'max-len': ['error', { "ignoreStrings": true }]
   },
 };

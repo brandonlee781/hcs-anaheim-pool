@@ -2,11 +2,11 @@
   <BaseTable :headers="headers">
     <tr>
       <Data>{{ format(new Date('2022-02-11T18:30:00+0000'), 'h:mmaaa') }}</Data>
-      <Data :colspan="headers.length - 1" class="text-left xl:text-center">Broadcast Start</Data>
+      <Data :colspan="headers.length - 1" class="text-left lg:text-center">Broadcast Start</Data>
     </tr>
     <tr>
       <Data>{{ format(new Date('2022-02-11T18:45:00+0000'), 'h:mmaaa') }}</Data>
-      <Data :colspan="headers.length - 1" class="text-left xl:text-center">Anaheim Preshow</Data>
+      <Data :colspan="headers.length - 1" class="text-left lg:text-center">Anaheim Preshow</Data>
     </tr>
     <MatchRow
       v-for="(time, index) in timeslots"
@@ -16,7 +16,7 @@
     />
     <tr>
       <Data>{{ format(new Date('2022-03-11T02:45:00+0000'), 'h:mmaaa') }}</Data>
-      <Data :colspan="headers.length - 1" class="text-left xl:text-center">Broadcast Ends</Data>
+      <Data :colspan="headers.length - 1" class="text-left lg:text-center">Broadcast Ends</Data>
     </tr>
   </BaseTable>
 </template>
@@ -44,7 +44,7 @@ const defaultTimeslots = [
 const timeslots = computed(() => defaultTimeslots.map((time: Date) => format(time, 'h:mmaaa')))
 
 const headers = computed(() => {
-  if (windowWidth.value >= 1200) {
+  if (windowWidth.value >= 1024) {
     return [
       { text: 'Timeslot' },
       ...Object.values(streams).map((st) => ({
