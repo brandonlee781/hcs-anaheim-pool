@@ -7,6 +7,7 @@
           <span class="hidden xl:inline">Hover over</span>
           <span class="xs:inline xl:hidden">Click</span>
           a team in the pools below to highlight them in the schedule.
+          <span class="xs:inline xl:hidden">Click the time to show and hide it's matches.</span>
         </p>
       </div>
     </div>
