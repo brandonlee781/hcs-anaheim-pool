@@ -1,4 +1,12 @@
 <template>
+  <div class="max-w-full py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
+    <div>
+      <p class="text-gray-200">
+        All times are automatically converted to your timezone.
+        Hover over a team in the pools below to highlight them in the schedule.
+      </p>
+    </div>
+  </div>
   <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -54,7 +62,8 @@ const poolD = Object.keys(teams)
 
 <style>
 #app {
-  margin: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
 }
 
 .pools {

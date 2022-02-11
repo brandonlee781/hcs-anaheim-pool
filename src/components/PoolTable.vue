@@ -1,7 +1,11 @@
 <template>
   <BaseTable :headers="[title]">
     <tr v-for="(team) in teams" :key="team.name">
-      <Data @mouseenter.prevent="setHover(team)" @mouseleave="setHover(null)">
+      <Data
+        class="team-data cursor-pointer"
+        @mouseenter="setHover(team)"
+        @mouseleave="setHover(null)"
+      >
         {{ team.name }}
       </Data>
     </tr>
@@ -19,4 +23,7 @@ const { setHover, hoveredTeam } = useTeam()
 </script>
 
 <style scoped>
+.team-data:hover {
+  background-color: rgba(255,255, 255, 0.1);
+}
 </style>

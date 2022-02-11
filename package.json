@@ -12,6 +12,7 @@
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "autoprefixer": "^9",
     "core-js": "^3.6.5",
+    "date-fns": "^2.28.0",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "vue": "^3.0.0"
@@ -29,8 +30,8 @@
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0",
+    "execa": "latest",
     "typescript": "~4.1.5",
-    "vue-cli-plugin-tailwind": "^2.2.18",
-    "execa": "latest"
+    "vue-cli-plugin-tailwind": "^2.2.18"
   }
 }

@@ -1,11 +1,11 @@
 <template>
   <BaseTable :headers="headers">
     <tr>
-      <Data>11:30am</Data>
+      <Data>{{ format(new Date('2022-02-11T18:30:00+0000'), 'h:mmaaa') }}</Data>
       <Data v-for="n in 4" :key="`start-${n}`">Broadcast Start</Data>
     </tr>
     <tr>
-      <Data>11:45am</Data>
+      <Data>{{ format(new Date('2022-02-11T18:45:00+0000'), 'h:mmaaa') }}</Data>
       <Data v-for="n in 4" :key="`pre-${n}`">Anaheim Preshow</Data>
     </tr>
     <tr v-for="(time, index) in timeslots" :key="index">
@@ -18,27 +18,31 @@
     </tr>
 
     <tr>
-      <Data>7:45pm</Data>
+      <Data>{{ format(new Date('2022-03-11T02:45:00+0000'), 'h:mmaaa') }}</Data>
       <Data v-for="n in 4" :key="`pre-${n}`">Broadcast Ends</Data>
     </tr>
   </BaseTable>
 </template>
 
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import Data from '@/components/table/BaseData.vue'
-import { matches, teams } from '@/data';
-import useTeam from '@/composables/useTeam';
+import { matches } from '@/data';
+import { addHours, format } from 'date-fns'
 import BaseTable from './table/BaseTable.vue';
 import MatchData from './MatchData.vue';
 
-const timeslots = [
-  '12:00pm',
-  '1:15pm',
-  '2:30pm',
-  '3:45pm',
-  '5:00pm',
-  '6:15pm',
+const defaultTimeslots = [
+  new Date('2022-02-11T19:00:00+0000'),
+  new Date('2022-02-11T20:15:00+0000'),
+  new Date('2022-02-11T21:30:00+0000'),
+  new Date('2022-02-11T22:45:00+0000'),
+  new Date('2022-03-11T00:00:00+0000'),
+  new Date('2022-03-11T01:15:00+0000'),
 ]
+
+const timeslots = computed(() => defaultTimeslots.map((time: Date) => format(time, 'h:mmaaa')))
+
 const headers = [
   'Timeslot',
   'A Stream (Halo)',
