@@ -1,6 +1,6 @@
 <template>
   <td class="px-6 py-4 whitespace-nowrap">
-    <div class="text-sm font-medium text-gray-200">
+    <div class="text-sm font-medium text-gray-200 mobile-row">
       <slot></slot>
     </div>
   </td>
@@ -10,4 +10,13 @@
 </script>
 
 <style scoped>
+td {
+  position: relative;
+}
+@media(max-width: 1200px) {
+.mobile-row {
+  display: flex;
+  flex-flow: column wrap;
+}
+}
 </style>

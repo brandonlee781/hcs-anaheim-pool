@@ -1,19 +1,17 @@
 <template>
-  <div class="max-w-full py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
+  <div class="max-w-full py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4 mx-4 xl:mx-0">
     <div>
       <p class="text-gray-200">
         All times are automatically converted to your timezone.
-        Hover over a team in the pools below to highlight them in the schedule.
+        <span class="hidden lg:inline">Hover over</span>
+        <span class="xs:inline lg:hidden">Click</span>
+        a team in the pools below to highlight them in the schedule.
       </p>
     </div>
   </div>
-  <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-          <ScheduleTable class="min-w-full" />
-        </div>
-      </div>
+  <div class="flex flex-col px-4 xl:px-0">
+    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+      <ScheduleTable class="min-w-full" />
     </div>
   </div>
   <div class="pools">
@@ -68,15 +66,24 @@ const poolD = Object.keys(teams)
 
 .pools {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 .pools table {
   margin: 16px;
 }
-.pools table:first-of-type {
-  margin-left: 0;
-}
-.pools table:last-of-type {
-  margin-right: 0;
+
+@media (min-width:1200px) {
+  .pools {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .pools table:first-of-type {
+    margin-left: 0;
+  }
+  .pools table:last-of-type {
+    margin-right: 0;
+  }
 }
 </style>

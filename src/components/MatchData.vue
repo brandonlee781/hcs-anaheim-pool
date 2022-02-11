@@ -1,8 +1,13 @@
 <template>
-  <Data>
-    <div class="background" :style="{ borderColor: color }"></div>
-    {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
-  </Data>
+  <div class="background" :style="{ borderColor: color }"></div>
+  <div>
+    <span class="match-teams text-xl xl:text-sm">
+      {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
+    </span>
+    <span class="inline-block xl:hidden pl-4">
+     {{ streams[match.stream] }}
+    </span>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -25,12 +30,15 @@ const color = computed(() => {
   }
   return 'transparent'
 })
+const streams = [
+  'A Stream (Halo)',
+  'B Stream (Xbox)',
+  'C Stream (HCS_Red)',
+  'D Stream (HCS_Blue)',
+]
 </script>
 
 <style scoped>
-td {
-  position: relative;
-}
 .background {
   position: absolute;
   top: 0;

@@ -17,6 +17,7 @@ module.exports = {
     semi: 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
-    'no-undef': 'off'
+    'no-undef': 'off',
+    'no-return-assign': 'off'
   },
 };
