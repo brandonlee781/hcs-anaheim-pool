@@ -7,11 +7,13 @@
         <span class="xs:inline xl:hidden"> Click the time to show and hide it's matches.</span>
       </p>
       <div class="hidden xl:inline">
+        <label class="cursor-pointer" for="toggle">
+          {{ clickToHighlight ? 'Click' : 'Hover' }} team name to highlight
+        </label>
         <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
           <input v-model="clickToHighlight" type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
           <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
         </div>
-        <label class="cursor-pointer" for="toggle">Click team to highlight</label>
       </div>
     </div>
   </div>
