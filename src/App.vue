@@ -3,8 +3,8 @@
     <div>
       <p class="text-gray-200">
         All times are automatically converted to your timezone.
-        <span class="hidden lg:inline">Hover over</span>
-        <span class="xs:inline lg:hidden">Click</span>
+        <span class="hidden xl:inline">Hover over</span>
+        <span class="xs:inline xl:hidden">Click</span>
         a team in the pools below to highlight them in the schedule.
       </p>
     </div>
