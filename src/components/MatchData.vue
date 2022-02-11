@@ -61,10 +61,4 @@ const color = computed(() => {
   border-style: solid;
   pointer-events: none;
 }
-
-@media(min-width: 1024px) {
-  .background {
-    border: none;
-  }
-}
 </style>
