@@ -1,5 +1,5 @@
 <template>
-  <div class="background" :style="{ borderColor: !isMobile ? color : 'transparent' }"></div>
+  <div class="background" :style="{ borderColor: color }"></div>
   <div class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center">
     <div
       class="match-teams text-sm lg:hidden xl:block"
