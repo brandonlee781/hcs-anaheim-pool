@@ -4,8 +4,8 @@
       <Data
         class="team-data cursor-pointer"
         @click="() => onClick(team)"
-        @mouseenter="isDesktop && setHover(team)"
-        @mouseleave="isDesktop && setHover(null)"
+        @mouseenter="isDesktop && !clickToHighlight && setHover(team)"
+        @mouseleave="isDesktop && !clickToHighlight && setHover(null)"
       >
         {{ team.name }}
       </Data>
@@ -26,9 +26,11 @@ defineProps<{ title: string; teams: Team[] }>()
 const { windowWidth } = useWindowWidth()
 const isDesktop = computed(() => windowWidth.value > 1200)
 
-const { setHover, hoveredTeam } = useTeam()
+const { setHover, hoveredTeam, clickToHighlight } = useTeam()
 const onClick = (team: Team) => {
-  if (hoveredTeam.value?.name === team.name) {
+  if (isDesktop.value) {
+    setHover(team)
+  } else if (hoveredTeam.value?.name === team.name || !isDesktop.value) {
     setHover(null)
   } else {
     setHover(team)

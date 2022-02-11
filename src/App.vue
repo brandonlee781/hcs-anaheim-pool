@@ -1,13 +1,18 @@
 <template>
   <div class="py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
-    <div>
+    <div class="flex flex-row justify-between">
       <p class="text-gray-200">
         All times are automatically converted to your timezone.
-        <span class="hidden xl:inline">Hover over</span>
-        <span class="xs:inline xl:hidden">Click</span>
-        a team in the pools below to highlight them in the schedule.
-        <span class="xs:inline xl:hidden">Click the time to show and hide it's matches.</span>
+        <span class="xs:inline xl:hidden">Click a team in the pools below to highlight them in the schedule.</span>
+        <span class="xs:inline xl:hidden"> Click the time to show and hide it's matches.</span>
       </p>
+      <div class="hidden xl:inline">
+        <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+          <input v-model="clickToHighlight" type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+          <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+        </div>
+        <label class="cursor-pointer" for="toggle">Click team to highlight</label>
+      </div>
     </div>
   </div>
   <div class="flex flex-col items-center">
@@ -43,6 +48,9 @@
 import { teams, Pool } from '@/data'
 import ScheduleTable from './components/ScheduleTable.vue';
 import PoolTable from './components/PoolTable.vue';
+import useTeam from './composables/useTeam';
+
+const { clickToHighlight } = useTeam()
 
 const poolA = Object.keys(teams)
   .map((t) => teams[t])
@@ -77,6 +85,16 @@ const poolD = Object.keys(teams)
 }
 .pools table {
   margin: 8px 0;
+}
+
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: rgb(21, 103, 255);
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: rgb(21, 103, 255);
 }
 
 @media (min-width:1200px) {
