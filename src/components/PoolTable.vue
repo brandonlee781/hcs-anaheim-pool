@@ -1,22 +1,5 @@
-<template>
-  <BaseTable :headers="[{ text: title }]">
-    <tr v-for="(team) in teams" :key="team.name">
-      <Data
-        class="team-data cursor-pointer flex flex-row justify-between"
-        @click="() => onClick(team)"
-        @mouseenter="isDesktop && !clickToHighlight && setHover(team)"
-        @mouseleave="isDesktop && !clickToHighlight && setHover(null)"
-      >
-        <span>{{ team.name }}</span>
-        <span>{{ regions[team.region] }}</span>
-      </Data>
-    </tr>
-  </BaseTable>
-</template>
 
 <script setup lang="ts">
-import BaseTable from '@/components/table/BaseTable.vue';
-import Data from '@/components/table/BaseData.vue'
 import { Team, Region } from '@/data'
 import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
@@ -46,8 +29,25 @@ const onClick = (team: Team) => {
 }
 </script>
 
+<template>
+  <BaseTable :headers="[{ text: title }]">
+    <tr v-for="(team) in teams" :key="team.name">
+      <BaseData
+        class="team-data cursor-pointer flex flex-row justify-between"
+        @click="() => onClick(team)"
+        @mouseenter="isDesktop && !clickToHighlight && setHover(team)"
+        @mouseleave="isDesktop && !clickToHighlight && setHover(null)"
+      >
+        <span>{{ team.name }}</span>
+        <span>{{ regions[team.region] }}</span>
+      </BaseData>
+    </tr>
+  </BaseTable>
+</template>
+
+
 <style scoped>
-.team-data ::v-deep .data-slot {
+.team-data :deep(.data-slot) {
   width: 100%;
   display: flex;
   flex-flow: row nowrap;

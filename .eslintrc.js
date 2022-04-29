@@ -2,6 +2,8 @@ module.exports = {
   root: true,
   env: {
     node: true,
+    es2021: true,
+    'vue/setup-compiler-macros': true,
   },
   extends: [
     'plugin:vue/vue3-essential',
@@ -22,5 +24,9 @@ module.exports = {
     'vue/max-len': ['error', { "code": 100, "ignoreHTMLAttributeValues": true }],
     'max-len': 'off',
     // 'max-len': ['error', { "ignoreStrings": true }]
+  },
+  globals: {
+    $ref: 'readonly',
+    $computed: 'readonly',
   },
 };
