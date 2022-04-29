@@ -15,8 +15,8 @@
       :matches=" getMatches(index)"
     />
     <tr>
-      <Data>{{ format(new Date('2022-03-11T03:45:00+0000'), 'h:mmaaa') }}</Data>
-      <Data :colspan="headers.length - 1" class="text-left lg:text-center">Broadcast Ends</Data>
+      <Data>{{ format(new Date('2022-03-11T01:30:00+0000'), 'h:mmaaa') }}</Data>
+      <Data :colspan="headers.length - 1" class="text-left lg:text-center">HCS All-Star Showdown</Data>
     </tr>
   </BaseTable>
 </template>
