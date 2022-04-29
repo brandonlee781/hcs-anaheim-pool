@@ -27,7 +27,7 @@ export default defineConfig({
         short_name: 'KC Major',
         description: 'Pool play schedule for HCS Kansas City Major tournament',
         theme_color: '#ffffff',
-        start_url: "/",
+        start_url: "https://brandonlee781.github.io/hcs-anaheim-pool/",
         display: "standalone",
         background_color: "#ffffff",
         icons: [
