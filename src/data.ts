@@ -1,28 +1,7 @@
-export enum Pool {
-  A,
-  B,
-  C,
-  D,
-}
+import { Match, Pool, Region, Stream, Team, TStream } from './types'
 
-export enum Stream {
-  Halo,
-  Xbox,
-  Red,
-  Blue
-}
+export * from './types'
 
-export enum Region {
-  NA,
-  EU,
-  MX,
-  AZ,
-}
-
-export type TStream = {
-  name: string;
-  link: string;
-}
 export const streams: { [key in Stream]: TStream } = {
   [Stream.Halo]: {
     name: 'A Stream (Halo)',
@@ -42,14 +21,7 @@ export const streams: { [key in Stream]: TStream } = {
   },
 }
 
-export type Team = {
-  name: string;
-  pool: Pool;
-  color: string;
-  region: Region
-}
-export const teams: { [key: string]: Team } = {
-  // Pool A
+const poolA: { [key: string]: Team } = {
   acn: {
     name: 'ACEND',
     pool: Pool.A,
@@ -74,7 +46,9 @@ export const teams: { [key: string]: Team } = {
     color: '#f40f30',
     region: Region.NA,
   },
-  // Pool B
+}
+
+const poolB: { [key: string]: Team } = {
   faze: {
     name: 'FaZe Clan',
     pool: Pool.B,
@@ -99,7 +73,9 @@ export const teams: { [key: string]: Team } = {
     color: '#93c950',
     region: Region.NA,
   },
-  // Pool C
+}
+
+const poolC: { [key: string]: Team } = {
   eu: {
     name: 'eUnited',
     pool: Pool.C,
@@ -124,7 +100,9 @@ export const teams: { [key: string]: Team } = {
     color: '#8806ec',
     region: Region.MX,
   },
-  // Pool D
+}
+
+const poolD: { [key: string]: Team } = {
   jlingz: {
     name: 'JLINGZ esports',
     pool: Pool.D,
@@ -149,6 +127,14 @@ export const teams: { [key: string]: Team } = {
     color: '#ce0037',
     region: Region.NA,
   },
+}
+
+
+export const teams = {
+  ...poolA,
+  ...poolB,
+  ...poolC,
+  ...poolD,
 
   // oxg: {
   //   name: 'Oxygen Esports',
@@ -187,14 +173,7 @@ export const teams: { [key: string]: Team } = {
   // },
 }
 
-export type Match = {
-  stream: TStream;
-  team1: string;
-  team2: string;
-  timeslot: number;
-  pool: Pool;
-  finished: string | null;
-}
+
 export const matches: Match[] = [
   // a stream
   {
