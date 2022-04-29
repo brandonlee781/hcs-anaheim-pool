@@ -91,12 +91,12 @@ const poolD = Object.keys(teams)
 }
 
 .toggle-checkbox:checked {
-  @apply: right-0 border-green-400;
+  @apply right-0 border-green-400;
   right: 0;
   border-color: rgb(21, 103, 255);
 }
 .toggle-checkbox:checked + .toggle-label {
-  @apply: bg-green-400;
+  @apply bg-green-400;
   background-color: rgb(21, 103, 255);
 }
 
