@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-gray-200 text-center text-3xl mb-8 font-bold">HCS Kansas City Major</h1>
+  <h1 class="text-gray-200 text-center text-3xl mb-4 font-bold">HCS Kansas City Major</h1>
   <div class="py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
     <div class="flex flex-row justify-between">
       <p class="text-gray-200">
@@ -45,6 +45,9 @@
       :teams="poolD"
     />
   </div>
+  <p class="text-gray-200">
+    <a href="https://liquipedia.net/halo/Halo_Championship_Series/2021/Kansas_City/Pool_Play">Liquipedia Page for this event</a>
+  </p>
 </template>
 
 <script setup lang="ts">
@@ -75,7 +78,7 @@ const poolD = Object.keys(teams)
   box-sizing: border-box;
 }
 #app {
-  margin: 8px;
+  margin: 4px;
   max-width: 1200px;
 }
 
