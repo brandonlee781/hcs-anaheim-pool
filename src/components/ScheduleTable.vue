@@ -1,11 +1,11 @@
 <template>
   <BaseTable :headers="headers">
     <tr>
-      <Data>{{ format(new Date('2022-02-11T19:30:00+0000'), 'h:mmaaa') }}</Data>
+      <Data>{{ format(new Date('2022-02-11T17:30:00+0000'), 'h:mmaaa') }}</Data>
       <Data :colspan="headers.length - 1" class="text-left lg:text-center">Broadcast Start</Data>
     </tr>
     <tr>
-      <Data>{{ format(new Date('2022-02-11T19:45:00+0000'), 'h:mmaaa') }}</Data>
+      <Data>{{ format(new Date('2022-02-11T17:40:00+0000'), 'h:mmaaa') }}</Data>
       <Data :colspan="headers.length - 1" class="text-left lg:text-center">Anaheim Preshow</Data>
     </tr>
     <MatchRow
@@ -33,12 +33,12 @@ import MatchRow from './MatchRow.vue';
 const { windowWidth } = useWindowWidth()
 
 const defaultTimeslots = [
-  new Date('2022-02-11T20:00:00+0000'),
-  new Date('2022-02-11T21:15:00+0000'),
-  new Date('2022-02-11T22:30:00+0000'),
-  new Date('2022-02-11T23:45:00+0000'),
-  new Date('2022-03-11T01:00:00+0000'),
-  new Date('2022-03-11T02:15:00+0000'),
+  new Date('2022-02-11T18:00:00+0000'),
+  new Date('2022-02-11T19:15:00+0000'),
+  new Date('2022-02-11T20:30:00+0000'),
+  new Date('2022-02-11T21:45:00+0000'),
+  new Date('2022-03-11T23:00:00+0000'),
+  new Date('2022-03-11T00:15:00+0000'),
 ]
 
 const timeslots = computed(() => defaultTimeslots.map((time: Date) => format(time, 'h:mmaaa')))

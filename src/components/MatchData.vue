@@ -9,12 +9,23 @@
         textDecorationColor: color,
       }"
     >
-      {{ teams[match.team1].name }} vs {{ teams[match.team2].name }}
+
+      <span :class="{ 'text-yellow-500': match.finished === match.team1 }">
+        {{ teams[match.team1].name }}
+      </span>
+      vs
+      <span :class="{ 'text-yellow-500': match.finished === match.team2 }">
+        {{ teams[match.team2].name }}
+      </span>
     </div>
     <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
-      <span>{{ teams[match.team1].name }}</span>
+      <span :class="{ 'text-yellow-500': match.finished === match.team1 }">
+        {{ teams[match.team1].name }}
+      </span>
       <span>vs</span>
-      <span>{{ teams[match.team2].name }}</span>
+      <span :class="{ 'text-yellow-500': match.finished === match.team2 }">
+        {{ teams[match.team2].name }}
+      </span>
     </div>
     <div class="lg:hidden pl-4">
       <a class="underline text-xs leading-4" :href="match.stream.link" target="_blank">
@@ -35,14 +46,22 @@ const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
 
 const props = defineProps<{ match: Match }>()
+
+if (!teams[props.match.team1]) {
+  console.error(`INVALID TEAM 1: ${props.match.stream.name}:${props.match.timeslot}`);
+}
+if (!teams[props.match.team2]) {
+  console.error(`INVALID TEAM 2: ${props.match.stream.name}:${props.match.timeslot}`);
+}
+
 const color = computed(() => {
   const team1 = teams[props.match.team1]
   const team2 = teams[props.match.team2]
-  if (hoveredTeam.value?.name === team1.name) {
-    return team1.color
+  if (hoveredTeam.value?.name === team1?.name) {
+    return team1?.color
   }
-  if (hoveredTeam.value?.name === team2.name) {
-    return team2.color
+  if (hoveredTeam.value?.name === team2?.name) {
+    return team2?.color
   }
   return 'transparent'
 })

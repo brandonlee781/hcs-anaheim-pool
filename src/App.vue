@@ -1,4 +1,5 @@
 <template>
+  <h1 class="text-gray-200 text-center text-3xl mb-8 font-bold">HCS Kansas City Major</h1>
   <div class="py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
     <div class="flex flex-row justify-between">
       <p class="text-gray-200">
@@ -18,28 +19,28 @@
     </div>
   </div>
   <div class="flex flex-col items-center">
-    <div class="min-w-full shadow border-b border-gray-200 sm:rounded-lg">
+    <div class="min-w-full shadow border-b border-gray-200">
       <ScheduleTable class="max-w-full" />
     </div>
   </div>
   <div class="pools">
     <PoolTable
-      class="shadow border-b border-gray-200 sm:rounded-lg"
+      class="shadow border-b border-gray-200"
       title="Pool A"
       :teams="poolA"
     />
     <PoolTable
-      class="shadow border-b border-gray-200 sm:rounded-lg"
+      class="shadow border-b border-gray-200"
       title="Pool B"
       :teams="poolB"
     />
     <PoolTable
-      class="shadow border-b border-gray-200 sm:rounded-lg"
+      class="shadow border-b border-gray-200"
       title="Pool C"
       :teams="poolC"
     />
     <PoolTable
-      class="shadow border-b border-gray-200 sm:rounded-lg"
+      class="shadow border-b border-gray-200"
       title="Pool D"
       :teams="poolD"
     />
