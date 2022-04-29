@@ -46,8 +46,11 @@
     />
   </div>
   <p class="text-gray-200 text-xs underline text-right">
-    <a href="https://liquipedia.net/halo/Halo_Championship_Series/2021/Kansas_City/Pool_Play">Liquipedia Page for this event</a>
+    <a href="https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Kansas_City/Pool_Play" target="_blank">
+      Liquipedia Page for this event
+    </a>
   </p>
+  <ReloadPrompt />
 </template>
 
 <script setup lang="ts">

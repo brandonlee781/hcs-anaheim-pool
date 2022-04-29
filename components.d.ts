@@ -9,6 +9,7 @@ declare module 'vue' {
     MatchData: typeof import('./src/components/MatchData.vue')['default']
     MatchRow: typeof import('./src/components/MatchRow.vue')['default']
     PoolTable: typeof import('./src/components/PoolTable.vue')['default']
+    ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
     ScheduleTable: typeof import('./src/components/ScheduleTable.vue')['default']
   }
 }

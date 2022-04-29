@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "scripts/deploy.sh"
+    "preview": "vite preview"
   },
   "dependencies": {
     "date-fns": "^2.28.0",
@@ -34,8 +33,10 @@
     "unplugin-icons": "^0.14.1",
     "unplugin-vue-components": "^0.18.5",
     "vite": "^2.9.6",
+    "vite-plugin-pwa": "^0.12.0",
     "vite-plugin-windicss": "^1.8.3",
     "vue-tsc": "^0.29.8",
-    "windicss": "^3.5.1"
+    "windicss": "^3.5.1",
+    "workbox-precaching": "^6.5.3"
   }
 }
