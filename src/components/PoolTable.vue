@@ -19,10 +19,10 @@ const isDesktop = computed(() => windowWidth.value > 1200)
 
 const { setHover, hoveredTeam, clickToHighlight } = useTeam()
 const onClick = (team: Team) => {
-  if (isDesktop.value) {
-    setHover(team)
-  } else if (hoveredTeam.value?.name === team.name || !isDesktop.value) {
+  if (clickToHighlight.value && hoveredTeam.value?.name === team.name) {
     setHover(null)
+  } else if (isDesktop.value) {
+    setHover(team)
   } else {
     setHover(team)
   }

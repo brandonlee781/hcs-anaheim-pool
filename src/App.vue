@@ -1,6 +1,6 @@
 <template>
   <h1 class="text-gray-200 text-center text-3xl mb-4 font-bold">HCS Kansas City Major</h1>
-  <div class="py-4 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
+  <div class="py-2 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
     <div class="flex flex-row justify-between">
       <p class="text-gray-200">
         All times are automatically converted to your timezone.
@@ -45,7 +45,7 @@
       :teams="poolD"
     />
   </div>
-  <p class="text-gray-200 text-xs my-4 underline text-right">
+  <p class="text-gray-200 text-xs underline text-right">
     <a href="https://liquipedia.net/halo/Halo_Championship_Series/2021/Kansas_City/Pool_Play">Liquipedia Page for this event</a>
   </p>
 </template>
@@ -74,11 +74,12 @@ const poolD = Object.keys(teams)
 </script>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 #app {
-  margin: 4px;
+  margin: 8px;
   max-width: 1200px;
 }
 
@@ -104,8 +105,12 @@ const poolD = Object.keys(teams)
 }
 
 @media (min-width:1200px) {
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
   #app {
-    margin: 2rem auto;
+    margin: 1rem auto;
   }
   .pools {
     grid-template-columns: 1fr 1fr 1fr 1fr;

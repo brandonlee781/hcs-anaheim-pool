@@ -21,7 +21,8 @@ export const streams: { [key in Stream]: TStream } = {
   },
 }
 
-const poolA: { [key: string]: Team } = {
+type TeamPool = { [key: string]: Team }
+const poolA: TeamPool = {
   acn: {
     name: 'ACEND',
     pool: Pool.A,
@@ -46,9 +47,15 @@ const poolA: { [key: string]: Team } = {
     color: '#f40f30',
     region: Region.NA,
   },
+  aTbd: {
+    name: 'TBD',
+    pool: Pool.A,
+    color: '',
+    region: Region.null,
+  }
 }
 
-const poolB: { [key: string]: Team } = {
+const poolB: TeamPool = {
   faze: {
     name: 'FaZe Clan',
     pool: Pool.B,
@@ -73,9 +80,15 @@ const poolB: { [key: string]: Team } = {
     color: '#93c950',
     region: Region.NA,
   },
+  bTbd: {
+    name: 'TBD',
+    pool: Pool.B,
+    color: '',
+    region: Region.null,
+  }
 }
 
-const poolC: { [key: string]: Team } = {
+const poolC: TeamPool = {
   eu: {
     name: 'eUnited',
     pool: Pool.C,
@@ -100,9 +113,15 @@ const poolC: { [key: string]: Team } = {
     color: '#8806ec',
     region: Region.MX,
   },
+  cTbd: {
+    name: 'TBD',
+    pool: Pool.C,
+    color: '',
+    region: Region.null,
+  }
 }
 
-const poolD: { [key: string]: Team } = {
+const poolD: TeamPool = {
   jlingz: {
     name: 'JLINGZ esports',
     pool: Pool.D,
@@ -127,6 +146,12 @@ const poolD: { [key: string]: Team } = {
     color: '#ce0037',
     region: Region.NA,
   },
+  dTbd: {
+    name: 'TBD',
+    pool: Pool.D,
+    color: '',
+    region: Region.null,
+  }
 }
 
 

@@ -17,6 +17,7 @@ export enum Region {
   EU,
   MX,
   AZ,
+  null
 }
 
 export type TStream = {
