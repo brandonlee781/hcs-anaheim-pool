@@ -8,13 +8,24 @@ jobs:
     name: Deploying to Github Pages
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v2
+        - name: Deploy static app in branch to gh-pages
+          uses: Sauloxd/review-apps@v2.0.0
           with:
-            node-version: '16'
-        - name: Install packages
-          run: npm i
-        - name: Set Creds
-          run: git config user.name "brandonlee781" && git config user.email "brandonlee781@gmail.com"
-        - name: Deploy
-          run: npm run deploy
+            branch: "gh-pages"
+            apps: |
+              {
+                "hcs-anaheim-pool": {
+                  "build": "npm run build",
+                  "dist": "dist/"
+                }
+              }
+        # - uses: actions/checkout@v2
+        # - uses: actions/setup-node@v2
+        #   with:
+        #     node-version: '16'
+        # - name: Install packages
+        #   run: npm i
+        # - name: Set Creds
+        #   run: git config user.name "brandonlee781" && git config user.email "brandonlee781@gmail.com"
+        # - name: Deploy
+        #   run: npm run deploy
