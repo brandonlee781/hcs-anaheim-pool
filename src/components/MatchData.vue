@@ -1,3 +1,35 @@
+<script setup lang="ts">
+import { Match, teams } from '@/data';
+import useTeam from '@/composables/useTeam';
+import { computed } from 'vue';
+import useWindowWidth from '@/composables/useWindowWidth';
+
+const { hoveredTeam } = useTeam()
+const { windowWidth } = useWindowWidth()
+const isMobile = computed(() => windowWidth.value <= 1024)
+
+const props = defineProps<{ match: Match }>()
+
+if (!teams[props.match.team1]) {
+  console.error(`INVALID TEAM 1: ${props.match.stream.name}:${props.match.timeslot}`);
+}
+if (!teams[props.match.team2]) {
+  console.error(`INVALID TEAM 2: ${props.match.stream.name}:${props.match.timeslot}`);
+}
+
+const color = computed(() => {
+  const team1 = teams[props.match.team1]
+  const team2 = teams[props.match.team2]
+  if (hoveredTeam.value?.name === team1?.name) {
+    return team1?.color
+  }
+  if (hoveredTeam.value?.name === team2?.name) {
+    return team2?.color
+  }
+  return 'transparent'
+})
+</script>
+
 <template>
   <div class="background" :style="{ borderColor: color }"></div>
   <div class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center">
@@ -35,37 +67,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { Match, teams } from '@/data';
-import useTeam from '@/composables/useTeam';
-import { computed } from 'vue';
-import useWindowWidth from '@/composables/useWindowWidth';
 
-const { hoveredTeam } = useTeam()
-const { windowWidth } = useWindowWidth()
-const isMobile = computed(() => windowWidth.value <= 1024)
-
-const props = defineProps<{ match: Match }>()
-
-if (!teams[props.match.team1]) {
-  console.error(`INVALID TEAM 1: ${props.match.stream.name}:${props.match.timeslot}`);
-}
-if (!teams[props.match.team2]) {
-  console.error(`INVALID TEAM 2: ${props.match.stream.name}:${props.match.timeslot}`);
-}
-
-const color = computed(() => {
-  const team1 = teams[props.match.team1]
-  const team2 = teams[props.match.team2]
-  if (hoveredTeam.value?.name === team1?.name) {
-    return team1?.color
-  }
-  if (hoveredTeam.value?.name === team2?.name) {
-    return team2?.color
-  }
-  return 'transparent'
-})
-</script>
 
 <style scoped>
 .background {

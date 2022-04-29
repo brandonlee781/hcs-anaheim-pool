@@ -1,38 +1,37 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { Match } from '@/data';
+
+const props = defineProps<{ matches: Match[], time: string; }>()
+const show = ref(true)
+</script>
+
+
 <template>
   <tr>
-    <Data @click="() => (show = !show)">{{ time }}</Data>
-    <Data
+    <BaseData @click="() => (show = !show)">{{ time }}</BaseData>
+    <BaseData
       v-for="(match, i) in matches"
       class="hidden lg:table-cell"
       :key="`match-${time}-${i}`"
     >
-      <MatchData :match="match" :time="time"/>
-    </Data>
-    <Data class="table-cell lg:hidden">
+      <MatchData :match="match" />
+    </BaseData>
+    <BaseData class="table-cell lg:hidden">
       <template v-if="show">
         <MatchData
           v-for="(match, i) in matches"
           :key="`match-${time}-${i}`"
           :match="match"
-          :time="time"
         />
       </template>
       <template v-else>
         Click the time to show
       </template>
-    </Data>
+    </BaseData>
   </tr>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-import { Match } from '@/data';
-import Data from '@/components/table/BaseData.vue'
-import MatchData from './MatchData.vue';
-
-const props = defineProps<{ matches: Match[], time: string; }>()
-const show = ref(true)
-</script>
 
 <style scoped>
 </style>

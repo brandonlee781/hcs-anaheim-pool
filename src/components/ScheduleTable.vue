@@ -1,34 +1,8 @@
-<template>
-  <BaseTable :headers="headers">
-    <tr>
-      <Data>{{ format(new Date('2022-02-11T17:30:00+0000'), 'h:mmaaa') }}</Data>
-      <Data :colspan="headers.length - 1" class="text-left lg:text-center">Broadcast Start</Data>
-    </tr>
-    <tr>
-      <Data>{{ format(new Date('2022-02-11T17:40:00+0000'), 'h:mmaaa') }}</Data>
-      <Data :colspan="headers.length - 1" class="text-left lg:text-center">Anaheim Preshow</Data>
-    </tr>
-    <MatchRow
-      v-for="(time, index) in timeslots"
-      :key="index"
-      :time="time"
-      :matches=" getMatches(index)"
-    />
-    <tr>
-      <Data>{{ format(new Date('2022-03-11T01:30:00+0000'), 'h:mmaaa') }}</Data>
-      <Data :colspan="headers.length - 1" class="text-left lg:text-center">HCS All-Star Showdown</Data>
-    </tr>
-  </BaseTable>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
-import Data from '@/components/table/BaseData.vue'
 import { matches, streams } from '@/data';
 import { format } from 'date-fns'
 import useWindowWidth from '@/composables/useWindowWidth';
-import BaseTable from './table/BaseTable.vue';
-import MatchRow from './MatchRow.vue';
 
 const { windowWidth } = useWindowWidth()
 
@@ -62,6 +36,31 @@ const headers = computed(() => {
 const getMatches = (index: number) => matches.filter((m) => m.timeslot === index)
 
 </script>
+
+<template>
+  <BaseTable :headers="headers">
+    <tr>
+      <BaseData>{{ format(new Date('2022-02-11T17:30:00+0000'), 'h:mmaaa') }}</BaseData>
+      <BaseData :colspan="headers.length - 1" class="text-left lg:text-center">Broadcast Start</BaseData>
+    </tr>
+    <tr>
+      <BaseData>{{ format(new Date('2022-02-11T17:40:00+0000'), 'h:mmaaa') }}</BaseData>
+      <BaseData :colspan="headers.length - 1" class="text-left lg:text-center">Anaheim Preshow</BaseData>
+    </tr>
+    <MatchRow
+      v-for="(time, index) in timeslots"
+      :key="index"
+      :time="time"
+      :matches=" getMatches(index)"
+    />
+    <tr>
+      <BaseData>{{ format(new Date('2022-03-11T01:30:00+0000'), 'h:mmaaa') }}</BaseData>
+      <BaseData :colspan="headers.length - 1" class="text-left lg:text-center">HCS All-Star Showdown</BaseData>
+    </tr>
+  </BaseTable>
+</template>
+
+
 
 <style scoped>
 </style>

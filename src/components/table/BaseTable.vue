@@ -1,3 +1,7 @@
+<script setup lang="ts">
+defineProps<{ headers: { text: string; link?: string}[] }>()
+</script>
+
 <template>
   <table class="table-auto min-w-full divide-y divide-gray-200">
     <thead class="bg-gray-700">
@@ -23,9 +27,7 @@
   </table>
 </template>
 
-<script setup lang="ts">
-defineProps<{ headers: { text: string; link?: string}[] }>()
-</script>
+
 
 <style scoped>
 </style>
