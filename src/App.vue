@@ -45,7 +45,7 @@
       :teams="poolD"
     />
   </div>
-  <p class="text-gray-200">
+  <p class="text-gray-200 text-xs my-4 underline text-right">
     <a href="https://liquipedia.net/halo/Halo_Championship_Series/2021/Kansas_City/Pool_Play">Liquipedia Page for this event</a>
   </p>
 </template>

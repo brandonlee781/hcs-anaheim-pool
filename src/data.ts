@@ -12,6 +12,13 @@ export enum Stream {
   Blue
 }
 
+export enum Region {
+  NA,
+  EU,
+  MX,
+  AZ,
+}
+
 export type TStream = {
   name: string;
   link: string;
@@ -39,6 +46,7 @@ export type Team = {
   name: string;
   pool: Pool;
   color: string;
+  region: Region
 }
 export const teams: { [key: string]: Team } = {
   // Pool A
@@ -46,84 +54,100 @@ export const teams: { [key: string]: Team } = {
     name: 'ACEND',
     pool: Pool.A,
     color: '#6738ec',
+    region: Region.EU,
   },
   cfs: {
     name: 'Chiefs',
     pool: Pool.A,
     color: '#3b96d7',
+    region: Region.AZ,
   },
   c9: {
     name: 'Cloud9',
     pool: Pool.A,
     color: '#0092df',
+    region: Region.NA,
   },
   xset: {
     name: 'XSET',
     pool: Pool.A,
     color: '#f40f30',
+    region: Region.NA,
   },
   // Pool B
   faze: {
     name: 'FaZe Clan',
     pool: Pool.B,
     color: '#e43d30',
+    region: Region.NA,
   },
   fnatic: {
     name: 'Fnatic',
     pool: Pool.B,
     color: '#ff5900',
+    region: Region.NA,
   },
   navi: {
     name: 'Natus Vincere',
     pool: Pool.B,
     color: '#ffee00',
+    region: Region.EU,
   },
   og: {
     name: 'Optic Gaming',
     pool: Pool.B,
     color: '#93c950',
+    region: Region.NA,
   },
   // Pool C
   eu: {
     name: 'eUnited',
     pool: Pool.C,
     color: '#2373b9',
+    region: Region.NA,
   },
   g2: {
     name: 'G2 Esports',
     pool: Pool.C,
     color: '#ee3d23',
+    region: Region.NA,
   },
   qua: {
     name: 'Quadrant',
     pool: Pool.C,
     color: '#ccdb25',
+    region: Region.NA,
   },
   cru: {
     name: 'Team Cruelty',
     pool: Pool.C,
     color: '#8806ec',
+    region: Region.MX,
   },
   // Pool D
   jlingz: {
     name: 'JLINGZ esports',
     pool: Pool.D,
     color: '#4c4c4c',
+    region: Region.EU,
   },
   kcp: {
     name: 'Pioneers',
     pool: Pool.D,
     color: '#a7933d',
+    region: Region.NA,
   },
   kni: {
     name: 'Pittsburgh Knights',
     pool: Pool.D,
     color: '#fdc00f',
+    region: Region.MX,
   },
   sen: {
     name: 'Sentinels',
     pool: Pool.D,
     color: '#ce0037',
+    region: Region.NA,
   },
 
   // oxg: {
