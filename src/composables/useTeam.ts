@@ -4,7 +4,7 @@ import useWindowWidth from './useWindowWidth';
 export type Team = {
   name: string;
   color: string;
-  region: 'NA' | 'EU' | 'AZ' | 'MX';
+  region: 'NA' | 'EU' | 'AZ' | 'MX' | null;
 }
 export type TeamPool = { [key: string]: Team }
 export const teams: TeamPool = {

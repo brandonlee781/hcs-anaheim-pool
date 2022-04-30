@@ -45,10 +45,10 @@ const headers = computed(() => {
         </TableData>
       </tr>
       <MatchRow
-        v-else
+        v-else-if="timeslot.matches"
         :key="`match-${index}`"
         :time="timeslot.time"
-        :matches="timeslot.matches!"
+        :matches="timeslot.matches"
       />
     </template>
   </BaseTable>

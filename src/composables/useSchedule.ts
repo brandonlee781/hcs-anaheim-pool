@@ -1,6 +1,12 @@
 import { format } from 'date-fns'
 import { computed, ComputedRef } from 'vue'
-import useMatches, { streams } from './useMatches'
+import useMatches, { Match, streams } from './useMatches'
+
+export type ScheduleItem = {
+  time: string;
+  items?: { text: string, span: number; }[]
+  matches?: Match[]
+}
 
 const day1 = [
   { time: new Date('2022-01-01T17:30:00+0000'), items: [{text: 'Broadcast Begins', span: 4}] },
@@ -40,26 +46,26 @@ const day2 = [
 const noMatches = [
   {
     stream: streams.halo,
-    team1: { name: 'TBD', region: '', color: '' },
-    team2: { name: 'TBD', region: '', color: '' },
+    team1: { name: 'TBD', region: null, color: '' },
+    team2: { name: 'TBD', region: null, color: '' },
     timeslot: 0,
   },
   {
     stream: streams.xbox,
-    team1: { name: 'TBD', region: '', color: '' },
-    team2: { name: 'TBD', region: '', color: '' },
+    team1: { name: 'TBD', region: null, color: '' },
+    team2: { name: 'TBD', region: null, color: '' },
     timeslot: 0,
   },
   {
     stream: streams.red,
-    team1: { name: 'TBD', region: '', color: '' },
-    team2: { name: 'TBD', region: '', color: '' },
+    team1: { name: 'TBD', region: null, color: '' },
+    team2: { name: 'TBD', region: null, color: '' },
     timeslot: 0,
   },
   {
     stream: streams.blue,
-    team1: { name: 'TBD', region: '', color: '' },
-    team2: { name: 'TBD', region: '', color: '' },
+    team1: { name: 'TBD', region: null, color: '' },
+    team2: { name: 'TBD', region: null, color: '' },
     timeslot: 0,
   },
 ]
@@ -67,9 +73,9 @@ const noMatches = [
 export default function useSchedule(day: ComputedRef<number>) {
   const {matches} = useMatches()
 
-  const schedule = computed(() => {
+  const schedule = computed<ScheduleItem[]>(() => {
     const daySchedule = day.value === 1 ? day1 : day2
-    return daySchedule.map(sched => {
+    return daySchedule.map((sched): ScheduleItem => {
       if (!sched.items) {
         const timeMatches = matches.filter(match => match.day === day.value && match.timeslot === sched.timeslot)
 
@@ -77,7 +83,6 @@ export default function useSchedule(day: ComputedRef<number>) {
           return {
             time: format(sched.time, 'h:mmaaa'),
             matches: noMatches
-
           }
         }
 
