@@ -47,7 +47,7 @@ const poolD = computed(() => {
     </div>
   </div>
   <div class="flex flex-col items-center">
-    <div class="min-w-full shadow border-b border-gray-200">
+    <div class="min-w-full card">
       <Suspense>
         <ScheduleTable class="max-w-full" />
         <template #fallback>
@@ -65,22 +65,22 @@ const poolD = computed(() => {
   </div>
   <div class="pools">
     <PoolTable
-      class="shadow border-b border-gray-200"
+      class="card"
       title="Pool A"
       :teams="poolA"
     />
     <PoolTable
-      class="shadow border-b border-gray-200"
+      class="card"
       title="Pool B"
       :teams="poolB"
     />
     <PoolTable
-      class="shadow border-b border-gray-200"
+      class="card"
       title="Pool C"
       :teams="poolC"
     />
     <PoolTable
-      class="shadow border-b border-gray-200"
+      class="card"
       title="Pool D"
       :teams="poolD"
     />
