@@ -6,7 +6,7 @@ import * as path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
  
 export default defineConfig({
-  base: '/hcs-anaheim-pool/',
+  base: '/hcs-tournament-schedule/',
   plugins: [
     vue({
       reactivityTransform: true,
@@ -17,7 +17,7 @@ export default defineConfig({
       dts: true,
     }),
     VitePWA({
-      base: '/hcs-anaheim-pool/',
+      base: '/hcs-tournament-schedule/',
       srcDir: 'src',
       filename: 'sw.ts',
       strategies: 'injectManifest',
@@ -27,7 +27,7 @@ export default defineConfig({
         short_name: 'KC Major',
         description: 'Pool play schedule for HCS Kansas City Major tournament',
         theme_color: '#ffffff',
-        start_url: "https://brandonlee781.github.io/hcs-anaheim-pool/",
+        start_url: ".",
         display: "standalone",
         background_color: "#ffffff",
         icons: [
