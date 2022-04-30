@@ -34,10 +34,14 @@ const headers = computed(() => {
   <BaseTable :headers="headers">
 
     <template v-for="(timeslot, index) in schedule">
-      <tr v-if="timeslot.text" :key="index">
+      <tr v-if="timeslot.items" :key="index">
         <TableData>{{ timeslot.time }}</TableData>
-        <TableData :colspan="timeslot.span" class="text-left lg:text-center">
-          {{ timeslot.text }}
+        <TableData
+          v-for="(item, i) in timeslot.items"
+          :key="`${timeslot.time}-${i}`"
+          :colspan="item.span"
+          class="text-left lg:text-center">
+          {{ item.text }}
         </TableData>
       </tr>
       <MatchRow

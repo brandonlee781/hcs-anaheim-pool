@@ -3,26 +3,38 @@ import { computed, ComputedRef } from 'vue'
 import useMatches, { streams } from './useMatches'
 
 const day1 = [
-  { time: new Date('2022-01-01T17:30:00+0000'), text: 'Broadcast Begins', span: 4 },
-  { time: new Date('2022-01-01T17:40:00+0000'), text: 'Kansas City Pre-Show', span: 4 },
+  { time: new Date('2022-01-01T17:30:00+0000'), items: [{text: 'Broadcast Begins', span: 4}] },
+  { time: new Date('2022-01-01T17:40:00+0000'), items: [{text: 'Kansas City Pre-Show', span: 4}] },
   { time: new Date('2022-01-01T18:00:00+0000'), timeslot: 0 },
   { time: new Date('2022-02-11T19:15:00+0000'), timeslot: 1 },
   { time: new Date('2022-02-11T20:30:00+0000'), timeslot: 2 },
   { time: new Date('2022-02-11T21:45:00+0000'), timeslot: 3 },
   { time: new Date('2022-03-11T23:00:00+0000'), timeslot: 4 },
   { time: new Date('2022-03-11T00:15:00+0000'), timeslot: 5 },
-  { time: new Date('2022-03-11T01:30:00+0000'), text: 'HCS All-Star Showdown', span: 4 },
+  { time: new Date('2022-03-11T01:30:00+0000'), items: [{text: 'HCS All-Star Showdown', span: 4}] },
 ]
 
 const day2 = [
-  { time: new Date('2022-01-01T17:30:00+0000'), text: 'Broadcast Begins', span: 4 },
-  { time: new Date('2022-01-01T17:40:00+0000'), text: 'Kansas City Pre-Show', span: 4 },
+  { time: new Date('2022-01-01T17:30:00+0000'), items: [{text: 'Broadcast Begins', span: 4}] },
+  { time: new Date('2022-01-01T17:40:00+0000'), items: [{text: 'Kansas City Pre-Show', span: 4}] },
   { time: new Date('2022-02-11T18:00:00+0000'), timeslot: 0 },
   { time: new Date('2022-02-11T19:15:00+0000'), timeslot: 1 },
   { time: new Date('2022-02-11T20:30:00+0000'), timeslot: 2 },
   { time: new Date('2022-02-11T21:45:00+0000'), timeslot: 3 },
-  { time: new Date('2022-03-11T23:00:00+0000'), text: 'Winners Quarter Finals', span: 4 },
-  { time: new Date('2022-03-11T00:15:00+0000'), text: 'Winners Quarter Finals', span: 4 },
+  { 
+    time: new Date('2022-03-11T23:00:00+0000'),
+    items: [
+      { text: 'Winners Quarter Finals', span: 2 }, 
+      { text: 'Elimination Round 1', span: 2 },
+    ]
+  },
+  { 
+    time: new Date('2022-03-11T00:15:00+0000'), 
+    items: [
+      { text: 'Winners Quarter Finals', span: 2 },
+      { text: 'Elimination Round 1', span: 2 }
+    ]
+  },
 ]
 
 const noMatches = [
@@ -58,7 +70,7 @@ export default function useSchedule(day: ComputedRef<number>) {
   const schedule = computed(() => {
     const daySchedule = day.value === 1 ? day1 : day2
     return daySchedule.map(sched => {
-      if (!sched.text) {
+      if (!sched.items) {
         const timeMatches = matches.filter(match => match.day === day.value && match.timeslot === sched.timeslot)
 
         if (!timeMatches.length) {
@@ -81,8 +93,7 @@ export default function useSchedule(day: ComputedRef<number>) {
       }
       return {
         time: format(sched.time, 'h:mmaaa'),
-        text: sched.text,
-        span: sched.span,
+        items: sched.items,
       }
     })
   })
