@@ -10,6 +10,7 @@ const isMobile = computed(() => windowWidth.value <= 1024)
 
 const props = defineProps<{ match: Match }>()
 
+const showWinners = false;
 
 const color = computed(() => {
   if (hoveredTeam.value?.name === props.match.team1?.name) {
@@ -34,20 +35,20 @@ const color = computed(() => {
       }"
     >
 
-      <span>
+      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team1.name }">
         {{ match.team1.name }}
       </span>
       vs
-      <span>
+      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team2.name }">
         {{ match.team2.name }}
       </span>
     </div>
     <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
-      <span>
+      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team1.name }">
         {{ match.team1.name }}
       </span>
       <span>vs</span>
-      <span>
+      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team2.name }">
         {{ match.team2.name }}
       </span>
     </div>

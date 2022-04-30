@@ -36,6 +36,7 @@ export type Match = {
   team2: Team;
   timeslot: number;
   day?: number,
+  finished?: Team
 }
 
 const day1Matches = [
@@ -46,6 +47,7 @@ const day1Matches = [
     team2: teams.acn,
     timeslot: 0,
     day: 1,
+    finished: teams.c9,
   },
   {
     stream: streams.halo,
@@ -53,6 +55,7 @@ const day1Matches = [
     team2: teams.navi,
     timeslot: 1,
     day: 1,
+    finished: teams.faze,
   },
   {
     stream: streams.halo,
@@ -60,6 +63,7 @@ const day1Matches = [
     team2: teams.acn,
     timeslot: 2,
     day: 1,
+    finished: teams.acn
   },
   {
     stream: streams.halo,
@@ -67,6 +71,7 @@ const day1Matches = [
     team2: teams.g2,
     timeslot: 3,
     day: 1,
+    finished: teams.eu,
   },
   {
     stream: streams.halo,
@@ -74,6 +79,7 @@ const day1Matches = [
     team2: teams.kcp,
     timeslot: 4,
     day: 1,
+    finished: teams.sen
   },
   {
     stream: streams.halo,
@@ -81,6 +87,7 @@ const day1Matches = [
     team2: teams.faze,
     timeslot: 5,
     day: 1,
+    finished: teams.og
   },
   // b stream
   {
@@ -89,6 +96,7 @@ const day1Matches = [
     team2: teams.kni,
     timeslot: 0,
     day: 1,
+    finished: teams.sen
   },
 
   {
@@ -97,6 +105,7 @@ const day1Matches = [
     team2: teams.fnatic,
     timeslot: 1,
     day: 1,
+    finished: teams.og
   },
   {
     stream: streams.xbox,
@@ -104,6 +113,7 @@ const day1Matches = [
     team2: teams.kni,
     timeslot: 2,
     day: 1,
+    finished: teams.kcp
   },
   {
     stream: streams.xbox,
@@ -111,6 +121,7 @@ const day1Matches = [
     team2: teams.fnatic,
     timeslot: 3,
     day: 1,
+    finished: teams.faze
   },
   {
     stream: streams.xbox,
@@ -118,6 +129,7 @@ const day1Matches = [
     team2: teams.cfs,
     timeslot: 4,
     day: 1,
+    finished: teams.acn
   },
   {
     stream: streams.xbox,
@@ -125,6 +137,7 @@ const day1Matches = [
     team2: teams.qua,
     timeslot: 5,
     day: 1,
+    finished: teams.eu
   },
   // c stream
   {
@@ -133,6 +146,7 @@ const day1Matches = [
     team2: teams.cfs,
     timeslot: 0,
     day: 1,
+    finished: teams.xset
   },
 
   {
@@ -141,6 +155,7 @@ const day1Matches = [
     team2: teams.qua,
     timeslot: 1,
     day: 1,
+    finished: teams.qua
   },
   {
     stream: streams.red,
@@ -148,6 +163,7 @@ const day1Matches = [
     team2: teams.cfs,
     timeslot: 2,
     day: 1,
+    finished: teams.c9
   },
   {
     stream: streams.red,
@@ -155,6 +171,7 @@ const day1Matches = [
     team2: teams.navi,
     timeslot: 3,
     day: 1,
+    finished: teams.og
   },
   {
     stream: streams.red,
@@ -162,6 +179,7 @@ const day1Matches = [
     team2: teams.xset,
     timeslot: 4,
     day: 1,
+    finished: teams.c9
   },
   {
     stream: streams.red,
@@ -169,6 +187,7 @@ const day1Matches = [
     team2: teams.fnatic,
     timeslot: 5,
     day: 1,
+    finished: teams.fnatic
   },
   // d stream
   {
@@ -177,6 +196,7 @@ const day1Matches = [
     team2: teams.jlingz,
     timeslot: 0,
     day: 1,
+    finished: teams.kcp
     
   },
   {
@@ -185,6 +205,7 @@ const day1Matches = [
     team2: teams.cru,
     timeslot: 1,
     day: 1,
+    finished: teams.eu
   },
   {
     stream: streams.blue,
@@ -192,6 +213,7 @@ const day1Matches = [
     team2: teams.jlingz,
     timeslot: 2,
     day: 1,
+    finished: teams.sen
   },
   {
     stream: streams.blue,
@@ -199,6 +221,7 @@ const day1Matches = [
     team2: teams.cru,
     timeslot: 3,
     day: 1,
+    finished: teams.qua
   },
   {
     stream: streams.blue,
@@ -206,6 +229,7 @@ const day1Matches = [
     team2: teams.kni,
     timeslot: 4,
     day: 1,
+    finished: teams.kni
   },
   {
     stream: streams.blue,
@@ -213,6 +237,7 @@ const day1Matches = [
     team2: teams.cru,
     timeslot: 5,
     day: 1,
+    finished: teams.g2
   },
 ]
 
@@ -224,6 +249,7 @@ const day2Matches = [
     team2: teams.g1,
     timeslot: 0,
     day: 2,
+    finished: teams.qua
   },
   {
     stream: streams.halo,
@@ -231,6 +257,7 @@ const day2Matches = [
     team2: teams.comp,
     timeslot: 1,
     day: 2,
+    finished: teams.fnatic
   },
   {
     stream: streams.halo,
@@ -238,6 +265,7 @@ const day2Matches = [
     team2: teams.ssg,
     timeslot: 2,
     day: 2,
+    finished: teams.ssg
   },
   {
     stream: streams.halo,
@@ -253,6 +281,7 @@ const day2Matches = [
     team2: teams.comp,
     timeslot: 0,
     day: 2,
+    finished: teams.og
   },
   {
     stream: streams.xbox,
@@ -260,6 +289,7 @@ const day2Matches = [
     team2: teams.g1,
     timeslot: 1,
     day: 2,
+    finished: teams.g2
   },
   {
     stream: streams.xbox,
@@ -267,6 +297,7 @@ const day2Matches = [
     team2: teams.g1,
     timeslot: 2,
     day: 2,
+    finished: teams.g1
   },
   {
     stream: streams.xbox,
@@ -282,6 +313,7 @@ const day2Matches = [
     team2: teams.ssg,
     timeslot: 0,
     day: 2,
+    finished: teams.xset
   },
   {
     stream: streams.red,
@@ -289,6 +321,7 @@ const day2Matches = [
     team2: teams.ssg,
     timeslot: 1,
     day: 2,
+    finished: teams.acn
   },
   {
     stream: streams.red,
@@ -311,6 +344,7 @@ const day2Matches = [
     team2: teams.bbg,
     timeslot: 0,
     day: 2,
+    finished: teams.bbg,
   },
   {
     stream: streams.blue,
@@ -318,6 +352,7 @@ const day2Matches = [
     team2: teams.bbg,
     timeslot: 1,
     day: 2,
+    finished: teams.sen
   },
   {
     stream: streams.blue,
@@ -325,6 +360,7 @@ const day2Matches = [
     team2: teams.bbg,
     timeslot: 2,
     day: 2,
+    finished: teams.kni
   },
   {
     stream: streams.blue,
