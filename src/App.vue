@@ -8,28 +8,28 @@ const day = $ref(1)
 <template>
   <AppHeader v-model:day="day" title="HCS Kansas City Major" />
   <div class="flex flex-col items-center">
-    <div class="min-w-full card">
+    <div class="min-w-full c*ard">
         <ScheduleTable class="max-w-full" :day="day"/>
     </div>
   </div>
   <div class="pools">
     <PoolTable
-      class="card"
+      class="*card"
       title="Pool A"
       :teams="pools.A"
     />
     <PoolTable
-      class="card"
+      class="*card"
       title="Pool B"
       :teams="pools.B"
     />
     <PoolTable
-      class="card"
+      class="*card"
       title="Pool C"
       :teams="pools.C"
     />
     <PoolTable
-      class="card"
+      class="*card"
       title="Pool D"
       :teams="pools.D"
     />
