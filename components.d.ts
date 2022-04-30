@@ -4,13 +4,15 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BaseData: typeof import('./src/components/table/BaseData.vue')['default']
-    BaseTable: typeof import('./src/components/table/BaseTable.vue')['default']
-    MatchData: typeof import('./src/components/MatchData.vue')['default']
-    MatchRow: typeof import('./src/components/MatchRow.vue')['default']
-    PoolTable: typeof import('./src/components/PoolTable.vue')['default']
+    AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    AppHeader: typeof import('./src/components/AppHeader.vue')['default']
+    BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
+    MatchData: typeof import('./src/components/match/MatchData.vue')['default']
+    MatchRow: typeof import('./src/components/match/MatchRow.vue')['default']
+    PoolTable: typeof import('./src/components/table/PoolTable.vue')['default']
     ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
-    ScheduleTable: typeof import('./src/components/ScheduleTable.vue')['default']
+    ScheduleTable: typeof import('./src/components/table/ScheduleTable.vue')['default']
+    TableData: typeof import('./src/components/base/TableData.vue')['default']
   }
 }
 

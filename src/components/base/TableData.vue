@@ -14,9 +14,9 @@ td {
   position: relative;
 }
 @media(max-width: 1200px) {
-.mobile-row {
-  display: flex;
-  flex-flow: column wrap;
-}
+  .mobile-row {
+    display: flex;
+    flex-flow: column wrap;
+  }
 }
 </style>

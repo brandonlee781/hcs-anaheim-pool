@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Match } from '@/data';
+import { Match } from '@/composables/useMatches';
 
 const props = defineProps<{ matches: Match[], time: string; }>()
 const show = ref(true)
@@ -9,15 +9,15 @@ const show = ref(true)
 
 <template>
   <tr>
-    <BaseData @click="() => (show = !show)">{{ time }}</BaseData>
-    <BaseData
+    <TableData @click="() => (show = !show)">{{ time }}</TableData>
+    <TableData
       v-for="(match, i) in matches"
       class="hidden lg:table-cell"
       :key="`match-${time}-${i}`"
     >
       <MatchData :match="match" />
-    </BaseData>
-    <BaseData class="table-cell lg:hidden">
+    </TableData>
+    <TableData class="table-cell lg:hidden">
       <template v-if="show">
         <MatchData
           v-for="(match, i) in matches"
@@ -28,7 +28,7 @@ const show = ref(true)
       <template v-else>
         Click the time to show
       </template>
-    </BaseData>
+    </TableData>
   </tr>
 </template>
 

@@ -1,28 +1,22 @@
 <script setup lang="ts">
-import { Match } from '@/data';
 import useTeam from '@/composables/useTeam';
 import { computed } from 'vue';
 import useWindowWidth from '@/composables/useWindowWidth';
+import { Match } from '@/composables/useMatches'
 
-const { hoveredTeam, getTeam } = useTeam()
+const { hoveredTeam } = useTeam()
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
 
 const props = defineProps<{ match: Match }>()
 
-const team1 = computed(() => {
-  return getTeam(props.match.team1);
-})
-const team2 = computed(() => {
-  return getTeam(props.match.team2);
-})
 
 const color = computed(() => {
-  if (hoveredTeam.value?.name === team1.value?.name) {
-    return team1.value?.color
+  if (hoveredTeam.value?.name === props.match.team1?.name) {
+    return props.match.team1?.color
   }
-  if (hoveredTeam.value?.name === team2.value?.name) {
-    return team2.value?.color
+  if (hoveredTeam.value?.name === props.match.team2?.name) {
+    return props.match.team2?.color
   }
   return 'transparent'
 })
@@ -41,20 +35,20 @@ const color = computed(() => {
     >
 
       <span>
-        {{ team1 && team1.name }}
+        {{ match.team1.name }}
       </span>
       vs
       <span>
-        {{ team2 && team2.name }}
+        {{ match.team2.name }}
       </span>
     </div>
     <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
       <span>
-        {{ team1 && team1.name }}
+        {{ match.team1.name }}
       </span>
       <span>vs</span>
       <span>
-        {{ team2 && team2.name }}
+        {{ match.team2.name }}
       </span>
     </div>
     <div class="lg:hidden pl-4">
