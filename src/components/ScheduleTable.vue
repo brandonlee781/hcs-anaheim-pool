@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { matches, streams } from '@/data';
+import { streams } from '@/data';
 import { format } from 'date-fns'
 import useWindowWidth from '@/composables/useWindowWidth';
+import useMatches from '@/composables/useMatches'
+import useTeams from '@/composables/useTeam'
+
+const { matches } = await useMatches()
 
 const { windowWidth } = useWindowWidth()
 
@@ -33,7 +37,7 @@ const headers = computed(() => {
   ]
 })
 
-const getMatches = (index: number) => matches.filter((m) => m.timeslot === index)
+const getMatches = (index: number) => matches.value.filter((m) => m.timeslot === index)
 
 </script>
 

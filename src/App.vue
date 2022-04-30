@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import ScheduleTable from './components/ScheduleTable.vue';
+import PoolTable from './components/PoolTable.vue';
+import useTeam from './composables/useTeam';
+import { computed } from '@vue/reactivity';
+
+const { clickToHighlight, teams } = useTeam()
+
+const poolA = computed(() => {
+  return teams.value.filter((t) => t.pool === 'A')
+})
+
+const poolB = computed(() => {
+  return teams.value.filter((t) => t.pool === 'B')
+})
+
+const poolC = computed(() => {
+  return teams.value.filter((t) => t.pool === 'C')
+})
+
+
+const poolD = computed(() => {
+  return teams.value.filter((t) => t.pool === 'D')
+})
+
+
+</script>
+
 <template>
   <h1 class="text-gray-200 text-center text-3xl mb-4 font-bold">HCS Kansas City Major</h1>
   <div class="py-2 px-8 bg-gray-700 shadow-lg rounded-lg mb-4">
@@ -20,7 +48,19 @@
   </div>
   <div class="flex flex-col items-center">
     <div class="min-w-full shadow border-b border-gray-200">
-      <ScheduleTable class="max-w-full" />
+      <Suspense>
+        <ScheduleTable class="max-w-full" />
+        <template #fallback>
+          <div class="flex justify-center items-center space-x-1 text-md m-16">
+            <svg fill='none' class="w-6 h-6 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
+              <path clip-rule='evenodd'
+                d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
+                fill='currentColor' fill-rule='evenodd' />
+            </svg>
+            <div>Loading ...</div>
+          </div>
+        </template>
+      </Suspense>
     </div>
   </div>
   <div class="pools">
@@ -52,29 +92,6 @@
   </p>
   <ReloadPrompt />
 </template>
-
-<script setup lang="ts">
-import { teams, Pool } from '@/data'
-import ScheduleTable from './components/ScheduleTable.vue';
-import PoolTable from './components/PoolTable.vue';
-import useTeam from './composables/useTeam';
-
-const { clickToHighlight } = useTeam()
-
-const poolA = Object.keys(teams)
-  .map((t) => teams[t])
-  .filter((t) => t.pool === Pool.A)
-const poolB = Object.keys(teams)
-  .map((t) => teams[t])
-  .filter((t) => t.pool === Pool.B)
-const poolC = Object.keys(teams)
-  .map((t) => teams[t])
-  .filter((t) => t.pool === Pool.C)
-const poolD = Object.keys(teams)
-  .map((t) => teams[t])
-  .filter((t) => t.pool === Pool.D)
-
-</script>
 
 <style>
 
