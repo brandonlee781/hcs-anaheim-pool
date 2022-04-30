@@ -105,7 +105,7 @@ const poolC: TeamPool = {
     name: 'Quadrant',
     pool: Pool.C,
     color: '#ccdb25',
-    region: Region.NA,
+    region: Region.EU,
   },
   cru: {
     name: 'Team Cruelty',
