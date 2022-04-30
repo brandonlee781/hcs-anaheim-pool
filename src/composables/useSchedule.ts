@@ -1,10 +1,11 @@
 import { format } from 'date-fns'
 import { computed, ComputedRef } from 'vue'
 import useMatches, { Match, streams } from './useMatches'
+import { Team, teams } from './useTeam';
 
 export type ScheduleItem = {
   time: string;
-  items?: { text: string, span: number; }[]
+  items?: { text: string, span: number; highlights?: Team[] }[]
   matches?: Match[]
 }
 
@@ -30,7 +31,11 @@ const day2 = [
   { 
     time: new Date('2022-03-11T23:00:00+0000'),
     items: [
-      { text: 'Winners Quarter Finals', span: 2 }, 
+      {
+        text: 'Winners Quarter Finals - ACEND vs Optic Gaming',
+        span: 2,
+        highlights: [teams.og, teams.acn]
+      }, 
       { text: 'Elimination Round 1', span: 2 },
     ]
   },

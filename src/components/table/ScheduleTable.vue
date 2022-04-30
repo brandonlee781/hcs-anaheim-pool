@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
 import useWindowWidth from '@/composables/useWindowWidth';
-import useMatches, { Match } from '@/composables/useMatches'
+import useMatches from '@/composables/useMatches'
 import useSchedule from '@/composables/useSchedule';
 
 const props = defineProps({ day: { type: Number, default: 1 } })
@@ -40,7 +39,9 @@ const headers = computed(() => {
           v-for="(item, i) in timeslot.items"
           :key="`${timeslot.time}-${i}`"
           :colspan="item.span"
-          class="text-left lg:text-center">
+          class="text-left lg:text-center"
+          :highlights="item.highlights"
+        >
           {{ item.text }}
         </TableData>
       </tr>
