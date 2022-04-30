@@ -1,30 +1,28 @@
 <script setup lang="ts">
-import { Match, teams } from '@/data';
+import { Match } from '@/data';
 import useTeam from '@/composables/useTeam';
 import { computed } from 'vue';
 import useWindowWidth from '@/composables/useWindowWidth';
 
-const { hoveredTeam } = useTeam()
+const { hoveredTeam, getTeam } = useTeam()
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
 
 const props = defineProps<{ match: Match }>()
 
-if (!teams[props.match.team1]) {
-  console.error(`INVALID TEAM 1: ${props.match.stream.name}:${props.match.timeslot}`);
-}
-if (!teams[props.match.team2]) {
-  console.error(`INVALID TEAM 2: ${props.match.stream.name}:${props.match.timeslot}`);
-}
+const team1 = computed(() => {
+  return getTeam(props.match.team1);
+})
+const team2 = computed(() => {
+  return getTeam(props.match.team2);
+})
 
 const color = computed(() => {
-  const team1 = teams[props.match.team1]
-  const team2 = teams[props.match.team2]
-  if (hoveredTeam.value?.name === team1?.name) {
-    return team1?.color
+  if (hoveredTeam.value?.name === team1.value?.name) {
+    return team1.value?.color
   }
-  if (hoveredTeam.value?.name === team2?.name) {
-    return team2?.color
+  if (hoveredTeam.value?.name === team2.value?.name) {
+    return team2.value?.color
   }
   return 'transparent'
 })
@@ -42,21 +40,21 @@ const color = computed(() => {
       }"
     >
 
-      <span :class="{ 'text-yellow-500': match.finished === match.team1 }">
-        {{ teams[match.team1].name }}
+      <span>
+        {{ team1 && team1.name }}
       </span>
       vs
-      <span :class="{ 'text-yellow-500': match.finished === match.team2 }">
-        {{ teams[match.team2].name }}
+      <span>
+        {{ team2 && team2.name }}
       </span>
     </div>
     <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
-      <span :class="{ 'text-yellow-500': match.finished === match.team1 }">
-        {{ teams[match.team1].name }}
+      <span>
+        {{ team1 && team1.name }}
       </span>
       <span>vs</span>
-      <span :class="{ 'text-yellow-500': match.finished === match.team2 }">
-        {{ teams[match.team2].name }}
+      <span>
+        {{ team2 && team2.name }}
       </span>
     </div>
     <div class="lg:hidden pl-4">

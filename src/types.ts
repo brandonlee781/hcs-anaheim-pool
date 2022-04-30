@@ -1,3 +1,5 @@
+import { Timestamp } from 'firebase/firestore';
+
 export enum Pool {
   A,
   B,
@@ -26,10 +28,15 @@ export type TStream = {
 }
 
 export type Team = {
+  id: string;
   name: string;
-  pool: Pool;
+  pool: 'A' | 'B' | 'C' | 'D';
   color: string;
   region: Region
+}
+
+export type TTeam = {
+  [key: string]: Team
 }
 
 export type Match = {
@@ -37,6 +44,4 @@ export type Match = {
   team1: string;
   team2: string;
   timeslot: number;
-  pool: Pool;
-  finished: string | null;
 }
