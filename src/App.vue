@@ -2,7 +2,7 @@
 import useTeam from './composables/useTeam';
 
 const { clickToHighlight, pools } = useTeam()
-const day = $ref(2)
+const day = $ref(3)
 </script>
 
 <template>
