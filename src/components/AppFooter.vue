@@ -11,7 +11,7 @@ const { clickToHighlight } = useTeam()
         <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
       </div>
       <label class="cursor-pointer" for="toggle">
-        {{ clickToHighlight ? 'Click' : 'Hover' }} team name to highlight
+        {{ clickToHighlight ? 'Click' : 'Hover' }} team name in their pool to highlight their matches
       </label>
     </div>
 
