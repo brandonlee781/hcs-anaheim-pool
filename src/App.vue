@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { useStorage } from '@vueuse/core'
 import useTeam from './composables/useTeam';
 
-const { clickToHighlight, pools } = useTeam()
-const day = $ref(3)
+const { pools } = useTeam()
+const day = useStorage('hsc-day-val', 3)
 </script>
 
 <template>
