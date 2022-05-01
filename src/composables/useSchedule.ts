@@ -53,34 +53,32 @@ const day3 = [
   {
       time: new Date('2022-02-11T18:00:00+0000'),
       items: [
-        { text: 'Winners Semi Finals', span: 2 },
-        { text: 'Elimination Round 3', span: 2 },
+        { text: 'Winners Semi Finals - Optic vs eUnited', span: 4 },
       ]
   },
   {
     time: new Date('2022-02-11T19:15:00+0000'),
-    items: [{ text: 'Elimination Round 4', span: 4 }] 
+    items: [{ text: 'Winners Semi Finals - Cloud9 vs Sentinels', span: 4 }] 
   },
   {
     time: new Date('2022-02-11T20:30:00+0000'),
-    items: [{ text: 'Elimination Round 5', span: 4 }]
+    items: [{ text: 'Elimination Quarter Finals', span: 4 }]
   },
   {
     time: new Date('2022-02-11T21:45:00+0000'),
-    items: [{ text: 'Elimination Quarter Finals', span: 4 }]
+    items: [{ text: 'Winners Finals', span: 4 }]
   },
   { 
     time: new Date('2022-03-11T23:00:00+0000'),
-    items: [{ text: 'TBD', span: 4 }]
+    items: [{ text: 'Elimination Finals', span: 4 }]
   },
   { 
     time: new Date('2022-03-11T00:15:00+0000'), 
     items: [
-      { text: 'TBD', span: 4 },
+      { text: 'Grand Finals', span: 4 },
       // { text: 'Elimination Finals', span: 2 }
     ]
   },
-  { time: new Date('2022-03-11T01:30:00+0000'), items: [{text: 'TBD', span: 4}] },
 ]
 
 const days = [day1, day2, day3]
