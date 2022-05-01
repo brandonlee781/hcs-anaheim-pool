@@ -7,6 +7,8 @@ import { VitePWA } from 'vite-plugin-pwa'
  
 export default defineConfig({
   base: '/hcs-tournament-schedule/',
+  build: { target: 'esnext' },
+  optimizeDeps: { esbuildOptions: { target: 'esnext' } },
   plugins: [
     vue({
       reactivityTransform: true,
