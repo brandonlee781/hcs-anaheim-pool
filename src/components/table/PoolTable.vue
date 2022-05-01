@@ -31,7 +31,7 @@ const onClick = (team: Team) => {
         @mouseleave="isDesktop && !clickToHighlight && setHover(null)"
       >
         <span
-          class="hover:underline"
+          class="team-name"
           :style="{
             textDecorationColor: team.color
           }"
@@ -54,5 +54,10 @@ const onClick = (team: Team) => {
 }
 .team-data:hover {
   background-color: rgba(255,255, 255, 0.1);
+  
+}
+.team-data:hover .team-name {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 </style>
