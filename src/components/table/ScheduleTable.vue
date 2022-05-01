@@ -30,7 +30,7 @@ const headers = computed(() => {
 </script>
 
 <template>
-  <BaseTable :headers="headers">
+  <BaseTable class="schedule-table" :headers="headers">
 
     <template v-for="(timeslot, index) in schedule">
       <tr v-if="timeslot.items" :key="index">

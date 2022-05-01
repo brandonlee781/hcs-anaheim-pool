@@ -29,5 +29,8 @@ defineProps<{ headers: { text: string; link?: string}[] }>()
 
 
 
-<style scoped>
+<style>
+.schedule-table thead tr th:first-child {
+  text-align: left;
+}
 </style>

@@ -5,7 +5,7 @@ defineEmits(['update:day'])
 
 <template>
   <h1 class="text-gray-200 text-center text-3xl mb-2 font-bold">{{ title }}</h1>
-  <div class="py-2 px-8 bg-gray-700 shadow-lg rounded-lg mb-2">
+  <div class="py-2 px-6 bg-gray-700 shadow-lg rounded-lg mb-2">
     <div class="flex flex-col-reverse lg:flex-row justify-between items-center">
       <div class="w-full flex flex-row items-start mt-4 lg:(items-center mt-0 w-half) xl:w-auto">
         <a :class="{ '*btn': true, active: day === 1 }" role="button" @click="$emit('update:day', 1)">Day 1</a>
