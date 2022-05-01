@@ -32,9 +32,8 @@ const day2 = [
     time: new Date('2022-03-11T23:00:00+0000'),
     items: [
       {
-        text: 'Winners Quarter Finals - ACEND vs Optic Gaming',
+        text: 'Winners Quarter Finals',
         span: 2,
-        highlights: [teams.og, teams.acn]
       }, 
       { text: 'Elimination Round 1', span: 2 },
     ]

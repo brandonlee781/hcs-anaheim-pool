@@ -30,7 +30,14 @@ const onClick = (team: Team) => {
         @mouseenter="isDesktop && !clickToHighlight && setHover(team)"
         @mouseleave="isDesktop && !clickToHighlight && setHover(null)"
       >
-        <span>{{ team.name }}</span>
+        <span
+          class="hover:underline"
+          :style="{
+            textDecorationColor: team.color
+          }"
+        >
+        {{ team.name }}
+        </span>
         <span>{{ team.region }}</span>
       </TableData>
     </tr>
