@@ -10,7 +10,7 @@ defineEmits(['update:day'])
       <div class="w-full flex flex-row items-start mt-4 lg:(items-center mt-0 w-half) xl:w-auto">
         <a :class="{ '*btn': true, active: day === 1 }" role="button" @click="$emit('update:day', 1)">Day 1</a>
         <a :class="{ '*btn': true, active: day === 2 }" role="button" @click="$emit('update:day', 2)">Day 2</a>
-        <!-- <a :class="{ '*btn': true, active: day === 3 }" role="button" @click="$emit('update:day', 3)">Day 3</a> -->
+        <a :class="{ '*btn': true, active: day === 3 }" role="button" @click="$emit('update:day', 3)">Day 3</a>
       </div>
       <p class="text-gray-200">
         All times are automatically converted to your timezone.
