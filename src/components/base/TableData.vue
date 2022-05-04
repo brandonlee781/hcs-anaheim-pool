@@ -15,8 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import useTeam, { Team } from '@/composables/useTeam'
+import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
+import { Team } from '@/data'
 
 const props = defineProps<{ highlights?: Team[] }>()
 
