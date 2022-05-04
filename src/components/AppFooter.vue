@@ -14,7 +14,7 @@ const { clickToHighlight } = useTeam()
           type="checkbox"
           name="toggle"
           id="toggle"
-          class="toggle-checkbox absolute block w-6 h-6 rounded-full dark:bg-white light:bg-gray-600 border-4 border-gray-600 appearance-none cursor-pointer"
+          class="toggle-checkbox absolute block w-6 h-6 rounded-full dark:bg-white light:bg-gray-600 border-4 light:border-gray-600 appearance-none cursor-pointer"
         />
         <label
           for="toggle"
