@@ -7,6 +7,7 @@ declare module 'vue' {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
+    IMdiThemeLightDark: typeof import('~icons/mdi/theme-light-dark')['default']
     MatchData: typeof import('./src/components/match/MatchData.vue')['default']
     MatchRow: typeof import('./src/components/match/MatchRow.vue')['default']
     PoolTable: typeof import('./src/components/table/PoolTable.vue')['default']

@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import WindiCSS from 'vite-plugin-windicss'
 import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import * as path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
 
@@ -17,7 +19,9 @@ export default defineConfig({
     Components({
       extensions: ['vue', 'ts'],
       dts: true,
+      resolvers: [IconsResolver()],
     }),
+    Icons({ compiler: 'vue3' }),
     VitePWA({
       base: '/hcs-tournament-schedule/',
       srcDir: 'src',

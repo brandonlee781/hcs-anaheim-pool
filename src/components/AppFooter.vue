@@ -14,11 +14,11 @@ const { clickToHighlight } = useTeam()
           type="checkbox"
           name="toggle"
           id="toggle"
-          class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"
+          class="toggle-checkbox absolute block w-6 h-6 rounded-full dark:bg-white light:bg-gray-600 border-4 border-gray-600 appearance-none cursor-pointer"
         />
         <label
           for="toggle"
-          class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
+          class="toggle-label block overflow-hidden h-6 rounded-full dark:bg-gray-300 light:bg-gray-700 cursor-pointer"
         ></label>
       </div>
       <label class="cursor-pointer" for="toggle">
@@ -27,7 +27,7 @@ const { clickToHighlight } = useTeam()
       </label>
     </div>
 
-    <div class="text-gray-200 text-xs underline text-right">
+    <div class="dark:text-gray-200 text-xs underline text-right">
       <a
         href="https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Kansas_City"
         target="_blank"

@@ -2,7 +2,7 @@
   <td class="px-6 py-4 whitespace-nowrap">
     <div class="background" :style="{ borderColor: color }"></div>
     <div
-      class="text-sm font-medium text-gray-200 mobile-row data-slot"
+      class="text-sm font-medium dark:text-gray-200 light:text-gray-800 mobile-row data-slot"
       :style="{
         textDecoration: isMobile ? 'underline' : 'none',
         textDecorationThickness: '3px',

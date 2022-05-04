@@ -40,7 +40,7 @@ const getSrc = (image: string) => {
 
 <template>
   <td
-    class="pool-item-td cursor-pointer bg-gray-900 divide-y divide-gray-200"
+    class="pool-item-td cursor-pointer dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
     @click="() => onClick(team)"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
@@ -95,6 +95,10 @@ const getSrc = (image: string) => {
   transition: all 0.2s ease;
 }
 
+.light .pool-item-wrapper {
+  @apply bg-gray-100 border-bottom-gray-800 text-gray-800;
+}
+
 .team-image {
   display: none;
   height: 72px;
@@ -128,6 +132,10 @@ const getSrc = (image: string) => {
   height: calc(var(--default-pool-height) + 20px);
   width: calc(var(--default-pool-width) + 40px);
   z-index: 2;
+}
+
+.light .pool-item-wrapper.hovered {
+  @apply bg-gray-300;
 }
 
 .pool-item-wrapper.hovered .team-image {
