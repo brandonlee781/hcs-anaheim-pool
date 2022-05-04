@@ -1,39 +1,23 @@
 <script setup lang="ts">
 import { useStorage } from '@vueuse/core'
-import useTeam from './composables/useTeam';
+import useTournament from '@/composables/useTournament'
 
-const { pools } = useTeam()
 const day = useStorage('hsc-day-val', 3)
+const { pools } = useTournament(day)
 </script>
 
 <template>
   <AppHeader v-model:day="day" title="HCS Kansas City Major" />
   <div class="flex flex-col items-center">
     <div class="min-w-full c*ard">
-        <ScheduleTable class="max-w-full" :day="day"/>
+      <ScheduleTable class="max-w-full" :day="day" />
     </div>
   </div>
   <div class="pools">
-    <PoolTable
-      class="*card"
-      title="Pool A"
-      :teams="pools.A"
-    />
-    <PoolTable
-      class="*card"
-      title="Pool B"
-      :teams="pools.B"
-    />
-    <PoolTable
-      class="*card"
-      title="Pool C"
-      :teams="pools.C"
-    />
-    <PoolTable
-      class="*card"
-      title="Pool D"
-      :teams="pools.D"
-    />
+    <PoolTable class="*card" title="Pool A" :teams="pools.A" />
+    <PoolTable class="*card" title="Pool B" :teams="pools.B" />
+    <PoolTable class="*card" title="Pool C" :teams="pools.C" />
+    <PoolTable class="*card" title="Pool D" :teams="pools.D" />
   </div>
 
   <AppFooter />
@@ -41,7 +25,6 @@ const day = useStorage('hsc-day-val', 3)
 </template>
 
 <style>
-
 * {
   box-sizing: border-box;
 }
@@ -71,7 +54,7 @@ const day = useStorage('hsc-day-val', 3)
   background-color: rgb(21, 103, 255);
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   body {
     height: 100vh;
     overflow: hidden;
@@ -90,5 +73,4 @@ const day = useStorage('hsc-day-val', 3)
     margin-right: 0;
   }
 }
-
 </style>

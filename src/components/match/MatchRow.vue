@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import { Match } from '@/data'
 import { ref } from 'vue'
-import { Match } from '@/composables/useMatches';
 
-const props = defineProps<{ matches: Match[], time: string; }>()
+const props = defineProps<{ matches: Match[]; time: string }>()
 const show = ref(true)
 </script>
-
 
 <template>
   <tr>
@@ -25,13 +24,9 @@ const show = ref(true)
           :match="match"
         />
       </template>
-      <template v-else>
-        Click the time to show
-      </template>
+      <template v-else> Click the time to show </template>
     </TableData>
   </tr>
 </template>
 
-
-<style scoped>
-</style>
+<style scoped></style>

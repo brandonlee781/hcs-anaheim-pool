@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import useWindowWidth from '@/composables/useWindowWidth';
-import useMatches from '@/composables/useMatches'
-import useSchedule from '@/composables/useSchedule';
+import useWindowWidth from '@/composables/useWindowWidth'
+import useTournament from '@/composables/useTournament'
+import { streams } from '@/data'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
 const day = computed(() => props.day)
 
-const { schedule } = useSchedule(day)
-const { streams } = useMatches()
+const { schedule } = useTournament(day)
 
 const { windowWidth } = useWindowWidth()
 
@@ -16,22 +15,18 @@ const headers = computed(() => {
   if (windowWidth.value >= 1024) {
     return [
       { text: 'Timeslot' },
-      ...Object.values(streams).map((st) => ({
+      ...Object.values(streams).map(st => ({
         text: st.name,
         link: st.link,
       })),
     ]
   }
-  return [
-    { text: 'Timeslot' },
-    { text: 'Matches' },
-  ]
+  return [{ text: 'Timeslot' }, { text: 'Matches' }]
 })
 </script>
 
 <template>
   <BaseTable class="schedule-table" :headers="headers">
-
     <template v-for="(timeslot, index) in schedule">
       <tr v-if="timeslot.items" :key="index">
         <TableData>{{ timeslot.time }}</TableData>
@@ -55,7 +50,4 @@ const headers = computed(() => {
   </BaseTable>
 </template>
 
-
-
-<style scoped>
-</style>
+<style scoped></style>

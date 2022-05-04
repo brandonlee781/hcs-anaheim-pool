@@ -1,42 +1,90 @@
-import { teams, Team } from '@/composables/useTeam'
+import { teams } from './teams'
+import { streams } from './streams'
+import { Match, Pools } from './types'
 
-export type Stream = { id: string; name: string; link: string; }
-export type Streams = {
-  halo: Stream;
-  xbox: Stream;
-  red: Stream;
-  blue: Stream;
-}
-export const streams: Streams = {
-  halo: {
-    id: 'halo',
-    name: 'A Stream (Halo)',
-    link: 'https://www.twitch.tv/halo',
-  },
-  xbox: {
-    id: 'xbox',
-    name: 'B Stream (Xbox)',
-    link: 'https://www.twitch.tv/xbox',
-  },
-  red: {
-    id: 'red',
-    name: 'C Stream (HCS_Red)',
-    link: 'https://www.twitch.tv/hcs_red',
-  },
-  blue: {
-    id: 'blue',
-    name: 'D Stream (HCS_Blue)',
-    link: 'https://www.twitch.tv/hcs_blue',
-  },
-}
-
-export type Match = {
-  stream: Stream;
-  team1: Team;
-  team2: Team;
-  timeslot: number;
-  day?: number,
-  finished?: Team
+export const schedule = {
+  day1: [
+    {
+      time: '2022-01-01T17:30:00+0000',
+      items: [{ text: 'Broadcast Begins', span: 4 }],
+    },
+    {
+      time: '2022-01-01T17:40:00+0000',
+      items: [{ text: 'Kansas City Pre-Show', span: 4 }],
+    },
+    { time: '2022-01-01T18:00:00+0000', timeslot: 0 },
+    { time: '2022-02-11T19:15:00+0000', timeslot: 1 },
+    { time: '2022-02-11T20:30:00+0000', timeslot: 2 },
+    { time: '2022-02-11T21:45:00+0000', timeslot: 3 },
+    { time: '2022-03-11T23:00:00+0000', timeslot: 4 },
+    { time: '2022-03-11T00:15:00+0000', timeslot: 5 },
+    {
+      time: '2022-03-11T01:30:00+0000',
+      items: [{ text: 'HCS All-Star Showdown', span: 4 }],
+    },
+  ],
+  day2: [
+    {
+      time: '2022-01-01T17:30:00+0000',
+      items: [{ text: 'Broadcast Begins', span: 4 }],
+    },
+    {
+      time: '2022-01-01T17:40:00+0000',
+      items: [{ text: 'Kansas City Pre-Show', span: 4 }],
+    },
+    { time: '2022-02-11T18:00:00+0000', timeslot: 0 },
+    { time: '2022-02-11T19:15:00+0000', timeslot: 1 },
+    { time: '2022-02-11T20:30:00+0000', timeslot: 2 },
+    { time: '2022-02-11T21:45:00+0000', timeslot: 3 },
+    {
+      time: '2022-03-11T23:00:00+0000',
+      items: [
+        { text: 'Winners Quarter Finals', span: 2 },
+        { text: 'Elimination Round 1', span: 2 },
+      ],
+    },
+    {
+      time: '2022-03-11T00:15:00+0000',
+      items: [
+        { text: 'Winners Quarter Finals', span: 2 },
+        { text: 'Elimination Round 1', span: 2 },
+      ],
+    },
+  ],
+  day3: [
+    {
+      time: '2022-01-01T17:30:00+0000',
+      items: [{ text: 'Broadcast Begins', span: 4 }],
+    },
+    {
+      time: '2022-01-01T17:40:00+0000',
+      items: [{ text: 'Kansas City Pre-Show', span: 4 }],
+    },
+    {
+      time: '2022-02-11T18:00:00+0000',
+      items: [{ text: 'Winners Semi Finals - Optic vs eUnited', span: 4 }],
+    },
+    {
+      time: '2022-02-11T19:15:00+0000',
+      items: [{ text: 'Winners Semi Finals - Cloud9 vs Sentinels', span: 4 }],
+    },
+    {
+      time: '2022-02-11T20:30:00+0000',
+      items: [{ text: 'Elimination Quarter Finals', span: 4 }],
+    },
+    {
+      time: '2022-02-11T21:45:00+0000',
+      items: [{ text: 'Winners Finals', span: 4 }],
+    },
+    {
+      time: '2022-03-11T23:00:00+0000',
+      items: [{ text: 'Elimination Finals', span: 4 }],
+    },
+    {
+      time: '2022-03-11T00:15:00+0000',
+      items: [{ text: 'Grand Finals', span: 4 }],
+    },
+  ],
 }
 
 const day1Matches = [
@@ -47,7 +95,6 @@ const day1Matches = [
     team2: teams.acn,
     timeslot: 0,
     day: 1,
-    finished: teams.c9,
   },
   {
     stream: streams.halo,
@@ -55,7 +102,6 @@ const day1Matches = [
     team2: teams.navi,
     timeslot: 1,
     day: 1,
-    finished: teams.faze,
   },
   {
     stream: streams.halo,
@@ -63,7 +109,6 @@ const day1Matches = [
     team2: teams.acn,
     timeslot: 2,
     day: 1,
-    finished: teams.acn
   },
   {
     stream: streams.halo,
@@ -71,7 +116,6 @@ const day1Matches = [
     team2: teams.g2,
     timeslot: 3,
     day: 1,
-    finished: teams.eu,
   },
   {
     stream: streams.halo,
@@ -79,7 +123,6 @@ const day1Matches = [
     team2: teams.kcp,
     timeslot: 4,
     day: 1,
-    finished: teams.sen
   },
   {
     stream: streams.halo,
@@ -87,7 +130,6 @@ const day1Matches = [
     team2: teams.faze,
     timeslot: 5,
     day: 1,
-    finished: teams.og
   },
   // b stream
   {
@@ -96,7 +138,6 @@ const day1Matches = [
     team2: teams.kni,
     timeslot: 0,
     day: 1,
-    finished: teams.sen
   },
 
   {
@@ -105,7 +146,6 @@ const day1Matches = [
     team2: teams.fnatic,
     timeslot: 1,
     day: 1,
-    finished: teams.og
   },
   {
     stream: streams.xbox,
@@ -113,7 +153,6 @@ const day1Matches = [
     team2: teams.kni,
     timeslot: 2,
     day: 1,
-    finished: teams.kcp
   },
   {
     stream: streams.xbox,
@@ -121,7 +160,6 @@ const day1Matches = [
     team2: teams.fnatic,
     timeslot: 3,
     day: 1,
-    finished: teams.faze
   },
   {
     stream: streams.xbox,
@@ -129,7 +167,6 @@ const day1Matches = [
     team2: teams.cfs,
     timeslot: 4,
     day: 1,
-    finished: teams.acn
   },
   {
     stream: streams.xbox,
@@ -137,7 +174,6 @@ const day1Matches = [
     team2: teams.qua,
     timeslot: 5,
     day: 1,
-    finished: teams.eu
   },
   // c stream
   {
@@ -146,7 +182,6 @@ const day1Matches = [
     team2: teams.cfs,
     timeslot: 0,
     day: 1,
-    finished: teams.xset
   },
 
   {
@@ -155,7 +190,6 @@ const day1Matches = [
     team2: teams.qua,
     timeslot: 1,
     day: 1,
-    finished: teams.qua
   },
   {
     stream: streams.red,
@@ -163,7 +197,6 @@ const day1Matches = [
     team2: teams.cfs,
     timeslot: 2,
     day: 1,
-    finished: teams.c9
   },
   {
     stream: streams.red,
@@ -171,7 +204,6 @@ const day1Matches = [
     team2: teams.navi,
     timeslot: 3,
     day: 1,
-    finished: teams.og
   },
   {
     stream: streams.red,
@@ -179,7 +211,6 @@ const day1Matches = [
     team2: teams.xset,
     timeslot: 4,
     day: 1,
-    finished: teams.c9
   },
   {
     stream: streams.red,
@@ -187,7 +218,6 @@ const day1Matches = [
     team2: teams.fnatic,
     timeslot: 5,
     day: 1,
-    finished: teams.fnatic
   },
   // d stream
   {
@@ -196,8 +226,6 @@ const day1Matches = [
     team2: teams.jlingz,
     timeslot: 0,
     day: 1,
-    finished: teams.kcp
-    
   },
   {
     stream: streams.blue,
@@ -205,7 +233,6 @@ const day1Matches = [
     team2: teams.cru,
     timeslot: 1,
     day: 1,
-    finished: teams.eu
   },
   {
     stream: streams.blue,
@@ -213,7 +240,6 @@ const day1Matches = [
     team2: teams.jlingz,
     timeslot: 2,
     day: 1,
-    finished: teams.sen
   },
   {
     stream: streams.blue,
@@ -221,7 +247,6 @@ const day1Matches = [
     team2: teams.cru,
     timeslot: 3,
     day: 1,
-    finished: teams.qua
   },
   {
     stream: streams.blue,
@@ -229,7 +254,6 @@ const day1Matches = [
     team2: teams.kni,
     timeslot: 4,
     day: 1,
-    finished: teams.kni
   },
   {
     stream: streams.blue,
@@ -237,7 +261,6 @@ const day1Matches = [
     team2: teams.cru,
     timeslot: 5,
     day: 1,
-    finished: teams.g2
   },
 ]
 
@@ -249,7 +272,6 @@ const day2Matches = [
     team2: teams.g1,
     timeslot: 0,
     day: 2,
-    finished: teams.qua
   },
   {
     stream: streams.halo,
@@ -257,7 +279,6 @@ const day2Matches = [
     team2: teams.comp,
     timeslot: 1,
     day: 2,
-    finished: teams.fnatic
   },
   {
     stream: streams.halo,
@@ -265,7 +286,6 @@ const day2Matches = [
     team2: teams.ssg,
     timeslot: 2,
     day: 2,
-    finished: teams.ssg
   },
   {
     stream: streams.halo,
@@ -281,7 +301,6 @@ const day2Matches = [
     team2: teams.comp,
     timeslot: 0,
     day: 2,
-    finished: teams.og
   },
   {
     stream: streams.xbox,
@@ -289,7 +308,6 @@ const day2Matches = [
     team2: teams.g1,
     timeslot: 1,
     day: 2,
-    finished: teams.g2
   },
   {
     stream: streams.xbox,
@@ -297,7 +315,6 @@ const day2Matches = [
     team2: teams.g1,
     timeslot: 2,
     day: 2,
-    finished: teams.g1
   },
   {
     stream: streams.xbox,
@@ -313,7 +330,6 @@ const day2Matches = [
     team2: teams.ssg,
     timeslot: 0,
     day: 2,
-    finished: teams.xset
   },
   {
     stream: streams.red,
@@ -321,7 +337,6 @@ const day2Matches = [
     team2: teams.ssg,
     timeslot: 1,
     day: 2,
-    finished: teams.acn
   },
   {
     stream: streams.red,
@@ -344,7 +359,6 @@ const day2Matches = [
     team2: teams.bbg,
     timeslot: 0,
     day: 2,
-    finished: teams.bbg,
   },
   {
     stream: streams.blue,
@@ -352,7 +366,6 @@ const day2Matches = [
     team2: teams.bbg,
     timeslot: 1,
     day: 2,
-    finished: teams.sen
   },
   {
     stream: streams.blue,
@@ -360,7 +373,6 @@ const day2Matches = [
     team2: teams.bbg,
     timeslot: 2,
     day: 2,
-    finished: teams.kni
   },
   {
     stream: streams.blue,
@@ -371,14 +383,11 @@ const day2Matches = [
   },
 ]
 
-const matches: Match[] = [
-  ...day1Matches,
-  ...day2Matches,
-]
+export const matches: Match[] = [...day1Matches, ...day2Matches]
 
-export default function useMatches() {
-  return {
-    matches,
-    streams
-  }
+export const pools: Pools = {
+  A: [teams.c9, teams.acn, teams.xset, teams.cfs, teams.ssg],
+  B: [teams.og, teams.faze, teams.fnatic, teams.navi, teams.comp],
+  C: [teams.eu, teams.qua, teams.g2, teams.cru, teams.g1],
+  D: [teams.sen, teams.kcp, teams.kni, teams.jlingz, teams.bbg],
 }

@@ -1,6 +1,4 @@
-import {
-  onMounted, onUnmounted, ref,
-} from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const windowWidth = ref(window.innerWidth)
 const onWidthChange = () => (windowWidth.value = window.innerWidth)

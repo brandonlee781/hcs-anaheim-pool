@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ headers: { text: string; link?: string}[] }>()
+defineProps<{ headers: { text: string; link?: string }[] }>()
 </script>
 
 <template>
@@ -26,8 +26,6 @@ defineProps<{ headers: { text: string; link?: string}[] }>()
     </tbody>
   </table>
 </template>
-
-
 
 <style>
 .schedule-table thead tr th:first-child {

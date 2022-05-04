@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import useTeam from '@/composables/useTeam';
-import { computed } from 'vue';
-import useWindowWidth from '@/composables/useWindowWidth';
-import { Match } from '@/composables/useMatches'
+import useTeam from '@/composables/useTeam'
+import { computed } from 'vue'
+import useWindowWidth from '@/composables/useWindowWidth'
+import { Match } from '@/data'
 
 const { hoveredTeam } = useTeam()
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
 
 const props = defineProps<{ match: Match }>()
-
-const showWinners = false;
 
 const color = computed(() => {
   if (hoveredTeam.value?.name === props.match.team1?.name) {
@@ -34,33 +32,36 @@ const color = computed(() => {
         textDecorationColor: color,
       }"
     >
-
-      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team1.name }">
+      <span>
         {{ match.team1.name }}
       </span>
       vs
-      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team2.name }">
+      <span>
         {{ match.team2.name }}
       </span>
     </div>
-    <div class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden">
-      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team1.name }">
+    <div
+      class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden"
+    >
+      <span>
         {{ match.team1.name }}
       </span>
       <span>vs</span>
-      <span :class="{ 'text-yellow-300': showWinners && match.finished?.name === match.team2.name }">
+      <span>
         {{ match.team2.name }}
       </span>
     </div>
     <div class="lg:hidden pl-4">
-      <a class="underline text-xs leading-4" :href="match.stream.link" target="_blank">
+      <a
+        class="underline text-xs leading-4"
+        :href="match.stream.link"
+        target="_blank"
+      >
         {{ match.stream.name }}
       </a>
     </div>
   </div>
 </template>
-
-
 
 <style scoped>
 .background {

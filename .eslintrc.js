@@ -7,8 +7,9 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
-    '@vue/airbnb',
     '@vue/typescript/recommended',
+    'plugin:prettier/recommended',
+    'plugin:import/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -21,7 +22,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': ['error'],
     'no-undef': 'off',
     'no-return-assign': 'off',
-    'vue/max-len': ['error', { "code": 100, "ignoreHTMLAttributeValues": true }],
+    'vue/max-len': ['error', { code: 100, ignoreHTMLAttributeValues: true }],
     'max-len': 'off',
     // 'max-len': ['error', { "ignoreStrings": true }]
   },
@@ -29,4 +30,9 @@ module.exports = {
     $ref: 'readonly',
     $computed: 'readonly',
   },
-};
+  settings: {
+    'import/resolver': {
+      typescript: {},
+    },
+  },
+}

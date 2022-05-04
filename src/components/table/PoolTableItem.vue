@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import useTeam, { Team } from '@/composables/useTeam'
+import { Team } from '@/data'
+import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
 
 const props = defineProps<{ team: Team; index: number }>()
@@ -32,10 +33,9 @@ const onMouseLeave = () => {
 }
 
 const getSrc = (image: string) => {
-  const url = new URL(`../assets/images/${image}`, import.meta.url).href
+  const url = new URL(`../../assets/images/${image}`, import.meta.url).href
   return url
 }
-
 </script>
 
 <template>
@@ -46,15 +46,15 @@ const getSrc = (image: string) => {
     @mouseleave="onMouseLeave"
   >
     <div :class="{ 'pool-item-wrapper mobile-row': true, hovered }">
-      <img class="team-image" :src="getSrc(team.image)" />
-      <span
-          class="team-name"
-        >
+      <div class="team-image">
+        <img v-if="team.image" :src="getSrc(team.image)" />
+      </div>
+      <span class="team-name">
         {{ team.name }}
-        </span>
-        <span class="team-region">{{ team.region }}</span>
+      </span>
+      <span class="team-region">{{ team.region }}</span>
     </div>
-  </td>        
+  </td>
 </template>
 
 <style scoped>
@@ -71,8 +71,7 @@ const getSrc = (image: string) => {
 }
 
 .pool-item-td:hover {
-  background-color: rgba(255,255, 255, 0.1);
-  
+  background-color: rgba(255, 255, 255, 0.1);
 }
 /* .pool-item-td:hover .team-name {
   text-decoration: underline;
@@ -100,8 +99,13 @@ const getSrc = (image: string) => {
   display: none;
   height: 72px;
   width: 75px;
+}
+.team-image img {
+  height: 100%;
+  width: 100%;
   padding: 8px 8px 8px 8px;
   object-fit: scale-down;
+  filter: drop-shadow(4px 8px 10px black);
 }
 
 .team-name {
@@ -133,6 +137,4 @@ const getSrc = (image: string) => {
 .pool-item-wrapper.hovered .team-name {
   padding-left: 8px;
 }
-
-
 </style>

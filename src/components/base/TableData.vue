@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import useTeam, { Team } from '@/composables/useTeam';
-import useWindowWidth from '@/composables/useWindowWidth';
+import useTeam, { Team } from '@/composables/useTeam'
+import useWindowWidth from '@/composables/useWindowWidth'
 
 const props = defineProps<{ highlights?: Team[] }>()
 
@@ -28,7 +28,7 @@ const color = $computed(() => {
   const team = props.highlights?.find(h => h.name === hoveredTeam.value?.name)
 
   if (team) {
-    return team.color;
+    return team.color
   }
   return 'transparent'
 })
@@ -50,7 +50,7 @@ const color = $computed(() => {
 td {
   position: relative;
 }
-@media(max-width: 1200px) {
+@media (max-width: 1200px) {
   .mobile-row {
     display: flex;
     flex-flow: column wrap;
