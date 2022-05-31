@@ -73,7 +73,6 @@ watch(dark, val => {
 @media (min-width: 1200px) {
   body {
     height: 100vh;
-    overflow: hidden;
   }
   #app {
     margin: 1rem auto;
