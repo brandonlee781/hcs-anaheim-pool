@@ -31,7 +31,7 @@ const color = computed(() => {
   <div class="background" :style="{ borderColor: color }"></div>
   <div
     v-if="match"
-    class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center"
+    class="match-data w-full flex flex-col sm:flex-row flex-wrap lg:items-center"
   >
     <div
       class="match-teams text-sm lg:hidden xl:block"
@@ -84,5 +84,9 @@ const color = computed(() => {
   border-width: 8px;
   border-style: solid;
   pointer-events: none;
+}
+
+.col-span-4 .match-data {
+  justify-content: center;
 }
 </style>
