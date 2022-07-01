@@ -28,43 +28,43 @@ export const schedule: Schedule = {
 const day1Matches: Match[] = [
   {
     stream: streams.halo,
-    team1: teams.olw,
-    team2: teams.awo,
+    team1: teams.onilneWarriors,
+    team2: teams.awobabobs,
     timeslot: 0,
     day: 1,
   },
   {
     stream: streams.halo,
-    team1: teams.acn,
-    team2: teams.rcl,
+    team1: teams.acend,
+    team2: teams.reclaimers,
     timeslot: 1,
     day: 1,
   },
   {
     stream: streams.halo,
-    team1: teams.qua,
-    team2: teams.scr,
+    team1: teams.quadrant,
+    team2: teams.scorchedHand,
     timeslot: 2,
     day: 1,
   },
   {
     stream: streams.halo,
     team1: teams.navi,
-    team2: teams.bhnd,
+    team2: teams.blackhand,
     timeslot: 3,
     day: 1,
   },
   {
     stream: streams.halo,
     team1: teams.jlingz,
-    team2: teams.awo,
+    team2: teams.awobabobs,
     timeslot: 4,
     day: 1,
   },
   {
     stream: streams.halo,
     team1: teams.navi,
-    team2: teams.ddog,
+    team2: teams.diamondDogs,
     timeslot: 5,
     day: 1,
   },
@@ -75,8 +75,8 @@ const day2Matches: Match[] = []
 export const matches: Match[] = [...day1Matches, ...day2Matches]
 
 export const pools: Pools = {
-  A: [teams.acn, teams.vxd, teams.rcl, teams.tbd],
-  B: [teams.qua, teams.scr, teams.dth, teams.tbd],
-  C: [teams.navi, teams.bhnd, teams.ddog, teams.tbd],
-  D: [teams.jlingz, teams.olw, teams.awo, teams.tbd],
+  A: [teams.acend, teams.vexed, teams.reclaimers, teams.frostbite],
+  B: [teams.quadrant, teams.scorchedHand, teams.deathrow, teams.connecting],
+  C: [teams.navi, teams.blackhand, teams.diamondDogs, teams.lucendi],
+  D: [teams.jlingz, teams.onilneWarriors, teams.awobabobs, teams.witchblades],
 }

@@ -6,19 +6,19 @@ export const teams: TeamPool = {
     color: '',
     region: null,
   },
-  acn: {
+  acend: {
     name: 'ACEND',
     color: '#6738ec',
     region: 'EU',
     image: 'acend.png',
   },
-  cfs: {
+  chiefs: {
     name: 'Chiefs',
     color: '#3b96d7',
     region: 'AZ',
     image: 'chiefs.png',
   },
-  c9: {
+  cloud9: {
     name: 'Cloud9',
     color: '#0092df',
     region: 'NA',
@@ -48,13 +48,13 @@ export const teams: TeamPool = {
     region: 'EU',
     image: 'navi.png',
   },
-  og: {
+  optic: {
     name: 'Optic Gaming',
     color: '#93c950',
     region: 'NA',
     image: 'optic.png',
   },
-  eu: {
+  eunited: {
     name: 'eUnited',
     color: '#2373b9',
     region: 'NA',
@@ -66,13 +66,13 @@ export const teams: TeamPool = {
     region: 'NA',
     image: 'g2.png',
   },
-  qua: {
+  quadrant: {
     name: 'Quadrant',
     color: '#ccdb25',
     region: 'EU',
     image: 'quadrant.png',
   },
-  cru: {
+  cruelty: {
     name: 'Team Cruelty',
     color: '#8806ec',
     region: 'MX',
@@ -84,25 +84,25 @@ export const teams: TeamPool = {
     region: 'EU',
     image: 'jlingz.png',
   },
-  kcp: {
+  pioneers: {
     name: 'Pioneers',
     color: '#a7933d',
     region: 'NA',
     image: 'kcp.png',
   },
-  kni: {
+  knigsts: {
     name: 'Pittsburgh Knights',
     color: '#fdc00f',
     region: 'MX',
     image: 'pknights.png',
   },
-  sen: {
+  sentinels: {
     name: 'Sentinels',
     color: '#ce0037',
     region: 'NA',
     image: 'sentinels.png',
   },
-  oxg: {
+  oxygen: {
     name: 'Oxygen Esports',
     color: '#01ab42',
     region: 'NA',
@@ -120,7 +120,7 @@ export const teams: TeamPool = {
     region: 'NA',
     image: 'gamers_first.png',
   },
-  comp: {
+  complexity: {
     name: 'Complexity Gaming',
     color: '#002b5c',
     region: 'NA',
@@ -132,51 +132,75 @@ export const teams: TeamPool = {
     region: 'NA',
     image: 'bbg.png',
   },
-  bhnd: {
+  blackhand: {
     name: 'BLVCKHVND',
     color: '#262626',
     region: 'EU',
     image: 'blackhand.png',
   },
-  vxd: {
+  vexed: {
     name: 'Vexed Gaming',
     color: '#b31d20',
     region: 'EU',
     image: 'vexed.png',
   },
-  rcl: {
+  reclaimers: {
     name: 'Reclaimers',
     color: '#42a9f3',
     region: 'EU',
     image: 'halo.png',
   },
-  scr: {
+  scorchedHand: {
     name: 'Scorched HVND',
     color: '#b70d0e',
     region: 'EU',
     image: 'scorched.png',
   },
-  dth: {
+  deathrow: {
     name: 'Deathrow',
     color: '#bc2628',
     region: 'EU',
     image: 'deathrow.png',
   },
-  ddog: {
+  diamondDogs: {
     name: 'Diamond Dogs',
     color: '#d9de34',
     region: 'EU',
     image: 'halo.png',
   },
-  olw: {
+  onilneWarriors: {
     name: 'Online Warriors',
     color: '#2933f9',
     region: 'EU',
     image: 'halo.png',
   },
-  awo: {
+  awobabobs: {
     name: 'AWOBABOBS',
     color: '#f6c00f',
+    region: 'EU',
+    image: 'halo.png',
+  },
+  frostbite: {
+    name: 'Frostbite',
+    color: '#c9e9ec',
+    region: 'EU',
+    image: 'frostbite.png',
+  },
+  connecting: {
+    name: 'Connecting',
+    color: '#cda039',
+    region: 'EU',
+    image: 'connecting.png',
+  },
+  lucendi: {
+    name: 'Lucendi',
+    color: '#f19718',
+    region: 'EU',
+    image: 'lucendi.png',
+  },
+  witchblades: {
+    name: 'Witchblades',
+    color: '#7588e2',
     region: 'EU',
     image: 'halo.png',
   },
