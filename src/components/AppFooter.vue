@@ -29,7 +29,7 @@ const { clickToHighlight } = useTeam()
 
     <div class="dark:text-gray-200 text-xs underline text-right">
       <a
-        href="https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Kansas_City"
+        href="https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Europe/Championship"
         target="_blank"
       >
         Liquipedia Page for this event
