@@ -33,4 +33,13 @@ export type ScheduleItem = {
   time: string
   items?: { text: string; span: number; highlights?: Team[] }[]
   matches?: Match[]
+  timeslot?: number
+}
+
+export type Schedule = {
+  title: string
+  link: string
+  day1: ScheduleItem[]
+  day2: ScheduleItem[]
+  day3: ScheduleItem[]
 }

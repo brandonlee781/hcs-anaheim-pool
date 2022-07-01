@@ -4,7 +4,7 @@ import useTournament from '@/composables/useTournament'
 import { watch } from 'vue'
 
 const day = useStorage('hsc-day-val', 3)
-const { pools } = useTournament(day)
+const { pools, title, link } = useTournament(day)
 
 const dark = useStorage('hcs-dark-val', true)
 watch(dark, val => {
@@ -19,11 +19,7 @@ watch(dark, val => {
 </script>
 
 <template>
-  <AppHeader
-    v-model:day="day"
-    v-model:dark="dark"
-    title="HCS Valencia Championship"
-  />
+  <AppHeader v-model:day="day" v-model:dark="dark" :title="title" />
   <div class="flex flex-col items-center">
     <div class="min-w-full c*ard">
       <ScheduleTable class="max-w-full" :day="day" />
@@ -36,7 +32,7 @@ watch(dark, val => {
     <PoolTable class="*card" title="Pool D" :teams="pools.D" />
   </div>
 
-  <AppFooter />
+  <AppFooter :link="link" />
   <ReloadPrompt />
 </template>
 

@@ -1,7 +1,7 @@
 import { format } from 'date-fns'
-import { computed } from 'vue'
+import { computed, ComputedRef } from 'vue'
 
-import { ScheduleItem, streams, teams } from '@/data'
+import { Match, Pools, ScheduleItem, streams, TeamPool, teams } from '@/data'
 import { matches, schedule as eventSchedule, pools } from '@/data/valencia'
 import { RemovableRef } from '@vueuse/core'
 
@@ -32,9 +32,19 @@ const noMatches = [
   },
 ]
 
-export default function (day: RemovableRef<number>) {
+type UseTournamentResponse = {
+  title: string
+  link: string
+  teams: TeamPool
+  matches: Match[]
+  schedule: ComputedRef<ScheduleItem[]>
+  pools: Pools
+}
+
+export default function (day?: RemovableRef<number>): UseTournamentResponse {
   const days = [eventSchedule.day1, eventSchedule.day2, eventSchedule.day3]
   const schedule = computed<ScheduleItem[]>(() => {
+    if (!day) return []
     const daySchedule = days[day.value - 1]
     return daySchedule.map((sched): ScheduleItem => {
       if (!sched.items) {
@@ -66,6 +76,8 @@ export default function (day: RemovableRef<number>) {
     })
   })
   return {
+    title: eventSchedule.title,
+    link: eventSchedule.link,
     teams,
     matches,
     schedule,

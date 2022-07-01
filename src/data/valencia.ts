@@ -1,8 +1,10 @@
 import { teams } from './teams'
 import { streams } from './streams'
-import { Match, Pools } from './types'
+import { Match, Pools, Schedule } from './types'
 
-export const schedule = {
+export const schedule: Schedule = {
+  title: 'HCS Valencia Finals',
+  link: 'https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Europe/Championship',
   day1: [
     {
       time: '2022-07-01T09:00:00+0000',

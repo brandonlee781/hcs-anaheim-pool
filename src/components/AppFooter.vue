@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import useTeam from '@/composables/useTeam'
+
 const { clickToHighlight } = useTeam()
+defineProps<{ link: string }>()
 </script>
 
 <template>
@@ -28,12 +30,7 @@ const { clickToHighlight } = useTeam()
     </div>
 
     <div class="dark:text-gray-200 text-xs underline text-right">
-      <a
-        href="https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Europe/Championship"
-        target="_blank"
-      >
-        Liquipedia Page for this event
-      </a>
+      <a :href="link" target="_blank"> Liquipedia Page for this event </a>
     </div>
   </div>
 </template>
