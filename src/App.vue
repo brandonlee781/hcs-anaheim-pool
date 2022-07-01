@@ -22,7 +22,7 @@ watch(dark, val => {
   <AppHeader
     v-model:day="day"
     v-model:dark="dark"
-    title="HCS Kansas City Major"
+    title="HCS Valencia Championship"
   />
   <div class="flex flex-col items-center">
     <div class="min-w-full c*ard">
