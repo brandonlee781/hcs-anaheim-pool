@@ -16,7 +16,7 @@ const show = ref(true)
     >
       <MatchData :match="match" />
     </TableData>
-    <TableData class="table-cell lg:hidden">
+    <TableData class="table-cell lg:hidden" colspan="4">
       <template v-if="show">
         <MatchData
           v-for="(match, i) in matches"

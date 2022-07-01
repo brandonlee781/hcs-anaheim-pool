@@ -2,7 +2,7 @@ import { format } from 'date-fns'
 import { computed } from 'vue'
 
 import { ScheduleItem, streams, teams } from '@/data'
-import { matches, schedule as eventSchedule, pools } from '@/data/kansas-city'
+import { matches, schedule as eventSchedule, pools } from '@/data/valencia'
 import { RemovableRef } from '@vueuse/core'
 
 const noMatches = [

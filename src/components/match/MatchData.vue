@@ -11,11 +11,17 @@ const isMobile = computed(() => windowWidth.value <= 1024)
 const props = defineProps<{ match: Match }>()
 
 const color = computed(() => {
-  if (hoveredTeam.value?.name === props.match.team1?.name) {
-    return props.match.team1?.color
+  if (
+    props.match?.team1 &&
+    hoveredTeam.value?.name === props.match?.team1?.name
+  ) {
+    return props.match?.team1?.color
   }
-  if (hoveredTeam.value?.name === props.match.team2?.name) {
-    return props.match.team2?.color
+  if (
+    props.match?.team2 &&
+    hoveredTeam.value?.name === props.match?.team2?.name
+  ) {
+    return props.match?.team2?.color
   }
   return 'transparent'
 })
@@ -23,7 +29,10 @@ const color = computed(() => {
 
 <template>
   <div class="background" :style="{ borderColor: color }"></div>
-  <div class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center">
+  <div
+    v-if="match"
+    class="w-full flex flex-col sm:flex-row flex-wrap lg:items-center"
+  >
     <div
       class="match-teams text-sm lg:hidden xl:block"
       :style="{

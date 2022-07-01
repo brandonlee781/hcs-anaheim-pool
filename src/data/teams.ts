@@ -138,4 +138,46 @@ export const teams: TeamPool = {
     region: 'EU',
     image: 'blackhand.png',
   },
+  vxd: {
+    name: 'Vexed Gaming',
+    color: '#b31d20',
+    region: 'EU',
+    image: 'vexed.png',
+  },
+  rcl: {
+    name: 'Reclaimers',
+    color: '#42a9f3',
+    region: 'EU',
+    image: 'halo.png',
+  },
+  scr: {
+    name: 'Scorched HVND',
+    color: '#b70d0e',
+    region: 'EU',
+    image: 'scorched.png',
+  },
+  dth: {
+    name: 'Deathrow',
+    color: '#bc2628',
+    region: 'EU',
+    image: 'deathrow.png',
+  },
+  ddog: {
+    name: 'Diamond Dogs',
+    color: '#d9de34',
+    region: 'EU',
+    image: 'halo.png',
+  },
+  olw: {
+    name: 'Online Warriors',
+    color: '#2933f9',
+    region: 'EU',
+    image: 'halo.png',
+  },
+  awo: {
+    name: 'AWOBABOBS',
+    color: '#f6c00f',
+    region: 'EU',
+    image: 'halo.png',
+  },
 }
