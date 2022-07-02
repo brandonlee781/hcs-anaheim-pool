@@ -21,7 +21,35 @@ export const schedule: Schedule = {
     { time: '2022-07-01T16:00:00+0000', timeslot: 4 },
     { time: '2022-07-01T17:30:00+0000', timeslot: 5 },
   ],
-  day2: [],
+  day2: [
+    {
+      time: '2022-07-01T09:00:00+0000',
+      items: [{ text: 'Countdown Begins', span: 4 }],
+    },
+    {
+      time: '2022-07-01T09:30:00+0000',
+      items: [{ text: 'Valencia Pre-show', span: 4 }],
+    },
+    { time: '2022-07-01T10:00:00+0000', timeslot: 0 },
+    { time: '2022-07-01T11:30:00+0000', timeslot: 1 },
+    { time: '2022-07-01T13:00:00+0000', timeslot: 2 },
+    {
+      time: '2022-07-01T14:30:00+0000',
+      items: [{ text: 'Winners Brackets Round 1', span: 4 }],
+    },
+    {
+      time: '2022-07-01T16:00:00+0000',
+      items: [{ text: 'Winnners Brackets Round 1', span: 4 }],
+    },
+    {
+      time: '2022-07-01T17:30:00+0000',
+      items: [{ text: 'Elimination Bracket Round 2', span: 4 }],
+    },
+    {
+      time: '2022-07-01T19:00:00+0000',
+      items: [{ text: 'Elimination Bracket Round 3', span: 4 }],
+    },
+  ],
   day3: [],
 }
 
@@ -70,7 +98,29 @@ const day1Matches: Match[] = [
   },
 ]
 
-const day2Matches: Match[] = []
+const day2Matches: Match[] = [
+  {
+    stream: streams.halo,
+    team1: teams.vexed,
+    team2: teams.witchblades,
+    timeslot: 0,
+    day: 2,
+  },
+  {
+    stream: streams.halo,
+    team1: teams.quadrant,
+    team2: teams.lucendi,
+    timeslot: 0,
+    day: 2,
+  },
+  {
+    stream: streams.halo,
+    team1: teams.navi,
+    team2: teams.conecting,
+    timeslot: 0,
+    day: 2,
+  },
+]
 
 export const matches: Match[] = [...day1Matches, ...day2Matches]
 
