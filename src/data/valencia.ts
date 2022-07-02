@@ -138,14 +138,14 @@ const day2Matches: Match[] = [
     stream: streams.halo,
     team1: teams.quadrant,
     team2: teams.lucendi,
-    timeslot: 0,
+    timeslot: 1,
     day: 2,
   },
   {
     stream: streams.halo,
     team1: teams.navi,
-    team2: teams.conecting,
-    timeslot: 0,
+    team2: teams.connecting,
+    timeslot: 2,
     day: 2,
   },
 ]
