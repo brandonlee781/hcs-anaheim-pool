@@ -50,7 +50,35 @@ export const schedule: Schedule = {
       items: [{ text: 'Elimination Bracket Round 3', span: 4 }],
     },
   ],
-  day3: [],
+  day3: [
+    {
+      time: '2022-07-01T09:00:00+0000',
+      items: [{ text: 'Countdown Begins', span: 4 }],
+    },
+    {
+      time: '2022-07-01T09:30:00+0000',
+      items: [{ text: 'Valencia Pre-show', span: 4 }],
+    },
+    { time: '2022-07-01T10:00:00+0000', items: [{ text: 'TBD', span: 4 }] },
+    { time: '2022-07-01T11:30:00+0000', items: [{ text: 'TBD', span: 4 }] },
+    { time: '2022-07-01T13:00:00+0000', items: [{ text: 'TBD', span: 4 }] },
+    {
+      time: '2022-07-01T14:30:00+0000',
+      items: [{ text: 'TBD', span: 4 }],
+    },
+    {
+      time: '2022-07-01T16:00:00+0000',
+      items: [{ text: 'TBD', span: 4 }],
+    },
+    {
+      time: '2022-07-01T17:30:00+0000',
+      items: [{ text: 'TBD', span: 4 }],
+    },
+    {
+      time: '2022-07-01T19:00:00+0000',
+      items: [{ text: 'TBD', span: 4 }],
+    },
+  ],
 }
 
 const day1Matches: Match[] = [
