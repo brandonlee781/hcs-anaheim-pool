@@ -3,7 +3,7 @@ import { format } from 'date-fns'
 import { computed, ComputedRef } from 'vue'
 
 import { Pools, ScheduleItem, Stream, TeamPool, teams } from '@/data'
-import { schedule as eventSchedule, pools } from '@/data/kansas-city'
+import { schedule as eventSchedule, pools } from '@/data/melbourne'
 import { RemovableRef } from '@vueuse/core'
 
 type UseTournamentResponse = {
