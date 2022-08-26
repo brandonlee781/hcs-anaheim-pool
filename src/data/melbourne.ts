@@ -1,10 +1,11 @@
+/* eslint-disable vue/max-len */
 /* eslint-disable @typescript-eslint/ban-types */
 import { teams } from './teams'
 import { Pools, Schedule } from './types'
 
 export const schedule: Schedule = {
   title: 'HCS Melbourne Finals',
-  link: 'https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Europe/Championship',
+  link: 'https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/Australia-New_Zealand/Melbourne',
   streams: [
     {
       id: 'halo',
