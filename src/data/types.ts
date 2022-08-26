@@ -1,8 +1,9 @@
 export type Match = {
-  stream: Stream
+  stream?: Stream
   team1: Team
   team2: Team
-  timeslot: number
+  timeslot?: number
+  span?: number
   day?: number
 }
 
@@ -23,15 +24,21 @@ export type Team = {
 
 export type TeamPool = { [key: string]: Team }
 export type Pools = {
-  A: Team[]
-  B: Team[]
-  C: Team[]
-  D: Team[]
+  A?: Team[]
+  B?: Team[]
+  C?: Team[]
+  D?: Team[]
 }
 
 export type ScheduleItem = {
   time: string
-  items?: { text: string; span: number; highlights?: Team[] }[]
+  items?: {
+    team1?: Team
+    team2?: Team
+    text?: string
+    span?: number
+    highlights?: Team[]
+  }[]
   matches?: Match[]
   timeslot?: number
 }
@@ -40,6 +47,6 @@ export type Schedule = {
   title: string
   link: string
   day1: ScheduleItem[]
-  day2: ScheduleItem[]
-  day3: ScheduleItem[]
+  day2?: ScheduleItem[]
+  day3?: ScheduleItem[]
 }

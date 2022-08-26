@@ -23,9 +23,7 @@ defineProps<{ headers: { text: string; link?: string }[] }>()
         </th>
       </tr>
     </thead>
-    <tbody
-      class="dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
-    >
+    <tbody class="divide-y">
       <slot :headers="headers"></slot>
     </tbody>
   </table>

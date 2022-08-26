@@ -12,7 +12,7 @@ const { schedule } = useTournament(day)
 const { windowWidth } = useWindowWidth()
 
 const headers = computed(() => {
-  if (windowWidth.value >= 1024) {
+  if (windowWidth.value >= 600) {
     return [
       { text: 'Timeslot' },
       ...Object.values(streams).map(st => ({
@@ -23,31 +23,80 @@ const headers = computed(() => {
   }
   return [{ text: 'Timeslot' }, { text: 'Matches' }]
 })
+
+const getStream = index => {
+  return Object.values(streams)[index]
+}
 </script>
 
 <template>
   <BaseTable class="schedule-table" :headers="headers">
     <template v-for="(timeslot, index) in schedule">
-      <tr v-if="timeslot.items" :key="index">
+      <tr
+        v-if="timeslot.items"
+        :key="index"
+        class="dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
+      >
         <TableData>{{ timeslot.time }}</TableData>
-        <TableData
-          v-for="(item, i) in timeslot.items"
-          :key="`${timeslot.time}-${i}`"
-          :colspan="item.span"
-          class="text-left lg:text-center"
-          :highlights="item.highlights"
-        >
-          {{ item.text }}
-        </TableData>
+        <template v-for="(item, i) in timeslot.items">
+          <TableData
+            v-if="item?.text"
+            :key="`${timeslot.time}-${i}`"
+            :colspan="item.span"
+            class="text-left md:text-center"
+            :highlights="item.highlights"
+          >
+            {{ item.text }}
+          </TableData>
+          <MatchData
+            v-else-if="item.team1 && item.team2"
+            :key="`${timeslot.time}-match-${i}`"
+            :colspan="item.span"
+            :team1="item.team1"
+            :team2="item.team2"
+            :stream="getStream(i)"
+          />
+        </template>
       </tr>
-      <MatchRow
-        v-else-if="timeslot.matches"
-        :key="`match-${index}`"
-        :time="timeslot.time"
-        :matches="timeslot.matches"
-      />
     </template>
   </BaseTable>
 </template>
 
-<style scoped></style>
+<style>
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+</style>

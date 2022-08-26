@@ -2,13 +2,14 @@
 import useTeam from '@/composables/useTeam'
 
 const { clickToHighlight } = useTeam()
-defineProps<{ link: string }>()
+defineProps<{ link: string; showToggle: boolean }>()
 </script>
 
 <template>
   <div class="flex flex-row justify-between align-center">
     <div class="hidden xl:inline">
       <div
+        v-if="showToggle"
         class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"
       >
         <input
@@ -23,7 +24,7 @@ defineProps<{ link: string }>()
           class="toggle-label block overflow-hidden h-6 rounded-full dark:bg-gray-300 light:bg-gray-700 cursor-pointer"
         ></label>
       </div>
-      <label class="cursor-pointer" for="toggle">
+      <label v-if="showToggle" class="cursor-pointer" for="toggle">
         {{ clickToHighlight ? 'Click' : 'Hover' }} team name in their pool to
         highlight their matches
       </label>

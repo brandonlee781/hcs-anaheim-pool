@@ -3,7 +3,7 @@ import { useStorage } from '@vueuse/core'
 import useTournament from '@/composables/useTournament'
 import { watch } from 'vue'
 
-const day = useStorage('hsc-day-val', 3)
+const day = useStorage('hsc-day-val', 1)
 const { pools, title, link } = useTournament(day)
 
 const dark = useStorage('hcs-dark-val', true)
@@ -25,14 +25,14 @@ watch(dark, val => {
       <ScheduleTable class="max-w-full" :day="day" />
     </div>
   </div>
-  <div class="pools">
-    <PoolTable class="*card" title="Pool A" :teams="pools.A" />
-    <PoolTable class="*card" title="Pool B" :teams="pools.B" />
-    <PoolTable class="*card" title="Pool C" :teams="pools.C" />
-    <PoolTable class="*card" title="Pool D" :teams="pools.D" />
+  <div v-if="pools" class="pools">
+    <PoolTable v-if="pools.A" class="*card" title="Pool A" :teams="pools.A" />
+    <PoolTable v-if="pools.B" class="*card" title="Pool B" :teams="pools.B" />
+    <PoolTable v-if="pools.C" class="*card" title="Pool C" :teams="pools.C" />
+    <PoolTable v-if="pools.D" class="*card" title="Pool D" :teams="pools.D" />
   </div>
 
-  <AppFooter :link="link" />
+  <AppFooter :link="link" :show-toggle="!!pools" />
   <ReloadPrompt />
 </template>
 
@@ -64,6 +64,19 @@ watch(dark, val => {
 .toggle-checkbox:checked + .toggle-label {
   @apply bg-green-400;
   background-color: rgb(21, 103, 255);
+}
+
+@media (min-width: 600px) {
+  .pools {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .pools table:first-of-type {
+    margin-left: 0;
+  }
+  .pools table:last-of-type {
+    margin-right: 0;
+  }
 }
 
 @media (min-width: 1200px) {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { teams } from './teams'
 import { streams } from './streams'
 import { Match, Pools, Schedule } from './types'
@@ -14,12 +15,66 @@ export const schedule: Schedule = {
       time: '2022-07-01T09:30:00+0000',
       items: [{ text: 'Pre-Show in Valencia', span: 4 }],
     },
-    { time: '2022-07-01T10:00:00+0000', timeslot: 0 },
-    { time: '2022-07-01T11:30:00+0000', timeslot: 1 },
-    { time: '2022-07-01T13:00:00+0000', timeslot: 2 },
-    { time: '2022-07-01T14:30:00+0000', timeslot: 3 },
-    { time: '2022-07-01T16:00:00+0000', timeslot: 4 },
-    { time: '2022-07-01T17:30:00+0000', timeslot: 5 },
+    {
+      time: '2022-07-01T10:00:00+0000',
+      items: [
+        {
+          team1: teams.onilneWarriors,
+          team2: teams.awobabobs,
+          span: 4,
+        },
+      ],
+    },
+    {
+      time: '2022-07-01T11:30:00+0000',
+      items: [
+        {
+          team1: teams.acend,
+          team2: teams.reclaimers,
+          span: 4,
+        },
+      ],
+    },
+    {
+      time: '2022-07-01T13:00:00+0000',
+      items: [
+        {
+          team1: teams.quadrant,
+          team2: teams.scorchedHand,
+          span: 4,
+        },
+      ],
+    },
+    {
+      time: '2022-07-01T14:30:00+0000',
+      items: [
+        {
+          team1: teams.navi,
+          team2: teams.blackhand,
+          span: 4,
+        },
+      ],
+    },
+    {
+      time: '2022-07-01T16:00:00+0000',
+      items: [
+        {
+          team1: teams.jlingz,
+          team2: teams.awobabobs,
+          span: 4,
+        },
+      ],
+    },
+    {
+      time: '2022-07-01T17:30:00+0000',
+      items: [
+        {
+          team1: teams.navi,
+          team2: teams.diamondDogs,
+          span: 4,
+        },
+      ],
+    },
   ],
   day2: [
     {
@@ -30,9 +85,36 @@ export const schedule: Schedule = {
       time: '2022-07-01T09:30:00+0000',
       items: [{ text: 'Valencia Pre-show', span: 4 }],
     },
-    { time: '2022-07-01T10:00:00+0000', timeslot: 0 },
-    { time: '2022-07-01T11:30:00+0000', timeslot: 1 },
-    { time: '2022-07-01T13:00:00+0000', timeslot: 2 },
+    {
+      time: '2022-07-01T10:00:00+0000',
+      items: [
+        {
+          team1: teams.vexed,
+          team2: teams.witchblades,
+          span: 4,
+        },
+      ],
+    },
+    {
+      time: '2022-07-01T11:30:00+0000',
+      items: [
+        {
+          team1: teams.quadrant,
+          team2: teams.lucendi,
+          span: 4,
+        },
+      ],
+    },
+    {
+      time: '2022-07-01T13:00:00+0000',
+      items: [
+        {
+          team1: teams.navi,
+          team2: teams.connecting,
+          span: 4,
+        },
+      ],
+    },
     {
       time: '2022-07-01T14:30:00+0000',
       items: [{ text: 'Winners Brackets Round 1', span: 4 }],
@@ -81,78 +163,7 @@ export const schedule: Schedule = {
   ],
 }
 
-const day1Matches: Match[] = [
-  {
-    stream: streams.halo,
-    team1: teams.onilneWarriors,
-    team2: teams.awobabobs,
-    timeslot: 0,
-    day: 1,
-  },
-  {
-    stream: streams.halo,
-    team1: teams.acend,
-    team2: teams.reclaimers,
-    timeslot: 1,
-    day: 1,
-  },
-  {
-    stream: streams.halo,
-    team1: teams.quadrant,
-    team2: teams.scorchedHand,
-    timeslot: 2,
-    day: 1,
-  },
-  {
-    stream: streams.halo,
-    team1: teams.navi,
-    team2: teams.blackhand,
-    timeslot: 3,
-    day: 1,
-  },
-  {
-    stream: streams.halo,
-    team1: teams.jlingz,
-    team2: teams.awobabobs,
-    timeslot: 4,
-    day: 1,
-  },
-  {
-    stream: streams.halo,
-    team1: teams.navi,
-    team2: teams.diamondDogs,
-    timeslot: 5,
-    day: 1,
-  },
-]
-
-const day2Matches: Match[] = [
-  {
-    stream: streams.halo,
-    team1: teams.vexed,
-    team2: teams.witchblades,
-    timeslot: 0,
-    day: 2,
-  },
-  {
-    stream: streams.halo,
-    team1: teams.quadrant,
-    team2: teams.lucendi,
-    timeslot: 1,
-    day: 2,
-  },
-  {
-    stream: streams.halo,
-    team1: teams.navi,
-    team2: teams.connecting,
-    timeslot: 2,
-    day: 2,
-  },
-]
-
-export const matches: Match[] = [...day1Matches, ...day2Matches]
-
-export const pools: Pools = {
+export const pools: Pools | undefined = {
   A: [teams.acend, teams.vexed, teams.reclaimers, teams.frostbite],
   B: [teams.quadrant, teams.scorchedHand, teams.deathrow, teams.connecting],
   C: [teams.navi, teams.blackhand, teams.diamondDogs, teams.lucendi],

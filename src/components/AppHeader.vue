@@ -4,7 +4,7 @@ defineProps({
   day: { type: Number, default: 1 },
   dark: { type: Boolean, default: true },
 })
-defineEmits(['update:day', 'update:dark'])
+defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
 </script>
 
 <template>

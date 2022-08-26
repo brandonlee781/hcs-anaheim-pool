@@ -2,74 +2,58 @@
 import useTeam from '@/composables/useTeam'
 import { computed } from 'vue'
 import useWindowWidth from '@/composables/useWindowWidth'
-import { Match } from '@/data'
+import { Match, Stream, Team } from '@/data'
 
 const { hoveredTeam } = useTeam()
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
 
-const props = defineProps<{ match: Match }>()
+const props = defineProps<{ team1: Team; team2: Team; stream: Stream }>()
 
 const color = computed(() => {
-  if (
-    props.match?.team1 &&
-    hoveredTeam.value?.name === props.match?.team1?.name
-  ) {
-    return props.match?.team1?.color
+  if (props.team1 && hoveredTeam.value?.name === props.team1?.name) {
+    return props.team1?.color
   }
-  if (
-    props.match?.team2 &&
-    hoveredTeam.value?.name === props.match?.team2?.name
-  ) {
-    return props.match?.team2?.color
+  if (props.team2 && hoveredTeam.value?.name === props.team2?.name) {
+    return props.team2?.color
   }
   return 'transparent'
 })
 </script>
 
 <template>
-  <div class="background" :style="{ borderColor: color }"></div>
-  <div
-    v-if="match"
-    class="match-data w-full flex flex-col sm:flex-row flex-wrap lg:items-center"
-  >
+  <td class="relative px-6 py-4">
+    <div class="background" :style="{ borderColor: color }"></div>
     <div
-      class="match-teams text-sm lg:hidden xl:block"
-      :style="{
-        textDecoration: isMobile ? 'underline' : 'none',
-        textDecorationThickness: '3px',
-        textDecorationColor: color,
-      }"
+      class="match-data w-full flex flex-row sm:flex-row flex-wrap items-center justify-between md:justify-center"
     >
-      <span>
-        {{ match.team1.name }}
-      </span>
-      vs
-      <span>
-        {{ match.team2.name }}
-      </span>
-    </div>
-    <div
-      class="match-teams min-w-full flex-col items-center hidden lg:flex xl:hidden"
-    >
-      <span>
-        {{ match.team1.name }}
-      </span>
-      <span>vs</span>
-      <span>
-        {{ match.team2.name }}
-      </span>
-    </div>
-    <div class="lg:hidden pl-4">
-      <a
-        class="underline text-xs leading-4"
-        :href="match.stream.link"
-        target="_blank"
+      <div
+        class="match-teams text-sm min-w-full flex flex-row md:flex-col lg:flex-row items-center justify-center"
+        :style="{
+          textDecoration: isMobile ? 'underline' : 'none',
+          textDecorationThickness: '3px',
+          textDecorationColor: color,
+        }"
       >
-        {{ match.stream.name }}
-      </a>
+        <span class="lg:text-right">
+          {{ team1.name }}
+        </span>
+        <span class="md:mx-2">vs</span>
+        <span class="lg:text-left">
+          {{ team2.name }}
+        </span>
+      </div>
+      <div class="md:hidden pl-4">
+        <a
+          class="underline text-xs leading-4 float-left"
+          :href="stream.link"
+          target="_blank"
+        >
+          {{ stream.name }}
+        </a>
+      </div>
     </div>
-  </div>
+  </td>
 </template>
 
 <style scoped>
