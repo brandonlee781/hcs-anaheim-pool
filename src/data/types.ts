@@ -46,6 +46,7 @@ export type ScheduleItem = {
 export type Schedule = {
   title: string
   link: string
+  streams: Stream[]
   day1: ScheduleItem[]
   day2?: ScheduleItem[]
   day3?: ScheduleItem[]

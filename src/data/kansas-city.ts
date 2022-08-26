@@ -1,6 +1,6 @@
+/* eslint-disable vue/max-len */
 import { teams } from './teams'
-import { streams } from './streams'
-import { Match, Pools, Schedule } from './types'
+import { Pools, Schedule } from './types'
 
 export const day1Date = new Date('2022-09-23')
 export const day2Date = new Date('2022-09-24')
@@ -9,6 +9,28 @@ export const day3Date = new Date('2022-09-25')
 export const schedule: Schedule = {
   title: 'HCS Kansas City Major',
   link: 'https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/Major_Kansas_City',
+  streams: [
+    {
+      id: 'halo',
+      name: 'A Stream (Halo)',
+      link: 'https://www.twitch.tv/halo',
+    },
+    {
+      id: 'xbox',
+      name: 'B Stream (Xbox)',
+      link: 'https://www.twitch.tv/xbox',
+    },
+    {
+      id: 'red',
+      name: 'C Stream (HCS_Red)',
+      link: 'https://www.twitch.tv/hcs_red',
+    },
+    {
+      id: 'blue',
+      name: 'D Stream (HCS_Blue)',
+      link: 'https://www.twitch.tv/hcs_blue',
+    },
+  ],
   day1: [
     {
       time: '2022-09-23T17:30:00+0000',

@@ -2,12 +2,11 @@
 import { computed } from 'vue'
 import useWindowWidth from '@/composables/useWindowWidth'
 import useTournament from '@/composables/useTournament'
-import { streams } from '@/data'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
 const day = computed(() => props.day)
 
-const { schedule } = useTournament(day)
+const { schedule, streams } = useTournament(day)
 
 const { windowWidth } = useWindowWidth()
 
@@ -24,7 +23,7 @@ const headers = computed(() => {
   return [{ text: 'Timeslot' }, { text: 'Matches' }]
 })
 
-const getStream = index => {
+const getStream = (index: number) => {
   return Object.values(streams)[index]
 }
 </script>
@@ -37,7 +36,7 @@ const getStream = index => {
         :key="index"
         class="dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
       >
-        <TableData>{{ timeslot.time }}</TableData>
+        <TableData class="w-4">{{ timeslot.time }}</TableData>
         <template v-for="(item, i) in timeslot.items">
           <TableData
             v-if="item?.text"
@@ -63,7 +62,7 @@ const getStream = index => {
 </template>
 
 <style>
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   table {
     border: 0;
   }

@@ -2,41 +2,15 @@
 import { format } from 'date-fns'
 import { computed, ComputedRef } from 'vue'
 
-import { Pools, ScheduleItem, streams, TeamPool, teams } from '@/data'
-import { schedule as eventSchedule, pools } from '@/data/melbourne'
+import { Pools, ScheduleItem, Stream, TeamPool, teams } from '@/data'
+import { schedule as eventSchedule, pools } from '@/data/kansas-city'
 import { RemovableRef } from '@vueuse/core'
-
-const noMatches = [
-  {
-    stream: streams.halo,
-    team1: { name: 'TBD', region: null, color: '' },
-    team2: { name: 'TBD', region: null, color: '' },
-    timeslot: 0,
-  },
-  {
-    stream: streams.xbox,
-    team1: { name: 'TBD', region: null, color: '' },
-    team2: { name: 'TBD', region: null, color: '' },
-    timeslot: 0,
-  },
-  {
-    stream: streams.red,
-    team1: { name: 'TBD', region: null, color: '' },
-    team2: { name: 'TBD', region: null, color: '' },
-    timeslot: 0,
-  },
-  {
-    stream: streams.blue,
-    team1: { name: 'TBD', region: null, color: '' },
-    team2: { name: 'TBD', region: null, color: '' },
-    timeslot: 0,
-  },
-]
 
 type UseTournamentResponse = {
   title: string
   link: string
   teams: TeamPool
+  streams: Stream[]
   schedule: ComputedRef<ScheduleItem[]>
   pools?: Pools
 }
@@ -56,6 +30,7 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
   return {
     title: eventSchedule.title,
     link: eventSchedule.link,
+    streams: eventSchedule.streams,
     teams,
     schedule,
     pools: pools && Object.keys(pools).length ? pools : undefined,

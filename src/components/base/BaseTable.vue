@@ -12,6 +12,7 @@ defineProps<{ headers: { text: string; link?: string }[] }>()
           v-for="(header, index) in headers"
           scope="col"
           class="px-6 py-3 text-left text-xs font-medium dark:text-gray-100 light:text-gray-900 uppercase tracking-wider lg:text-center"
+          :class="[index === 0 ? 'w-4' : '']"
           :key="index"
         >
           <span v-if="header.text && !header.link">

@@ -28,7 +28,7 @@ const color = computed(() => {
       class="match-data w-full flex flex-row sm:flex-row flex-wrap items-center justify-between md:justify-center"
     >
       <div
-        class="match-teams text-sm min-w-full flex flex-row md:flex-col lg:flex-row items-center justify-center"
+        class="match-teams text-sm min-w-full flex flex-row items-center md:(flex-col justify-center) lg:flex-row"
         :style="{
           textDecoration: isMobile ? 'underline' : 'none',
           textDecorationThickness: '3px',
@@ -38,7 +38,7 @@ const color = computed(() => {
         <span class="lg:text-right">
           {{ team1.name }}
         </span>
-        <span class="md:mx-2">vs</span>
+        <span class="mx-2">vs</span>
         <span class="lg:text-left">
           {{ team2.name }}
         </span>
