@@ -90,7 +90,7 @@ export const teams: TeamPool = {
     region: 'NA',
     image: 'kcp.png',
   },
-  knigsts: {
+  knights: {
     name: 'Pittsburgh Knights',
     color: '#fdc00f',
     region: 'MX',
@@ -202,6 +202,42 @@ export const teams: TeamPool = {
     name: 'Witchblades',
     color: '#7588e2',
     region: 'EU',
+    image: 'halo.png',
+  },
+  cintanegra: {
+    name: 'CintaNegra Esports',
+    color: '#77cccb',
+    region: 'MX',
+    image: 'cintanegra.png',
+  },
+  divineMind: {
+    name: 'Divine Mind',
+    color: '#37f6f7',
+    region: 'AZ',
+    image: 'divine-mind.png',
+  },
+  direWolves: {
+    name: 'Dire Wolves',
+    color: '#00aa82',
+    region: 'AZ',
+    image: 'dire-wolves.png',
+  },
+  mindfreak: {
+    name: 'Mindfreak',
+    color: '#017bff',
+    region: 'AZ',
+    image: 'mind-freak.png',
+  },
+  kitbash: {
+    name: 'Kitbash',
+    color: '',
+    region: 'AZ',
+    image: 'halo.png',
+  },
+  immunity: {
+    name: 'Immunity',
+    color: '#e2e2e2',
+    region: 'AZ',
     image: 'halo.png',
   },
 }
