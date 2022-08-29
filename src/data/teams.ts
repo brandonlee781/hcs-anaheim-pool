@@ -240,4 +240,10 @@ export const teams: TeamPool = {
     region: 'AZ',
     image: 'halo.png',
   },
+  noteam: {
+    name: 'No Team',
+    color: '#819abf',
+    region: 'MX',
+    image: 'halo.png',
+  },
 }
