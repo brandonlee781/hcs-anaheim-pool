@@ -111,6 +111,12 @@ export const teams: TeamPool = {
   ssg: {
     name: 'Spacestation Gaming',
     color: '#f5b21f',
+    region: 'MX',
+    image: 'ssg.png',
+  },
+  ssgOld: {
+    name: 'Spacestation Gaming',
+    color: '#f5b21f',
     region: 'NA',
     image: 'ssg.png',
   },

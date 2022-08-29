@@ -241,7 +241,7 @@ export const schedule: Schedule = {
 
 export const pools: Pools = {
   A: [teams.acend, teams.divineMind, teams.navi, teams.g2, teams.tbd],
-  B: [teams.knights, teams.cloud9, teams.pioneers, teams.jlingz, teams.tbd],
+  B: [teams.ssg, teams.cloud9, teams.pioneers, teams.jlingz, teams.tbd],
   C: [teams.optic, teams.quadrant, teams.eunited, teams.noteam, teams.tbd],
   D: [teams.sentinels, teams.g1, teams.faze, teams.cintanegra, teams.tbd],
 }

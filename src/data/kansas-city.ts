@@ -117,7 +117,7 @@ export const schedule: Schedule = {
         },
         {
           team1: teams.xset,
-          team2: teams.ssg,
+          team2: teams.ssgOld,
         },
         {
           team1: teams.jlingz,
@@ -138,7 +138,7 @@ export const schedule: Schedule = {
         },
         {
           team1: teams.acend,
-          team2: teams.ssg,
+          team2: teams.ssgOld,
         },
         {
           team1: teams.sentinels,
@@ -151,7 +151,7 @@ export const schedule: Schedule = {
       items: [
         {
           team1: teams.chiefs,
-          team2: teams.ssg,
+          team2: teams.ssgOld,
         },
         {
           team1: teams.cruelty,
@@ -180,7 +180,7 @@ export const schedule: Schedule = {
         },
         {
           team1: teams.cloud9,
-          team2: teams.ssg,
+          team2: teams.ssgOld,
         },
         {
           team1: teams.eunited,
@@ -240,7 +240,7 @@ export const schedule: Schedule = {
 }
 
 export const pools: Pools = {
-  A: [teams.cloud9, teams.acend, teams.xset, teams.chiefs, teams.ssg],
+  A: [teams.cloud9, teams.acend, teams.xset, teams.chiefs, teams.ssgOld],
   B: [teams.optic, teams.faze, teams.fnatic, teams.navi, teams.complexity],
   C: [teams.eunited, teams.quadrant, teams.g2, teams.cruelty, teams.g1],
   D: [teams.sentinels, teams.pioneers, teams.knights, teams.jlingz, teams.bbg],
