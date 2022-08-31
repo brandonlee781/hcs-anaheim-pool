@@ -5,7 +5,7 @@ import { Pools, Schedule } from './types'
 
 export const schedule: Schedule = {
   title: 'HCS Melbourne Finals',
-  link: 'https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/Australia-New_Zealand/Melbourne',
+  link: 'https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Oceania/Championship',
   streams: [
     {
       id: 'halo',
