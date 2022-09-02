@@ -3,6 +3,9 @@
 import { teams } from './teams'
 import { Pools, Schedule } from './types'
 
+const OFFSET = '+10'
+const getTime = (date: string, time: string) => `${date}T${time}:00${OFFSET}00`
+
 export const schedule: Schedule = {
   title: 'HCS Melbourne Finals',
   link: 'https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Oceania/Championship',
@@ -20,15 +23,15 @@ export const schedule: Schedule = {
   ],
   day1: [
     {
-      time: '2022-09-01T00:00:00+0000',
+      time: getTime('2022-09-02', '10:00'),
       items: [{ text: 'Broadcast Begins', span: 4 }],
     },
     {
-      time: '2022-09-01T00:30:00+0000',
+      time: getTime('2022-09-02', '10:30'),
       items: [{ text: 'Pre-Show in Melbourne', span: 4 }],
     },
     {
-      time: '2022-09-02T01:00:00+0000',
+      time: getTime('2022-09-02', '11:00'),
       items: [
         {
           team1: teams.chiefs,
@@ -38,7 +41,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-02T02:30:00+0000',
+      time: getTime('2022-09-02', '12:30'),
       items: [
         {
           team1: teams.divineMind,
@@ -48,7 +51,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-02T04:00:00+0000',
+      time: getTime('2022-09-02', '14:00'),
       items: [
         {
           team1: teams.mindfreak,
@@ -58,7 +61,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-02T05:30:00+0000',
+      time: getTime('2022-09-02', '15:30'),
       items: [
         {
           team1: teams.divineMind,
@@ -68,7 +71,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-02T07:00:00+0000',
+      time: getTime('2022-09-02', '17:00'),
       items: [
         {
           team1: teams.chiefs,
@@ -78,7 +81,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-02T08:30:00+0000',
+      time: getTime('2022-09-02', '18:30'),
       items: [
         {
           team1: teams.direWolves,
@@ -90,15 +93,15 @@ export const schedule: Schedule = {
   ],
   day2: [
     {
-      time: '2022-09-02T00:00:00+0000',
+      time: getTime('2022-09-03', '10:00'),
       items: [{ text: 'Broadcast Begins', span: 4 }],
     },
     {
-      time: '2022-09-03T00:30:00+0000',
+      time: getTime('2022-09-03', '10:30'),
       items: [{ text: 'Pre-Show in Melbourne', span: 4 }],
     },
     {
-      time: '2022-09-03T01:00:00+0000',
+      time: getTime('2022-09-03', '11:00'),
       items: [
         {
           team1: teams.direWolves,
@@ -108,7 +111,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-03T02:30:00+0000',
+      time: getTime('2022-09-03', '12:30'),
       items: [
         {
           team1: teams.immunity,
@@ -118,7 +121,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-03T04:00:00+0000',
+      time: getTime('2022-09-03', '14:00'),
       items: [
         {
           team1: teams.kitbash,
@@ -128,44 +131,44 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-03T05:30:00+0000',
+      time: getTime('2022-09-03', '15:30'),
       items: [{ text: 'Winners Quarterfinals', span: 4 }],
     },
     {
-      time: '2022-09-03T07:00:00+0000',
+      time: getTime('2022-09-03', '17:00'),
       items: [{ text: 'Winners Quarterfinals', span: 4 }],
     },
     {
-      time: '2022-09-03T08:30:00+0000',
+      time: getTime('2022-09-03', '18:30'),
       items: [{ text: 'Winners Semifinals', span: 4 }],
     },
     {
-      time: '2022-09-03T10:00:00+0000',
+      time: getTime('2022-09-03', '20:00'),
       items: [{ text: 'Winners Semifinals', span: 4 }],
     },
   ],
   day3: [
     {
-      time: '2022-09-04T00:00:00+0000',
+      time: getTime('2022-09-04', '10:00'),
       items: [{ text: 'Broadcast Begins', span: 4 }],
     },
     {
-      time: '2022-09-04T00:30:00+0000',
+      time: getTime('2022-09-04', '10:30'),
       items: [{ text: 'Pre-Show in Melbourne', span: 4 }],
     },
-    { time: '2022-09-04T01:00:00+0000', items: [{ text: 'TBD', span: 4 }] },
-    { time: '2022-09-04T02:30:00+0000', items: [{ text: 'TBD', span: 4 }] },
-    { time: '2022-09-04T04:00:00+0000', items: [{ text: 'TBD', span: 4 }] },
+    { time: getTime('2022-09-04', '11:00'), items: [{ text: 'TBD', span: 4 }] },
+    { time: getTime('2022-09-04', '12:30'), items: [{ text: 'TBD', span: 4 }] },
+    { time: getTime('2022-09-04', '14:00'), items: [{ text: 'TBD', span: 4 }] },
     {
-      time: '2022-09-04T05:30:00+0000',
+      time: getTime('2022-09-04', '15:30'),
       items: [{ text: 'TBD', span: 4 }],
     },
     {
-      time: '2022-09-04T07:00:00+0000',
+      time: getTime('2022-09-04', '17:00'),
       items: [{ text: 'TBD', span: 4 }],
     },
     {
-      time: '2022-09-04T08:30:00+0000',
+      time: getTime('2022-09-04', '18:30'),
       items: [{ text: 'TBD', span: 4 }],
     },
   ],

@@ -6,6 +6,9 @@ export const day1Date = new Date('2022-09-23')
 export const day2Date = new Date('2022-09-24')
 export const day3Date = new Date('2022-09-25')
 
+const OFFSET = '-06'
+const getTime = (date: string, time: string) => `${date}T${time}:00${OFFSET}00`
+
 export const schedule: Schedule = {
   title: 'HCS Orlando Major',
   link: 'https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/Major_Orlando',
@@ -33,15 +36,15 @@ export const schedule: Schedule = {
   ],
   day1: [
     {
-      time: '2022-09-23T17:30:00+0000',
+      time: getTime('2022-09-23', '10:00'),
       items: [{ text: 'Broadcast Begins', span: 4 }],
     },
     {
-      time: '2022-09-23T17:40:00+0000',
+      time: getTime('2022-09-23', '10:30'),
       items: [{ text: 'Orlando Pre-Show', span: 4 }],
     },
     {
-      time: '2022-09-23T18:00:00+0000',
+      time: getTime('2022-09-23', '11:00'),
       items: [
         { team1: teams.tbd, team2: teams.tbd },
         { team1: teams.tbd, team2: teams.tbd },
@@ -50,7 +53,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-23T19:15:00+0000',
+      time: getTime('2022-09-23', '12:30'),
       items: [
         { team1: teams.tbd, team2: teams.tbd },
         { team1: teams.tbd, team2: teams.tbd },
@@ -59,7 +62,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-23T20:30:00+0000',
+      time: getTime('2022-09-23', '14:00'),
       items: [
         { team1: teams.tbd, team2: teams.tbd },
         { team1: teams.tbd, team2: teams.tbd },
@@ -68,7 +71,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-23T21:45:00+0000',
+      time: getTime('2022-09-23', '15:30'),
       items: [
         { team1: teams.tbd, team2: teams.tbd },
         { team1: teams.tbd, team2: teams.tbd },
@@ -77,7 +80,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-23T23:00:00+0000',
+      time: getTime('2022-09-23', '17:00'),
       items: [
         { team1: teams.tbd, team2: teams.tbd },
         { team1: teams.tbd, team2: teams.tbd },
@@ -86,7 +89,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-23T00:15:00+0000',
+      time: getTime('2022-09-23', '18:30'),
       items: [
         { team1: teams.tbd, team2: teams.tbd },
         { team1: teams.tbd, team2: teams.tbd },
@@ -97,15 +100,15 @@ export const schedule: Schedule = {
   ],
   day2: [
     {
-      time: '2022-09-24T17:30:00+0000',
+      time: getTime('2022-09-24', '10:00'),
       items: [{ text: 'Broadcast Begins', span: 4 }],
     },
     {
-      time: '2022-09-24T17:40:00+0000',
+      time: getTime('2022-09-24', '10:30'),
       items: [{ text: 'Kansas City Pre-Show', span: 4 }],
     },
     {
-      time: '2022-09-24T18:00:00+0000',
+      time: getTime('2022-09-24', '11:00'),
       items: [
         {
           team1: teams.tbd,
@@ -126,7 +129,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-24T19:15:00+0000',
+      time: getTime('2022-09-24', '12:30'),
       items: [
         {
           team1: teams.tbd,
@@ -147,7 +150,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-24T20:30:00+0000',
+      time: getTime('2022-09-24', '14:00'),
       items: [
         {
           team1: teams.tbd,
@@ -168,7 +171,7 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-24T21:45:00+0000',
+      time: getTime('2022-09-24', '15:30'),
       items: [
         {
           team1: teams.tbd,
@@ -189,14 +192,14 @@ export const schedule: Schedule = {
       ],
     },
     {
-      time: '2022-09-24T23:00:00+0000',
+      time: getTime('2022-09-24', '17:00'),
       items: [
         { text: 'Winners Quarter Finals', span: 2 },
         { text: 'Elimination Round 1', span: 2 },
       ],
     },
     {
-      time: '2022-09-24T00:15:00+0000',
+      time: getTime('2022-09-24', '18:30'),
       items: [
         { text: 'Winners Quarter Finals', span: 2 },
         { text: 'Elimination Round 1', span: 2 },
@@ -205,35 +208,35 @@ export const schedule: Schedule = {
   ],
   day3: [
     {
-      time: '2022-09-25T17:30:00+0000',
+      time: getTime('2022-09-25', '10:00'),
       items: [{ text: 'Broadcast Begins', span: 4 }],
     },
     {
-      time: '2022-09-25T17:40:00+0000',
+      time: getTime('2022-09-25', '10:30'),
       items: [{ text: 'Kansas City Pre-Show', span: 4 }],
     },
     {
-      time: '2022-09-25T18:00:00+0000',
+      time: getTime('2022-09-25', '11:00'),
       items: [{ text: 'Winners Semi Finals - tbd vs tbd', span: 4 }],
     },
     {
-      time: '2022-09-25T19:15:00+0000',
+      time: getTime('2022-09-25', '12:30'),
       items: [{ text: 'Winners Semi Finals - tbd vs tbd', span: 4 }],
     },
     {
-      time: '2022-09-25T20:30:00+0000',
+      time: getTime('2022-09-25', '14:00'),
       items: [{ text: 'Elimination Quarter Finals', span: 4 }],
     },
     {
-      time: '2022-09-25T21:45:00+0000',
+      time: getTime('2022-09-25', '15:30'),
       items: [{ text: 'Winners Finals', span: 4 }],
     },
     {
-      time: '2022-09-25T23:00:00+0000',
+      time: getTime('2022-09-25', '17:00'),
       items: [{ text: 'Elimination Finals', span: 4 }],
     },
     {
-      time: '2022-09-25T00:15:00+0000',
+      time: getTime('2022-09-25', '18:30'),
       items: [{ text: 'Grand Finals', span: 4 }],
     },
   ],
