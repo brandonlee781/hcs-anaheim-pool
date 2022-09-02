@@ -1,10 +1,10 @@
 /* eslint-disable vue/max-len */
 /* eslint-disable @typescript-eslint/ban-types */
 import { teams } from './teams'
+import { default as time } from './get-time'
 import { Pools, Schedule } from './types'
 
-const OFFSET = '+10'
-const getTime = (date: string, time: string) => `${date}T${time}:00${OFFSET}00`
+const getTime = time('Australia/ACT')
 
 export const schedule: Schedule = {
   title: 'HCS Melbourne Finals',
