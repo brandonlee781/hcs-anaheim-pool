@@ -1,6 +1,6 @@
 const timeZoneName = 'longOffset' as const
 
-const getOffset = (timeZone = 'UTC', date = new Date()) => {
+const getOffset = (timeZone = 'UTC') => {
   const options: Intl.DateTimeFormatOptions = { timeZone, timeZoneName }
   const dateText = Intl.DateTimeFormat([], options).format(new Date())
 

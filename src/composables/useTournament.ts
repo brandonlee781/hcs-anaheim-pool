@@ -3,7 +3,7 @@ import { format } from 'date-fns'
 import { computed, ComputedRef } from 'vue'
 
 import { Pools, ScheduleItem, Stream, TeamPool, teams } from '@/data'
-import { schedule as eventSchedule, pools } from '@/data/melbourne'
+import { schedule as eventSchedule, pools, TIMEZONE } from '@/data/melbourne'
 import { RemovableRef } from '@vueuse/core'
 
 type UseTournamentResponse = {
@@ -13,6 +13,7 @@ type UseTournamentResponse = {
   streams: Stream[]
   schedule: ComputedRef<ScheduleItem[]>
   pools?: Pools
+  timezone: string
 }
 
 export default function (day?: RemovableRef<number>): UseTournamentResponse {
@@ -22,7 +23,8 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
     const daySchedule = days[day.value - 1]
     return daySchedule!.map((sched): ScheduleItem => {
       return {
-        time: format(new Date(sched.time), 'h:mmaaa'),
+        // time: format(new Date(sched.time), 'h:mmaaa'),
+        time: sched.time,
         items: sched.items,
       }
     })
@@ -34,5 +36,6 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
     teams,
     schedule,
     pools: pools && Object.keys(pools).length ? pools : undefined,
+    timezone: TIMEZONE || 'UTC',
   }
 }

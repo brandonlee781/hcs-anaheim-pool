@@ -2,11 +2,13 @@
 import { computed } from 'vue'
 import useWindowWidth from '@/composables/useWindowWidth'
 import useTournament from '@/composables/useTournament'
+import { format } from 'date-fns'
+import { formatInTimeZone } from 'date-fns-tz'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
 const day = computed(() => props.day)
 
-const { schedule, streams } = useTournament(day)
+const { schedule, streams, timezone } = useTournament(day)
 
 const { windowWidth } = useWindowWidth()
 
@@ -26,6 +28,14 @@ const headers = computed(() => {
 const getStream = (index: number) => {
   return Object.values(streams)[index]
 }
+
+const getUserTime = (time: string) => {
+  return format(new Date(time), 'h:mmaaa')
+}
+
+const getTourneyTime = (time: string) => {
+  return formatInTimeZone(new Date(time), timezone, 'MM/dd/yyyy h:mmaaa')
+}
 </script>
 
 <template>
@@ -36,7 +46,15 @@ const getStream = (index: number) => {
         :key="index"
         class="dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
       >
-        <TableData class="w-4">{{ timeslot.time }}</TableData>
+        <TableData class="w-4 time-wrapper">
+          <span>{{ getUserTime(timeslot.time) }}</span>
+          <div
+            class="bg-black text-white text-xs rounded py-1 px-4 right-0 bottom-full time-tooltip"
+          >
+            <div>Tournament Local Time:</div>
+            <div>{{ getTourneyTime(timeslot.time) }}</div>
+          </div>
+        </TableData>
         <template v-for="(item, i) in timeslot.items">
           <TableData
             v-if="item?.text"
@@ -97,5 +115,22 @@ const getStream = (index: number) => {
   table td:last-child {
     border-bottom: 0;
   }
+}
+
+.time-tooltip {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 80px;
+  width: 160px;
+  height: 40px;
+}
+
+.time-wrapper {
+  position: relative;
+}
+
+.time-wrapper:hover .time-tooltip {
+  display: block;
 }
 </style>

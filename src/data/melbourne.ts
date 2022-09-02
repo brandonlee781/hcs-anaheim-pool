@@ -4,7 +4,8 @@ import { teams } from './teams'
 import { default as time } from './get-time'
 import { Pools, Schedule } from './types'
 
-const getTime = time('Australia/ACT')
+export const TIMEZONE = 'Australia/ACT'
+const getTime = time(TIMEZONE)
 
 export const schedule: Schedule = {
   title: 'HCS Melbourne Finals',
