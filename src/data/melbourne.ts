@@ -20,19 +20,19 @@ export const schedule: Schedule = {
   ],
   day1: [
     {
-      time: '2022-09-02T00:00:00+0000',
+      time: '2022-09-01T00:00:00+0000',
       items: [{ text: 'Broadcast Begins', span: 4 }],
     },
     {
-      time: '2022-09-02T00:30:00+0000',
+      time: '2022-09-01T00:30:00+0000',
       items: [{ text: 'Pre-Show in Melbourne', span: 4 }],
     },
     {
       time: '2022-09-02T01:00:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.chiefs,
+          team2: teams.mindfreak,
           span: 4,
         },
       ],
@@ -41,8 +41,8 @@ export const schedule: Schedule = {
       time: '2022-09-02T02:30:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.divineMind,
+          team2: teams.direWolves,
           span: 4,
         },
       ],
@@ -51,8 +51,8 @@ export const schedule: Schedule = {
       time: '2022-09-02T04:00:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.mindfreak,
+          team2: teams.immunity,
           span: 4,
         },
       ],
@@ -61,8 +61,8 @@ export const schedule: Schedule = {
       time: '2022-09-02T05:30:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.divineMind,
+          team2: teams.kitbash,
           span: 4,
         },
       ],
@@ -71,18 +71,18 @@ export const schedule: Schedule = {
       time: '2022-09-02T07:00:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.chiefs,
+          team2: teams.immunity,
           span: 4,
         },
       ],
     },
     {
-      time: '2022-09-02T09:30:00+0000',
+      time: '2022-09-02T08:30:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.direWolves,
+          team2: teams.kitbash,
           span: 4,
         },
       ],
@@ -136,11 +136,11 @@ export const schedule: Schedule = {
       items: [{ text: 'Winnners Brackets Round 1', span: 4 }],
     },
     {
-      time: '2022-09-03T09:30:00+0000',
+      time: '2022-09-03T08:30:00+0000',
       items: [{ text: 'Elimination Bracket Round 2', span: 4 }],
     },
     {
-      time: '2022-09-03T11:00:00+0000',
+      time: '2022-09-03T10:00:00+0000',
       items: [{ text: 'Elimination Bracket Round 3', span: 4 }],
     },
   ],
@@ -165,7 +165,7 @@ export const schedule: Schedule = {
       items: [{ text: 'TBD', span: 4 }],
     },
     {
-      time: '2022-09-04T09:30:00+0000',
+      time: '2022-09-04T08:30:00+0000',
       items: [{ text: 'TBD', span: 4 }],
     },
   ],
