@@ -258,4 +258,16 @@ export const teams: TeamPool = {
     region: 'NA',
     image: 'native.png',
   },
+  vertex: {
+    name: 'VERTEX',
+    color: '#512f6c',
+    region: 'AZ',
+    image: 'vertex.png',
+  },
+  bandits: {
+    name: 'Bandits',
+    color: '#d70029',
+    region: 'AZ',
+    image: 'bandits.png',
+  },
 }
