@@ -101,8 +101,8 @@ export const schedule: Schedule = {
       time: '2022-09-03T01:00:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.direWolves,
+          team2: teams.vertex,
           span: 4,
         },
       ],
@@ -111,8 +111,8 @@ export const schedule: Schedule = {
       time: '2022-09-03T02:30:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.immunity,
+          team2: teams.bandits,
           span: 4,
         },
       ],
@@ -121,27 +121,27 @@ export const schedule: Schedule = {
       time: '2022-09-03T04:00:00+0000',
       items: [
         {
-          team1: teams.tbd,
-          team2: teams.tbd,
+          team1: teams.kitbash,
+          team2: teams.vertex,
           span: 4,
         },
       ],
     },
     {
       time: '2022-09-03T05:30:00+0000',
-      items: [{ text: 'Winners Brackets Round 1', span: 4 }],
+      items: [{ text: 'Winners Quarterfinals', span: 4 }],
     },
     {
       time: '2022-09-03T07:00:00+0000',
-      items: [{ text: 'Winnners Brackets Round 1', span: 4 }],
+      items: [{ text: 'Winners Quarterfinals', span: 4 }],
     },
     {
       time: '2022-09-03T08:30:00+0000',
-      items: [{ text: 'Elimination Bracket Round 2', span: 4 }],
+      items: [{ text: 'Winners Semifinals', span: 4 }],
     },
     {
       time: '2022-09-03T10:00:00+0000',
-      items: [{ text: 'Elimination Bracket Round 3', span: 4 }],
+      items: [{ text: 'Winners Semifinals', span: 4 }],
     },
   ],
   day3: [
@@ -172,6 +172,6 @@ export const schedule: Schedule = {
 }
 
 export const pools: Pools = {
-  A: [teams.divineMind, teams.direWolves, teams.kitbash, teams.tbd],
-  B: [teams.chiefs, teams.mindfreak, teams.immunity, teams.tbd],
+  A: [teams.divineMind, teams.direWolves, teams.kitbash, teams.vertex],
+  B: [teams.chiefs, teams.mindfreak, teams.immunity, teams.bandits],
 }
