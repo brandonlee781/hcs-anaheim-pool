@@ -119,7 +119,7 @@ const getTourneyTime = (time: string) => {
 .time-tooltip {
   display: none;
   position: absolute;
-  top: 5px;
+  top: calc(50% - 20px);
   left: 80px;
   width: 160px;
   height: 40px;
