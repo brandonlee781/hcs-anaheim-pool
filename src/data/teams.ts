@@ -252,9 +252,15 @@ export const teams: TeamPool = {
     region: 'MX',
     image: 'halo.png',
   },
-  native: {
-    name: 'Native Gaming',
+  nativeRed: {
+    name: 'Native Gaming - Red',
     color: '#d21f3d',
+    region: 'NA',
+    image: 'native.png',
+  },
+  nativeBlack: {
+    name: 'Native Gaming - Black',
+    color: '#33080F',
     region: 'NA',
     image: 'native.png',
   },
