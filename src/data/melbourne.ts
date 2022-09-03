@@ -93,10 +93,10 @@ export const schedule: Schedule = {
     },
   ],
   day2: [
-    {
-      time: getTime('2022-09-03', '10:00'),
-      items: [{ text: 'Broadcast Begins', span: 4 }],
-    },
+    // {
+    //   time: getTime('2022-09-03', '10:00'),
+    //   items: [{ text: 'Broadcast Begins', span: 4 }],
+    // },
     {
       time: getTime('2022-09-03', '10:30'),
       items: [{ text: 'Pre-Show in Melbourne', span: 4 }],
@@ -149,10 +149,10 @@ export const schedule: Schedule = {
     },
   ],
   day3: [
-    {
-      time: getTime('2022-09-04', '10:00'),
-      items: [{ text: 'Broadcast Begins', span: 4 }],
-    },
+    // {
+    //   time: getTime('2022-09-04', '10:00'),
+    //   items: [{ text: 'Broadcast Begins', span: 4 }],
+    // },
     {
       time: getTime('2022-09-04', '10:30'),
       items: [{ text: 'Pre-Show in Melbourne', span: 4 }],
