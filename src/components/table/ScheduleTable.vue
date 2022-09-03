@@ -55,22 +55,21 @@ const getTourneyTime = (time: string) => {
             <div>{{ getTourneyTime(timeslot.time) }}</div>
           </div>
         </TableData>
-        <template v-for="(item, i) in timeslot.items">
-          <TableData
-            v-if="item?.text"
+        <template v-for="(item, i) in timeslot.items" :key="i">
+          <!-- <TableData
+            v-if="!item.team1 && !item.team2"
             :key="`${timeslot.time}-${i}`"
             :colspan="item.span"
             class="text-left md:text-center"
             :highlights="item.highlights"
           >
             {{ item.text }}
-          </TableData>
+          </TableData> -->
           <MatchData
-            v-else-if="item.team1 && item.team2"
-            :key="`${timeslot.time}-match-${i}`"
             :colspan="item.span"
             :team1="item.team1"
             :team2="item.team2"
+            :text="item.text"
             :stream="getStream(i)"
           />
         </template>

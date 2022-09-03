@@ -8,7 +8,12 @@ const { hoveredTeam } = useTeam()
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
 
-const props = defineProps<{ team1: Team; team2: Team; stream: Stream }>()
+const props = defineProps<{
+  team1?: Team
+  team2?: Team
+  stream: Stream
+  text?: string
+}>()
 
 const color = computed(() => {
   if (props.team1 && hoveredTeam.value?.name === props.team1?.name) {
@@ -27,19 +32,23 @@ const color = computed(() => {
     <div
       class="match-data w-full flex flex-row sm:flex-row flex-wrap items-center justify-between md:justify-center"
     >
+      <div v-if="text" class="text-sm mb-2">
+        {{ text }}
+      </div>
       <div
-        class="match-teams text-sm min-w-full flex flex-row items-center md:(flex-col justify-center) lg:flex-row"
+        v-if="team1 && team2"
+        class="match-teams text-md font-semibold tracking-wider lead min-w-full flex flex-row items-center md:(flex-col justify-center) lg:flex-row"
         :style="{
           textDecoration: isMobile ? 'underline' : 'none',
           textDecorationThickness: '3px',
           textDecorationColor: color,
         }"
       >
-        <span class="lg:text-right">
+        <span v-if="team1" class="lg:text-right">
           {{ team1.name }}
         </span>
         <span class="mx-2">vs</span>
-        <span class="lg:text-left">
+        <span v-if="team2" class="lg:text-left">
           {{ team2.name }}
         </span>
       </div>
