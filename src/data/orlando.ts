@@ -6,8 +6,9 @@ import getTime from './get-time'
 export const day1Date = new Date('2022-09-23')
 export const day2Date = new Date('2022-09-24')
 export const day3Date = new Date('2022-09-25')
+export const TIMEZONE = 'America/New_York'
 
-const time = getTime('America/New_York')
+const time = getTime(TIMEZONE)
 
 export const schedule: Schedule = {
   title: 'HCS Orlando Major',
@@ -243,8 +244,8 @@ export const schedule: Schedule = {
 }
 
 export const pools: Pools = {
-  A: [teams.acend, teams.divineMind, teams.navi, teams.g2, teams.tbd],
-  B: [teams.ssg, teams.cloud9, teams.pioneers, teams.jlingz, teams.tbd],
-  C: [teams.optic, teams.quadrant, teams.eunited, teams.noteam, teams.tbd],
-  D: [teams.sentinels, teams.g1, teams.faze, teams.cintanegra, teams.tbd],
+  A: [teams.acend, teams.cloud9, teams.navi, teams.g2],
+  B: [teams.ssg, teams.chiefs, teams.pioneers, teams.jlingz],
+  C: [teams.optic, teams.quadrant, teams.eunited, teams.noteam],
+  D: [teams.sentinels, teams.g1, teams.faze, teams.cintanegra],
 }

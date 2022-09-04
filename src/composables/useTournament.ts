@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { format } from 'date-fns'
 import { computed, ComputedRef } from 'vue'
 
 import { Pools, ScheduleItem, Stream, TeamPool, teams } from '@/data'
-import { schedule as eventSchedule, pools, TIMEZONE } from '@/data/melbourne'
+import { schedule as eventSchedule, pools, TIMEZONE } from '@/data/orlando'
 import { RemovableRef } from '@vueuse/core'
 
 type UseTournamentResponse = {
