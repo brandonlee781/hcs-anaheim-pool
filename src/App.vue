@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { useStorage } from '@vueuse/core'
 import useTournament from '@/composables/useTournament'
-import { watch } from 'vue'
+import { watch, ref } from 'vue'
 
 const day = useStorage('hsc-day-val', 1)
 const { pools, title, link } = useTournament(day)
+
+const warningModal = ref(true)
 
 const dark = useStorage('hcs-dark-val', true)
 watch(dark, val => {
@@ -33,6 +35,23 @@ watch(dark, val => {
   </div>
 
   <AppFooter :link="link" :show-toggle="!!pools" />
+
+  <BaseModal v-model="warningModal" @click:close="warningModal = false">
+    <span class="text-xl">
+      Times, events and Pools are based on previous tournaments and current HCS
+      points. These are all subject to change.
+    </span>
+
+    <template #actions>
+      <a
+        class="*btn bg-blue-500 ml-auto"
+        role="button"
+        @click="warningModal = false"
+        >Understood</a
+      >
+    </template>
+  </BaseModal>
+
   <ReloadPrompt />
 </template>
 
