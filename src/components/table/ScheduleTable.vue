@@ -49,7 +49,7 @@ const getTourneyTime = (time: string) => {
         <TableData class="w-4 time-wrapper">
           <span>{{ getUserTime(timeslot.time) }}</span>
           <div
-            class="bg-black text-white text-xs rounded py-1 px-4 right-0 bottom-full time-tooltip"
+            class="bg-black text-white text-xs rounded py-1 px-4 right-0 bottom-full time-tooltip z-50"
           >
             <div>Tournament Local Time:</div>
             <div>{{ getTourneyTime(timeslot.time) }}</div>
