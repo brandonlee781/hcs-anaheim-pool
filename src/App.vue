@@ -36,7 +36,7 @@ watch(dark, val => {
 
   <AppFooter :link="link" :show-toggle="!!pools" />
 
-  <BaseModal v-model="warningModal" @click:close="warningModal = false">
+  <!-- <BaseModal v-model="warningModal" @click:close="warningModal = false">
     <span class="text-xl">
       Times, events and Pools are based on previous tournaments and current HCS
       points. These are all subject to change.
@@ -50,7 +50,7 @@ watch(dark, val => {
         >Understood</a
       >
     </template>
-  </BaseModal>
+  </BaseModal> -->
 
   <ReloadPrompt />
 </template>
