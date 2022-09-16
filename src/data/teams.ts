@@ -276,4 +276,22 @@ export const teams: TeamPool = {
     region: 'AZ',
     image: 'bandits.png',
   },
+  rebellion: {
+    name: 'Shopify Rebellion',
+    color: '#edeceb',
+    region: 'NA',
+    image: 'rebellion.png',
+  },
+  tss: {
+    name: 'TSS Esports',
+    color: '#faf302',
+    region: 'NA',
+    image: 'halo.png',
+  },
+  forbiddenFruit: {
+    name: 'Forbidden Fruit',
+    color: '#f42d4e',
+    region: 'NA',
+    image: 'halo.png',
+  },
 }
