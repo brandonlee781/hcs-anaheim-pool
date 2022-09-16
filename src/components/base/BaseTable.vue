@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ headers: { text: string; link?: string }[] }>()
+defineProps<{ headers: { text: string; link?: string; span?: number }[] }>()
 </script>
 
 <template>
@@ -14,6 +14,7 @@ defineProps<{ headers: { text: string; link?: string }[] }>()
           class="px-6 py-3 text-left text-xs font-medium dark:text-gray-100 light:text-gray-900 uppercase tracking-wider lg:text-center"
           :class="[index === 0 ? 'w-4' : '']"
           :key="index"
+          :colspan="index === 0 ? 1 : header.span"
         >
           <span v-if="header.text && !header.link">
             {{ header.text }}

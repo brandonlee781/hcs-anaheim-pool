@@ -7,7 +7,7 @@ export type Match = {
   day?: number
 }
 
-export type Stream = { id: string; name: string; link: string }
+export type Stream = { id: string; name: string; link: string; span?: number }
 export type Streams = {
   halo: Stream
   xbox: Stream
