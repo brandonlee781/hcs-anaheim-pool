@@ -4,7 +4,7 @@ import useTournament from '@/composables/useTournament'
 import { watch, ref } from 'vue'
 
 const day = useStorage('hsc-day-val', 1)
-const { pools, title, link } = useTournament(day)
+const { pools, title, link, participants } = useTournament(day)
 
 const warningModal = ref(true)
 
@@ -32,6 +32,14 @@ watch(dark, val => {
     <PoolTable v-if="pools.B" class="*card" title="Pool B" :teams="pools.B" />
     <PoolTable v-if="pools.C" class="*card" title="Pool C" :teams="pools.C" />
     <PoolTable v-if="pools.D" class="*card" title="Pool D" :teams="pools.D" />
+  </div>
+  <div v-if="participants" class="participants grid grid-cols-4 mt-4">
+    <PoolTableItem
+      v-for="(team, index) in participants"
+      :key="index"
+      :index="index"
+      :team="team"
+    />
   </div>
 
   <AppFooter :link="link" :show-toggle="!!pools" />
