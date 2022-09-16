@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import useTournament from '@/composables/useTournament'
+import { computed } from '@vue/reactivity'
+
 defineProps({
   title: { type: String, defaut: null },
   day: { type: Number, default: 1 },
   dark: { type: Boolean, default: true },
 })
 defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
+const { event } = useTournament()
 </script>
 
 <template>
@@ -25,12 +29,14 @@ defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
           >Day 1</a
         >
         <a
+          v-if="event.day2"
           :class="{ '*btn': true, active: day === 2 }"
           role="button"
           @click="$emit('update:day', 2)"
           >Day 2</a
         >
         <a
+          v-if="event.day3"
           :class="{ '*btn': true, active: day === 3 }"
           role="button"
           @click="$emit('update:day', 3)"
