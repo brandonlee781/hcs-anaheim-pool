@@ -1,39 +1,40 @@
 <script setup lang="ts">
+import { watch, ref, onMounted } from 'vue'
 import { useStorage } from '@vueuse/core'
 import useTournament from '@/composables/useTournament'
-import { watch, ref } from 'vue'
+import { useUiStore } from './store/ui'
 
 const day = useStorage('hsc-day-val', 1)
-const { pools, title, link, participants } = useTournament(day)
+const { pools, title, link, participants, styles } = useTournament(day)
 
 const warningModal = ref(true)
 
-const dark = useStorage('hcs-dark-val', true)
-watch(dark, val => {
-  if (val) {
-    document.documentElement.classList.add('dark')
-    document.documentElement.classList.remove('light')
-  } else {
-    document.documentElement.classList.add('light')
-    document.documentElement.classList.remove('dark')
-  }
+const uiStore = useUiStore()
+onMounted(() => {
+  uiStore.setStyle(styles)
 })
+// const dark = useStorage('hcs-dark-val', true)
+// watch(dark, val => {
+//   if (val) {
+//     document.documentElement.classList.add('dark')
+//     document.documentElement.classList.remove('light')
+//   } else {
+//     document.documentElement.classList.add('light')
+//     document.documentElement.classList.remove('dark')
+//   }
+// })
 </script>
 
 <template>
-  <AppHeader v-model:day="day" v-model:dark="dark" :title="title" />
-  <div class="flex flex-col items-center">
-    <div class="min-w-full c*ard">
-      <ScheduleTable class="max-w-full" :day="day" />
-    </div>
-  </div>
+  <AppHeader v-model:day="day" v-model:dark="uiStore.darkMode" :title="title" />
+  <ScheduleTable class="max-w-full" :day="day" />
   <div v-if="pools" class="pools">
     <PoolTable v-if="pools.A" class="*card" title="Pool A" :teams="pools.A" />
     <PoolTable v-if="pools.B" class="*card" title="Pool B" :teams="pools.B" />
     <PoolTable v-if="pools.C" class="*card" title="Pool C" :teams="pools.C" />
     <PoolTable v-if="pools.D" class="*card" title="Pool D" :teams="pools.D" />
   </div>
-  <div v-if="participants" class="participants grid grid-cols-4 mt-4">
+  <div v-if="participants" class="participants grid grid-cols-4 gap-2 mt-4">
     <PoolTableItem
       v-for="(team, index) in participants"
       :key="index"
@@ -111,7 +112,8 @@ watch(dark, val => {
     height: 100vh;
   }
   #app {
-    margin: 1rem auto;
+    margin: 0 auto;
+    padding: 1rem;
   }
   .pools {
     grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -2,6 +2,8 @@
 import { Team } from '@/data'
 import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
+import { useUiStore } from '@/store/ui'
+import { computed } from '@vue/reactivity'
 
 const props = defineProps<{ team: Team; index: number }>()
 const { windowWidth } = useWindowWidth()
@@ -36,16 +38,27 @@ const getSrc = (image: string) => {
   const url = new URL(`../../assets/images/${image}`, import.meta.url).href
   return url
 }
+
+const uiStore = useUiStore()
+
+const background = computed(() => `${props.team.color}33`)
 </script>
 
 <template>
   <div
-    class="pool-item-td cursor-pointer dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
+    class="pool-item-td cursor-pointer"
+    :class="[uiStore.tableDataStyle]"
     @click="() => onClick(team)"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
   >
-    <div :class="{ 'pool-item-wrapper mobile-row': true, hovered }">
+    <div
+      :class="{
+        'pool-item-wrapper mobile-row': true,
+        [uiStore.poolHoverStyle]: hovered,
+        hovered,
+      }"
+    >
       <div class="team-image">
         <img v-if="team.image" :src="getSrc(team.image)" />
       </div>
@@ -60,7 +73,7 @@ const getSrc = (image: string) => {
 <style scoped>
 * {
   --default-pool-height: 52px;
-  --default-pool-width: 294px;
+  --default-pool-width: 288px;
   --pool-hover-height-offset: 10px;
   --pool-hover-width-offset: 20px;
 }
@@ -79,7 +92,7 @@ const getSrc = (image: string) => {
 } */
 
 .pool-item-wrapper {
-  @apply bg-gray-900 border-b-1 border-bottom-gray-200 px-6 whitespace-nowrap text-sm font-medium text-gray-200;
+  @apply border-b-1 px-6 whitespace-nowrap text-sm font-medium;
   position: absolute;
   height: var(--default-pool-height);
   width: var(--default-pool-width);
@@ -95,9 +108,9 @@ const getSrc = (image: string) => {
   transition: all 0.2s ease;
 }
 
-.light .pool-item-wrapper {
+/* .light .pool-item-wrapper {
   @apply bg-gray-100 border-bottom-gray-800 text-gray-800;
-}
+} */
 
 .team-image {
   display: none;
@@ -123,7 +136,7 @@ const getSrc = (image: string) => {
 }
 
 .pool-item-wrapper.hovered {
-  @apply bg-gray-700 border-1 pl-0;
+  @apply border-1 pl-0;
   grid-template-columns: 75px 1fr 1fr;
   top: -10px;
   left: -20px;
@@ -132,10 +145,6 @@ const getSrc = (image: string) => {
   height: calc(var(--default-pool-height) + 20px);
   width: calc(var(--default-pool-width) + 40px);
   z-index: 2;
-}
-
-.light .pool-item-wrapper.hovered {
-  @apply bg-gray-300;
 }
 
 .pool-item-wrapper.hovered .team-image {

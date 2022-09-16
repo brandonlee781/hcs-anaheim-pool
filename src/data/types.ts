@@ -1,3 +1,5 @@
+import { Style } from '@/store/ui'
+
 export type Match = {
   stream?: Stream
   team1: Team
@@ -50,4 +52,5 @@ export type Schedule = {
   day1: ScheduleItem[]
   day2?: ScheduleItem[]
   day3?: ScheduleItem[]
+  styles?: Partial<Style>
 }

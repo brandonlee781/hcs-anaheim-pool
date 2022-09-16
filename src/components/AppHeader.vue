@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import useTournament from '@/composables/useTournament'
-import { computed } from '@vue/reactivity'
+import { useUiStore } from '@/store/ui'
 
 defineProps({
   title: { type: String, defaut: null },
@@ -9,6 +9,7 @@ defineProps({
 })
 defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
 const { event } = useTournament()
+const uiStore = useUiStore()
 </script>
 
 <template>
@@ -16,35 +17,48 @@ const { event } = useTournament()
     {{ title }}
   </h1>
   <div
-    class="py-2 px-6 dark:bg-gray-700 light:bg-gray-200 shadow-lg rounded-lg mb-2"
+    class="py-2 px-6 mb-2 dark:text-gray-200"
+    :class="[uiStore.tableHeadStyle, uiStore.cardStyle]"
   >
     <div class="flex flex-col-reverse lg:flex-row justify-between items-center">
       <div
         class="w-full flex flex-row items-start mt-4 lg:(items-center mt-0 w-half) xl:w-auto"
       >
         <a
-          :class="{ '*btn': true, active: day === 1 }"
+          class="*btn"
+          :class="[
+            uiStore.buttonStyle,
+            day === 1 ? `active ${uiStore.buttonActiveStyle}` : '',
+          ]"
           role="button"
           @click="$emit('update:day', 1)"
           >Day 1</a
         >
         <a
           v-if="event.day2"
-          :class="{ '*btn': true, active: day === 2 }"
+          class="*btn"
+          :class="[
+            uiStore.buttonStyle,
+            day === 2 ? `active ${uiStore.buttonActiveStyle}` : '',
+          ]"
           role="button"
           @click="$emit('update:day', 2)"
           >Day 2</a
         >
         <a
           v-if="event.day3"
-          :class="{ '*btn': true, active: day === 3 }"
+          class="*btn"
+          :class="[
+            uiStore.buttonStyle,
+            day === 3 ? `active ${uiStore.buttonActiveStyle}` : '',
+          ]"
           role="button"
           @click="$emit('update:day', 3)"
           >Day 3</a
         >
       </div>
       <div class="flex flex-row flex-nowrap items-center justify-center">
-        <p class="dark:text-gray-200">
+        <p class="">
           All times are automatically converted to your timezone.
           <span class="xs:inline xl:hidden"
             >Click a team in the pools below to highlight them in the
@@ -54,10 +68,7 @@ const { event } = useTournament()
             Click the time to show and hide it's matches.</span
           >
         </p>
-        <a
-          class="cursor-pointer w-4 h-4 ml-4"
-          @click="$emit('update:dark', !dark)"
-        >
+        <a class="cursor-pointer w-4 h-4 ml-4" @click="uiStore.setDarkMode()">
           <i-mdi-theme-light-dark />
         </a>
       </div>
@@ -65,12 +76,4 @@ const { event } = useTournament()
   </div>
 </template>
 
-<style scoped>
-a.active {
-  background: rgba(255, 255, 255, 0.2);
-}
-.light a.active {
-  @apply text-gray-200;
-  background: rgba(0, 0, 0, 0.5);
-}
-</style>
+<style scoped></style>

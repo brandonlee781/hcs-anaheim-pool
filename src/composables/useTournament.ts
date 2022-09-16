@@ -17,6 +17,8 @@ import {
   TIMEZONE,
 } from '@/data/grunt-classic'
 import { RemovableRef } from '@vueuse/core'
+import { Style } from '@/store/ui'
+import { defaultStyle } from '@/data/styles'
 
 type UseTournamentResponse = {
   title: string
@@ -28,6 +30,7 @@ type UseTournamentResponse = {
   participants?: Team[]
   timezone: string
   event: Schedule
+  styles: Style
 }
 
 export default function (day?: RemovableRef<number>): UseTournamentResponse {
@@ -54,5 +57,9 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
       participants && participants.length ? participants : undefined,
     timezone: TIMEZONE || 'UTC',
     event: eventSchedule,
+    styles: {
+      ...defaultStyle,
+      ...eventSchedule.styles,
+    },
   }
 }

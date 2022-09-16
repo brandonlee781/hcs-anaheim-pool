@@ -4,9 +4,11 @@ import useWindowWidth from '@/composables/useWindowWidth'
 import useTournament from '@/composables/useTournament'
 import { format } from 'date-fns'
 import { formatInTimeZone } from 'date-fns-tz'
+import { useUiStore } from '@/store/ui'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
 const day = computed(() => props.day)
+const uiStore = useUiStore()
 
 const { schedule, streams, timezone } = useTournament(day)
 
@@ -40,12 +42,16 @@ const getTourneyTime = (time: string) => {
 </script>
 
 <template>
-  <BaseTable class="schedule-table" :headers="headers">
+  <BaseTable
+    class="schedule-table"
+    :class="[uiStore.cardStyle]"
+    :headers="headers"
+  >
     <template v-for="(timeslot, index) in schedule">
       <tr
         v-if="timeslot.items"
         :key="index"
-        class="dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
+        :class="[uiStore.tableDataStyle, uiStore.tableHeaderStyle]"
       >
         <TableData class="w-4 time-wrapper">
           <span>{{ getUserTime(timeslot.time) }}</span>

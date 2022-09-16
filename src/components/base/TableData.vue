@@ -2,7 +2,8 @@
   <td class="px-6 py-4 whitespace-nowrap">
     <div class="background" :style="{ borderColor: color }"></div>
     <div
-      class="text-sm font-medium dark:text-gray-200 light:text-gray-800 mobile-row data-slot"
+      class="text-sm font-medium mobile-row data-slot"
+      :class="[uiStore.tableDataStyle]"
       :style="{
         textDecoration: isMobile ? 'underline' : 'none',
         textDecorationThickness: '3px',
@@ -18,6 +19,7 @@
 import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
 import { Team } from '@/data'
+import { useUiStore } from '@/store/ui'
 
 const props = defineProps<{ highlights?: Team[] }>()
 
@@ -33,6 +35,8 @@ const color = $computed(() => {
   }
   return 'transparent'
 })
+
+const uiStore = useUiStore()
 </script>
 
 <style scoped>
