@@ -11,7 +11,7 @@ const isMobile = computed(() => windowWidth.value <= 1024)
 const props = defineProps<{
   team1?: Team
   team2?: Team
-  stream: Stream
+  stream?: Stream
   text?: string
 }>()
 
@@ -52,7 +52,7 @@ const color = computed(() => {
           {{ team2.name }}
         </span>
       </div>
-      <div class="md:hidden pl-4">
+      <div v-if="stream" class="md:hidden pl-4">
         <a
           class="underline text-xs leading-4 float-left"
           :href="stream.link"

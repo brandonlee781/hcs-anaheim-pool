@@ -19,6 +19,7 @@ const headers = computed(() => {
       ...Object.values(streams).map(st => ({
         text: st.name,
         link: st.link,
+        span: st.span || streams.length,
       })),
     ]
   }
