@@ -1,8 +1,21 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { computed, ComputedRef } from 'vue'
 
-import { Pools, ScheduleItem, Stream, TeamPool, teams } from '@/data'
-import { schedule as eventSchedule, pools, TIMEZONE } from '@/data/orlando'
+import {
+  Pools,
+  Schedule,
+  ScheduleItem,
+  Stream,
+  Team,
+  TeamPool,
+  teams,
+} from '@/data'
+import {
+  schedule as eventSchedule,
+  pools,
+  participants,
+  TIMEZONE,
+} from '@/data/grunt-classic'
 import { RemovableRef } from '@vueuse/core'
 
 type UseTournamentResponse = {
@@ -12,7 +25,9 @@ type UseTournamentResponse = {
   streams: Stream[]
   schedule: ComputedRef<ScheduleItem[]>
   pools?: Pools
+  participants?: Team[]
   timezone: string
+  event: Schedule
 }
 
 export default function (day?: RemovableRef<number>): UseTournamentResponse {
@@ -35,6 +50,9 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
     teams,
     schedule,
     pools: pools && Object.keys(pools).length ? pools : undefined,
+    participants:
+      participants && participants.length ? participants : undefined,
     timezone: TIMEZONE || 'UTC',
+    event: eventSchedule,
   }
 }
