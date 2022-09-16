@@ -7,7 +7,9 @@ defineProps<{ title: string; teams: Team[] }>()
 <template>
   <BaseTable :headers="[{ text: title }]">
     <tr v-for="(team, index) in teams" :key="team.name">
-      <PoolTableItem :team="team" :index="index" />
+      <td>
+        <PoolTableItem :team="team" :index="index" />
+      </td>
       <!-- <TableData
         class="team-data cursor-pointer flex flex-row justify-between"
       >

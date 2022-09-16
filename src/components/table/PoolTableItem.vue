@@ -39,7 +39,7 @@ const getSrc = (image: string) => {
 </script>
 
 <template>
-  <td
+  <div
     class="pool-item-td cursor-pointer dark:bg-gray-900 light:bg-gray-100 divide-y dark:divide-gray-200 light:divide-gray-800"
     @click="() => onClick(team)"
     @mouseenter="onMouseEnter"
@@ -54,7 +54,7 @@ const getSrc = (image: string) => {
       </span>
       <span class="team-region">{{ team.region }}</span>
     </div>
-  </td>
+  </div>
 </template>
 
 <style scoped>
