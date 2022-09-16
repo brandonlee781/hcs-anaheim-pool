@@ -21,6 +21,9 @@ export const schedule: Schedule = {
       span: 4,
     },
   ],
+  styles: {
+    bodyStyle: 'bg-gradient-to-br from-red-700 to-blue-700',
+  },
   day1: [
     {
       time: time('2022-09-16', '13:45'),
