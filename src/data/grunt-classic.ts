@@ -83,114 +83,32 @@ export const schedule: Schedule = {
       items: [{ span: 4, text: 'Elimination Round 3' }],
     },
   ],
-  // day2: [
-  //   {
-  //     time: time('2022-09-17', '10:00'),
-  //     items: [{ text: 'Broadcast Begins', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-17', '10:30'),
-  //     items: [{ text: 'Kansas City Pre-Show', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-17', '11:00'),
-  //     items: [
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     time: time('2022-09-17', '12:30'),
-  //     items: [
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     time: time('2022-09-17', '14:00'),
-  //     items: [
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     time: time('2022-09-17', '15:30'),
-  //     items: [
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //       {
-  //         team1: teams.tbd,
-  //         team2: teams.tbd,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     time: time('2022-09-17', '17:00'),
-  //     items: [
-  //       { text: 'Winners Quarter Finals', span: 2 },
-  //       { text: 'Elimination Round 1', span: 2 },
-  //     ],
-  //   },
-  //   {
-  //     time: time('2022-09-17', '18:30'),
-  //     items: [
-  //       { text: 'Winners Quarter Finals', span: 2 },
-  //       { text: 'Elimination Round 1', span: 2 },
-  //     ],
-  //   },
-  // ],
+  day2: [
+    {
+      time: time('2022-09-17', '13:45'),
+      items: [{ text: 'Pre-Show', span: 4 }],
+    },
+    {
+      time: time('2022-09-17', '14:00'),
+      items: [{ span: 4, text: 'TBD' }],
+    },
+    {
+      time: time('2022-09-17', '15:15'),
+      items: [{ span: 4, text: 'TBD' }],
+    },
+    {
+      time: time('2022-09-17', '16:30'),
+      items: [{ span: 4, text: 'TBD' }],
+    },
+    {
+      time: time('2022-09-17', '17:45'),
+      items: [{ span: 4, text: 'TBD' }],
+    },
+    {
+      time: time('2022-09-17', '19:00'),
+      items: [{ span: 4, text: 'TBD' }],
+    },
+  ],
   // day3: [
   //   {
   //     time: time('2022-09-25', '10:00'),

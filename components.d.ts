@@ -10,7 +10,6 @@ declare module 'vue' {
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
     IMdiThemeLightDark: typeof import('~icons/mdi/theme-light-dark')['default']
     MatchData: typeof import('./src/components/match/MatchData.vue')['default']
-    Modal: typeof import('./src/components/base/Modal.vue')['default']
     PoolTable: typeof import('./src/components/table/PoolTable.vue')['default']
     PoolTableItem: typeof import('./src/components/table/PoolTableItem.vue')['default']
     ReloadPrompt: typeof import('./src/components/ReloadPrompt.vue')['default']
@@ -19,4 +18,4 @@ declare module 'vue' {
   }
 }
 
-export { }
+export {}
