@@ -122,27 +122,7 @@ export const schedule: Schedule = {
        time: time('2022-09-25', '16:00'),
        items: [{ text: 'Grand Finals', team1: teams.optic, team2: teams.tbd, span: 4 }],
      },
-  //   {
-  //     time: time('2022-09-25', '12:30'),
-  //     items: [{ text: 'Winners Semi Finals - tbd vs tbd', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-25', '14:00'),
-  //     items: [{ text: 'Elimination Quarter Finals', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-25', '15:30'),
-  //     items: [{ text: 'Winners Finals', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-25', '17:00'),
-  //     items: [{ text: 'Elimination Finals', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-25', '18:30'),
-  //     items: [{ text: 'Grand Finals', span: 4 }],
-  //   },
-  // ],
+  ],
 }
 
 export const pools = undefined
