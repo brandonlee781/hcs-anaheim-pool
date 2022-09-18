@@ -109,19 +109,19 @@ export const schedule: Schedule = {
       items: [{ span: 4, text: 'TBD' }],
     },
   ],
-  // day3: [
-  //   {
-  //     time: time('2022-09-25', '10:00'),
-  //     items: [{ text: 'Broadcast Begins', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-25', '10:30'),
-  //     items: [{ text: 'Kansas City Pre-Show', span: 4 }],
-  //   },
-  //   {
-  //     time: time('2022-09-25', '11:00'),
-  //     items: [{ text: 'Winners Semi Finals - tbd vs tbd', span: 4 }],
-  //   },
+  day3: [
+    {
+       time: time('2022-09-25', '12:00'),
+       items: [{ text: 'Elimination Semifinals', team1: teams.cloud9, team2: teams.faze, span: 4 }],
+     },
+     {
+       time: time('2022-09-25', '14:00'),
+       items: [{ text: 'Elimination Finals', team1: teams.sentinels, team2: teams.tbd, span: 4 }],
+     },
+     {
+       time: time('2022-09-25', '16:00'),
+       items: [{ text: 'Grand Finals', team1: teams.optic, team2: teams.tbd, span: 4 }],
+     },
   //   {
   //     time: time('2022-09-25', '12:30'),
   //     items: [{ text: 'Winners Semi Finals - tbd vs tbd', span: 4 }],
