@@ -23,10 +23,6 @@ days:
   - '2022-09-24'
   - '2022-09-25'
 day1:
-  - time: 11:00
-    items:
-      - text: Broadcast Begins
-        span: 4
   - time: 11:30
     items:
       - text: Orlando Pre-Show
@@ -92,13 +88,9 @@ day1:
       - team1: tbd
         team2: tbd
 day2:
-  - time: 11:00
-    items:
-      - text: Broadcast Begins
-        span: 4
   - time: 11:30
     items:
-      - text: Kansas City Pre-Show
+      - text: Orlando Pre-Show
         span: 4
   - time: 12:00
     items:
@@ -142,7 +134,7 @@ day2:
         team2: tbd
   - time: 18:00
     items:
-      - text: Winners Quarter Finals
+      - text: Winners Quarterfinals
         team1: tbd
         team2: tbd
         span: 2
@@ -152,7 +144,7 @@ day2:
         span: 2
   - time: 19:30
     items:
-      - text: Winners Quarter Finals
+      - text: Winners Quarterfinals
         team1: tbd
         team2: tbd
         span: 2
@@ -166,29 +158,25 @@ day2:
         span: 4
         textClass: 'text-xl font-bold tracking-wide'
 day3:
-  - time: 11:00
-    items:
-      - text: Broadcast Begins
-        span: 4
   - time: 11:30
     items:
-      - text: Kansas City Pre-Show
+      - text: Orlando Pre-Show
         span: 4
   - time: 12:00
     items:
-      - text: Winners Semi Finals
+      - text: Winners Semifinals
         team1: tbd
         team2: tbd
         span: 4
   - time: 13:30
     items:
-      - text: Winners Semi Finals
+      - text: Winners Semifinals
         team1: tbd
         team2: tbd
         span: 4
   - time: 15:00
     items:
-      - text: Elimination Quarter Finals
+      - text: Elimination Quarterfinals
         team1: tbd
         team2: tbd
         span: 4
