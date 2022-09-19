@@ -1,8 +1,9 @@
 import { computed, ComputedRef, onMounted, Ref, ref } from 'vue'
-import teams from '@/data/teams.yaml'
 import { RemovableRef } from '@vueuse/core'
 import { Style } from '@/store/ui'
 import { defaultStyle } from '@/assets/styles'
+
+import teams from '@/data/teams.yaml'
 import eventData from '@/data/orlando.yaml'
 
 const getOffset = (timeZone = 'UTC') => {

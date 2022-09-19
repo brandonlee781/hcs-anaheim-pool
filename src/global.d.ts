@@ -78,3 +78,12 @@ declare interface HcsEvent {
   }
   participants?: string[]
 }
+
+declare module '@/data/*.yaml' {
+  const data: HcsEvent
+  export = data
+}
+declare module '@/data/teams.yaml' {
+  const data: TeamPool
+  export = data
+}
