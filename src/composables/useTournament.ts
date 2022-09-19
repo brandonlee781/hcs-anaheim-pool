@@ -3,6 +3,7 @@ import teams from '@/data/teams.yaml'
 import { RemovableRef } from '@vueuse/core'
 import { Style } from '@/store/ui'
 import { defaultStyle } from '@/assets/styles'
+import eventData from '@/data/orlando.yaml'
 
 const getOffset = (timeZone = 'UTC') => {
   const options: Intl.DateTimeFormatOptions = {
@@ -45,11 +46,7 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
   })
 
   onMounted(() => {
-    if (import.meta.env.VITE_EVENT) {
-      import(`../data/${import.meta.env.VITE_EVENT}.yaml`).then(ev => {
-        event.value = ev.default
-      })
-    }
+    event.value = eventData as HcsEvent
   })
 
   const schedule = computed<ScheduleSlot[]>(() => {
