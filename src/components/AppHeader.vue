@@ -20,9 +20,9 @@ const uiStore = useUiStore()
     class="py-2 px-6 mb-2 dark:text-gray-200"
     :class="[uiStore.tableHeadStyle, uiStore.cardStyle]"
   >
-    <div class="flex flex-col-reverse lg:flex-row justify-between items-center">
+    <div class="flex flex-col-reverse md:flex-row justify-between items-center">
       <div
-        class="w-full flex flex-row items-start mt-4 lg:(items-center mt-0 w-half) xl:w-auto"
+        class="w-full flex flex-row items-start mt-4 md:(items-center mt-0 w-75) xl:w-auto"
       >
         <a
           class="*btn"
@@ -60,11 +60,11 @@ const uiStore = useUiStore()
       <div class="flex flex-row flex-nowrap items-center justify-center">
         <p class="">
           All times are automatically converted to your timezone.
-          <span class="xs:inline xl:hidden"
+          <span class="xs:inline md:hidden"
             >Click a team in the pools below to highlight them in the
             schedule.</span
           >
-          <span class="xs:inline xl:hidden">
+          <span class="xs:inline md:hidden">
             Click the time to show and hide it's matches.</span
           >
         </p>

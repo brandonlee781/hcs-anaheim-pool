@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import useWindowWidth from '@/composables/useWindowWidth'
 import useTournament from '@/composables/useTournament'
 import { format } from 'date-fns'
@@ -43,6 +43,18 @@ const getTourneyTime = (time: string) => {
     'MM/dd/yyyy h:mmaaa'
   )
 }
+
+const shownTimes = ref<boolean[]>([])
+
+onMounted(() => {
+  shownTimes.value = schedule.value.map(s => true)
+})
+
+const toggleTime = (index: number) => {
+  if (window.innerWidth <= 768) {
+    shownTimes.value[index] = !shownTimes.value[index]
+  }
+}
 </script>
 
 <template>
@@ -57,33 +69,31 @@ const getTourneyTime = (time: string) => {
         :key="index"
         :class="[uiStore.tableDataStyle, uiStore.tableHeaderStyle]"
       >
-        <TableData class="w-4 time-wrapper">
-          <span>{{ getUserTime(timeslot.time) }}</span>
+        <TableData
+          class="w-full md:w-4 time-wrapper"
+          @click="toggleTime(index)"
+        >
+          <span class="text-lg font-bold md:(text-sm font-normal)">{{
+            getUserTime(timeslot.time)
+          }}</span>
           <div
-            class="bg-black text-white text-xs rounded py-1 px-4 right-0 bottom-full time-tooltip z-50"
+            class="bg-black text-white text-xs rounded py-1 px-4 left-28 md:left-22 bottom-full time-tooltip z-50"
           >
             <div>Tournament Local Time:</div>
             <div>{{ getTourneyTime(timeslot.time) }}</div>
           </div>
         </TableData>
-        <template v-for="(item, i) in timeslot.items" :key="i">
-          <!-- <TableData
-            v-if="!item.team1 && !item.team2"
-            :key="`${timeslot.time}-${i}`"
-            :colspan="item.span"
-            class="text-left md:text-center"
-            :highlights="item.highlights"
-          >
-            {{ item.text }}
-          </TableData> -->
-          <MatchData
-            :colspan="item.span"
-            :team1="item.team1"
-            :team2="item.team2"
-            :text="item.text"
-            :textClass="item.textClass"
-            :stream="getStream(i)"
-          />
+        <template v-if="shownTimes[index]">
+          <template v-for="(item, i) in timeslot.items" :key="i">
+            <MatchData
+              :colspan="item.span"
+              :team1="item.team1"
+              :team2="item.team2"
+              :text="item.text"
+              :textClass="item.textClass"
+              :stream="getStream(i)"
+            />
+          </template>
         </template>
       </tr>
     </template>
@@ -129,12 +139,11 @@ const getTourneyTime = (time: string) => {
 }
 
 .time-tooltip {
-  display: none;
   position: absolute;
   top: calc(50% - 20px);
-  left: 80px;
   width: 160px;
   height: 40px;
+  opacity: 0;
 }
 
 .time-wrapper {
@@ -142,6 +151,7 @@ const getTourneyTime = (time: string) => {
 }
 
 .time-wrapper:hover .time-tooltip {
-  display: block;
+  opacity: 1;
+  transition: opacity 0s linear 1s;
 }
 </style>

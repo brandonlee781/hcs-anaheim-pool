@@ -18,7 +18,6 @@
 <script setup lang="ts">
 import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
-import { Team } from '@/data'
 import { useUiStore } from '@/store/ui'
 
 const props = defineProps<{ highlights?: Team[] }>()
