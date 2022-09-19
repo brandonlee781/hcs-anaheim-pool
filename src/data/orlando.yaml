@@ -23,15 +23,15 @@ days:
   - '2022-09-24'
   - '2022-09-25'
 day1:
-  - time: 10:00
+  - time: 11:00
     items:
       - text: Broadcast Begins
         span: 4
-  - time: 10:30
+  - time: 11:30
     items:
       - text: Orlando Pre-Show
         span: 4
-  - time: 11:00
+  - time: 12:00
     items:
       - team1: tbd
         team2: tbd
@@ -41,7 +41,7 @@ day1:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 12:30
+  - time: 13:30
     items:
       - team1: tbd
         team2: tbd
@@ -51,7 +51,7 @@ day1:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 14:00
+  - time: 15:00
     items:
       - team1: tbd
         team2: tbd
@@ -61,7 +61,7 @@ day1:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 15:30
+  - time: 16:30
     items:
       - team1: tbd
         team2: tbd
@@ -71,7 +71,7 @@ day1:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 17:00
+  - time: 18:00
     items:
       - team1: tbd
         team2: tbd
@@ -81,7 +81,7 @@ day1:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 18:30
+  - time: 19:30
     items:
       - team1: tbd
         team2: tbd
@@ -92,15 +92,15 @@ day1:
       - team1: tbd
         team2: tbd
 day2:
-  - time: 10:00
+  - time: 11:00
     items:
       - text: Broadcast Begins
         span: 4
-  - time: 10:30
+  - time: 11:30
     items:
       - text: Kansas City Pre-Show
         span: 4
-  - time: 11:00
+  - time: 12:00
     items:
       - team1: tbd
         team2: tbd
@@ -110,7 +110,7 @@ day2:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 12:30
+  - time: 13:30
     items:
       - team1: tbd
         team2: tbd
@@ -120,7 +120,7 @@ day2:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 14:00
+  - time: 15:00
     items:
       - team1: tbd
         team2: tbd
@@ -130,7 +130,7 @@ day2:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 15:30
+  - time: 16:30
     items:
       - team1: tbd
         team2: tbd
@@ -140,17 +140,7 @@ day2:
         team2: tbd
       - team1: tbd
         team2: tbd
-  - time: 17:00
-    items:
-      - text: Winners Quarter Finals
-        team1: tbd
-        team2: tbd
-        span: 2
-      - text: Elimination Round 1
-        team1: tbd
-        team2: tbd
-        span: 2
-  - time: 18:30
+  - time: 18:00
     items:
       - text: Winners Quarter Finals
         team1: tbd
@@ -160,51 +150,61 @@ day2:
         team1: tbd
         team2: tbd
         span: 2
-  - time: 20:00
+  - time: 19:30
+    items:
+      - text: Winners Quarter Finals
+        team1: tbd
+        team2: tbd
+        span: 2
+      - text: Elimination Round 1
+        team1: tbd
+        team2: tbd
+        span: 2
+  - time: 21:00
     items:
       - text: Throwback Throwdown
         span: 4
         textClass: 'text-xl font-bold tracking-wide'
 day3:
-  - time: 10:00
+  - time: 11:00
     items:
       - text: Broadcast Begins
         span: 4
-  - time: 10:30
+  - time: 11:30
     items:
       - text: Kansas City Pre-Show
         span: 4
-  - time: 11:00
+  - time: 12:00
     items:
       - text: Winners Semi Finals
         team1: tbd
         team2: tbd
         span: 4
-  - time: 12:30
+  - time: 13:30
     items:
       - text: Winners Semi Finals
         team1: tbd
         team2: tbd
         span: 4
-  - time: 14:00
+  - time: 15:00
     items:
       - text: Elimination Quarter Finals
         team1: tbd
         team2: tbd
         span: 4
-  - time: 15:30
+  - time: 16:30
     items:
       - text: Winners Finals
         team1: tbd
         team2: tbd
         span: 4
-  - time: 17:00
+  - time: 18:00
     items:
       - text: Elimination Finals
         team1: tbd
         team2: tbd
         span: 4
-  - time: 18:30
+  - time: 19:30
     items:
       - text: Grand Finals
         team1: tbd
