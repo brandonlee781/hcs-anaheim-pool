@@ -6,7 +6,7 @@ defineProps<{ link: string; showToggle: boolean }>()
 </script>
 
 <template>
-  <div class="flex flex-row justify-between align-center">
+  <div class="flex flex-row justify-between align-center mt-1">
     <div class="hidden xl:inline">
       <div
         v-if="showToggle"

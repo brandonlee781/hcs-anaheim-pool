@@ -1,0 +1,233 @@
+title: HCS Orlando Major
+link: https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/Major_Orlando
+timezone: 'America/New_York'
+streams:
+  - id: halo
+    name: A Stream (Halo)
+    link: https://www.twitch.tv/halo
+    span: 1
+  - id: xbox
+    name: B Stream (Xbox)
+    link: https://www.twitch.tv/xbox
+    span: 1
+  - id: red
+    name: C Stream (HCS_Red)
+    link: https://www.twitch.tv/hcs_red
+    span: 1
+  - id: blue
+    name: D Stream (HCS_Blue)
+    link: https://www.twitch.tv/hcs_blue
+    span: 1
+days:
+  - '2022-09-23'
+  - '2022-09-24'
+  - '2022-09-25'
+day1:
+  - time: 10:00
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 10:30
+    items:
+      - text: Orlando Pre-Show
+        span: 4
+  - time: 11:00
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 12:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 14:00
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 15:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 17:00
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 18:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+day2:
+  - time: 10:00
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 10:30
+    items:
+      - text: Kansas City Pre-Show
+        span: 4
+  - time: 11:00
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 12:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 14:00
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 15:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 17:00
+    items:
+      - text: Winners Quarter Finals
+        team1: tbd
+        team2: tbd
+        span: 2
+      - text: Elimination Round 1
+        team1: tbd
+        team2: tbd
+        span: 2
+  - time: 18:30
+    items:
+      - text: Winners Quarter Finals
+        team1: tbd
+        team2: tbd
+        span: 2
+      - text: Elimination Round 1
+        team1: tbd
+        team2: tbd
+        span: 2
+  - time: 20:00
+    items:
+      - text: Throwback Throwdown
+        span: 4
+        textClass: 'text-xl font-bold tracking-wide'
+day3:
+  - time: 10:00
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 10:30
+    items:
+      - text: Kansas City Pre-Show
+        span: 4
+  - time: 11:00
+    items:
+      - text: Winners Semi Finals
+        team1: tbd
+        team2: tbd
+        span: 4
+  - time: 12:30
+    items:
+      - text: Winners Semi Finals
+        team1: tbd
+        team2: tbd
+        span: 4
+  - time: 14:00
+    items:
+      - text: Elimination Quarter Finals
+        team1: tbd
+        team2: tbd
+        span: 4
+  - time: 15:30
+    items:
+      - text: Winners Finals
+        team1: tbd
+        team2: tbd
+        span: 4
+  - time: 17:00
+    items:
+      - text: Elimination Finals
+        team1: tbd
+        team2: tbd
+        span: 4
+  - time: 18:30
+    items:
+      - text: Grand Finals
+        team1: tbd
+        team2: tbd
+        span: 4
+pools:
+  A: 
+    - optic
+    - faze
+    - acend
+    - chiefs
+  B: 
+    - g1
+    - nativeRed
+    - quadrant
+    - cintanegra
+  C: 
+    - sentinels
+    - g2
+    - navi
+    - cruelty
+  D: 
+    - cloud9
+    - eunited
+    - jlingz
+    - ssg

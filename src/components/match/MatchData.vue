@@ -2,7 +2,6 @@
 import useTeam from '@/composables/useTeam'
 import { computed } from 'vue'
 import useWindowWidth from '@/composables/useWindowWidth'
-import { Match, Stream, Team } from '@/data'
 
 const { hoveredTeam } = useTeam()
 const { windowWidth } = useWindowWidth()
@@ -13,6 +12,7 @@ const props = defineProps<{
   team2?: Team
   stream?: Stream
   text?: string
+  textClass?: string
 }>()
 
 const color = computed(() => {
@@ -32,7 +32,7 @@ const color = computed(() => {
     <div
       class="match-data w-full flex flex-row sm:flex-row flex-wrap items-center justify-between md:justify-center"
     >
-      <div v-if="text" class="text-sm mb-2">
+      <div v-if="text" :class="[textClass ? textClass : 'text-sm mb-2']">
         {{ text }}
       </div>
       <div

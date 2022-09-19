@@ -1,0 +1,137 @@
+title: HCS Melbourne Finals
+link: https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Oceania/Championship
+timezone: Australia/ACT
+streams:
+  - id: halo
+    name: A Stream (Halo)
+    link: https://www.twitch.tv/halo
+  - id: hcs
+    name: B Stream (HCS)
+    link: https://www.twitch.tv/hcs
+days:
+  - '2022-09-02'
+  - '2022-09-03'
+  - '2022-09-04'
+day1:
+  - time: 10:00
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 10:30
+    items:
+      - text: Pre-Show in Melbourne
+        span: 4
+  - time: 11:00
+    items:
+      - team1: chiefs
+        team2: mindfreak
+        span: 4
+  - time: 12:30
+    items:
+      - team1: divineMind
+        team2: direWolves
+        span: 4
+  - time: 14:00
+    items:
+      - team1: mindfreak
+        team2: immunity
+        span: 4
+  - time: 15:30
+    items:
+      - team1: divineMind
+        team2: kitbash
+        span: 4
+  - time: 17:00
+    items:
+      - team1: chiefs
+        team2: immunity
+        span: 4
+  - time: 18:30
+    items:
+      - team1: direWolves
+        team2: kitbash
+        span: 4
+day2:
+  - time: 10:30
+    items:
+      - text: Pre-Show in Melbourne
+        span: 4
+  - time: 11:00
+    items:
+      - team1: direWolves
+        team2: vertex
+        span: 4
+  - time: 12:30
+    items:
+      - team1: immunity
+        team2: bandits
+        span: 4
+  - time: 14:00
+    items:
+      - team1: kitbash
+        team2: vertex
+        span: 4
+  - time: 15:30
+    items:
+      - text: Winners Quarterfinals
+        span: 4
+  - time: 17:00
+    items:
+      - text: Winners Quarterfinals
+        span: 4
+  - time: 18:30
+    items:
+      - text: Winners Semifinals
+        span: 4
+  - time: 20:00
+    items:
+      - text: Winners Semifinals
+        span: 4
+day3:
+  - time: 10:00
+    items:
+      - text: Countdown Begins
+        span: 4
+  - time: 10:30
+    items:
+      - text: Pre-Show in Melbourne
+        span: 4
+  - time: 11:00
+    items:
+      - text: Elimination Quarterfinals
+        team1: divineMind
+        team2: kitbash
+        span: 4
+  - time: 12:30
+    items:
+      - text: Elimination Semifinals
+        span: 4
+  - time: 14:00
+    items:
+      - text: Winners Finals
+        team1: chiefs
+        team2: mindfreak
+        span: 4
+  - time: 15:30
+    items:
+      - text: Elimination Finals
+        span: 4
+  - time: 17:00
+    items:
+      - text: Grand Finals
+        span: 4
+  - time: 18:30
+    items:
+      - text: Broadcast Ends
+        span: 4
+pools:
+  A:
+    - divineMind
+    - direWolves
+    - kitbash
+    - vertex
+  B:
+    - chiefs
+    - mindfreak
+    - immunity
+    - bandits

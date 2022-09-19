@@ -1,3 +1,4 @@
+/* eslint-disable vue/max-len */
 import { Style } from '@/store/ui'
 
 export const defaultStyle: Style = {

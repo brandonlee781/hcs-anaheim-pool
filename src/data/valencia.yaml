@@ -1,0 +1,153 @@
+title: HCS Valencia Finals
+link: https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Europe/Championship
+timezone: Europe/Madrid
+streams:
+  - id: halo
+    name: A Stream (Halo)
+    link: https://www.twitch.tv/halo
+    span: 2
+  - id: hcs
+    name: B Stream (hcs)
+    link: https://www.twitch.tv/hcs
+    span: 2
+days:
+  - '2022-07-01'
+  - '2022-07-02'
+  - '2022-07-03'
+day1:
+  - time: 11:00
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 11:30
+    items:
+      - text: Pre-Show in Valencia
+        span: 4
+  - time: 12:00
+    items:
+      - team1: onlineWarriors
+        team2: awobabobs
+        span: 4
+  - time: 13:30
+    items:
+      - team1: acend
+        team2: reclaimers
+        span: 4
+  - time: 15:00
+    items:
+      - team1: quadrant
+        team2: scorchedHand
+        span: 4
+  - time: 16:30
+    items:
+      - team1: navi
+        team2: blackhand
+        span: 4
+  - time: 18:00
+    items:
+      - team1: jlingz
+        team2: awobabobs
+        span: 4
+  - time: 19:30
+    items:
+      - team1: navi
+        team2: diamondDogs
+        span: 4
+day2:
+  - time: 11:00
+    items:
+      - text: Countdown Begins
+        span: 4
+  - time: 11:30
+    items:
+      - text: Valencia Pre-show
+        span: 4
+  - time: 12:00
+    items:
+      - team1: vexed
+        team2: witchblades
+        span: 4
+  - time: 13:30
+    items:
+      - team1: quadrant
+        team2: lucendi
+        span: 4
+  - time: 15:00
+    items:
+      - team1: navi
+        team2: connecting
+        span: 4
+  - time: 16:30
+    items:
+      - text: Winners Brackets Round 1
+        span: 4
+  - time: 18:00
+    items:
+      - text: Winnners Brackets Round 1
+        span: 4
+  - time: 19:30
+    items:
+      - text: Elimination Bracket Round 2
+        span: 4
+  - time: 21:00
+    items:
+      - text: Elimination Bracket Round 3
+        span: 4
+day3:
+  - time: 11:00
+    items:
+      - text: Countdown Begins
+        span: 4
+  - time: 11:30
+    items:
+      - text: Valencia Pre-show
+        span: 4
+  - time: 12:00
+    items:
+      - text: TBD
+        span: 4
+  - time: 13:30
+    items:
+      - text: TBD
+        span: 4
+  - time: 15:00
+    items:
+      - text: TBD
+        span: 4
+  - time: 16:30
+    items:
+      - text: TBD
+        span: 4
+  - time: 18:00
+    items:
+      - text: TBD
+        span: 4
+  - time: 19:30
+    items:
+      - text: TBD
+        span: 4
+  - time: 21:00
+    items:
+      - text: TBD
+        span: 4
+pools:
+  A:
+    - acend
+    - vexed
+    - reclaimers
+    - frostbite
+  B:
+    - quadrant
+    - scorchedHand
+    - deathrow
+    - connecting
+  C:
+    - navi
+    - blackhand
+    - diamondDogs
+    - lucendi
+  D:
+    - jlingz
+    - onlineWarriors
+    - awobabobs
+    - witchblades

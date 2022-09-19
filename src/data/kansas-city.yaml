@@ -1,0 +1,212 @@
+title: HCS Kansas City Major
+link: https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/Major_Kansas_City
+timezone: America/Chicago
+streams:
+  - id: halo
+    name: A Stream (Halo)
+    link: https://www.twitch.tv/halo
+    span: 1
+  - id: xbox
+    name: B Stream (Xbox)
+    link: https://www.twitch.tv/xbox
+    span: 1
+  - id: red
+    name: C Stream (HCS_Red)
+    link: https://www.twitch.tv/hcs_red
+    span: 1
+  - id: blue
+    name: D Stream (HCS_Blue)
+    link: https://www.twitch.tv/hcs_blue
+    span: 1
+days: 
+  - '2022-04-29'
+  - '2022-04-30'
+  - '2022-05-01'
+day1:
+  - time: 11:30
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 11:40
+    items:
+      - text: Orlando Pre-Show
+        span: 4
+  - time: 12:00
+    items:
+      - team1: cloud9
+        team2: acend
+      - team1: sentinels
+        team2: knights
+      - team1: xset
+        team2: chiefs
+      - team1: pioneers
+        team2: jlingz
+  - time: 13:15
+    items:
+      - team1: faze
+        team2: navi
+      - team1: optic
+        team2: fnatic
+      - team1: g2
+        team2: quadrant
+      - team1: eunited
+        team2: cruelty
+  - time: 14:30
+    items:
+      - team1: xset
+        team2: acend
+      - team1: pioneers
+        team2: knights
+      - team1: cloud9
+        team2: chiefs
+      - team1: sentinels
+        team2: jlingz
+  - time: 15:45
+    items:
+      - team1: eunited
+        team2: g2
+      - team1: faze
+        team2: fnatic
+      - team1: optic
+        team2: navi
+      - team1: quadrant
+        team2: cruelty
+  - time: 17:00
+    items:
+      - team1: sentinels
+        team2: pioneers
+      - team1: acend
+        team2: chiefs
+      - team1: cloud9
+        team2: xset
+      - team1: jlingz
+        team2: knights
+  - time: 18:15
+    items:
+      - team1: optic
+        team2: faze
+      - team1: eunited
+        team2: quadrant
+      - team1: navi
+        team2: fnatic
+      - team1: g2
+        team2: cruelty
+day2:
+  - time: 11:30
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 11:40
+    items:
+      - text: Kansas City Pre-Show
+        span: 4
+  - time: 12:00
+    items:
+      - team1: quadrant
+        team2: g1
+      - team1: optic
+        team2: complexity
+      - team1: xset
+        team2: ssgOld
+      - team1: jlingz
+        team2: bbg
+  - time: 13:15
+    items:
+      - team1: fnatic
+        team2: complexity
+      - team1: g2
+        team2: g1
+      - team1: acend
+        team2: ssgOld
+      - team1: sentinels
+        team2: bbg
+  - time: 14:30
+    items:
+      - team1: chiefs
+        team2: ssgOld
+      - team1: cruelty
+        team2: g1
+      - team1: navi
+        team2: complexity
+      - team1: knights
+        team2: bbg
+  - time: 15:45
+    items:
+      - team1: pioneers
+        team2: bbg
+      - team1: faze
+        team2: complexity
+      - team1: cloud9
+        team2: ssgOld
+      - team1: eunited
+        team2: g1
+  - time: 16:00
+    items:
+      - text: Winners Quarter Finals
+        span: 2
+      - text: Elimination Round 1
+        span: 2
+  - time: 17:15
+    items:
+      - text: Winners Quarter Finals
+        span: 2
+      - text: Elimination Round 1
+        span: 2
+day3:
+  - time: 11:30
+    items:
+      - text: Broadcast Begins
+        span: 4
+  - time: 11:40
+    items:
+      - text: Kansas City Pre-Show
+        span: 4
+  - time: 12:00
+    items:
+      - text: Winners Semi Finals - Optic vs eUnited
+        span: 4
+  - time: 13:15
+    items:
+      - text: Winners Semi Finals - Cloud9 vs Sentinels
+        span: 4
+  - time: 14:30
+    items:
+      - text: Elimination Quarter Finals
+        span: 4
+  - time: 15:45
+    items:
+      - text: Winners Finals
+        span: 4
+  - time: 17:00
+    items:
+      - text: Elimination Finals
+        span: 4
+  - time: 18:15
+    items:
+      - text: Grand Finals
+        span: 4
+pools:
+  A:
+    - cloud9
+    - acend
+    - xset
+    - chiefs
+    - ssgOld
+  B:
+    - optic
+    - faze
+    - fnatic
+    - navi
+    - complexity
+  C:
+    - eunited
+    - quadrant
+    - g2
+    - cruelty
+    - g1
+  D:
+    - sentinels
+    - pioneers
+    - knights
+    - jlingz
+    - bbg

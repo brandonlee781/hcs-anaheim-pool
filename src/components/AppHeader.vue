@@ -35,7 +35,7 @@ const uiStore = useUiStore()
           >Day 1</a
         >
         <a
-          v-if="event.day2"
+          v-if="event.days.length >= 2"
           class="*btn"
           :class="[
             uiStore.buttonStyle,
@@ -46,7 +46,7 @@ const uiStore = useUiStore()
           >Day 2</a
         >
         <a
-          v-if="event.day3"
+          v-if="event.days.length >= 3"
           class="*btn"
           :class="[
             uiStore.buttonStyle,

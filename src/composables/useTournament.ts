@@ -1,65 +1,113 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import { computed, ComputedRef } from 'vue'
-
-import {
-  Pools,
-  Schedule,
-  ScheduleItem,
-  Stream,
-  Team,
-  TeamPool,
-  teams,
-} from '@/data'
-import {
-  schedule as eventSchedule,
-  pools,
-  participants,
-  TIMEZONE,
-} from '@/data/grunt-classic'
+import { computed, ComputedRef, onMounted, Ref, ref } from 'vue'
+import teams from '@/data/teams.yaml'
 import { RemovableRef } from '@vueuse/core'
 import { Style } from '@/store/ui'
-import { defaultStyle } from '@/data/styles'
+import { defaultStyle } from '@/assets/styles'
+
+const getOffset = (timeZone = 'UTC') => {
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone,
+    timeZoneName: 'longOffset' as const,
+  }
+  const dateText = Intl.DateTimeFormat([], options).format(new Date())
+
+  // Scraping the numbers we want from the text
+  // The default value '+0' is needed when the timezone is missing the number part.
+  // Ex. Africa/Bamako --> GMT
+  const timezoneString = dateText.split(' ')[1].slice(3) || '+0'
+
+  return timezoneString
+}
+
+function getTime(timezone: string) {
+  const offset = getOffset(timezone)
+  return (date: string, time: string) => `${date}T${time}:00${offset}`
+}
 
 type UseTournamentResponse = {
-  title: string
-  link: string
+  event: Ref<HcsEvent>
+  schedule: ComputedRef<ScheduleSlot[]>
+  pools?: ComputedRef<Pools>
+  participants?: ComputedRef<Team[]>
+  styles: ComputedRef<Style>
   teams: TeamPool
-  streams: Stream[]
-  schedule: ComputedRef<ScheduleItem[]>
-  pools?: Pools
-  participants?: Team[]
-  timezone: string
-  event: Schedule
-  styles: Style
 }
 
 export default function (day?: RemovableRef<number>): UseTournamentResponse {
-  const days = [eventSchedule.day1, eventSchedule.day2, eventSchedule.day3]
-  const schedule = computed<ScheduleItem[]>(() => {
-    if (!day) return []
+  const event = ref<HcsEvent>({
+    title: '',
+    link: '',
+    timezone: 'UTC',
+    styles: {},
+    streams: [],
+    days: [],
+    day1: [],
+  })
+
+  onMounted(() => {
+    if (import.meta.env.VITE_EVENT) {
+      import(`../data/${import.meta.env.VITE_EVENT}.yaml`).then(ev => {
+        event.value = ev.default
+      })
+    }
+  })
+
+  const schedule = computed<ScheduleSlot[]>(() => {
+    if (!day || day.value - 1 > event.value.days.length) return []
+
+    const timeFn = getTime(event.value?.timezone)
+    const days = [
+      event.value?.day1,
+      event.value?.day2,
+      event.value?.day3,
+    ].filter(Boolean)
     const daySchedule = days[day.value - 1]
-    return daySchedule!.map((sched): ScheduleItem => {
+
+    return daySchedule!.map((sched: any) => {
+      const d = event.value?.days[day.value - 1] ?? '2022-01-01'
+      const time = timeFn(d, sched.time)
       return {
-        // time: format(new Date(sched.time), 'h:mmaaa'),
-        time: sched.time,
-        items: sched.items,
+        ...sched,
+        time,
+        items: sched.items.map((item: any) => {
+          return {
+            ...item,
+            team1: item?.team1 ? teams[item.team1] : null,
+            team2: item?.team2 ? teams[item.team2] : null,
+          }
+        }),
       }
     })
   })
-  return {
-    title: eventSchedule.title,
-    link: eventSchedule.link,
-    streams: eventSchedule.streams,
-    teams,
-    schedule,
-    pools: pools && Object.keys(pools).length ? pools : undefined,
-    participants:
-      participants && participants.length ? participants : undefined,
-    timezone: TIMEZONE || 'UTC',
-    event: eventSchedule,
-    styles: {
+
+  const participants = computed(() => {
+    return event.value?.participants?.map((p: string) => teams[p]) ?? []
+  })
+
+  const pools = computed(() => {
+    const getTeam = (t: string): Team => teams[t]
+    const p = {
+      A: event.value.pools?.A?.map(getTeam) ?? [],
+      B: event.value.pools?.B?.map(getTeam) ?? [],
+      C: event.value.pools?.C?.map(getTeam) ?? [],
+      D: event.value.pools?.D?.map(getTeam) ?? [],
+    }
+    return p
+  })
+
+  const styles = computed<Style>(() => {
+    return {
       ...defaultStyle,
-      ...eventSchedule.styles,
-    },
+      ...event.value?.styles,
+    }
+  })
+
+  return {
+    event,
+    schedule,
+    participants,
+    pools,
+    teams,
+    styles,
   }
 }

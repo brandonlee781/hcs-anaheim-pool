@@ -13,7 +13,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": ["esnext", "dom", "WebWorker"],
-    "types": ["unplugin-icons/types/vue", "vue/ref-macros", "vue/macros-global", "vite-plugin-pwa/client"],
+    "types": [
+      "unplugin-icons/types/vue",
+      "vue/ref-macros",
+      "vue/macros-global",
+      "vite-plugin-pwa/client",
+      "@modyfi/vite-plugin-yaml/modules"
+    ],
     "paths": {
       "@/*": ["./src/*"]
     }

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Team } from '@/data'
 import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
 import { useUiStore } from '@/store/ui'
@@ -47,7 +46,7 @@ const background = computed(() => `${props.team.color}33`)
 <template>
   <div
     class="pool-item-td cursor-pointer"
-    :class="[uiStore.tableDataStyle]"
+    :class="[uiStore.tableDataStyle, hovered ? 'hovered' : '']"
     @click="() => onClick(team)"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
@@ -73,29 +72,30 @@ const background = computed(() => `${props.team.color}33`)
 <style scoped>
 * {
   --default-pool-height: 52px;
-  --default-pool-width: 288px;
+  --default-pool-width: 280px;
   --pool-hover-height-offset: 10px;
   --pool-hover-width-offset: 20px;
 }
+
+@media (max-width: 1182px) {
+  * {
+    --default-pool-width: calc(50vw - 28px);
+  }
+}
+
 .pool-item-td {
   position: relative;
   height: var(--default-pool-height);
-  width: var(--default-pool-width);
 }
 
 .pool-item-td:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-/* .pool-item-td:hover .team-name {
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
-} */
 
 .pool-item-wrapper {
   @apply border-b-1 px-6 whitespace-nowrap text-sm font-medium;
   position: absolute;
   height: var(--default-pool-height);
-  width: var(--default-pool-width);
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,10 +107,6 @@ const background = computed(() => `${props.team.color}33`)
   bottom: 0px;
   transition: all 0.2s ease;
 }
-
-/* .light .pool-item-wrapper {
-  @apply bg-gray-100 border-bottom-gray-800 text-gray-800;
-} */
 
 .team-image {
   display: none;
@@ -153,5 +149,23 @@ const background = computed(() => `${props.team.color}33`)
 
 .pool-item-wrapper.hovered .team-name {
   padding-left: 8px;
+}
+
+@media (max-width: 600px) {
+  .pool-item-td.hovered {
+    height: calc(var(--default-pool-height) + 50px);
+    width: auto;
+    background-color: transparent;
+  }
+  .pool-item-wrapper.hovered {
+    top: 15px;
+    bottom: -10px;
+    right: 0px;
+    left: 10px;
+    width: auto;
+    height: calc(var(--default-pool-height) + 20px);
+    width: calc(100vw - 32px);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }
 </style>

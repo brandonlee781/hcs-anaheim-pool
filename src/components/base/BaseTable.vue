@@ -5,7 +5,7 @@ const uiStore = useUiStore()
 </script>
 
 <template>
-  <div :class="[uiStore.cardStyle]">
+  <div>
     <table class="min-w-full divide-y" :class="[uiStore.tableStyle]">
       <thead :class="[uiStore.tableHeadStyle]">
         <tr>

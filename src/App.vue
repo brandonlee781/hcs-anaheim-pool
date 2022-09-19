@@ -1,40 +1,37 @@
 <script setup lang="ts">
-import { watch, ref, onMounted } from 'vue'
+import { watch, ref } from 'vue'
 import { useStorage } from '@vueuse/core'
 import useTournament from '@/composables/useTournament'
 import { useUiStore } from './store/ui'
 
 const day = useStorage('hsc-day-val', 1)
-const { pools, title, link, participants, styles } = useTournament(day)
+const { pools, event, participants, styles } = useTournament(day)
 
 const warningModal = ref(true)
 
 const uiStore = useUiStore()
-onMounted(() => {
-  uiStore.setStyle(styles)
+watch(styles, () => {
+  uiStore.setStyle(styles.value)
 })
-// const dark = useStorage('hcs-dark-val', true)
-// watch(dark, val => {
-//   if (val) {
-//     document.documentElement.classList.add('dark')
-//     document.documentElement.classList.remove('light')
-//   } else {
-//     document.documentElement.classList.add('light')
-//     document.documentElement.classList.remove('dark')
-//   }
-// })
 </script>
 
 <template>
-  <AppHeader v-model:day="day" v-model:dark="uiStore.darkMode" :title="title" />
+  <AppHeader
+    v-model:day="day"
+    v-model:dark="uiStore.darkMode"
+    :title="event.title"
+  />
   <ScheduleTable class="max-w-full" :day="day" />
   <div v-if="pools" class="pools">
-    <PoolTable v-if="pools.A" class="*card" title="Pool A" :teams="pools.A" />
-    <PoolTable v-if="pools.B" class="*card" title="Pool B" :teams="pools.B" />
-    <PoolTable v-if="pools.C" class="*card" title="Pool C" :teams="pools.C" />
-    <PoolTable v-if="pools.D" class="*card" title="Pool D" :teams="pools.D" />
+    <PoolTable v-if="pools.A" title="Pool A" :teams="pools.A" />
+    <PoolTable v-if="pools.B" title="Pool B" :teams="pools.B" />
+    <PoolTable v-if="pools.C" title="Pool C" :teams="pools.C" />
+    <PoolTable v-if="pools.D" title="Pool D" :teams="pools.D" />
   </div>
-  <div v-if="participants" class="participants grid grid-cols-4 gap-2 mt-4">
+  <div
+    v-if="participants"
+    class="participants grid grid-cols-4 gap-2 mt-4 px-1"
+  >
     <PoolTableItem
       v-for="(team, index) in participants"
       :key="index"
@@ -43,7 +40,7 @@ onMounted(() => {
     />
   </div>
 
-  <AppFooter :link="link" :show-toggle="!!pools" />
+  <AppFooter :link="event.link" :show-toggle="!!pools" />
 
   <!-- <BaseModal v-model="warningModal" @click:close="warningModal = false">
     <span class="text-xl">
@@ -79,10 +76,11 @@ onMounted(() => {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 8px;
+  margin-top: 8px;
 }
-.pools table {
+/* .pools table {
   margin: 8px 0;
-}
+} */
 
 .toggle-checkbox:checked {
   @apply right-0 border-green-400;

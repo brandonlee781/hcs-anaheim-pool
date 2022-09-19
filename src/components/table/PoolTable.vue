@@ -1,21 +1,26 @@
 <script setup lang="ts">
-import { Team } from '@/data'
+import { useUiStore } from '@/store/ui'
 
 defineProps<{ title: string; teams: Team[] }>()
+
+const uiStore = useUiStore()
 </script>
 
 <template>
-  <BaseTable :headers="[{ text: title }]">
-    <tr v-for="(team, index) in teams" :key="team.name">
-      <td>
-        <PoolTableItem :team="team" :index="index" />
-      </td>
-      <!-- <TableData
-        class="team-data cursor-pointer flex flex-row justify-between"
-      >
-      </TableData> -->
-    </tr>
-  </BaseTable>
+  <div>
+    <div
+      class="h-12 text-center p-3"
+      :class="[uiStore.tableHeadStyle, uiStore.tableHeaderStyle]"
+    >
+      {{ title }}
+    </div>
+    <PoolTableItem
+      v-for="(team, index) in teams"
+      :key="team.name"
+      :team="team"
+      :index="index"
+    />
+  </div>
 </template>
 
 <style scoped></style>

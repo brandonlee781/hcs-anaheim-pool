@@ -10,7 +10,7 @@ const props = defineProps({ day: { type: Number, default: 1 } })
 const day = computed(() => props.day)
 const uiStore = useUiStore()
 
-const { schedule, streams, timezone } = useTournament(day)
+const { schedule, event } = useTournament(day)
 
 const { windowWidth } = useWindowWidth()
 
@@ -18,10 +18,10 @@ const headers = computed(() => {
   if (windowWidth.value >= 600) {
     return [
       { text: 'Timeslot' },
-      ...Object.values(streams).map(st => ({
+      ...Object.values(event.value.streams).map(st => ({
         text: st.name,
         link: st.link,
-        span: st.span || streams.length,
+        span: st.span || event.value.streams.length,
       })),
     ]
   }
@@ -29,7 +29,7 @@ const headers = computed(() => {
 })
 
 const getStream = (index: number) => {
-  return Object.values(streams)[index]
+  return Object.values(event.value.streams)[index]
 }
 
 const getUserTime = (time: string) => {
@@ -37,7 +37,11 @@ const getUserTime = (time: string) => {
 }
 
 const getTourneyTime = (time: string) => {
-  return formatInTimeZone(new Date(time), timezone, 'MM/dd/yyyy h:mmaaa')
+  return formatInTimeZone(
+    new Date(time),
+    event.value.timezone,
+    'MM/dd/yyyy h:mmaaa'
+  )
 }
 </script>
 
@@ -77,6 +81,7 @@ const getTourneyTime = (time: string) => {
             :team1="item.team1"
             :team2="item.team2"
             :text="item.text"
+            :textClass="item.textClass"
             :stream="getStream(i)"
           />
         </template>
