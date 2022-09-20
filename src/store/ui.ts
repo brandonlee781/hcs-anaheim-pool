@@ -4,18 +4,6 @@ import { defineStore } from 'pinia'
 export const darkModeKey = 'hcs-tourney-dark-mode'
 export const styleKey = 'hcs-tourney-style'
 
-export type Style = {
-  bodyStyle: string
-  tableStyle: string
-  tableHeadStyle: string
-  tableHeaderStyle: string
-  tableDataStyle: string
-  poolHoverStyle: string
-  buttonStyle: string
-  buttonActiveStyle: string
-  cardStyle: string
-}
-
 export const useUiStore = defineStore('ui', () => {
   const style = ref<Style>()
   const tableStyle = ref('')

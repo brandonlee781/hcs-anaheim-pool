@@ -60,6 +60,18 @@ declare interface Schedule {
   styles?: Partial<Style>
 }
 
+declare interface Style {
+  bodyStyle: string
+  tableStyle: string
+  tableHeadStyle: string
+  tableHeaderStyle: string
+  tableDataStyle: string
+  poolHoverStyle: string
+  buttonStyle: string
+  buttonActiveStyle: string
+  cardStyle: string
+}
+
 declare interface HcsEvent {
   title: string
   link: string
