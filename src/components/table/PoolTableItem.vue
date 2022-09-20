@@ -72,7 +72,7 @@ const background = computed(() => `${props.team.color}33`)
 <style scoped>
 * {
   --default-pool-height: 52px;
-  --default-pool-width: 280px;
+  --default-pool-width: 336px;
   --pool-hover-height-offset: 10px;
   --pool-hover-width-offset: 20px;
 }

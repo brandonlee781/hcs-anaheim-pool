@@ -163,11 +163,15 @@ day3:
         span: 4
   - time: 12:00
     items:
-      - text: Winners Semi Finals - Optic vs eUnited
+      - text: Winners Semi Finals
+        team1: optic
+        team2: eunited
         span: 4
   - time: 13:15
     items:
-      - text: Winners Semi Finals - Cloud9 vs Sentinels
+      - text: Winners Semi Finals
+        team1: cloud9
+        team2: sentinels
         span: 4
   - time: 14:30
     items:

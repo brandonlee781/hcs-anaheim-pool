@@ -67,7 +67,7 @@ watch(styles, () => {
 }
 #app {
   margin: 8px;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .pools {

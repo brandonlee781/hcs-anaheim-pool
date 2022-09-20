@@ -5,6 +5,20 @@ import useWindowWidth from '@/composables/useWindowWidth'
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
 
+function adjust(color: string, amount: number) {
+  return (
+    '#' +
+    color
+      .replace(/^#/, '')
+      .replace(/../g, c =>
+        (
+          '0' +
+          Math.min(255, Math.max(0, parseInt(c, 16) + amount)).toString(16)
+        ).substr(-2)
+      )
+  )
+}
+
 const props = defineProps<{
   team1?: Team
   team2?: Team
@@ -33,18 +47,18 @@ const image2 = computed(() => {
     <div
       v-if="image1 && team1"
       class="left"
-      :style="{ backgroundColor: team1.color }"
+      :style="{ backgroundColor: adjust(team1.color, 50) }"
     >
       <img :src="image1" />
     </div>
     <div
       v-if="image2 && team2"
       class="right"
-      :style="{ backgroundColor: team2.color }"
+      :style="{ backgroundColor: adjust(team2.color, 50) }"
     >
       <img :src="image2" />
     </div>
-    <div class="match-data w-full">
+    <div class="match-data">
       <div
         v-if="text"
         class="match-text"
@@ -103,13 +117,6 @@ const image2 = computed(() => {
     text-align: center;
   }
 }
-/* .match-wrapper {
-  height: auto;
-}
-.match-wrapper:hover {
-  height: 8rem;
-  transition: height 0s linear 1s;
-} */
 
 .match-wrapper {
   position: relative;
@@ -121,13 +128,27 @@ const image2 = computed(() => {
   align-items: center;
   padding: 8px;
   opacity: 0;
+  z-index: 1;
+}
+
+.match-data {
+  z-index: 2;
 }
 
 .match-wrapper:hover .right,
 .match-wrapper:hover .left {
-  opacity: 0.2;
-  transition: opacity 0s linear 1s;
+  opacity: 0.3;
+  transition: opacity 0s linear 0.5s;
 }
+
+/* @supports (-webkit-text-stroke: 0.3px black) {
+  .match-wrapper:hover .match-teams,
+  .match-wrapper:hover .match-text {
+    -webkit-text-stroke: 0.3px black;
+    -webkit-text-fill-color: white;
+  }
+} */
+
 .right {
   position: absolute;
   right: 0;
