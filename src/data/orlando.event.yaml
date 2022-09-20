@@ -152,11 +152,6 @@ day2:
         team1: tbd
         team2: tbd
         span: 2
-  - time: 21:00
-    items:
-      - text: Throwback Throwdown
-        span: 4
-        textClass: 'text-xl font-bold tracking-wide'
 day3:
   - time: 11:30
     items:
@@ -193,6 +188,11 @@ day3:
         team2: tbd
         span: 4
   - time: 19:30
+    items:
+      - text: Throwback Throwdown
+        span: 4
+        textClass: 'text-xl font-bold tracking-wide'
+  - time: 21:00
     items:
       - text: Grand Finals
         team1: tbd
