@@ -16,10 +16,34 @@ const props = defineProps<{
 const teams = computed<Team[]>(
   () => [props.team1, props.team2].filter(Boolean) as Team[]
 )
+const image1 = computed(() => {
+  if (!props.team1?.image) return null
+  return new URL(`/src/assets/images/${props.team1.image}`, import.meta.url)
+    .href
+})
+const image2 = computed(() => {
+  if (!props.team2?.image) return null
+  return new URL(`/src/assets/images/${props.team2.image}`, import.meta.url)
+    .href
+})
 </script>
 
 <template>
-  <TableData :highlights="teams">
+  <TableData class="match-wrapper" :highlights="teams">
+    <div
+      v-if="image1 && team1"
+      class="left"
+      :style="{ backgroundColor: team1.color }"
+    >
+      <img :src="image1" />
+    </div>
+    <div
+      v-if="image2 && team2"
+      class="right"
+      :style="{ backgroundColor: team2.color }"
+    >
+      <img :src="image2" />
+    </div>
     <div class="match-data w-full">
       <div
         v-if="text"
@@ -78,5 +102,59 @@ const teams = computed<Team[]>(
   .match-text {
     text-align: center;
   }
+}
+/* .match-wrapper {
+  height: auto;
+}
+.match-wrapper:hover {
+  height: 8rem;
+  transition: height 0s linear 1s;
+} */
+
+.match-wrapper {
+  position: relative;
+}
+.right,
+.left {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 8px;
+  opacity: 0;
+}
+
+.match-wrapper:hover .right,
+.match-wrapper:hover .left {
+  opacity: 0.2;
+  transition: opacity 0s linear 1s;
+}
+.right {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-clip-path: polygon(60% 0, 100% 0%, 100% 100%, 40% 100%);
+  clip-path: polygon(60% 0, 100% 0%, 100% 100%, 40% 100%);
+
+  justify-content: flex-end;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
+  clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
+}
+
+.left img,
+.right img {
+  height: 2rem;
+  width: auto;
+  object-fit: scale-down;
+  filter: drop-shadow(4px 8px 10px black);
 }
 </style>

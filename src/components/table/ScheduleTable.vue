@@ -143,7 +143,7 @@ const toggleTime = (index: number) => {
   top: calc(50% - 20px);
   width: 160px;
   height: 40px;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .time-wrapper {
@@ -151,7 +151,7 @@ const toggleTime = (index: number) => {
 }
 
 .time-wrapper:hover .time-tooltip {
-  opacity: 1;
-  transition: opacity 0s linear 1s;
+  visibility: visible;
+  transition: visibility 0s linear 1s;
 }
 </style>
