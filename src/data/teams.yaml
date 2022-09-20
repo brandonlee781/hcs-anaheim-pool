@@ -2,6 +2,10 @@ tbd:
   name: TBD
   color: ""
   region: null
+open:
+  name: Open Bracket Team
+  color: ""
+  region: null
 acend:
   name: ACEND
   color: "#6738ec"

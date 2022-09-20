@@ -4,7 +4,7 @@ import { Style } from '@/store/ui'
 import { defaultStyle } from '@/assets/styles'
 
 import teams from '@/data/teams.yaml'
-import eventData from '@/data/orlando.yaml'
+import eventData from '@/data/orlando.event.yaml'
 
 const getOffset = (timeZone = 'UTC') => {
   const options: Intl.DateTimeFormatOptions = {

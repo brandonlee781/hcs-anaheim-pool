@@ -204,18 +204,22 @@ pools:
     - faze
     - acend
     - chiefs
+    - open
   B: 
     - g1
     - nativeRed
     - quadrant
     - cintanegra
+    - open
   C: 
     - sentinels
     - g2
     - navi
     - cruelty
+    - open
   D: 
     - cloud9
     - eunited
     - jlingz
     - ssg
+    - open
