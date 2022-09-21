@@ -32,7 +32,7 @@ const uiStore = useUiStore()
           ]"
           role="button"
           @click="$emit('update:day', 1)"
-          >Day 1</a
+          >Friday</a
         >
         <a
           v-if="event.days.length >= 2"
@@ -43,7 +43,7 @@ const uiStore = useUiStore()
           ]"
           role="button"
           @click="$emit('update:day', 2)"
-          >Day 2</a
+          >Saturday</a
         >
         <a
           v-if="event.days.length >= 3"
@@ -54,7 +54,7 @@ const uiStore = useUiStore()
           ]"
           role="button"
           @click="$emit('update:day', 3)"
-          >Day 3</a
+          >Championship Sunday</a
         >
       </div>
       <div class="flex flex-row flex-nowrap items-center justify-center">
