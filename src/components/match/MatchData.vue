@@ -70,7 +70,10 @@ const showImages = computed(() => {
     >
       <img :src="image2" />
     </div>
-    <div class="match-data" :class="[showScheduleLogos ? 'px-12 md:px-0' : '']">
+    <div
+      class="match-data"
+      :class="[showScheduleLogos ? 'px-12 md:px-0 show-logos' : '']"
+    >
       <div
         v-if="text"
         class="match-text"
@@ -80,7 +83,7 @@ const showImages = computed(() => {
       </div>
       <div
         v-if="team1 && team2"
-        class="match-teams text-md font-semibold tracking-wider lead min-w-full flex flex-row items-center md:(flex-col justify-center) lg:flex-row"
+        class="match-teams text-md font-semibold tracking-wider lead min-w-full flex flex-row items-center justify-center md:flex-col lg:flex-row"
       >
         <span v-if="team1" class="lg:text-right">
           {{ team1.name }}
@@ -90,7 +93,10 @@ const showImages = computed(() => {
           {{ team2.name }}
         </span>
       </div>
-      <div v-if="stream" class="match-stream md:hidden pl-4">
+      <div
+        v-if="stream"
+        class="match-stream md:hidden flex items-center justify-center md:justify-end"
+      >
         <a
           class="underline text-xs leading-4"
           :href="stream.link"
@@ -106,24 +112,34 @@ const showImages = computed(() => {
 <style scoped>
 .match-data {
   display: grid;
-  grid-template-columns: 2;
-  grid-template-rows: 1;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .match-data .match-text {
-  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 2;
 }
+
+.match-data.show-logos {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
 .match-data .match-teams {
-  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
 }
+
 .match-data .match-stream {
-  grid-column: 2 / span 1;
-  text-align: right;
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 2;
+  text-align: left;
 }
 
 @media (min-width: 768px) {
   .match-data {
-    grid-template-columns: 1;
+    grid-template-columns: 1fr;
   }
   .match-text {
     text-align: center;
