@@ -5,7 +5,7 @@ import useTeam from '@/composables/useTeam'
 
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
-const { showScheduleLogos } = useTeam()
+const { showScheduleLogos, clickToHighlight, hoveredTeam } = useTeam()
 
 function adjust(color: string, amount: number) {
   return (
@@ -42,25 +42,35 @@ const image2 = computed(() => {
   return new URL(`/src/assets/images/${props.team2.image}`, import.meta.url)
     .href
 })
+
+const showImages = computed(() => {
+  if (showScheduleLogos.value && !clickToHighlight.value && hoveredTeam.value) {
+    return (
+      hoveredTeam.value?.name === props.team1?.name ||
+      hoveredTeam.value?.name === props.team2?.name
+    )
+  }
+  return true
+})
 </script>
 
 <template>
   <TableData class="match-wrapper" :highlights="teams">
     <div
-      v-if="image1 && team1"
+      v-if="image1 && team1 && showImages"
       :class="{ left: true, showScheduleLogos }"
       :style="{ backgroundColor: adjust(team1.color, 50) }"
     >
       <img :src="image1" />
     </div>
     <div
-      v-if="image2 && team2"
+      v-if="image2 && team2 && showImages"
       :class="{ right: true, showScheduleLogos }"
       :style="{ backgroundColor: adjust(team2.color, 50) }"
     >
       <img :src="image2" />
     </div>
-    <div class="match-data">
+    <div class="match-data" :class="[showScheduleLogos ? 'px-12' : '']">
       <div
         v-if="text"
         class="match-text"

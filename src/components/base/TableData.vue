@@ -24,9 +24,10 @@ const props = defineProps<{ highlights?: Team[] }>()
 
 const { windowWidth } = useWindowWidth()
 const isMobile = $computed(() => windowWidth.value <= 1024)
-const { hoveredTeam } = useTeam()
+const { hoveredTeam, showScheduleLogos } = useTeam()
 
 const color = $computed(() => {
+  if (showScheduleLogos.value) return 'transparent'
   const team = props.highlights?.find(h => h.name === hoveredTeam.value?.name)
 
   if (team) {
