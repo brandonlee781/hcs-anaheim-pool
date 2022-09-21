@@ -1,6 +1,4 @@
 /* eslint-disable vue/max-len */
-import { Style } from '@/store/ui'
-
 export const defaultStyle: Style = {
   bodyStyle: 'dark:bg-gray-800 dark:text-gray-200 bg-gray-300 text-dark-500',
   tableStyle: 'dark:divide-gray-200 divid-gray-600 border-separate',
@@ -14,4 +12,5 @@ export const defaultStyle: Style = {
   buttonActiveStyle:
     'dark:bg-gray-500 bg-gray-300 text-gray-200 bg-dark-900 hover:(text-gray-200 bg-dark-900)',
   cardStyle: 'shadow-lg rounded-lg overflow-hidden',
+  footerStyle: '',
 }

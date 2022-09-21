@@ -14,6 +14,7 @@ export const useUiStore = defineStore('ui', () => {
   const buttonStyle = ref('')
   const buttonActiveStyle = ref('')
   const cardStyle = ref('')
+  const footerStyle = ref('')
 
   const setStyle = (styles: Style) => {
     style.value = styles
@@ -32,6 +33,7 @@ export const useUiStore = defineStore('ui', () => {
     buttonStyle.value = styles.buttonStyle
     buttonActiveStyle.value = styles.buttonActiveStyle
     cardStyle.value = styles.cardStyle
+    footerStyle.value = styles.footerStyle
   }
 
   const darkMode = ref(true)
@@ -51,6 +53,7 @@ export const useUiStore = defineStore('ui', () => {
     buttonStyle,
     buttonActiveStyle,
     cardStyle,
+    footerStyle,
     setStyle,
 
     darkMode,

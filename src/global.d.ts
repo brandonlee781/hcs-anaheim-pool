@@ -70,6 +70,7 @@ declare interface Style {
   buttonStyle: string
   buttonActiveStyle: string
   cardStyle: string
+  footerStyle: string
 }
 
 declare interface HcsEvent {

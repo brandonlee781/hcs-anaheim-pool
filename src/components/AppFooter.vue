@@ -1,33 +1,27 @@
 <script setup lang="ts">
 import useTeam from '@/composables/useTeam'
+import { useUiStore } from '@/store/ui'
 
-const { clickToHighlight } = useTeam()
 defineProps<{ link: string; showToggle: boolean }>()
+
+const { clickToHighlight, showScheduleLogos } = useTeam()
+const uiStore = useUiStore()
 </script>
 
 <template>
-  <div class="flex flex-row justify-between align-center mt-1">
-    <div class="hidden xl:inline">
-      <div
-        v-if="showToggle"
-        class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"
-      >
-        <input
-          v-model="clickToHighlight"
-          type="checkbox"
-          name="toggle"
-          id="toggle"
-          class="toggle-checkbox absolute block w-6 h-6 rounded-full dark:bg-white light:bg-gray-600 border-4 light:border-gray-600 appearance-none cursor-pointer"
-        />
-        <label
-          for="toggle"
-          class="toggle-label block overflow-hidden h-6 rounded-full dark:bg-gray-300 light:bg-gray-700 cursor-pointer"
-        ></label>
+  <div
+    class="flex flex-row justify-between align-center mt-1"
+    :class="[uiStore.footerStyle]"
+  >
+    <div class="flex flex-row">
+      <div class="hidden xl:inline">
+        <BaseToggle v-model="clickToHighlight">
+          {{ clickToHighlight ? 'Click' : 'Hover' }} Pools to Highlight
+        </BaseToggle>
       </div>
-      <label v-if="showToggle" class="cursor-pointer" for="toggle">
-        {{ clickToHighlight ? 'Click' : 'Hover' }} team name in their pool to
-        highlight their matches
-      </label>
+      <BaseToggle v-model="showScheduleLogos" class="ml-6">
+        {{ showScheduleLogos ? 'Show' : 'Hide' }} Team Logos
+      </BaseToggle>
     </div>
 
     <div class="dark:text-gray-200 text-xs underline text-right">
