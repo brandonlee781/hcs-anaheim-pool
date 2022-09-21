@@ -23,72 +23,72 @@ days:
   - '2022-09-24'
   - '2022-09-25'
 day1:
-  - time: 11:30
+  - time: 11:45
     items:
       - text: Orlando Pre-Show
         span: 4
   - time: 12:00
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - team1: optic
+        team2: acend
+      - team1: g1
+        team2: nativeRed
+      - team1: faze
+        team2: chiefs
+      - team1: quadrant
+        team2: cintanegra
   - time: 13:30
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - team1: eunited
+        team2: ssg
+      - team1: sentinels
+        team2: navi
+      - team1: cloud9
+        team2: jlingz
+      - team1: g2
+        team2: cruelty
   - time: 15:00
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - team1: g1
+        team2: quadrant
+      - team1: faze
+        team2: acend
+      - team1: optic
+        team2: chiefs
+      - team1: nativeRed
+        team2: cintanegra
   - time: 16:30
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - team1: sentinels
+        team2: g2
+      - team1: cloud9
+        team2: ssg
+      - team1: eunited
+        team2: jlingz
+      - team1: navi
+        team2: cruelty
   - time: 18:00
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - team1: optic
+        team2: faze
+      - team1: nativeRed
+        team2: quadrant
+      - team1: acend
+        team2: chiefs
+      - team1: g1
+        team2: cintanegra
   - time: 19:30
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - team1: cloud9
+        team2: eunited
+      - team1: g2
+        team2: navi
+      - team1: jlingz
+        team2: ssg
+      - team1: sentinels
+        team2: cruelty
 day2:
-  - time: 11:30
+  - time: 11:45
     items:
       - text: Orlando Pre-Show
         span: 4
@@ -153,7 +153,7 @@ day2:
         team2: tbd
         span: 2
 day3:
-  - time: 11:30
+  - time: 11:45
     items:
       - text: Orlando Pre-Show
         span: 4
