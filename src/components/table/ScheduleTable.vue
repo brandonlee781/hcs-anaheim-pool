@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import useWindowWidth from '@/composables/useWindowWidth'
 import useTournament from '@/composables/useTournament'
 import { format } from 'date-fns'
@@ -46,9 +46,15 @@ const getTourneyTime = (time: string) => {
 
 const shownTimes = ref<boolean[]>([])
 
-onMounted(() => {
-  shownTimes.value = schedule.value.map(s => true)
-})
+watch(
+  schedule,
+  () => {
+    shownTimes.value = schedule.value.map(s => true)
+  },
+  {
+    immediate: true,
+  }
+)
 
 const toggleTime = (index: number) => {
   if (window.innerWidth <= 768) {
