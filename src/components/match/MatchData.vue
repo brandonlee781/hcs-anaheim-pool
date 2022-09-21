@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import useWindowWidth from '@/composables/useWindowWidth'
+import useTeam from '@/composables/useTeam'
 
 const { windowWidth } = useWindowWidth()
 const isMobile = computed(() => windowWidth.value <= 1024)
+const { showScheduleLogos } = useTeam()
 
 function adjust(color: string, amount: number) {
   return (
@@ -46,14 +48,14 @@ const image2 = computed(() => {
   <TableData class="match-wrapper" :highlights="teams">
     <div
       v-if="image1 && team1"
-      class="left"
+      :class="{ left: true, showScheduleLogos }"
       :style="{ backgroundColor: adjust(team1.color, 50) }"
     >
       <img :src="image1" />
     </div>
     <div
       v-if="image2 && team2"
-      class="right"
+      :class="{ right: true, showScheduleLogos }"
       :style="{ backgroundColor: adjust(team2.color, 50) }"
     >
       <img :src="image2" />
@@ -139,6 +141,11 @@ const image2 = computed(() => {
 .match-wrapper:hover .left {
   opacity: 0.3;
   transition: opacity 0s linear 0.5s;
+}
+
+.right.showScheduleLogos,
+.left.showScheduleLogos {
+  opacity: 0.3;
 }
 
 /* @supports (-webkit-text-stroke: 0.3px black) {

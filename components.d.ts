@@ -8,6 +8,7 @@ declare module 'vue' {
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     BaseModal: typeof import('./src/components/base/BaseModal.vue')['default']
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
+    BaseToggle: typeof import('./src/components/base/BaseToggle.vue')['default']
     IMdiThemeLightDark: typeof import('~icons/mdi/theme-light-dark')['default']
     MatchData: typeof import('./src/components/match/MatchData.vue')['default']
     PoolTable: typeof import('./src/components/table/PoolTable.vue')['default']
