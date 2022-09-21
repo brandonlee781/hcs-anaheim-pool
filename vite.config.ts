@@ -17,7 +17,13 @@ export default defineConfig({
     vue({
       reactivityTransform: true,
     }),
-    WindiCSS({ transformCSS: 'pre' }),
+    WindiCSS({
+      transformCSS: 'pre',
+      scan: {
+        dirs: ['src'], // all files in the cwd
+        fileExtensions: ['vue', 'js', 'ts'], // also enabled scanning for js/ts
+      },
+    }),
     Components({
       extensions: ['vue', 'ts'],
       dts: true,
