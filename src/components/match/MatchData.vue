@@ -44,7 +44,7 @@ const image2 = computed(() => {
 })
 
 const showImages = computed(() => {
-  if (showScheduleLogos.value && !clickToHighlight.value && hoveredTeam.value) {
+  if (showScheduleLogos.value && hoveredTeam.value) {
     return (
       hoveredTeam.value?.name === props.team1?.name ||
       hoveredTeam.value?.name === props.team2?.name
