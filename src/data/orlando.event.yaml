@@ -87,117 +87,117 @@ day1:
         team2: ssg
       - team1: sentinels
         team2: cruelty
-day2:
-  - time: 11:45
-    items:
-      - text: Orlando Pre-Show
-        span: 4
-  - time: 12:00
-    items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-  - time: 13:30
-    items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-  - time: 15:00
-    items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-  - time: 16:30
-    items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-  - time: 18:00
-    items:
-      - text: Winners Quarterfinals
-        team1: tbd
-        team2: tbd
-        span: 2
-      - text: Elimination Round 1
-        team1: tbd
-        team2: tbd
-        span: 2
-  - time: 19:30
-    items:
-      - text: Winners Quarterfinals
-        team1: tbd
-        team2: tbd
-        span: 2
-      - text: Elimination Round 1
-        team1: tbd
-        team2: tbd
-        span: 2
-day3:
-  - time: 11:45
-    items:
-      - text: Orlando Pre-Show
-        span: 4
-  - time: 12:00
-    items:
-      - text: Winners Semifinals
-        team1: tbd
-        team2: tbd
-        span: 4
-  - time: 13:30
-    items:
-      - text: Winners Semifinals
-        team1: tbd
-        team2: tbd
-        span: 4
-  - time: 15:00
-    items:
-      - text: Elimination Quarterfinals
-        team1: tbd
-        team2: tbd
-        span: 4
-  - time: 16:30
-    items:
-      - text: Winners Finals
-        team1: tbd
-        team2: tbd
-        span: 4
-  - time: 18:00
-    items:
-      - text: Elimination Finals
-        team1: tbd
-        team2: tbd
-        span: 4
-  - time: 19:30
-    items:
-      - text: Throwback Throwdown
-        span: 4
-        textClass: 'text-xl font-bold tracking-wide'
-  - time: 21:00
-    items:
-      - text: Grand Finals
-        team1: tbd
-        team2: tbd
-        span: 4
+# day2:
+#   - time: 11:45
+#     items:
+#       - text: Orlando Pre-Show
+#         span: 4
+#   - time: 12:00
+#     items:
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#   - time: 13:30
+#     items:
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#   - time: 15:00
+#     items:
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#   - time: 16:30
+#     items:
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#   - time: 18:00
+#     items:
+#       - text: Winners Quarterfinals
+#         team1: tbd
+#         team2: tbd
+#         span: 2
+#       - text: Elimination Round 1
+#         team1: tbd
+#         team2: tbd
+#         span: 2
+#   - time: 19:30
+#     items:
+#       - text: Winners Quarterfinals
+#         team1: tbd
+#         team2: tbd
+#         span: 2
+#       - text: Elimination Round 1
+#         team1: tbd
+#         team2: tbd
+#         span: 2
+# day3:
+#   - time: 11:45
+#     items:
+#       - text: Orlando Pre-Show
+#         span: 4
+#   - time: 12:00
+#     items:
+#       - text: Winners Semifinals
+#         team1: tbd
+#         team2: tbd
+#         span: 4
+#   - time: 13:30
+#     items:
+#       - text: Winners Semifinals
+#         team1: tbd
+#         team2: tbd
+#         span: 4
+#   - time: 15:00
+#     items:
+#       - text: Elimination Quarterfinals
+#         team1: tbd
+#         team2: tbd
+#         span: 4
+#   - time: 16:30
+#     items:
+#       - text: Winners Finals
+#         team1: tbd
+#         team2: tbd
+#         span: 4
+#   - time: 18:00
+#     items:
+#       - text: Elimination Finals
+#         team1: tbd
+#         team2: tbd
+#         span: 4
+#   - time: 19:30
+#     items:
+#       - text: Throwback Throwdown
+#         span: 4
+#         textClass: 'text-xl font-bold tracking-wide'
+#   - time: 21:00
+#     items:
+#       - text: Grand Finals
+#         team1: tbd
+#         team2: tbd
+#         span: 4
 pools:
   A: 
     - optic
