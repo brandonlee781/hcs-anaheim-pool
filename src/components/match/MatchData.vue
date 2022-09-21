@@ -113,7 +113,7 @@ const showImages = computed(() => {
 .match-data {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: fit-content fit-content fit-content;
 }
 
 .match-data .match-text {
@@ -123,7 +123,6 @@ const showImages = computed(() => {
 
 .match-data.show-logos {
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .match-data .match-teams {
