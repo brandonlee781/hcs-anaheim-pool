@@ -70,7 +70,7 @@ const showImages = computed(() => {
     >
       <img :src="image2" />
     </div>
-    <div class="match-data" :class="[showScheduleLogos ? 'px-12' : '']">
+    <div class="match-data" :class="[showScheduleLogos ? 'px-12 md:px-0' : '']">
       <div
         v-if="text"
         class="match-text"
