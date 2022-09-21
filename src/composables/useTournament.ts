@@ -60,7 +60,8 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
     ].filter(Boolean)
     const daySchedule = days[day.value - 1]
 
-    return daySchedule!.map((sched: any) => {
+    if (!daySchedule) return []
+    return daySchedule.map((sched: any) => {
       const d = event.value?.days[day.value - 1] ?? '2022-01-01'
       const time = timeFn(d, sched.time)
       return {
