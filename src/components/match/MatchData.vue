@@ -76,7 +76,7 @@ const showImages = computed(() => {
     >
       <div
         v-if="text"
-        class="match-text"
+        class="match-text text-center"
         :class="[textClass ? textClass : 'text-sm mb-2']"
       >
         {{ text }}

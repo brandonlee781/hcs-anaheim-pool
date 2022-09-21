@@ -11,6 +11,6 @@ export const defaultStyle: Style = {
     'transition dark:text-gray-200 hover:(outline-gray-400 bg-gray-700 text-light-500) hover:dark:bg-gray-500',
   buttonActiveStyle:
     'dark:bg-gray-500 bg-gray-300 text-gray-200 bg-dark-900 hover:(text-gray-200 bg-dark-900)',
-  cardStyle: 'shadow-lg rounded-lg overflow-hidden',
+  cardStyle: '',
   footerStyle: '',
 }
