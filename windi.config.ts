@@ -13,8 +13,9 @@ export default defineConfig({
       {
         extensions: ['yaml'],
         extractor: async content => {
-          const classes = content.match(/(?:\w*)Style:(.*)$/gim) ?? []
-          return { classes }
+          const styleClasses = content.match(/(?:\w*)Style:(.*)$/gim) ?? []
+          const itemClasses = content.match(/textClass:(.*)$/gim) ?? []
+          return { classes: [...styleClasses, ...itemClasses] }
         },
       },
     ],

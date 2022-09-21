@@ -30,6 +30,7 @@ day1:
     items:
       - text: Orlando Pre-Show
         span: 4
+        textClass: 'text-lg font-bold'
   - time: 12:00
     items:
       - team1: optic
