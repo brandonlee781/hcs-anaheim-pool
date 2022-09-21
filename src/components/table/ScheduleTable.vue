@@ -7,10 +7,9 @@ import { formatInTimeZone } from 'date-fns-tz'
 import { useUiStore } from '@/store/ui'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
-const day = computed(() => props.day)
 const uiStore = useUiStore()
 
-const { schedule, event } = useTournament(day)
+const { schedule, event, day } = useTournament()
 
 const { windowWidth } = useWindowWidth()
 

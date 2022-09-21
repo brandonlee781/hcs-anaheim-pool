@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { watch, ref } from 'vue'
-import { useStorage } from '@vueuse/core'
 import useTournament from '@/composables/useTournament'
 import { useUiStore } from './store/ui'
 
-const day = useStorage('hsc-day-val', 1)
-const { pools, event, participants, styles } = useTournament(day)
+const { pools, event, participants, styles, day } = useTournament()
 
 const warningModal = ref(true)
 
@@ -16,11 +14,7 @@ watch(styles, () => {
 </script>
 
 <template>
-  <AppHeader
-    v-model:day="day"
-    v-model:dark="uiStore.darkMode"
-    :title="event.title"
-  />
+  <AppHeader v-model:dark="uiStore.darkMode" :title="event.title" />
   <ScheduleTable class="max-w-full" :day="day" />
   <div v-if="pools" class="pools">
     <PoolTable v-if="pools.A" title="Pool A" :teams="pools.A" />

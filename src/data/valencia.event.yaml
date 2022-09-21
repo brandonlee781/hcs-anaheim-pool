@@ -11,9 +11,12 @@ streams:
     link: https://www.twitch.tv/hcs
     span: 2
 days:
-  - '2022-07-01'
-  - '2022-07-02'
-  - '2022-07-03'
+  - date: '2022-07-01'
+    text: 'Friday'
+  - date: '2022-07-02'
+    text: 'Saturday'
+  - date: '2022-07-03'
+    text: 'Championship Sunday'
 day1:
   - time: 11:00
     items:

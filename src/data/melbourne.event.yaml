@@ -9,9 +9,12 @@ streams:
     name: B Stream (HCS)
     link: https://www.twitch.tv/hcs
 days:
-  - '2022-09-02'
-  - '2022-09-03'
-  - '2022-09-04'
+  - date: '2022-09-02'
+    text: 'Friday'
+  - date: '2022-09-03'
+    text: 'Saturday'
+  - date: '2022-09-04'
+    text: 'Championship Sunday'
 day1:
   - time: 10:00
     items:

@@ -9,9 +9,12 @@ streams:
 styles:
   bodyStyle: bg-gradient-to-br from-red-700 to-blue-700
 days:
-  - '2022-09-16'
-  - '2022-09-17'
-  - '2022-08-18'
+  - date: '2022-09-16'
+    text: 'Friday'
+  - date: '2022-09-17'
+    text: 'Saturday'
+  - date: '2022-08-18'
+    text: 'Championship Sunday'
 day1:
   - time: 13:45
     items:
@@ -95,7 +98,6 @@ day3:
         team1: optic
         team2: tbd
         span: 4
-pools: null
 participants:
   - eunited
   - sentinels

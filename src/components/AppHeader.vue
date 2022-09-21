@@ -4,11 +4,10 @@ import { useUiStore } from '@/store/ui'
 
 defineProps({
   title: { type: String, defaut: null },
-  day: { type: Number, default: 1 },
   dark: { type: Boolean, default: true },
 })
 defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
-const { event } = useTournament()
+const { event, day } = useTournament()
 const uiStore = useUiStore()
 </script>
 
@@ -25,16 +24,18 @@ const uiStore = useUiStore()
         class="w-full flex flex-row items-start mt-4 md:(items-center mt-0 w-75) xl:w-auto"
       >
         <a
+          v-for="(d, index) in event.days"
+          :key="index"
           class="*btn"
           :class="[
             uiStore.buttonStyle,
-            day === 1 ? `active ${uiStore.buttonActiveStyle}` : '',
+            day === index ? `active ${uiStore.buttonActiveStyle}` : '',
           ]"
           role="button"
-          @click="$emit('update:day', 1)"
-          >Friday</a
+          @click="() => (day = index)"
+          >{{ d.text ?? `Day ${index + 1}` }}</a
         >
-        <a
+        <!-- <a
           v-if="event.days.length >= 2"
           class="*btn"
           :class="[
@@ -55,7 +56,7 @@ const uiStore = useUiStore()
           role="button"
           @click="$emit('update:day', 3)"
           >Championship Sunday</a
-        >
+        > -->
       </div>
       <div class="flex flex-row flex-nowrap items-center justify-center">
         <p class="">

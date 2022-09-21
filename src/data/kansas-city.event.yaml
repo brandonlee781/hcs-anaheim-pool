@@ -18,10 +18,13 @@ streams:
     name: D Stream (HCS_Blue)
     link: https://www.twitch.tv/hcs_blue
     span: 1
-days: 
-  - '2022-04-29'
-  - '2022-04-30'
-  - '2022-05-01'
+days:
+  - date: '2022-04-29'
+    text: 'Friday'
+  - date: '2022-04-30'
+    text: 'Saturday'
+  - date: '2022-05-01'
+    text: 'Championship Sunday'
 day1:
   - time: 11:30
     items:

@@ -78,7 +78,10 @@ declare interface HcsEvent {
   timezone: string
   streams: Stream[]
   styles: Partial<Style>
-  days: string[]
+  days: {
+    date: string
+    text?: string
+  }[]
   day1: ScheduleSlot[]
   day2?: ScheduleSlot[]
   day3?: ScheduleSlot[]

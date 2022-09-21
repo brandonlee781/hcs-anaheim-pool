@@ -1,5 +1,5 @@
 import { computed, ComputedRef, onMounted, Ref, ref } from 'vue'
-import { RemovableRef } from '@vueuse/core'
+import { RemovableRef, useStorage } from '@vueuse/core'
 import { defaultStyle } from '@/assets/styles'
 
 import teams from '@/data/teams.yaml'
@@ -26,6 +26,7 @@ function getTime(timezone: string) {
 }
 
 type UseTournamentResponse = {
+  day: RemovableRef<number>
   event: Ref<HcsEvent>
   schedule: ComputedRef<ScheduleSlot[]>
   pools?: ComputedRef<Pools>
@@ -33,8 +34,9 @@ type UseTournamentResponse = {
   styles: ComputedRef<Style>
   teams: TeamPool
 }
+const day = useStorage('hsc-day-val', 0)
 
-export default function (day?: RemovableRef<number>): UseTournamentResponse {
+export default function (): UseTournamentResponse {
   const event = ref<HcsEvent>({
     title: '',
     link: '',
@@ -50,7 +52,7 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
   })
 
   const schedule = computed<ScheduleSlot[]>(() => {
-    if (!day || day.value - 1 > event.value.days.length) return []
+    if (day.value > event.value.days.length) return []
 
     const timeFn = getTime(event.value?.timezone)
     const days = [
@@ -58,12 +60,12 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
       event.value?.day2,
       event.value?.day3,
     ].filter(Boolean)
-    const daySchedule = days[day.value - 1]
+    const daySchedule = days[day.value]
 
     if (!daySchedule)
       return [
         {
-          time: timeFn(event.value?.days[day.value - 1], '00:00'),
+          time: timeFn(event.value?.days[day.value].date, '00:00'),
           items: [
             {
               text: 'This days schedule will be updated as soon as it is released.',
@@ -74,7 +76,7 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
         },
       ]
     return daySchedule.map((sched: any) => {
-      const d = event.value?.days[day.value - 1] ?? '2022-01-01'
+      const d = event.value?.days[day.value].date ?? '2022-01-01'
       const time = timeFn(d, sched.time)
       return {
         ...sched,
@@ -113,6 +115,7 @@ export default function (day?: RemovableRef<number>): UseTournamentResponse {
   })
 
   return {
+    day,
     event,
     schedule,
     participants,
