@@ -16,7 +16,7 @@ onBeforeMount(() => {
       class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"
     >
       <input
-        :value="modelValue"
+        :checked="modelValue"
         type="checkbox"
         name="toggle"
         :id="`toggle-${uuid}`"
