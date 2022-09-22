@@ -16,7 +16,7 @@ days:
   - date: '2022-07-02'
     text: 'saturday'
   - date: '2022-07-03'
-    text: 'sunday'
+    text: 'champ-sunday'
 day1:
   - time: 11:00
     items:

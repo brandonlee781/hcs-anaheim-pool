@@ -2,7 +2,8 @@
   "days": {
     "friday": "Friday",
     "saturday": "Saturday",
-    "sunday": "Championship Sunday",
+    "sunday": "Sunday",
+    "champ-sunday": "Championship Sunday",
     "day": "Day {num}"
   },
   "instructions": {

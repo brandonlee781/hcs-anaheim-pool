@@ -24,7 +24,7 @@ days:
   - date: '2022-04-30'
     text: 'saturday'
   - date: '2022-05-01'
-    text: 'sunday'
+    text: 'champ-sunday'
 day1:
   - time: 11:30
     items:
