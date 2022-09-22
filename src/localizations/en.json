@@ -17,7 +17,8 @@
     "pool": "Pool {pool}"
   },
   "event": {
-    "stream": "{name} Stream"
+    "stream": "{name} Stream",
+    "open-team": "Open Bracket Team"
   },
   "footer": {
     "click-highlight": "Click Pools to Highlight",

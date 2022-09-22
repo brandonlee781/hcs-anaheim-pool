@@ -17,7 +17,8 @@
     "pool": "Piscina {pool}"
   },
   "event": {
-    "stream": "{name} Transmisión"
+    "stream": "{name} Transmisión",
+    "open-team": "Equipo de Soporte Abierto"
   },
   "footer": {
     "click-highlight": "Haga clic en Grupos para resaltar",

@@ -4,6 +4,7 @@ import { defaultStyle } from '@/assets/styles'
 
 import teams from '@/data/teams.yaml'
 import eventData from '@/data/orlando.event.yaml'
+import { useI18n } from 'vue-i18n'
 
 const getOffset = (timeZone = 'UTC') => {
   const options: Intl.DateTimeFormatOptions = {
@@ -51,6 +52,18 @@ export default function (): UseTournamentResponse {
     event.value = eventData as HcsEvent
   })
 
+  const { t } = useI18n()
+
+  const getTeam = (key: string): Team => {
+    if (key === 'open') {
+      return {
+        ...teams.open,
+        name: t('event.open-team'),
+      }
+    }
+    return teams[key] ?? null
+  }
+
   const schedule = computed<ScheduleSlot[]>(() => {
     if (day.value > event.value.days.length) return []
 
@@ -80,8 +93,8 @@ export default function (): UseTournamentResponse {
         items: sched.items.map((item: any) => {
           return {
             ...item,
-            team1: item?.team1 ? teams[item.team1] : null,
-            team2: item?.team2 ? teams[item.team2] : null,
+            team1: getTeam(item?.team1),
+            team2: getTeam(item?.team2),
           }
         }),
       }
@@ -93,7 +106,6 @@ export default function (): UseTournamentResponse {
   })
 
   const pools = computed(() => {
-    const getTeam = (t: string): Team => teams[t]
     const p = {
       A: event.value.pools?.A?.map(getTeam) ?? [],
       B: event.value.pools?.B?.map(getTeam) ?? [],
