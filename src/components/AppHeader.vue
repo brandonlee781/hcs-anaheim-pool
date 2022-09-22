@@ -10,7 +10,7 @@ defineProps({
 defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
 const { event, day } = useTournament()
 const uiStore = useUiStore()
-const { t, te } = useI18n()
+const { t, te, availableLocales, locale } = useI18n()
 </script>
 
 <template>
@@ -56,9 +56,23 @@ const { t, te } = useI18n()
           <i-mdi-theme-light-dark />
         </a>
 
-        <a class="cursor-pointer w-4 h-4 ml-4">
-          <i-mdi-translate />
-        </a>
+        <BaseDropDown class="ml-4 -mb-1" :width="48">
+          <template #activator="{ toggleOpen }">
+            <a class="cursor-pointer" @click="toggleOpen">
+              <i-mdi-translate />
+            </a>
+          </template>
+          <ul>
+            <li
+              v-for="loc in availableLocales"
+              :key="`locale-${loc}`"
+              class="cursor-pointer hover:bg-gray-600 pl-3 uppercase"
+              @click="locale = loc"
+            >
+              {{ loc }}
+            </li>
+          </ul>
+        </BaseDropDown>
       </div>
     </div>
   </div>
