@@ -8,6 +8,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 import ViteYaml from '@modyfi/vite-plugin-yaml'
 import * as path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 export default defineConfig({
   base: '/hcs-tournament-schedule/',
@@ -24,12 +25,21 @@ export default defineConfig({
         fileExtensions: ['vue', 'js', 'ts'], // also enabled scanning for js/ts
       },
     }),
+    Icons({
+      compiler: 'vue3',
+      customCollections: {
+        'hcs-icons': FileSystemIconLoader('./src/assets/icons'),
+      },
+    }),
     Components({
       extensions: ['vue', 'ts'],
       dts: true,
-      resolvers: [IconsResolver()],
+      resolvers: [
+        IconsResolver({
+          customCollections: ['hcs-icons'],
+        }),
+      ],
     }),
-    Icons({ compiler: 'vue3' }),
     VitePWA({
       base: '/hcs-tournament-schedule/',
       srcDir: 'src',

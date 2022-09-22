@@ -47,8 +47,8 @@ const uiStore = useUiStore()
       :class="[open ? '' : 'opacity-0 invisible']"
     >
       <div
-        class="absolute right-0 mt-2 z-3 origin-top-right border divide-y rounded-md shadow-lg outline-none"
-        :class="[uiStore.cardStyle, uiStore.tableDataStyle]"
+        class="absolute right-0 mt-2 z-3 origin-top-right border divide-y shadow-lg outline-none"
+        :class="[uiStore.tableDataStyle]"
         :style="{
           width: (width ?? 120) + 'px',
         }"

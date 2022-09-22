@@ -56,7 +56,7 @@ const { t, te, availableLocales, locale } = useI18n()
           <i-mdi-theme-light-dark />
         </a>
 
-        <BaseDropDown class="ml-4 -mb-1" :width="48">
+        <BaseDropDown class="ml-4 -mb-1" :width="56">
           <template #activator="{ toggleOpen }">
             <a class="cursor-pointer" @click="toggleOpen">
               <i-mdi-translate />
@@ -66,7 +66,8 @@ const { t, te, availableLocales, locale } = useI18n()
             <li
               v-for="loc in availableLocales"
               :key="`locale-${loc}`"
-              class="cursor-pointer hover:bg-gray-600 pl-3 uppercase"
+              class="cursor-pointer hover:dark:bg-gray-600 hover:bg-gray-300 text-center py-2 uppercase"
+              :class="[locale === loc ? 'dark:bg-blue-400 bg-blue-200' : '']"
               @click="locale = loc"
             >
               {{ loc }}
