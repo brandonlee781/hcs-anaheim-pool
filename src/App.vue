@@ -2,10 +2,13 @@
 import { watch, ref } from 'vue'
 import useTournament from '@/composables/useTournament'
 import { useUiStore } from './store/ui'
+import { useI18n } from 'vue-i18n'
 
 const { pools, event, participants, styles, day } = useTournament()
 
 const warningModal = ref(true)
+
+const { t } = useI18n()
 
 const uiStore = useUiStore()
 watch(styles, () => {
@@ -17,10 +20,26 @@ watch(styles, () => {
   <AppHeader v-model:dark="uiStore.darkMode" :title="event.title" />
   <ScheduleTable class="max-w-full" :day="day" />
   <div v-if="pools" class="pools">
-    <PoolTable v-if="pools.A" title="Pool A" :teams="pools.A" />
-    <PoolTable v-if="pools.B" title="Pool B" :teams="pools.B" />
-    <PoolTable v-if="pools.C" title="Pool C" :teams="pools.C" />
-    <PoolTable v-if="pools.D" title="Pool D" :teams="pools.D" />
+    <PoolTable
+      v-if="pools.A"
+      :title="t('table.pool', { pool: 'A' })"
+      :teams="pools.A"
+    />
+    <PoolTable
+      v-if="pools.B"
+      :title="t('table.pool', { pool: 'B' })"
+      :teams="pools.B"
+    />
+    <PoolTable
+      v-if="pools.C"
+      :title="t('table.pool', { pool: 'C' })"
+      :teams="pools.C"
+    />
+    <PoolTable
+      v-if="pools.D"
+      :title="t('table.pool', { pool: 'D' })"
+      :teams="pools.D"
+    />
   </div>
   <div
     v-if="participants"

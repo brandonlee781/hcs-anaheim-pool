@@ -6,10 +6,12 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
+    BaseDropDown: typeof import('./src/components/base/BaseDropDown.vue')['default']
     BaseModal: typeof import('./src/components/base/BaseModal.vue')['default']
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
     BaseToggle: typeof import('./src/components/base/BaseToggle.vue')['default']
     IMdiThemeLightDark: typeof import('~icons/mdi/theme-light-dark')['default']
+    IMdiTranslate: typeof import('~icons/mdi/translate')['default']
     MatchData: typeof import('./src/components/match/MatchData.vue')['default']
     PoolTable: typeof import('./src/components/table/PoolTable.vue')['default']
     PoolTableItem: typeof import('./src/components/table/PoolTableItem.vue')['default']

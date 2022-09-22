@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import useTournament from '@/composables/useTournament'
 import { useUiStore } from '@/store/ui'
+import { useI18n } from 'vue-i18n'
 
 defineProps({
   title: { type: String, defaut: null },
@@ -9,6 +10,7 @@ defineProps({
 defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
 const { event, day } = useTournament()
 const uiStore = useUiStore()
+const { t, te } = useI18n()
 </script>
 
 <template>
@@ -33,44 +35,29 @@ const uiStore = useUiStore()
           ]"
           role="button"
           @click="() => (day = index)"
-          >{{ d.text ?? `Day ${index + 1}` }}</a
+          >{{
+            te(`days.${d.text}`)
+              ? t(`days.${d.text}`)
+              : t('days.day', { num: index + 1 })
+          }}</a
         >
-        <!-- <a
-          v-if="event.days.length >= 2"
-          class="*btn"
-          :class="[
-            uiStore.buttonStyle,
-            day === 2 ? `active ${uiStore.buttonActiveStyle}` : '',
-          ]"
-          role="button"
-          @click="$emit('update:day', 2)"
-          >Saturday</a
-        >
-        <a
-          v-if="event.days.length >= 3"
-          class="*btn"
-          :class="[
-            uiStore.buttonStyle,
-            day === 3 ? `active ${uiStore.buttonActiveStyle}` : '',
-          ]"
-          role="button"
-          @click="$emit('update:day', 3)"
-          >Championship Sunday</a
-        > -->
       </div>
       <div class="flex flex-row flex-nowrap items-center justify-center">
         <p class="">
-          All times are automatically converted to your timezone.
-          <span class="xs:inline md:hidden"
-            >Click a team in the pools below to highlight them in the
-            schedule.</span
-          >
+          {{ t('instructions.timezone') }}
           <span class="xs:inline md:hidden">
-            Click the time to show and hide it's matches.</span
-          >
+            {{ t('instructions.click-pool') }}
+          </span>
+          <span class="xs:inline md:hidden">
+            &nbsp;{{ t('instructions.toggle-times') }}
+          </span>
         </p>
         <a class="cursor-pointer w-4 h-4 ml-4" @click="uiStore.setDarkMode()">
           <i-mdi-theme-light-dark />
+        </a>
+
+        <a class="cursor-pointer w-4 h-4 ml-4">
+          <i-mdi-translate />
         </a>
       </div>
     </div>

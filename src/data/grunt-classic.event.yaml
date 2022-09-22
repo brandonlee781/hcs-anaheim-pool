@@ -3,18 +3,18 @@ link: https://liquipedia.net/halo/EUnited/2022/Grunt_Classic/Open_Bracket
 timezone: America/New_York
 streams:
   - id: eunited
-    name: eUnited Stream
+    name: eUnited
     link: https://t.co/f6bCy4vu8y
     span: 4
 styles:
   bodyStyle: bg-gradient-to-br from-red-700 to-blue-700
 days:
   - date: '2022-09-16'
-    text: 'Friday'
+    text: 'friday'
   - date: '2022-09-17'
-    text: 'Saturday'
+    text: 'saturday'
   - date: '2022-08-18'
-    text: 'Championship Sunday'
+    text: 'sunday'
 day1:
   - time: 13:45
     items:

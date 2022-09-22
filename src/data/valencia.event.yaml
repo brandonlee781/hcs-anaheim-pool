@@ -3,7 +3,7 @@ link: https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Europ
 timezone: Europe/Madrid
 streams:
   - id: halo
-    name: A Stream (Halo)
+    name: Halo
     link: https://www.twitch.tv/halo
     span: 2
   - id: hcs
@@ -12,11 +12,11 @@ streams:
     span: 2
 days:
   - date: '2022-07-01'
-    text: 'Friday'
+    text: 'friday'
   - date: '2022-07-02'
-    text: 'Saturday'
+    text: 'saturday'
   - date: '2022-07-03'
-    text: 'Championship Sunday'
+    text: 'sunday'
 day1:
   - time: 11:00
     items:

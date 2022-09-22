@@ -3,18 +3,18 @@ link: https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Ocean
 timezone: Australia/ACT
 streams:
   - id: halo
-    name: A Stream (Halo)
+    name: Halo
     link: https://www.twitch.tv/halo
   - id: hcs
     name: B Stream (HCS)
     link: https://www.twitch.tv/hcs
 days:
   - date: '2022-09-02'
-    text: 'Friday'
+    text: 'friday'
   - date: '2022-09-03'
-    text: 'Saturday'
+    text: 'saturday'
   - date: '2022-09-04'
-    text: 'Championship Sunday'
+    text: 'sunday'
 day1:
   - time: 10:00
     items:

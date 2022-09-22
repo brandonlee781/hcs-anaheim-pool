@@ -5,9 +5,11 @@ import useTournament from '@/composables/useTournament'
 import { format } from 'date-fns'
 import { formatInTimeZone } from 'date-fns-tz'
 import { useUiStore } from '@/store/ui'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
 const uiStore = useUiStore()
+const { t } = useI18n()
 
 const { schedule, event, day } = useTournament()
 
@@ -16,15 +18,15 @@ const { windowWidth } = useWindowWidth()
 const headers = computed(() => {
   if (windowWidth.value >= 600) {
     return [
-      { text: 'Timeslot' },
+      { text: t('table.timeslot') },
       ...Object.values(event.value.streams).map(st => ({
-        text: st.name,
+        text: t('event.stream', { name: st.name }),
         link: st.link,
         span: st.span || event.value.streams.length,
       })),
     ]
   }
-  return [{ text: 'Timeslot' }, { text: 'Matches' }]
+  return [{ text: t('table.timeslot') }, { text: t('table.matches') }]
 })
 
 const getStream = (index: number) => {
@@ -84,7 +86,7 @@ const toggleTime = (index: number) => {
           <div
             class="bg-black text-white text-xs rounded py-1 px-4 left-28 md:left-22 bottom-full time-tooltip z-50"
           >
-            <div>Tournament Local Time:</div>
+            <div>{{ t('table.local-time') }}:</div>
             <div>{{ getTourneyTime(timeslot.time) }}</div>
           </div>
         </TableData>

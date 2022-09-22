@@ -3,28 +3,28 @@ link: https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/
 timezone: America/Chicago
 streams:
   - id: halo
-    name: A Stream (Halo)
+    name: Halo
     link: https://www.twitch.tv/halo
     span: 1
   - id: xbox
-    name: B Stream (Xbox)
+    name: Xbox
     link: https://www.twitch.tv/xbox
     span: 1
   - id: red
-    name: C Stream (HCS_Red)
+    name: HCS_Red
     link: https://www.twitch.tv/hcs_red
     span: 1
   - id: blue
-    name: D Stream (HCS_Blue)
+    name: HCS_Blue
     link: https://www.twitch.tv/hcs_blue
     span: 1
 days:
   - date: '2022-04-29'
-    text: 'Friday'
+    text: 'friday'
   - date: '2022-04-30'
-    text: 'Saturday'
+    text: 'saturday'
   - date: '2022-05-01'
-    text: 'Championship Sunday'
+    text: 'sunday'
 day1:
   - time: 11:30
     items:
