@@ -23,7 +23,7 @@ watch(styles, () => {
     <PoolTable v-if="pools.D" title="Pool D" :teams="pools.D" />
   </div>
   <div
-    v-if="participants"
+    v-if="participants && participants.length"
     class="participants grid grid-cols-4 gap-2 mt-4 px-1"
   >
     <PoolTableItem
