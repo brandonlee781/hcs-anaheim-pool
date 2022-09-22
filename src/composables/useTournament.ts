@@ -55,11 +55,7 @@ export default function (): UseTournamentResponse {
     if (day.value > event.value.days.length) return []
 
     const timeFn = getTime(event.value?.timezone)
-    const days = [
-      event.value?.day1,
-      event.value?.day2,
-      event.value?.day3,
-    ].filter(Boolean)
+    const days = [event.value?.day1, event.value?.day2, event.value?.day3]
     const daySchedule = days[day.value]
 
     if (!daySchedule)
