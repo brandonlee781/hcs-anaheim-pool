@@ -156,7 +156,12 @@ day1:
 #         team1: tbd
 #         team2: tbd
 #         span: 2
-# day3:
+day3:
+  - time: 09:00
+    items:
+      - text: Throwback Throwdown
+        span: 4
+        textClass: 'text-xl font-bold tracking-wide'
 #   - time: 11:45
 #     items:
 #       - text: Orlando Pre-Show
@@ -192,11 +197,6 @@ day1:
 #         team2: tbd
 #         span: 4
 #   - time: 19:30
-#     items:
-#       - text: Throwback Throwdown
-#         span: 4
-#         textClass: 'text-xl font-bold tracking-wide'
-#   - time: 21:00
 #     items:
 #       - text: Grand Finals
 #         team1: tbd
