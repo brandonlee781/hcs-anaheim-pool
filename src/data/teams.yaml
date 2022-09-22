@@ -246,3 +246,13 @@ forbiddenFruit:
   color: "#f42d4e"
   region: NA
   image: halo.png
+instinct:
+  name: Instinct
+  color: "#009242"
+  region: NA
+  image: instinct.png
+triggersDown:
+  name: Triggers Down
+  color: "#ed1c24"
+  region: NA
+  image: triggers_down.png

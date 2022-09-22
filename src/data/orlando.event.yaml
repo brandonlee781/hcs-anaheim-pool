@@ -162,6 +162,8 @@ day3:
       - text: Throwback Throwdown
         span: 4
         textClass: 'text-xl font-bold tracking-wide'
+        team1: triggersDown
+        team2: instinct
 #   - time: 11:45
 #     items:
 #       - text: Orlando Pre-Show
