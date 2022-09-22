@@ -1,0 +1,29 @@
+{
+  "days": {
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo de Campeonato",
+    "day": "Día {num}"
+  },
+  "instructions": {
+    "timezone": "Todas las horas se convierten automáticamente a su zona horaria.",
+    "click-pool": "Haga clic en un equipo en los grupos a continuación para resaltarlos en el calendario.",
+    "toggle-times": "Haga clic en el tiempo para mostrar y ocultar sus coincidencias."
+  },
+  "table": {
+    "timeslot": "Tiempo",
+    "matches": "Partido",
+    "local-time": "Hora Local del Torneo",
+    "pool": "Piscina {pool}"
+  },
+  "event": {
+    "stream": "{name} Transmisión"
+  },
+  "footer": {
+    "click-highlight": "Haga clic en Grupos para resaltar",
+    "hover-highlight": "Hover Pools para resaltar",
+    "hide-logos": "Logotipos del Equipo Ocultos",
+    "show-logos": "Se muestran los logotipos del equipo",
+    "link": "Liquipedia Pagina para este Evento"
+  }
+}
