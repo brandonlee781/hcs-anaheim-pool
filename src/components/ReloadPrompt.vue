@@ -22,7 +22,7 @@ const uiStore = useUiStore()
 
 <template>
   <div
-    v-if="true"
+    v-if="offlineReady || needRefresh"
     class="pwa-toast rounded-lg z-10 fixed bottom-4 right-4 border-1 border-gray-500 shadow-md text-left m-4 p-3"
     :class="[uiStore.tableHeadStyle]"
     role="alert"
