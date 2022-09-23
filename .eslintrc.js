@@ -26,6 +26,7 @@ module.exports = {
     'max-len': 'off',
     'vue/valid-v-slot': ['error', { allowModifiers: true }],
     // 'max-len': ['error', { "ignoreStrings": true }]
+    'import/no-unresolved': ['error', { ignore: ['^virtual:'] }],
   },
   globals: {
     $ref: 'readonly',

@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { i18n } from './locales'
 
-// eslint-disable-next-line import/no-unresolved
 import 'virtual:windi.css'
 
 import { useUiStore, darkModeKey } from './store/ui'
