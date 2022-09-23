@@ -15,7 +15,8 @@
     "timeslot": "Timeslot",
     "matches": "Matches",
     "local-time": "Tournament Local Time",
-    "pool": "Pool {pool}"
+    "pool": "Pool {pool}",
+    "no-data": "This days schedule will be updated as soon as it is released."
   },
   "event": {
     "stream": "{name} Stream",

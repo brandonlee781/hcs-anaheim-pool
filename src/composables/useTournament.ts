@@ -77,7 +77,7 @@ export default function (): UseTournamentResponse {
           time: timeFn(event.value?.days[day.value].date, '00:00'),
           items: [
             {
-              text: 'This days schedule will be updated as soon as it is released.',
+              text: t('table.no-data'),
               span: 4,
               textClass: 'text-lg font-bold',
             },
