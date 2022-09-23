@@ -212,12 +212,12 @@ noteam:
   region: MX
   image: halo.png
 nativeRed:
-  name: Native Gaming - Red
+  name: Native Red
   color: "#d21f3d"
   region: NA
   image: native.png
 nativeBlack:
-  name: Native Gaming - Black
+  name: Native Black
   color: "#33080F"
   region: NA
   image: native.png
