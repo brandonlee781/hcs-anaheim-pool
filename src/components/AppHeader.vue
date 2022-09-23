@@ -18,18 +18,22 @@ const { t, te, availableLocales, locale } = useI18n()
     class="header-bar grid grid-cols-[80%,20%] grid-rows-2 h-24 p-2 md:(grid-cols-[1fr,2fr,1fr] grid-rows-1 gap-4 h-14 px-4 items-center)"
     :class="[uiStore.tableHeadStyle, uiStore.cardStyle]"
   >
-    <h1 class="dark:text-gray-200 text-xl md:text-3xl pl-1 font-bold">
+    <h1
+      class="dark:text-gray-200 text-xl md:text-3xl pl-1 font-bold whitespace-nowrap"
+    >
       {{ title }}
     </h1>
 
     <nav
-      class="row-start-2 col-span-2 md:(row-start-1 col-start-2 col-span-1 justify-self-center)"
+      class="row-start-2 col-span-2 md:(row-start-1 col-start-2 col-span-1 justify-self-center) overflow-y-hidden"
     >
-      <div class="w-full flex flex-row items-start md:(items-center)">
+      <div
+        class="w-full flex flex-row items-start md:(items-center) overflow-y-scroll scrollbar-hide"
+      >
         <a
           v-for="(d, index) in event.days"
           :key="index"
-          class="py-2 px-4 mx-1 hover:underline"
+          class="py-2 px-4 mx-1 hover:underline whitespace-nowrap"
           :class="[
             uiStore.buttonStyle,
             day === index

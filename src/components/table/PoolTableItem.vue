@@ -1,39 +1,52 @@
 <script setup lang="ts">
+import { watch, ref, computed, onMounted } from 'vue'
 import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
 import { useUiStore } from '@/store/ui'
-import { computed } from '@vue/reactivity'
 
 const props = defineProps<{ team: Team; index: number }>()
 const { windowWidth } = useWindowWidth()
-const isDesktop = $computed(() => windowWidth.value > 1200)
+const isDesktop = computed(() => windowWidth.value > 1200)
 
 const { setHover, hoveredTeam, clickToHighlight } = useTeam()
 const onClick = (team: Team) => {
   if (clickToHighlight.value && hoveredTeam.value?.name === team.name) {
     setHover(null)
-  } else if (isDesktop) {
+  } else if (isDesktop.value) {
     setHover(team)
   } else {
     setHover(team)
   }
 }
 
-let hovered = $ref(false)
+let hovered = ref(false)
 const onMouseEnter = () => {
-  hovered = true
-  if (isDesktop && !clickToHighlight.value) {
+  hovered.value = true
+  if (isDesktop.value && !clickToHighlight.value) {
     setHover(props.team)
   }
 }
 const onMouseLeave = () => {
-  hovered = false
-  if (isDesktop && !clickToHighlight.value) {
+  hovered.value = false
+  if (isDesktop.value && !clickToHighlight.value) {
     setHover(null)
   }
 }
 
-const selected = $computed(() => {
+const poolItem = ref<HTMLElement | null>()
+const itemWidth = ref('0')
+watch(windowWidth, () => {
+  if (poolItem.value?.clientWidth) {
+    itemWidth.value = poolItem.value?.clientWidth + 'px' ?? '0'
+  }
+})
+onMounted(() => {
+  if (poolItem.value?.clientWidth) {
+    itemWidth.value = poolItem.value?.clientWidth + 'px' ?? '0'
+  }
+})
+
+const selected = computed(() => {
   if (window.innerWidth <= 768) {
     return hoveredTeam.value?.name === props.team.name
   }
@@ -51,6 +64,7 @@ const background = computed(() => `${props.team.color}33`)
 
 <template>
   <div
+    ref="poolItem"
     class="pool-item-td cursor-pointer"
     :class="[uiStore.tableDataStyle, hovered || selected ? 'hovered' : '']"
     @click="() => onClick(team)"
@@ -78,15 +92,8 @@ const background = computed(() => `${props.team.color}33`)
 <style scoped>
 * {
   --default-pool-height: 52px;
-  --default-pool-width: 336px;
   --pool-hover-height-offset: 10px;
   --pool-hover-width-offset: 20px;
-}
-
-@media (max-width: 1182px) {
-  * {
-    --default-pool-width: calc(50vw - 28px);
-  }
 }
 
 .pool-item-td {
@@ -145,7 +152,7 @@ const background = computed(() => `${props.team.color}33`)
   right: 20px;
   bottom: 10px;
   height: calc(var(--default-pool-height) + 20px);
-  width: calc(var(--default-pool-width) + 40px);
+  width: calc(v-bind('itemWidth') + 40px);
   z-index: 2;
 }
 
@@ -157,10 +164,10 @@ const background = computed(() => `${props.team.color}33`)
   padding-left: 8px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1410px) {
   .pool-item-td.hovered {
     height: calc(var(--default-pool-height) + 50px);
-    width: auto;
+    width: calc(v-bind('itemWidth') - 20px);
     background-color: transparent;
   }
 
@@ -169,9 +176,8 @@ const background = computed(() => `${props.team.color}33`)
     bottom: -10px;
     right: 10px;
     left: 10px;
-    width: auto;
     height: calc(var(--default-pool-height) + 20px);
-    width: calc(100vw - 56px);
+    width: calc(v-bind('itemWidth') - 20px);
     background-color: rgba(255, 255, 255, 0.1);
   }
 }
