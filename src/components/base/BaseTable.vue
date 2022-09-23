@@ -17,12 +17,14 @@ const uiStore = useUiStore()
             :key="index"
             :colspan="index === 0 ? 1 : header.span"
           >
-            <span v-if="header.text && !header.link">
-              {{ header.text }}
-            </span>
-            <a v-else :href="header.link" class="underline" target="_blank">
-              {{ header.text }}
-            </a>
+            <slot :name="`header.${index}`" :header="header" :headers="headers">
+              <span v-if="header.text && !header.link">
+                {{ header.text }}
+              </span>
+              <a v-else :href="header.link" class="underline" target="_blank">
+                {{ header.text }}
+              </a>
+            </slot>
           </th>
         </tr>
       </thead>

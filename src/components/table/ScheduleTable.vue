@@ -80,14 +80,16 @@ const toggleTime = (index: number) => {
           class="w-full md:w-4 time-wrapper"
           @click="toggleTime(index)"
         >
-          <span class="text-lg font-bold md:(text-sm font-normal)">{{
-            getUserTime(timeslot.time)
-          }}</span>
-          <div
-            class="bg-black text-white text-xs rounded py-1 px-4 left-28 md:left-22 bottom-full time-tooltip z-50"
-          >
-            <div>{{ t('table.local-time') }}:</div>
-            <div>{{ getTourneyTime(timeslot.time) }}</div>
+          <div class="flex md:justify-center items-center">
+            <span class="text-lg font-bold md:(text-sm font-normal)">{{
+              getUserTime(timeslot.time)
+            }}</span>
+            <div
+              class="bg-black text-white text-xs rounded py-1 px-4 left-28 md:left-24 bottom-full time-tooltip z-50"
+            >
+              <div>{{ t('table.local-time') }}:</div>
+              <div>{{ getTourneyTime(timeslot.time) }}</div>
+            </div>
           </div>
         </TableData>
         <template v-if="shownTimes[index]">
@@ -103,6 +105,20 @@ const toggleTime = (index: number) => {
           </template>
         </template>
       </tr>
+    </template>
+
+    <template #header.0>
+      <div class="flex flex-nowrap items-center">
+        <span>{{ t('table.timeslot') }}</span>
+        <div class="relative ml-1 group">
+          <i-mdi-information-outline />
+          <div
+            class="absolute bg-black text-white text-xs rounded p-2 left-28 md:left-4 top-0 z-50 invisible group-hover:visible"
+          >
+            {{ t('instructions.timezone') }}
+          </div>
+        </div>
+      </div>
     </template>
   </BaseTable>
 </template>

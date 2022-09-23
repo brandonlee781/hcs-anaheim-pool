@@ -13,6 +13,7 @@ declare module 'vue' {
     IHcsIconsCamo: typeof import('~icons/hcs-icons/camo')['default']
     IMdiCursorDefault: typeof import('~icons/mdi/cursor-default')['default']
     IMdiCursorDefaultClick: typeof import('~icons/mdi/cursor-default-click')['default']
+    IMdiInformationOutline: typeof import('~icons/mdi/information-outline')['default']
     IMdiRadar: typeof import('~icons/mdi/radar')['default']
     IMdiThemeLightDark: typeof import('~icons/mdi/theme-light-dark')['default']
     IMdiTranslate: typeof import('~icons/mdi/translate')['default']

@@ -18,42 +18,44 @@ watch(styles, () => {
 
 <template>
   <AppHeader v-model:dark="uiStore.darkMode" :title="event.title" />
-  <ScheduleTable class="max-w-full" :day="day" />
-  <div v-if="pools" class="pools">
-    <PoolTable
-      v-if="pools.A"
-      :title="t('table.pool', { pool: 'A' })"
-      :teams="pools.A"
-    />
-    <PoolTable
-      v-if="pools.B"
-      :title="t('table.pool', { pool: 'B' })"
-      :teams="pools.B"
-    />
-    <PoolTable
-      v-if="pools.C"
-      :title="t('table.pool', { pool: 'C' })"
-      :teams="pools.C"
-    />
-    <PoolTable
-      v-if="pools.D"
-      :title="t('table.pool', { pool: 'D' })"
-      :teams="pools.D"
-    />
-  </div>
-  <div
-    v-if="participants && participants.length"
-    class="participants grid grid-cols-4 gap-2 mt-4 px-1"
-  >
-    <PoolTableItem
-      v-for="(team, index) in participants"
-      :key="index"
-      :index="index"
-      :team="team"
-    />
-  </div>
+  <div class="app-body">
+    <ScheduleTable class="max-w-full" :day="day" />
+    <div v-if="pools" class="pools">
+      <PoolTable
+        v-if="pools.A"
+        :title="t('table.pool', { pool: 'A' })"
+        :teams="pools.A"
+      />
+      <PoolTable
+        v-if="pools.B"
+        :title="t('table.pool', { pool: 'B' })"
+        :teams="pools.B"
+      />
+      <PoolTable
+        v-if="pools.C"
+        :title="t('table.pool', { pool: 'C' })"
+        :teams="pools.C"
+      />
+      <PoolTable
+        v-if="pools.D"
+        :title="t('table.pool', { pool: 'D' })"
+        :teams="pools.D"
+      />
+    </div>
+    <div
+      v-if="participants && participants.length"
+      class="participants grid grid-cols-4 gap-2 mt-4 px-1"
+    >
+      <PoolTableItem
+        v-for="(team, index) in participants"
+        :key="index"
+        :index="index"
+        :team="team"
+      />
+    </div>
 
-  <AppFooter :link="event.link" :show-toggle="!!pools" />
+    <AppFooter :link="event.link" :show-toggle="!!pools" />
+  </div>
 
   <!-- <BaseModal v-model="warningModal" @click:close="warningModal = false">
     <span class="text-xl">
@@ -78,7 +80,7 @@ watch(styles, () => {
 * {
   box-sizing: border-box;
 }
-#app {
+.app-body {
   margin: 8px;
   max-width: 1400px;
 }
@@ -122,7 +124,7 @@ watch(styles, () => {
   body {
     height: 100vh;
   }
-  #app {
+  .app-body {
     margin: 0 auto;
     padding: 1rem;
   }
