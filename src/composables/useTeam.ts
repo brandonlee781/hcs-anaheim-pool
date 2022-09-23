@@ -6,6 +6,9 @@ const hoveredTeam = ref<Team | null>(null)
 const clickToHighlight = useStorage('hcs-click-higlight', false)
 const showScheduleLogos = useStorage('hcs-show-logos', false)
 const setHover = (team: Team | null) => {
+  if (hoveredTeam.value?.name === team?.name) {
+    hoveredTeam.value = null
+  }
   hoveredTeam.value = team
 }
 

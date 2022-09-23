@@ -33,6 +33,12 @@ const onMouseLeave = () => {
   }
 }
 
+const selected = $computed(() => {
+  if (window.innerWidth <= 768) {
+    return hoveredTeam.value?.name === props.team.name
+  }
+  return false
+})
 const getSrc = (image: string) => {
   const url = new URL(`../../assets/images/${image}`, import.meta.url).href
   return url
@@ -46,7 +52,7 @@ const background = computed(() => `${props.team.color}33`)
 <template>
   <div
     class="pool-item-td cursor-pointer"
-    :class="[uiStore.tableDataStyle, hovered ? 'hovered' : '']"
+    :class="[uiStore.tableDataStyle, hovered || selected ? 'hovered' : '']"
     @click="() => onClick(team)"
     @mouseenter="onMouseEnter"
     @mouseleave="onMouseLeave"
@@ -54,8 +60,8 @@ const background = computed(() => `${props.team.color}33`)
     <div
       :class="{
         'pool-item-wrapper mobile-row': true,
-        [uiStore.poolHoverStyle]: hovered,
-        hovered,
+        [uiStore.poolHoverStyle]: hovered || selected,
+        hovered: hovered || selected,
       }"
     >
       <div class="team-image">
@@ -157,14 +163,15 @@ const background = computed(() => `${props.team.color}33`)
     width: auto;
     background-color: transparent;
   }
+
   .pool-item-wrapper.hovered {
     top: 15px;
     bottom: -10px;
-    right: 0px;
+    right: 10px;
     left: 10px;
     width: auto;
     height: calc(var(--default-pool-height) + 20px);
-    width: calc(100vw - 32px);
+    width: calc(100vw - 56px);
     background-color: rgba(255, 255, 255, 0.1);
   }
 }
