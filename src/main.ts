@@ -1,21 +1,15 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createI18n } from 'vue-i18n'
+import { i18n } from './locales'
 
+// eslint-disable-next-line import/no-unresolved
 import 'virtual:windi.css'
 
 import { useUiStore, darkModeKey } from './store/ui'
 import App from './App.vue'
 
-import messages from './localizations'
-
 const app = createApp(App)
 const pinia = createPinia()
-const i18n = createI18n({
-  locale: 'en',
-  messages,
-  legacy: false,
-})
 
 app.use(pinia)
 app.use(i18n)
