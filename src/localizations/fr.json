@@ -1,0 +1,32 @@
+{
+  "days" : {
+    "friday" : "Vendredi",
+    "saturday" : "Samedi",
+    "sunday" : "Dimanche",
+    "champ-sunday" : "Championnat Dimanche",
+    "day" : "Jour {num}"
+  },
+  "instructions" : {
+    "timezone" : "Toutes les heures sont automatiquement converties dans votre fuseau horaire",
+    "click-pool" : "Cliquez sur une équipe dans les pools ci-dessous pour la mettre en évidence dans le calendrier.",
+    "toggle-times" : "Cliquez sur l'heure pour afficher et masquer ses matchs."
+  },
+  "table" : {
+    "timeslot" : "Temps",
+    "matches" : "Jeu",
+    "local-time" : "Heure locale du tournoi",
+    "pool" : "Pool {pool}",
+    "no-data" : "Le programme de cette journée sera mis à jour dès qu'il sera publié."
+  },
+  "event" : {
+    "stream" : "{name} Direct",
+    "open-team" : "Équipe de support ouvert"
+  },
+  "footer" : {
+    "click-highlight" : "Cliquez sur les poules pour les mettre en évidence",
+    "hover-highlight" : "Survolez la piscine pour mettre en surbrillance",
+    "hide-logos" : "Logos d'équipe cachés",
+    "show-logos" : "Logos d'équipe affichés",
+    "link" : "Page Liquipedia pour cet événement"
+  }
+}
