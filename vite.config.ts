@@ -47,37 +47,51 @@ export default defineConfig({
       strategies: 'injectManifest',
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
-        name: 'HCS Kansas City Major',
+        name: 'HCS Tournament Schedule',
         short_name: 'KC Major',
-        description: 'Pool play schedule for HCS Kansas City Major tournament',
-        theme_color: '#ffffff',
+        description: 'Schedule HCS Halo Infinite Tournaments',
+        theme_color: '#1f2937',
         start_url: '.',
         display: 'standalone',
-        background_color: '#ffffff',
+        background_color: '#374151',
         icons: [
           {
-            src: 'icon-192.png',
+            src: 'android-chrome-192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/icon-512.png',
+            src: 'android-chrome-512.png',
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: 'icon-512.png',
+            src: 'apple-touch-icon.png',
+            sizes: '180x180',
+            type: 'image/png',
+          },
+          {
+            src: 'mstile-150x150.png',
+            size: '150x150',
+            type: 'image/png',
+          },
+          {
+            src: 'android-chrome-512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',
           },
+          {
+            src: 'safari-pinned-tab.svg',
+            type: 'image/svg',
+          },
         ],
       },
-      devOptions: {
-        enabled: true,
-        type: 'module',
-        /* other options */
-      },
+      // devOptions: {
+      //   enabled: true,
+      //   type: 'module',
+      //   /* other options */
+      // },
     }),
     ViteYaml(),
   ],
