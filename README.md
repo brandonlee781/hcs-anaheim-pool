@@ -1,4 +1,4 @@
-# anaheim
+# HCS Tournament Schedule
 
 ## Project setup
 ```
