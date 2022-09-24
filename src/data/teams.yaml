@@ -256,3 +256,8 @@ triggersDown:
   color: "#ed1c24"
   region: NA
   image: triggers_down.png
+falling:
+  name: Falling Esports
+  color: "#6c6b6c"
+  region: NA
+  image: falling.png

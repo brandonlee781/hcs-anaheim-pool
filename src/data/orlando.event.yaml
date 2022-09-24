@@ -91,71 +91,55 @@ day1:
         team2: ssg
       - team1: sentinels
         team2: cruelty
-# day2:
-#   - time: 11:45
-#     items:
-#       - text: Orlando Pre-Show
-#         span: 4
-#   - time: 12:00
-#     items:
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#   - time: 13:30
-#     items:
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#   - time: 15:00
-#     items:
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#   - time: 16:30
-#     items:
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#   - time: 18:00
-#     items:
-#       - text: Winners Quarterfinals
-#         team1: tbd
-#         team2: tbd
-#         span: 2
-#       - text: Elimination Round 1
-#         team1: tbd
-#         team2: tbd
-#         span: 2
-#   - time: 19:30
-#     items:
-#       - text: Winners Quarterfinals
-#         team1: tbd
-#         team2: tbd
-#         span: 2
-#       - text: Elimination Round 1
-#         team1: tbd
-#         team2: tbd
-#         span: 2
+day2:
+  - time: 01:15
+    items:
+      - text: Orlando Pre-Show
+        span: 4
+  - time: 01:20
+    items:
+      - team1: faze
+        team2: fnatic
+      - team1: quadrant
+        team2: oxygen
+      - team1: g2
+        team2: tss
+      - team1: cloud9
+        team2: falling
+  - time: 15:00
+    items:
+      - team1: optic
+        team2: fnatic
+      - team1: eunited
+        team2: falling
+      - team1: sentinels
+        team2: tss
+      - team1: g1
+        team2: oxygen
+  - time: 16:30
+    items:
+      - text: Winners Quarterfinals
+        span: 2
+      - text: Winners Quarterfinals
+        span: 2
+  - time: 18:00
+    items:
+      - text: Winners Quarterfinals
+        span: 2
+      - text: Winners Quarterfinals
+        span: 2
+  - time: 19:30
+    items:
+      - text: Elimination Round 3
+        span: 2
+      - text: Elimination Round 3
+        span: 2
+  - time: 21:00
+    items:
+      - text: Winners Semifinals
+        span: 2
+      - text: Winners Semifinals
+        span: 2
 day3:
   - time: 12:00
     items:
