@@ -119,15 +119,15 @@ day2:
   - time: 16:30
     items:
       - text: Winners Quarterfinals
-        span: 2
       - text: Winners Quarterfinals
-        span: 2
+      - text: Elimination Round 1
+      - text: Elimination Round 1
   - time: 18:00
     items:
       - text: Winners Quarterfinals
-        span: 2
       - text: Winners Quarterfinals
-        span: 2
+      - text: Elimination Round 2
+      - text: Elimination Round 2
   - time: 19:30
     items:
       - text: Elimination Round 3
@@ -137,9 +137,9 @@ day2:
   - time: 21:00
     items:
       - text: Winners Semifinals
-        span: 2
       - text: Winners Semifinals
-        span: 2
+      - text: Elmination Round 4
+      - text: Elimination Round 4
 day3:
   - time: 12:00
     items:
