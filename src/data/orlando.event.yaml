@@ -122,10 +122,10 @@ day2:
         team1: optic
         team2: oxygen
       - text: Winners Quarterfinals
-        team1: eunited
-        team2: falling
       - text: Elimination Round 1
       - text: Elimination Round 1
+        team1: falling
+        team2: war
   - time: 18:00
     items:
       - text: Winners Quarterfinals

@@ -261,3 +261,8 @@ falling:
   color: "#6c6b6c"
   region: NA
   image: falling.png
+war:
+  name: Team War
+  color: "#e0b261"
+  region: NA
+  image: war.png
