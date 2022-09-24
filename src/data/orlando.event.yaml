@@ -92,40 +92,30 @@ day1:
       - team1: sentinels
         team2: cruelty
 # day2:
-#   - time: 11:45
+#   - time: 01:15
 #     items:
 #       - text: Orlando Pre-Show
 #         span: 4
-#   - time: 12:00
+#   - time: 01:20
 #     items:
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#   - time: 13:30
-#     items:
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
+#       - team1: faze
+#         team2: fnatic
+#       - team1: quadrant
+#         team2: oxygen
+#       - team1: g2
+#         team2: tss
+#       - team1: cloud9
+#         team2: falling
 #   - time: 15:00
 #     items:
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
-#       - team1: tbd
-#         team2: tbd
+#       - team1: optic
+#         team2: fnatic
+#       - team1: eunited
+#         team2: falling
+#       - team1: sentinels
+#         team2: tss
+#       - team1: g1
+#         team2: oxygen
 #   - time: 16:30
 #     items:
 #       - team1: tbd
@@ -138,6 +128,16 @@ day1:
 #         team2: tbd
 #   - time: 18:00
 #     items:
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#       - team1: tbd
+#         team2: tbd
+#   - time: 19:30
+#     items:
 #       - text: Winners Quarterfinals
 #         team1: tbd
 #         team2: tbd
@@ -146,7 +146,7 @@ day1:
 #         team1: tbd
 #         team2: tbd
 #         span: 2
-#   - time: 19:30
+#   - time: 21:00
 #     items:
 #       - text: Winners Quarterfinals
 #         team1: tbd
