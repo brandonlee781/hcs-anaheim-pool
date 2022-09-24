@@ -48,7 +48,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
         name: 'HCS Tournament Schedule',
-        short_name: 'KC Major',
+        short_name: 'HCS Schedule',
         description: 'Schedule HCS Halo Infinite Tournaments',
         theme_color: '#1f2937',
         start_url: '.',
