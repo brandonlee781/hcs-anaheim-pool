@@ -266,3 +266,8 @@ war:
   color: "#e0b261"
   region: NA
   image: war.png
+proton:
+  name: Proton Gaming
+  color: "#00bbce"
+  region: NA
+  image: proton.png

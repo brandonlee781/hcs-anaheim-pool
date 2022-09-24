@@ -125,6 +125,8 @@ day2:
         team1: g1
         team2: faze
       - text: Elimination Round 1
+        team1: chiefs
+        team2: proton
       - text: Elimination Round 1
         team1: falling
         team2: war
