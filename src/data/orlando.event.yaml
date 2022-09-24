@@ -122,6 +122,8 @@ day2:
         team1: optic
         team2: oxygen
       - text: Winners Quarterfinals
+        team1: g1
+        team2: faze
       - text: Elimination Round 1
       - text: Elimination Round 1
         team1: falling
@@ -129,7 +131,11 @@ day2:
   - time: 18:00
     items:
       - text: Winners Quarterfinals
+        team1: sentinels
+        team2: cloud9
       - text: Winners Quarterfinals
+        team1: eunited
+        team2: g2
       - text: Elimination Round 2
       - text: Elimination Round 2
   - time: 19:30
