@@ -19,8 +19,9 @@ const { t, te, availableLocales, locale } = useI18n()
     :class="[uiStore.tableHeadStyle, uiStore.cardStyle]"
   >
     <h1
-      class="dark:text-gray-200 text-xl md:text-3xl pl-1 font-bold whitespace-nowrap"
+      class="dark:text-gray-200 text-xl md:text-3xl pl-1 font-bold whitespace-nowrap flex items-center"
     >
+      <i-hcs-icons-halo-calendar height="32" width="32" class="mr-2" />
       {{ title }}
     </h1>
 

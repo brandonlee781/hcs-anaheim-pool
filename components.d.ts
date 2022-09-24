@@ -11,6 +11,7 @@ declare module 'vue' {
     BaseTable: typeof import('./src/components/base/BaseTable.vue')['default']
     BaseToggle: typeof import('./src/components/base/BaseToggle.vue')['default']
     IHcsIconsCamo: typeof import('~icons/hcs-icons/camo')['default']
+    IHcsIconsHaloCalendar: typeof import('~icons/hcs-icons/halo-calendar')['default']
     IMdiCursorDefault: typeof import('~icons/mdi/cursor-default')['default']
     IMdiCursorDefaultClick: typeof import('~icons/mdi/cursor-default-click')['default']
     IMdiInformationOutline: typeof import('~icons/mdi/information-outline')['default']
