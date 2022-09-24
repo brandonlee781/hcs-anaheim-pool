@@ -143,13 +143,19 @@ day2:
   - time: 19:30
     items:
       - text: Elimination Round 3
-        span: 2
+        team1: acend
+        team2: war
+      - text: Elimination Round 3
       - text: Elimination Round 3
         span: 2
   - time: 21:00
     items:
       - text: Winners Semifinals
+        team1: cloud9
+        team2: faze
       - text: Winners Semifinals
+        team1: optic
+        team2: eunited
       - text: Elmination Round 4
       - text: Elimination Round 4
 day3:
