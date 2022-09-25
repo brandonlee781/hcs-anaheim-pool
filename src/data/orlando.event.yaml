@@ -204,8 +204,8 @@ day3:
     items:
       - text: Grand Finals
         textClass: 'text-xl font-bold tracking-wide'
-        team1: tbd
-        team2: tbd
+        team1: optic
+        team2: cloud9
         span: 4
   - time: 18:30
     items:
