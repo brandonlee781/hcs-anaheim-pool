@@ -151,14 +151,25 @@ day2:
   - time: 21:00
     items:
       - text: Winners Semifinals
-        # team1: cloud9
-        # team2: faze
       - text: Winners Semifinals
-        # team1: optic
-        # team2: eunited
       - text: Elmination Round 4
       - text: Elimination Round 4
 day3:
+  - time: 10:30
+    items:
+      - text: ''
+      - text: ''
+      - team1: g2
+        team2: oxygen
+        text: Elimination Round 5
+      - team1: g1
+        team2: sentinels
+        text: Elimination Round 5
+  - time: 11:45
+    items:
+      - text: 'Pre-Show: Halo Infinite World Premier'
+        textClass: 'text-xl font-bold tracking-wide'
+        span: 4
   - time: 12:00
     items:
       - text: Throwback Throwdown
@@ -166,46 +177,41 @@ day3:
         textClass: 'text-xl font-bold tracking-wide'
         team1: triggersDown
         team2: instinct
-#   - time: 11:45
-#     items:
-#       - text: Orlando Pre-Show
-#         span: 4
-#   - time: 12:00
-#     items:
-#       - text: Winners Semifinals
-#         team1: tbd
-#         team2: tbd
-#         span: 4
-#   - time: 13:30
-#     items:
-#       - text: Winners Semifinals
-#         team1: tbd
-#         team2: tbd
-#         span: 4
-#   - time: 15:00
-#     items:
-#       - text: Elimination Quarterfinals
-#         team1: tbd
-#         team2: tbd
-#         span: 4
-#   - time: 16:30
-#     items:
-#       - text: Winners Finals
-#         team1: tbd
-#         team2: tbd
-#         span: 4
-#   - time: 18:00
-#     items:
-#       - text: Elimination Finals
-#         team1: tbd
-#         team2: tbd
-#         span: 4
-#   - time: 19:30
-#     items:
-#       - text: Grand Finals
-#         team1: tbd
-#         team2: tbd
-#         span: 4
+  - time: 12:30
+    items:
+      - text: Elimination Quarterfinals
+        team1: tbd
+        team2: eunited
+      - text: Elimination Quarterfinals
+        team1: cloud9
+        team2: tbd
+      - text: ''
+      - text: ''
+  - time: 14:00
+    items:
+      - text: Winners Finals
+        team1: optic
+        team2: faze
+      - text: Elimination Semifinals
+      - text: ''
+      - text: ''
+  - time: 15:30
+    items:
+      - text: Elimination Finals
+        textClass: 'text-xl font-bold tracking-wide'
+        span: 4
+  - time: 17:00
+    items:
+      - text: Grand Finals
+        textClass: 'text-xl font-bold tracking-wide'
+        team1: tbd
+        team2: tbd
+        span: 4
+  - time: 18:30
+    items:
+      - text: Grand Finals Reset [if needed]
+        textClass: 'text-xl font-bold tracking-wide'
+        span: 4
 pools:
   A: 
     - optic
