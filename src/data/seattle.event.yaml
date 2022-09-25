@@ -1,0 +1,30 @@
+title: Halo World Championship 2022
+link: https://liquipedia.net/halo/Halo_World_Championship/2022
+timezone: America/Los_Angeles
+streams:
+  - id: halo
+    name: Halo
+    link: https://www.twitch.tv/halo
+    span: 1
+  - id: xbox
+    name: Xbox
+    link: https://www.twitch.tv/xbox
+    span: 1
+  - id: red
+    name: HCS_Red
+    link: https://www.twitch.tv/hcs_red
+    span: 1
+  - id: blue
+    name: HCS_Blue
+    link: https://www.twitch.tv/hcs_blue
+    span: 1
+days:
+  - date: '2022-10-20'
+  - date: '2022-10-21'
+  - date: '2022-10-22'
+  - date: '2022-10-23'
+day1:
+  - time: 12:00
+    items:
+      - text: TBD
+        span: 4
