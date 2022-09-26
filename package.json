@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.9",
+    "@intlify/vite-plugin-vue-i18n": "^6.0.2",
     "@modyfi/vite-plugin-yaml": "^1.0.3",
     "@types/node": "^17.0.30",
     "@typescript-eslint/eslint-plugin": "^5.15.0",

@@ -9,6 +9,9 @@ import ViteYaml from '@modyfi/vite-plugin-yaml'
 import * as path from 'path'
 import { VitePWA } from 'vite-plugin-pwa'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import vueI18n from '@intlify/vite-plugin-vue-i18n'
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'url'
 
 export default defineConfig({
   base: '/hcs-tournament-schedule/',
@@ -33,6 +36,7 @@ export default defineConfig({
     }),
     Components({
       extensions: ['vue', 'ts'],
+      dirs: ['src/components', 'src/providers'],
       dts: true,
       resolvers: [
         IconsResolver({
@@ -94,6 +98,12 @@ export default defineConfig({
       // },
     }),
     ViteYaml(),
+    vueI18n({
+      include: resolve(
+        dirname(fileURLToPath(import.meta.url)),
+        './src/locales/*.json'
+      ),
+    }),
   ],
   resolve: {
     alias: {
