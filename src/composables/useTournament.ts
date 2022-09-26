@@ -31,7 +31,7 @@ type UseTournamentResponse = {
   event: Ref<HcsEvent>
   schedule: ComputedRef<ScheduleSlot[]>
   pools?: ComputedRef<Pools>
-  participants?: ComputedRef<Team[]>
+  participants?: ComputedRef<{ team: Team; eliminated: boolean }[]>
   styles: ComputedRef<Style>
   teams: TeamPool
 }
@@ -102,7 +102,12 @@ export default function (): UseTournamentResponse {
   })
 
   const participants = computed(() => {
-    return event.value?.participants?.map((p: string) => teams[p]) ?? []
+    return (
+      event.value?.participants?.map(p => ({
+        team: teams[p.team],
+        eliminated: p.eliminated || false,
+      })) ?? []
+    )
   })
 
   const pools = computed(() => {

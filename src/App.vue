@@ -48,13 +48,14 @@ watch(styles, () => {
       </h3>
       <div
         v-if="participants && participants.length"
-        class="participants grid grid-cols-4 gap-2 mt-4 px-1"
+        class="participants grid grid-cols-1 md:(grid-cols-4 gap-2 mt-4 px-1)"
       >
         <PoolTableItem
-          v-for="(team, index) in participants"
+          v-for="(t, index) in participants"
           :key="index"
           :index="index"
-          :team="team"
+          :team="t.team"
+          :eliminated="t.eliminated"
         />
       </div>
 

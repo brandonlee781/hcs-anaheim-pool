@@ -99,19 +99,19 @@ day3:
         team2: tbd
         span: 4
 participants:
-  - eunited
-  - sentinels
-  - optic
-  - cloud9
-  - ssg
-  - g1
-  - faze
-  - acend
-  - navi
-  - fnatic
-  - complexity
-  - nativeRed
-  - rebellion
-  - tss
-  - forbiddenFruit
-  - nativeBlack
+  - team: eunited
+  - team: sentinels
+  - team: optic
+  - team: cloud9
+  - team: ssg
+  - team: g1
+  - team: faze
+  - team: acend
+  - team: navi
+  - team: fnatic
+  - team: complexity
+  - team: nativeRed
+  - team: rebellion
+  - team: tss
+  - team: forbiddenFruit
+  - team: nativeBlack

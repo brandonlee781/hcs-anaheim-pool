@@ -4,7 +4,7 @@ import useTeam from '@/composables/useTeam'
 import useWindowWidth from '@/composables/useWindowWidth'
 import { useUiStore } from '@/store/ui'
 
-const props = defineProps<{ team: Team; index: number }>()
+const props = defineProps<{ team: Team; index: number; eliminated?: boolean }>()
 const { windowWidth } = useWindowWidth()
 const isDesktop = computed(() => windowWidth.value > 1200)
 
@@ -81,7 +81,7 @@ const background = computed(() => `${props.team.color}33`)
       <div class="team-image">
         <img v-if="team.image" :src="getSrc(team.image)" />
       </div>
-      <span class="team-name">
+      <span class="team-name" :class="[eliminated ? 'line-through' : '']">
         {{ team.name }}
       </span>
       <span class="team-region">{{ team.region }}</span>

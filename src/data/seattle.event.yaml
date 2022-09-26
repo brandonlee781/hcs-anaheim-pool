@@ -112,11 +112,11 @@ pools:
     - tbd
 playInTitle: true
 participants:
-  - fnatic
-  - complexity
-  - ssg
-  - cruelty
-  - acend
-  - jlingz
-  - chiefs
-  - divineMind
+  - team: fnatic
+  - team: complexity
+  - team: ssg
+  - team: cruelty
+  - team: acend
+  - team: jlingz
+  - team: chiefs
+  - team: divineMind

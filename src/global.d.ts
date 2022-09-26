@@ -92,7 +92,7 @@ declare interface HcsEvent {
     C?: string[]
     D?: string[]
   }
-  participants?: string[]
+  participants?: { team: string; eliminated?: boolean }[]
   playInTitle?: boolean
 }
 
