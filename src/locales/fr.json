@@ -9,7 +9,13 @@
   "instructions" : {
     "timezone" : "Toutes les heures sont automatiquement converties dans votre fuseau horaire",
     "click-pool" : "Cliquez sur une équipe dans les pools ci-dessous pour la mettre en évidence dans le calendrier.",
-    "toggle-times" : "Cliquez sur l'heure pour afficher et masquer ses matchs."
+    "toggle-times" : "Cliquez sur l'heure pour afficher et masquer ses matchs.",
+    "work-offline": "Application prête à fonctionner hors ligne",
+    "new-content": "Nouveau contenu disponible, cliquez sur le bouton recharger pour mettre à jour.",
+    "reload": "Recharger",
+    "close": "Proche",
+    "understood": "Entendu",
+    "speculation": "Les horaires, les événements et les pools sont basés sur les tournois précédents et ne sont actuellement que des spéculations. Ceux-ci sont tous sujets à changement."
   },
   "table" : {
     "timeslot" : "Temps",
@@ -20,7 +26,8 @@
   },
   "event" : {
     "stream" : "{name} Direct",
-    "open-team" : "Équipe de support ouvert"
+    "open-team" : "Équipe de support ouvert",
+    "play-in-title": "Jouer en équipe"
   },
   "footer" : {
     "click-highlight" : "Cliquez sur les poules pour les mettre en évidence",

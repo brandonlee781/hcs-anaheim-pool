@@ -42,6 +42,9 @@ watch(styles, () => {
         :teams="pools.D"
       />
     </div>
+    <h3 v-if="event.playInTitle" class="text-2xl text-center m-4">
+      {{ t('event.play-in-title') }}
+    </h3>
     <div
       v-if="participants && participants.length"
       class="participants grid grid-cols-4 gap-2 mt-4 px-1"
@@ -57,10 +60,13 @@ watch(styles, () => {
     <AppFooter :link="event.link" :show-toggle="!!pools" />
   </div>
 
-  <!-- <BaseModal v-model="warningModal" @click:close="warningModal = false">
+  <BaseModal
+    v-model="warningModal"
+    :hide-header="true"
+    @click:close="warningModal = false"
+  >
     <span class="text-xl">
-      Times, events and Pools are based on previous tournaments and current HCS
-      points. These are all subject to change.
+      {{ t('instructions.speculation') }}
     </span>
 
     <template #actions>
@@ -68,10 +74,10 @@ watch(styles, () => {
         class="*btn bg-blue-500 ml-auto"
         role="button"
         @click="warningModal = false"
-        >Understood</a
+        >{{ t('instructions.understood') }}</a
       >
     </template>
-  </BaseModal> -->
+  </BaseModal>
 
   <ReloadPrompt />
 </template>

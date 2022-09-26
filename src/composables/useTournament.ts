@@ -3,7 +3,7 @@ import { RemovableRef, useStorage } from '@vueuse/core'
 import { defaultStyle } from '@/assets/styles'
 
 import teams from '@/data/teams.yaml'
-import eventData from '@/data/orlando.event.yaml'
+import eventData from '@/data/seattle.event.yaml'
 import { useI18n } from 'vue-i18n'
 
 const getOffset = (timeZone = 'UTC') => {

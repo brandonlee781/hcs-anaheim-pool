@@ -9,7 +9,13 @@
   "instructions": {
     "timezone": "All times are automatically converted to your timezone.",
     "click-pool": "Click a team in the pools below to highlight them in the schedule.",
-    "toggle-times": "Click the time to show and hide it's matches."
+    "toggle-times": "Click the time to show and hide it's matches.",
+    "work-offline": "App ready to work offline",
+    "new-content": "New content available, click on reload button to update.",
+    "reload": "Reload",
+    "close": "Close",
+    "understood": "Understood",
+    "speculation": "Times, events and Pools are based on previous tournaments and currently only speculation. These are all subject to change."
   },
   "table": {
     "timeslot": "Timeslot",
@@ -20,7 +26,8 @@
   },
   "event": {
     "stream": "{name} Stream",
-    "open-team": "Open Bracket Team"
+    "open-team": "Open Bracket Team",
+    "play-in-title": "Play In Teams"
   },
   "footer": {
     "click-highlight": "Click Pools to Highlight",

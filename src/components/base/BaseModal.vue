@@ -12,14 +12,12 @@ defineEmits(['click:close'])
     class="overflow-x-hidden overflow-y-auto fixed md:h-full top-4 left-0 right-0 md:inset-0 z-50 flex justify-center items-center"
     :class="[modelValue ? '' : 'hidden']"
   >
-    <div
-      v-if="!hideHeader"
-      class="relative w-full max-w-2xl px-4 h-full md:h-auto"
-    >
+    <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
       <!-- Modal content -->
       <div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
         <!-- Modal header -->
         <div
+          v-if="!hideHeader"
           class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600"
         >
           <h3

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useUiStore } from '@/store/ui'
 import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { useI18n } from 'vue-i18n'
 const intervalMS = 15 * 60 * 1000
 
 const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW({
@@ -18,6 +19,7 @@ const close = async () => {
 }
 
 const uiStore = useUiStore()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -28,13 +30,15 @@ const uiStore = useUiStore()
     role="alert"
   >
     <div class="mb-2">
-      <span v-if="offlineReady"> App ready to work offline </span>
+      <span v-if="offlineReady"> {{ t('instructions.work-offline') }} </span>
       <span v-else>
-        New content available, click on reload button to update.
+        {{ t('instructions.new-content') }}
       </span>
     </div>
-    <button v-if="needRefresh" @click="updateServiceWorker()"> Reload </button>
-    <button @click="close"> Close </button>
+    <button v-if="needRefresh" @click="updateServiceWorker()">
+      {{ t('instructions.reload') }}
+    </button>
+    <button @click="close"> {{ t('instructions.close') }} </button>
   </div>
 </template>
 

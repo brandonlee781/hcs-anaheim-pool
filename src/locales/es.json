@@ -9,7 +9,13 @@
   "instructions": {
     "timezone": "Todas las horas se convierten automáticamente a su zona horaria.",
     "click-pool": "Haga clic en un equipo en los grupos a continuación para resaltarlos en el calendario.",
-    "toggle-times": "Haga clic en el tiempo para mostrar y ocultar sus coincidencias."
+    "toggle-times": "Haga clic en el tiempo para mostrar y ocultar sus coincidencias.",
+    "work-offline": "Aplicación lista para trabajar sin conexión",
+    "new-content": "Nuevo contenido disponible, haga clic en el botón de recargar para actualizar.",
+    "reload": "Recargar",
+    "close": "Cerca",
+    "understood": "Entendido",
+    "speculation": "Los horarios, eventos y grupos se basan en torneos anteriores y actualmente solo son especulaciones. Todo esto está sujeto a cambios."
   },
   "table": {
     "timeslot": "Tiempo",
@@ -20,7 +26,8 @@
   },
   "event": {
     "stream": "{name} Transmisión",
-    "open-team": "Equipo de Soporte Abierto"
+    "open-team": "Equipo de Soporte Abierto",
+    "play-in-title": "Jugar en Equipo"
   },
   "footer": {
     "click-highlight": "Haga clic en Grupos para resaltar",
