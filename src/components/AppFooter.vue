@@ -17,9 +17,6 @@ const { t } = useI18n()
   >
     <div class="flex flex-row">
       <div class="hidden xl:inline">
-        <!-- <BaseToggle v-model="clickToHighlight">
-          {{ clickToHighlight ? 'Click' : 'Hover' }} Pools to Highlight
-        </BaseToggle> -->
         <button
           class="*btn flex flex-nowrap items-center justify-center"
           :class="[uiStore.buttonStyle]"
