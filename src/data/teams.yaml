@@ -238,9 +238,9 @@ rebellion:
   image: rebellion.png
 tss:
   name: TSS Esports
-  color: "#faf302"
+  color: "#fef102"
   region: NA
-  image: halo.png
+  image: tss.png
 forbiddenFruit:
   name: Forbidden Fruit
   color: "#f42d4e"
