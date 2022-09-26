@@ -24,7 +24,99 @@ days:
   - date: '2022-10-22'
   - date: '2022-10-23'
 day1:
+  - time: 11:45
+    items:
+      - text: Worlds Pre-Show
+        span: 4
+        textClass: 'text-lg font-bold'
   - time: 12:00
     items:
-      - text: TBD
-        span: 4
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 13:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 15:00
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 16:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 18:00
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+  - time: 19:30
+    items:
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+      - team1: tbd
+        team2: tbd
+pools:
+  A: 
+    - optic
+    - g1
+    - navi
+    - tbd
+  B:
+    - cloud9
+    - oxygen
+    - war
+    - tbd
+  C:
+    - faze
+    - eunited
+    - nativeRed
+    - tbd
+  D:
+    - sentinels 
+    - g2
+    - tss
+    - tbd
+playInTitle: true
+participants:
+  - fnatic
+  - complexity
+  - ssg
+  - cruelty
+  - acend
+  - jlingz
+  - chiefs
+  - divineMind

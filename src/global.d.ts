@@ -93,6 +93,7 @@ declare interface HcsEvent {
     D?: string[]
   }
   participants?: string[]
+  playInTitle?: boolean
 }
 
 declare module '@/data/*.yaml' {
