@@ -12,16 +12,6 @@ defineEmits(['update:day', 'update:dark', 'pointerenter', 'pointerleave'])
 const { event, day } = useTournament()
 const uiStore = useUiStore()
 const { t, te, availableLocales, locale } = useI18n()
-
-watch(locale, (newVal, oldVal) => {
-  if (newVal !== oldVal) {
-    localStorage.setItem('hcs-locale', newVal)
-  }
-})
-onMounted(() => {
-  const storedLocale = localStorage.getItem('hcs-locale')
-  locale.value = storedLocale ?? 'en'
-})
 </script>
 
 <template>

@@ -17,69 +17,71 @@ watch(styles, () => {
 </script>
 
 <template>
-  <AppHeader v-model:dark="uiStore.darkMode" :title="event.title" />
-  <div class="app-body">
-    <ScheduleTable class="max-w-full" :day="day" />
-    <div v-if="pools" class="pools">
-      <PoolTable
-        v-if="pools.A"
-        :title="t('table.pool', { pool: 'A' })"
-        :teams="pools.A"
-      />
-      <PoolTable
-        v-if="pools.B"
-        :title="t('table.pool', { pool: 'B' })"
-        :teams="pools.B"
-      />
-      <PoolTable
-        v-if="pools.C"
-        :title="t('table.pool', { pool: 'C' })"
-        :teams="pools.C"
-      />
-      <PoolTable
-        v-if="pools.D"
-        :title="t('table.pool', { pool: 'D' })"
-        :teams="pools.D"
-      />
-    </div>
-    <h3 v-if="event.playInTitle" class="text-2xl text-center m-4">
-      {{ t('event.play-in-title') }}
-    </h3>
-    <div
-      v-if="participants && participants.length"
-      class="participants grid grid-cols-4 gap-2 mt-4 px-1"
-    >
-      <PoolTableItem
-        v-for="(team, index) in participants"
-        :key="index"
-        :index="index"
-        :team="team"
-      />
-    </div>
-
-    <AppFooter :link="event.link" :show-toggle="!!pools" />
-  </div>
-
-  <BaseModal
-    v-model="warningModal"
-    :hide-header="true"
-    @click:close="warningModal = false"
-  >
-    <span class="text-xl">
-      {{ t('instructions.speculation') }}
-    </span>
-
-    <template #actions>
-      <a
-        class="*btn bg-blue-500 ml-auto"
-        role="button"
-        @click="warningModal = false"
-        >{{ t('instructions.understood') }}</a
+  <I18NProvider>
+    <AppHeader v-model:dark="uiStore.darkMode" :title="event.title" />
+    <div class="app-body">
+      <ScheduleTable class="max-w-full" :day="day" />
+      <div v-if="pools" class="pools">
+        <PoolTable
+          v-if="pools.A"
+          :title="t('table.pool', { pool: 'A' })"
+          :teams="pools.A"
+        />
+        <PoolTable
+          v-if="pools.B"
+          :title="t('table.pool', { pool: 'B' })"
+          :teams="pools.B"
+        />
+        <PoolTable
+          v-if="pools.C"
+          :title="t('table.pool', { pool: 'C' })"
+          :teams="pools.C"
+        />
+        <PoolTable
+          v-if="pools.D"
+          :title="t('table.pool', { pool: 'D' })"
+          :teams="pools.D"
+        />
+      </div>
+      <h3 v-if="event.playInTitle" class="text-2xl text-center m-4">
+        {{ t('event.play-in-title') }}
+      </h3>
+      <div
+        v-if="participants && participants.length"
+        class="participants grid grid-cols-4 gap-2 mt-4 px-1"
       >
-    </template>
-  </BaseModal>
+        <PoolTableItem
+          v-for="(team, index) in participants"
+          :key="index"
+          :index="index"
+          :team="team"
+        />
+      </div>
 
-  <ReloadPrompt />
+      <AppFooter :link="event.link" :show-toggle="!!pools" />
+    </div>
+
+    <BaseModal
+      v-model="warningModal"
+      :hide-header="true"
+      @click:close="warningModal = false"
+    >
+      <span class="text-xl">
+        {{ t('instructions.speculation') }}
+      </span>
+
+      <template #actions>
+        <a
+          class="*btn bg-blue-500 ml-auto"
+          role="button"
+          @click="warningModal = false"
+          >{{ t('instructions.understood') }}</a
+        >
+      </template>
+    </BaseModal>
+
+    <ReloadPrompt />
+  </I18NProvider>
 </template>
 
 <style>
