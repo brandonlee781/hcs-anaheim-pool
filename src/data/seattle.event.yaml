@@ -92,23 +92,23 @@ day1:
 pools:
   A: 
     - optic
-    - g1
-    - navi
+    - oxygen
+    - native
     - tbd
   B:
     - cloud9
-    - oxygen
+    - g1
     - war
     - tbd
   C:
     - faze
-    - eunited
-    - nativeRed
+    - g2
+    - tss
     - tbd
   D:
     - sentinels 
-    - g2
-    - tss
+    - eunited
+    - navi
     - tbd
 playInTitle: true
 participants:
