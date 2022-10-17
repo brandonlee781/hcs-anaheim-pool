@@ -99,6 +99,18 @@ const teams = computed<Team[]>(
           {{ team4.name }}
         </span>
       </div>
+      <div
+        v-if="stream"
+        class="match-stream md:hidden flex items-center justify-center md:justify-end"
+      >
+        <a
+          class="underline text-xs leading-4"
+          :href="stream.link"
+          target="_blank"
+        >
+          {{ stream.name }}
+        </a>
+      </div>
     </div>
   </TableData>
 </template>
@@ -135,6 +147,13 @@ const teams = computed<Team[]>(
   grid-template-rows: 1fr;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.match-data.winner-of .match-stream {
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  left: 0;
 }
 
 .match-data.winner-of .match-text {
