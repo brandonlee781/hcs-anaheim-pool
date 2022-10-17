@@ -21,7 +21,7 @@
     "timeslot" : "Temps",
     "matches" : "Jeu",
     "local-time" : "Heure locale du tournoi",
-    "pool" : "Pool {pool}",
+    "pool" : "Bassin {pool}",
     "no-data" : "Le programme de cette journée sera mis à jour dès qu'il sera publié."
   },
   "event" : {
