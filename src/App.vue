@@ -14,6 +14,23 @@ const uiStore = useUiStore()
 watch(styles, () => {
   uiStore.setStyle(styles.value)
 })
+
+const showPools = $computed(() => {
+  if (pools?.value && participants?.value.length) {
+    // pools and participants are here
+    // only show on any day after first
+    return day.value !== 0
+  }
+  return pools?.value
+})
+const showParticipants = $computed(() => {
+  if (pools?.value && participants?.value.length) {
+    // pools and participants are here
+    // onaly show on first day
+    return day.value === 0
+  }
+  return participants?.value.length
+})
 </script>
 
 <template>
@@ -21,7 +38,7 @@ watch(styles, () => {
     <AppHeader v-model:dark="uiStore.darkMode" :title="event.title" />
     <div class="app-body">
       <ScheduleTable class="max-w-full" :day="day" />
-      <div v-if="pools" class="pools">
+      <div v-if="pools && showPools" class="pools">
         <PoolTable
           v-if="pools.A"
           :title="t('table.pool', { pool: 'A' })"
@@ -43,11 +60,14 @@ watch(styles, () => {
           :teams="pools.D"
         />
       </div>
-      <h3 v-if="event.playInTitle" class="text-2xl text-center m-4">
+      <h3
+        v-if="event.playInTitle && showParticipants"
+        class="text-2xl text-center m-4"
+      >
         {{ t('event.play-in-title') }}
       </h3>
       <div
-        v-if="participants && participants.length"
+        v-if="participants && showParticipants"
         class="participants grid grid-cols-1 md:(grid-cols-4 gap-2 mt-4 px-1)"
       >
         <PoolTableItem
