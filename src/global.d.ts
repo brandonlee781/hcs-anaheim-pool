@@ -40,6 +40,8 @@ declare interface Pools {
 declare interface ScheduleItem {
   team1?: Team
   team2?: Team
+  team3?: Team
+  team4?: Team
   text?: string
   span?: number
   textClass?: string

@@ -26,69 +26,49 @@ days:
 day1:
   - time: 11:45
     items:
-      - text: Worlds Pre-Show
+      - text: HALOWC Pre-Show
         span: 4
         textClass: 'text-lg font-bold'
   - time: 12:00
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - text: Winners Quarterfinals
+        team1: ssg
+        team2: jlingz
+      - text: Winners Quarterfinals
+        team1: fnatic
+        team2: divineMind
   - time: 13:30
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - text: Winners Quarterfinals
+        team1: complexity
+        team2: chiefs
+      - text: Winners Quarterfinals
+        team1: acend
+        team2: altar
   - time: 15:00
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - text: Winners Semifinals
+        team1: fnatic
+        team2: ssg
+        team3: divineMind
+        team4: jlingz
+      - text: Elimination Round 1
   - time: 16:30
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - text: Winners Semifinals
+        team1: acend
+        team3: altar
+        team2: complexity
+        team4: chiefs
+      - text: Elimination Round 1
   - time: 18:00
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - text: Elimination Round 2
+      - text: ''
   - time: 19:30
     items:
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
-      - team1: tbd
-        team2: tbd
+      - text: Elimination Round 2
+      - text: ''
 pools:
   A: 
     - optic

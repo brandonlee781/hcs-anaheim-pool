@@ -62,7 +62,7 @@ watch(styles, () => {
       <AppFooter :link="event.link" :show-toggle="!!pools" />
     </div>
 
-    <BaseModal
+    <!-- <BaseModal
       v-model="warningModal"
       :hide-header="true"
       @click:close="warningModal = false"
@@ -79,7 +79,7 @@ watch(styles, () => {
           >{{ t('instructions.understood') }}</a
         >
       </template>
-    </BaseModal>
+    </BaseModal> -->
 
     <ReloadPrompt />
   </I18NProvider>

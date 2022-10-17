@@ -276,3 +276,8 @@ proton:
   color: "#00bbce"
   region: NA
   image: proton.png
+altar:
+  name: Altar Esports
+  color: "#e52adf"
+  region: MX
+  image: altar.png

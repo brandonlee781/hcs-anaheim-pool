@@ -54,7 +54,8 @@ export default function (): UseTournamentResponse {
 
   const { t } = useI18n()
 
-  const getTeam = (key: string): Team => {
+  const getTeam = (key: string): Team | null => {
+    if (!key) return null
     if (key === 'open') {
       return {
         ...teams.open,
@@ -95,6 +96,8 @@ export default function (): UseTournamentResponse {
             ...item,
             team1: getTeam(item?.team1),
             team2: getTeam(item?.team2),
+            team3: getTeam(item?.team3),
+            team4: getTeam(item?.team4),
           }
         }),
       }
@@ -112,12 +115,12 @@ export default function (): UseTournamentResponse {
 
   const pools = computed(() => {
     const p = {
-      A: event.value.pools?.A?.map(getTeam) ?? [],
-      B: event.value.pools?.B?.map(getTeam) ?? [],
-      C: event.value.pools?.C?.map(getTeam) ?? [],
-      D: event.value.pools?.D?.map(getTeam) ?? [],
+      A: event.value.pools?.A?.map(getTeam).filter(Boolean) ?? [],
+      B: event.value.pools?.B?.map(getTeam).filter(Boolean) ?? [],
+      C: event.value.pools?.C?.map(getTeam).filter(Boolean) ?? [],
+      D: event.value.pools?.D?.map(getTeam).filter(Boolean) ?? [],
     }
-    return p
+    return p as Pools
   })
 
   const styles = computed<Style>(() => {

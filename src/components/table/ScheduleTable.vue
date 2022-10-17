@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 import { formatInTimeZone } from 'date-fns-tz'
 import { useUiStore } from '@/store/ui'
 import { useI18n } from 'vue-i18n'
+import { switchCase } from '@babel/types'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
 const uiStore = useUiStore()
@@ -19,11 +20,16 @@ const headers = computed(() => {
   if (windowWidth.value >= 600) {
     return [
       { text: t('table.timeslot') },
-      ...Object.values(event.value.streams).map(st => ({
-        text: t('event.stream', { name: st.name }),
-        link: st.link,
-        span: st.span || event.value.streams.length,
-      })),
+      ...Object.values(event.value.streams)
+        .map(st => ({
+          text: t('event.stream', { name: st.name }),
+          link: st.link,
+          span: st.span || event.value.streams.length,
+        }))
+        .filter((item, index) => {
+          const indexItems = schedule.value.map(sch => sch.items)
+          return indexItems.some(i => i && i.length > index)
+        }),
     ]
   }
   return [{ text: t('table.timeslot') }, { text: t('table.matches') }]
@@ -98,6 +104,8 @@ const toggleTime = (index: number) => {
               :colspan="item.span"
               :team1="item.team1"
               :team2="item.team2"
+              :team3="item.team3"
+              :team4="item.team4"
               :text="item.text"
               :textClass="item.textClass"
               :stream="getStream(i)"
