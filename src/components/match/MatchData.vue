@@ -41,11 +41,11 @@ const teams = computed<Team[]>(
         v-if="team1 && team2"
         class="match-teams text-md font-semibold tracking-wider lead min-w-full flex flex-row items-center justify-center md:flex-col lg:flex-row"
       >
-        <span v-if="team1" class="lg:text-right">
+        <span v-if="team1" class="text-right w-40">
           {{ team1.name }}
         </span>
         <span class="mx-2">vs</span>
-        <span v-if="team2" class="lg:text-left">
+        <span v-if="team2" class="text-left w-40">
           {{ team2.name }}
         </span>
       </div>
@@ -78,11 +78,11 @@ const teams = computed<Team[]>(
         v-if="team1 && team3"
         class="match-left match-teams text-md font-semibold tracking-wider lead min-w-full flex flex-row items-center justify-center md:flex-col lg:flex-row"
       >
-        <span v-if="team1" class="lg:text-right">
+        <span v-if="team1" class="text-center w-40">
           {{ team1.name }}
         </span>
         <span class="mx-2">or</span>
-        <span v-if="team3" class="lg:text-left">
+        <span v-if="team3" class="text-center w-40">
           {{ team3.name }}
         </span>
       </div>
@@ -91,11 +91,11 @@ const teams = computed<Team[]>(
         v-if="team2 && team4"
         class="match-right match-teams text-md font-semibold tracking-wider lead min-w-full flex flex-row items-center justify-center md:flex-col lg:flex-row"
       >
-        <span v-if="team2" class="lg:text-right">
+        <span v-if="team2" class="text-center w-40">
           {{ team2.name }}
         </span>
         <span class="mx-2">or</span>
-        <span v-if="team4" class="lg:text-left">
+        <span v-if="team4" class="text-center w-40">
           {{ team4.name }}
         </span>
       </div>
