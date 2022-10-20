@@ -6,7 +6,6 @@ import { format } from 'date-fns'
 import { formatInTimeZone } from 'date-fns-tz'
 import { useUiStore } from '@/store/ui'
 import { useI18n } from 'vue-i18n'
-import { switchCase } from '@babel/types'
 
 const props = defineProps({ day: { type: Number, default: 1 } })
 const uiStore = useUiStore()
