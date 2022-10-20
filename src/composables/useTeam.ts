@@ -8,8 +8,9 @@ const showScheduleLogos = useStorage('hcs-show-logos', false)
 const setHover = (team: Team | null) => {
   if (hoveredTeam.value?.name === team?.name) {
     hoveredTeam.value = null
+  } else {
+    hoveredTeam.value = team
   }
-  hoveredTeam.value = team
 }
 
 export default function useTeam() {
