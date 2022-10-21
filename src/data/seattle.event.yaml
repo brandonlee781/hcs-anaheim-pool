@@ -86,7 +86,7 @@ day2:
       team2: fnatic
   - time: 13:30
     items:
-    - team1: eUnited
+    - team1: eunited
       team2: navi
     - team1: oxygen
       team2: native
@@ -110,7 +110,7 @@ day2:
       team2: native
     - team1: sentinels
       team2: navi
-    - team1: eUnited
+    - team1: eunited
       team2: acend
     - team1: oxygen
       team2: complexity
@@ -127,7 +127,7 @@ day2:
   - time: 19:30
     items:
     - team1: sentinels
-      team2: eUnited
+      team2: eunited
     - team1: navi
       team2: acend
     - team1: optic
