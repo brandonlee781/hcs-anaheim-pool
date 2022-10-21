@@ -69,6 +69,47 @@ day1:
     items:
       - text: Elimination Round 2
       - text: ''
+day2:
+  - time: 11:45
+    items:
+    - text: HALOWC Pre-Show
+  - time: 12:00
+    items:
+    - team1: faze
+      team2: g2
+    - team1: cloud9
+      team2: war
+  - time: 13:30
+    items:
+    - team1: eUnited
+      team2: navi
+    - team1: oxygen
+      team2: native
+  - time: 15:00
+    items:
+    - team1: g1
+      team2: war
+    - team1: cloud9
+      team2: jlingz
+  - time: 16:30
+    items:
+    - team1: optic
+      team2: native
+    - team1: sentinels
+      team2: navi
+  - time: 18:00
+    items:
+    - team1: cloud9
+      team2: g1
+    - team1: g2
+      team2: tss
+  - time: 19:30
+    items:
+    - team1: sentinels
+      team2: eUnited
+    - team1: navi
+      team2: acend
+
 pools:
   A: 
     - optic
