@@ -73,43 +73,67 @@ day2:
   - time: 11:45
     items:
     - text: HALOWC Pre-Show
+      span: 4
   - time: 12:00
     items:
     - team1: faze
       team2: g2
     - team1: cloud9
       team2: war
+    - team1: g1
+      team2: jlingz
+    - team1: tss
+      team2: fnatic
   - time: 13:30
     items:
     - team1: eUnited
       team2: navi
     - team1: oxygen
       team2: native
+    - team1: optic
+      team2: complexity
+    - team1: sentinels
+      team2: acend
   - time: 15:00
     items:
     - team1: g1
       team2: war
     - team1: cloud9
       team2: jlingz
+    - team1: faze
+      team2: tss
+    - team1: g2
+      team2: fnatic
   - time: 16:30
     items:
     - team1: optic
       team2: native
     - team1: sentinels
       team2: navi
+    - team1: eUnited
+      team2: acend
+    - team1: oxygen
+      team2: complexity
   - time: 18:00
     items:
     - team1: cloud9
       team2: g1
     - team1: g2
       team2: tss
+    - team1: faze
+      team2: fnatic
+    - team1: war
+      team2: jlingz
   - time: 19:30
     items:
     - team1: sentinels
       team2: eUnited
     - team1: navi
       team2: acend
-
+    - team1: optic
+      team2: oxygen
+    - team1: native
+      team2: complexity
 pools:
   A: 
     - optic
