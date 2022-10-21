@@ -74,22 +74,22 @@ pools:
     - optic
     - oxygen
     - native
-    - tbd
+    - complexity
   B:
     - cloud9
     - g1
     - war
-    - tbd
+    - jlingz
   C:
     - faze
     - g2
     - tss
-    - tbd
+    - fnatic
   D:
     - sentinels 
     - eunited
     - navi
-    - tbd
+    - acend
 playInTitle: true
 participants:
   - team: fnatic
