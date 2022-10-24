@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://brandonlee781.github.io/hcs-tournament-schedule/event.schema.json",
+  "title": "HCS Event",
+  "description": "An HCS Halo Infinite Event",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Name of the event"
+    },
+    "link": {
+      "type": "string",
+      "description": "Liquipedia URL for events page"
+    },
+    "timezone": {
+      "type": "string",
+      "description": "IANA time zone"
+    },
+    "streams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "description": "Unique ID of stream" },
+          "name": { "type": "string", "description": "Label text of stream" },
+          "link": { "type": "string", "description": "URL for stream" },
+          "span": { "type": "number", "description": "Number of table columns this item should span" }
+        },
+        "required": ["id", "name", "link"]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Array of streams live broadcasting the event"
+    },
+    "styles": {
+      "type": "object",
+      "properties": {
+        "bodyStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to the documents body"
+        },
+        "tableStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to the <table> element"
+        },
+        "tableHeadStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to the <thead> element"
+        },
+        "tableHeaderStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to the header <td> elements"
+        },
+        "tableDataStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to the table body <td> elements"
+        },
+        "poolHoverStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to the pool and participants items when hovered"
+        },
+        "buttonStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to button elements"
+        },
+        "buttonActiveStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to button elements when active"
+        },
+        "cardStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to card elements"
+        },
+        "footerStyle": {
+          "type": "string",
+          "description": "WindiCss classes applied to AppFooter elements"
+        }
+      },
+      "description": "Object of Windicss classes to overwrite the base styles for this event"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$"
+          },
+          "text": {
+            "type": "string",
+            "description": "Localization key for this days name"
+          }
+        },
+        "required": ["date"]
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Array of date strings for each day of the event. Format: yyyy-MM-dd"
+    },
+    "day1": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/schedule"
+      },
+      "description": "Match ups for day 1 of the event"
+    },
+    "day2": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/schedule"
+      },
+      "description": "Match ups for day 2 of the event"
+    },
+    "day3": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/schedule"
+      },
+      "description": "Match ups for day 3 of the event"
+    },
+    "pools": {
+      "type": "object",
+      "properties": {
+        "A": { "type": "array", "items": { "type": "string" } },
+        "B": { "type": "array", "items": { "type": "string" } },
+        "C": { "type": "array", "items": { "type": "string" } },
+        "D": { "type": "array", "items": { "type": "string" } }
+      },
+      "description": "Object of pool play teams"
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "team": {
+            "type": "string",
+            "description": "Team name"
+          },
+          "eliminated": {
+            "type": "boolean",
+            "description": "Optional boolean whether team name should be striked-through"
+          }
+        },
+        "required": ["team"]
+      },
+      "description": "Array of team names that are participating in this event. Used when event does not have pool play."
+    },
+    "playInTitle": {
+      "type": "boolean",
+      "description": "Display Play In Title text"
+    }
+  },
+  "required": ["title", "link", "timezone", "streams", "days", "day1"],
+  "dependencies": {
+    "playInTitle": ["participants"]
+  },
+  "$defs": {
+    "schedule": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "pattern": "^\\d\\d:\\d\\d$",
+          "description": "Time local to event that these items will occur"
+        },
+        "items": {
+          "type": "array",
+          "description": "Timeslot object",
+          "items": {
+            "type": "object",
+            "properties": {
+              "team1": {
+                "type": "string",
+                "description": "Name of higher seeded team"
+              },
+              "team2": {
+                "type": "string",
+                "description": "Name of lower seeded team"
+              },
+              "team3": {
+                "type": "string",
+                "description": "Name of team for 'Winner of:' display"
+              },
+              "team4": {
+                "type": "string",
+                "description": "Name of team for 'Winner of:' display"
+              },
+              "text": {
+                "type": "string",
+                "description": "Any accompanying text for this item"
+              },
+              "span": {
+                "type": "number",
+                "description": "Number of table columns this item should span"
+              },
+              "textClass": {
+                "type": "string",
+                "description": "Windicss class string to override the styling on this items text"
+              }
+            },
+            "dependencies": {
+              "team1": ["team2"],
+              "team2": ["team1"]
+            }
+          }
+        }
+      },
+      "required": ["time", "items"]
+    }
+  }
+}

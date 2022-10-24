@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://brandonlee781.github.io/hcs-tournament-schedule/team.schema.json",
+  "title": "HCS Schedule Item",
+  "description": "An HCS Halo Infinite Event Schedule items",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string",
+      "description": "Color used to represent the team. Usually the main color of the icon"
+    },
+    "region": {
+      "enum": ["NA", "EU", "AZ", "MX", null],
+      "description": "What HCS region the team competes in"
+    },
+    "image": {
+      "type": "string",
+      "description": "Team icon"
+      }
+  },
+  "required": ["name", "color", "region"]
+}

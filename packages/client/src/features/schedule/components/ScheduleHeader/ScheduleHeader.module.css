@@ -1,0 +1,6 @@
+:root {
+  --tab-transition: all 0.6s cubic-bezier(0.48, 0.47, 0.41, 1.33);
+}
+.slider {
+  transition: var(--tab-transition);
+}

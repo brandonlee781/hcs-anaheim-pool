@@ -1,0 +1,44 @@
+{
+  "days" : {
+    "friday" : "Vendredi",
+    "saturday" : "Samedi",
+    "sunday" : "Dimanche",
+    "champ-sunday" : "Championnat Dimanche",
+    "play-in": "Jouer en équipe",
+    "day-1": "Jour 1",
+    "day-2": "Jour 2",
+    "day-3": "Jour 3",
+    "day-4": "Jour 4",
+    "day" : "Jour {{ num }}"
+  },
+  "instructions" : {
+    "timezone" : "Toutes les heures sont automatiquement converties dans votre fuseau horaire",
+    "click-pool" : "Cliquez sur une équipe dans les pools ci-dessous pour la mettre en évidence dans le calendrier.",
+    "toggle-times" : "Cliquez sur l'heure pour afficher et masquer ses matchs.",
+    "work-offline": "Application prête à fonctionner hors ligne",
+    "new-content": "Nouveau contenu disponible, cliquez sur le bouton recharger pour mettre à jour.",
+    "reload": "Recharger",
+    "close": "Proche",
+    "understood": "Entendu",
+    "speculation": "Les horaires, les événements et les pools sont basés sur les tournois précédents et ne sont actuellement que des spéculations. Ceux-ci sont tous sujets à changement."
+  },
+  "table" : {
+    "timeslot" : "Temps",
+    "matches" : "Jeu",
+    "local-time" : "Heure locale du tournoi",
+    "pool" : "Bassin {{ pool }}",
+    "no-data" : "Le programme de cette journée sera mis à jour dès qu'il sera publié."
+  },
+  "event" : {
+    "stream" : "{name} Direct",
+    "open-team" : "Équipe de support ouvert",
+    "play-in-title": "Jouer en équipe"
+  },
+  "footer" : {
+    "click-highlight" : "Cliquez sur les poules pour les mettre en évidence",
+    "hover-highlight" : "Survolez la piscine pour mettre en surbrillance",
+    "hide-logos" : "Logos d'équipe cachés",
+    "show-logos" : "Logos d'équipe affichés",
+    "link" : "Page Liquipedia pour cet événement"
+  }
+}

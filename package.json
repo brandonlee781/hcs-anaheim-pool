@@ -5,13 +5,18 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "concurrently \"wsrun --parallel start\""
+    "start": "concurrently \"wsrun --parallel start\"",
+    "generate-schema": "yarn dlx ts-json-schema-generator --path \"packages/api-server/src/features/Tournament/types/index.ts\" --type \"TournamentSchema\" -o \".vscode/schemas/tournament.schema.json\""
   },
   "workspaces": [
-    "packages/*"
+    "packages/client",
+    "packages/api-server"
   ],
   "devDependencies": {
     "concurrently": "^5.2.0",
     "wsrun": "^5.2.0"
+  },
+  "dependencies": {
+    "typescript": "^4.8.4"
   }
 }

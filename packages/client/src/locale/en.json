@@ -1,0 +1,44 @@
+{
+  "days": {
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "champ-sunday": "Championship Sunday",
+    "play-in": "Play-In",
+    "day-1": "Day 1",
+    "day-2": "Day 2",
+    "day-3": "Day 3",
+    "day-4": "Day 4",
+    "day": "Day {{ num }}"
+  },
+  "instructions": {
+    "timezone": "All times are automatically converted to your timezone.",
+    "click-pool": "Click a team in the pools below to highlight them in the schedule.",
+    "toggle-times": "Click the time to show and hide it's matches.",
+    "work-offline": "App ready to work offline",
+    "new-content": "New content available, click on reload button to update.",
+    "reload": "Reload",
+    "close": "Close",
+    "understood": "Understood",
+    "speculation": "Times, events and Pools are based on previous tournaments and currently only speculation. These are all subject to change."
+  },
+  "table": {
+    "timeslot": "Timeslot",
+    "matches": "Matches",
+    "local-time": "Tournament Local Time",
+    "pool": "Pool {{ pool }}",
+    "no-data": "This days schedule will be updated as soon as it is released."
+  },
+  "event": {
+    "stream": "{name} Stream",
+    "open-team": "Open Bracket Team",
+    "play-in-title": "Play In Teams"
+  },
+  "footer": {
+    "click-highlight": "Click Pools to Highlight",
+    "hover-highlight": "Hover Pools to Highlight",
+    "hide-logos": "Team Logos Hidden",
+    "show-logos": "Team Logos Shown",
+    "link": "Liquipedia Page for this Event"
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "title": "HCS Valencia Finals",
+  "link": "https://liquipedia.net/halo/Halo_Championship_Series/2021-22/Split_2/Europe/Championship",
+  "timezone": "Europe/Madrid",
+  "streams": [
+    {
+      "id": "halo",
+      "name": "Halo",
+      "link": "https://www.twitch.tv/halo",
+      "span": 2
+    },
+    {
+      "id": "hcs",
+      "name": "B Stream (hcs)",
+      "link": "https://www.twitch.tv/hcs",
+      "span": 2
+    }
+  ],
+  "days": [
+    {
+      "date": "2022-07-01",
+      "name": "Friday",
+      "streams": ["halo", "hcs"],
+      "include": ["pools"],
+      "events": [
+        {
+          "time": "11:00",
+          "items": [
+            {
+              "text": "Broadcast Begins",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "11:30",
+          "items": [
+            {
+              "text": "Pre-Show in Valencia",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "teams": ["onlineWarriors",  "awobabobs"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "items": [
+            {
+              "teams": ["acend",  "reclaimers"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "15:00",
+          "items": [
+            {
+              "teams": ["quadrant",  "scorchedHand"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "16:30",
+          "items": [
+            {
+              "teams": ["navi",  "blackhand"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "18:00",
+          "items": [
+            {
+              "teams": ["jlingz",  "awobabobs"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "items": [
+            {
+              "teams": ["navi",  "diamondDogs"],
+              "span": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2022-07-02",
+      "name": "saturday",
+      "streams": ["halo", "hcs"],
+      "include": ["pools"],
+      "events": [
+        {
+          "time": "11:00",
+          "items": [
+            {
+              "text": "Countdown Begins",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "11:30",
+          "items": [
+            {
+              "text": "Valencia Pre-show",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "teams": ["vexed",  "witchblades"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "items": [
+            {
+              "teams": ["quadrant",  "lucendi"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "15:00",
+          "items": [
+            {
+              "teams": ["navi",  "connecting"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "16:30",
+          "items": [
+            {
+              "text": "Winners Brackets Round 1",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "18:00",
+          "items": [
+            {
+              "text": "Winnners Brackets Round 1",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "items": [
+            {
+              "text": "Elimination Bracket Round 2",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "21:00",
+          "items": [
+            {
+              "text": "Elimination Bracket Round 3",
+              "span": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2022-07-03",
+      "name": "Championship Sunday",
+      "streams": ["halo"],
+      "include": ["pools"],
+      "events": [
+        {
+          "time": "11:00",
+          "items": [
+            {
+              "text": "Countdown Begins",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "11:30",
+          "items": [
+            {
+              "text": "Valencia Pre-show",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "text": "TBD",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "items": [
+            {
+              "text": "TBD",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "15:00",
+          "items": [
+            {
+              "text": "TBD",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "16:30",
+          "items": [
+            {
+              "text": "TBD",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "18:00",
+          "items": [
+            {
+              "text": "TBD",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "items": [
+            {
+              "text": "TBD",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "21:00",
+          "items": [
+            {
+              "text": "TBD",
+              "span": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pools": [
+    {
+      "name": "A",
+      "teams": [
+        "acend",
+        "vexed",
+        "reclaimers",
+        "frostbite"
+      ]
+    },
+    {
+      "name": "B",
+      "teams": [
+        "quadrant",
+        "scorchedHand",
+        "deathrow",
+        "connecting"
+      ]
+    },
+    {
+      "name": "C",
+      "teams": [
+        "navi",
+        "blackhand",
+        "diamondDogs",
+        "lucendi"
+      ]
+
+    },
+    {
+      "name": "D",
+      "teams": [
+        "jlingz",
+        "onlineWarriors",
+        "awobabobs",
+        "witchblades"
+      ]
+
+    }
+
+  ]
+}

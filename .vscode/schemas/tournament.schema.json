@@ -1,0 +1,197 @@
+{
+  "$ref": "#/definitions/TournamentSchema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "EventItem<string>": {
+      "additionalProperties": false,
+      "properties": {
+        "span": {
+          "type": "number"
+        },
+        "stream": {
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "text": {
+          "type": "string"
+        },
+        "textClass": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Participants<string>": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "teams"
+      ],
+      "type": "object"
+    },
+    "Stream": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "span": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "link"
+      ],
+      "type": "object"
+    },
+    "Tournament<string>": {
+      "additionalProperties": false,
+      "properties": {
+        "days": {
+          "items": {
+            "$ref": "#/definitions/TournamentDay%3Cstring%3E"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "participants": {
+          "$ref": "#/definitions/Participants%3Cstring%3E"
+        },
+        "pools": {
+          "items": {
+            "$ref": "#/definitions/Participants%3Cstring%3E"
+          },
+          "type": "array"
+        },
+        "streams": {
+          "items": {
+            "$ref": "#/definitions/Stream"
+          },
+          "type": "array"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "link",
+        "timezone",
+        "streams",
+        "days"
+      ],
+      "type": "object"
+    },
+    "TournamentDay<string>": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/TournamentEvent%3Cstring%3E"
+          },
+          "type": "array"
+        },
+        "id": {
+          "$ref": "#/definitions/TournamentDayIds"
+        },
+        "include": {
+          "items": {
+            "enum": [
+              "participants",
+              "pools"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "streams": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "date"
+      ],
+      "type": "object"
+    },
+    "TournamentDayIds": {
+      "enum": [
+        "friday",
+        "saturday",
+        "sunday",
+        "champ-sunday",
+        "day-1",
+        "day-2",
+        "day-3",
+        "day-4",
+        "play-in"
+      ],
+      "type": "string"
+    },
+    "TournamentEvent<string>": {
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/definitions/EventItem%3Cstring%3E"
+          },
+          "type": "array"
+        },
+        "time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "time",
+        "items"
+      ],
+      "type": "object"
+    },
+    "TournamentSchema": {
+      "$ref": "#/definitions/Tournament%3Cstring%3E"
+    }
+  }
+}

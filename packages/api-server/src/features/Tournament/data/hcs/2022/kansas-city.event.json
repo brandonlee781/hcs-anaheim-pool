@@ -1,0 +1,401 @@
+{
+  "title": "HCS Kansas City Major",
+  "link": "https://halo-esports.fandom.com/wiki/Halo_Championship_Series/2022_Season/Major_Kansas_City",
+  "timezone": "America/Chicago",
+  "streams": [
+    {
+      "id": "halo",
+      "name": "Halo",
+      "link": "https://www.twitch.tv/halo",
+      "span": 1
+    },
+    {
+      "id": "xbox",
+      "name": "Xbox",
+      "link": "https://www.twitch.tv/xbox",
+      "span": 1
+    },
+    {
+      "id": "red",
+      "name": "HCS_Red",
+      "link": "https://www.twitch.tv/hcs_red",
+      "span": 1
+    },
+    {
+      "id": "blue",
+      "name": "HCS_Blue",
+      "link": "https://www.twitch.tv/hcs_blue",
+      "span": 1
+    }
+  ],
+  "days": [
+    {
+      "date": "2022-04-29",
+      "name": "Friday",
+      "events": [
+        {
+          "time": "11:30",
+          "items": [
+            {
+              "text": "Broadcast Begins",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "11:40",
+          "items": [
+            {
+              "text": "Orlando Pre-Show",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "teams": ["cloud9",  "acend"]
+            },
+            {
+              "teams": ["sentinels",  "knights"]
+            },
+            {
+              "teams": ["xset",  "chiefs"]
+            },
+            {
+              "teams": ["pioneers",  "jlingz"]
+            }
+          ]
+        },
+        {
+          "time": "13:15",
+          "items": [
+            {
+              "teams": ["faze",  "navi"]
+            },
+            {
+              "teams": ["optic",  "fnatic"]
+            },
+            {
+              "teams": ["g2",  "quadrant"]
+            },
+            {
+              "teams": ["eunited",  "cruelty"]
+            }
+          ]
+        },
+        {
+          "time": "14:30",
+          "items": [
+            {
+              "teams": ["xset",  "acend"]
+            },
+            {
+              "teams": ["pioneers",  "knights"]
+            },
+            {
+              "teams": ["cloud9",  "chiefs"]
+            },
+            {
+              "teams": ["sentinels",  "jlingz"]
+            }
+          ]
+        },
+        {
+          "time": "15:45",
+          "items": [
+            {
+              "teams": ["eunited",  "g2"]
+            },
+            {
+              "teams": ["faze",  "fnatic"]
+            },
+            {
+              "teams": ["optic",  "navi"]
+            },
+            {
+              "teams": ["quadrant",  "cruelty"]
+            }
+          ]
+        },
+        {
+          "time": "17:00",
+          "items": [
+            {
+              "teams": ["sentinels",  "pioneers"]
+            },
+            {
+              "teams": ["acend",  "chiefs"]
+            },
+            {
+              "teams": ["cloud9",  "xset"]
+            },
+            {
+              "teams": ["jlingz",  "knights"]
+            }
+          ]
+        },
+        {
+          "time": "18:15",
+          "items": [
+            {
+              "teams": ["optic",  "faze"]
+            },
+            {
+              "teams": ["eunited",  "quadrant"]
+            },
+            {
+              "teams": ["navi",  "fnatic"]
+            },
+            {
+              "teams": ["g2",  "cruelty"]
+            }
+          ]
+        }
+      ],
+      "streams": ["halo", "xbox", "red", "blue"],
+      "include": ["pools"]
+    },
+    {
+      "date": "2022-04-30",
+      "name": "Saturday",
+      "events": [
+        {
+          "time": "11:30",
+          "items": [
+            {
+              "text": "Broadcast Begins",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "11:40",
+          "items": [
+            {
+              "text": "Kansas City Pre-Show",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "teams": ["quadrant",  "g1"]
+            },
+            {
+              "teams": ["optic",  "complexity"]
+            },
+            {
+              "teams": ["xset",  "ssgOld"]
+            },
+            {
+              "teams": ["jlingz",  "bbg"]
+            }
+          ]
+        },
+        {
+          "time": "13:15",
+          "items": [
+            {
+              "teams": ["fnatic",  "complexity"]
+            },
+            {
+              "teams": ["g2",  "g1"]
+            },
+            {
+              "teams": ["acend",  "ssgOld"]
+            },
+            {
+              "teams": ["sentinels",  "bbg"]
+            }
+          ]
+        },
+        {
+          "time": "14:30",
+          "items": [
+            {
+              "teams": ["chiefs",  "ssgOld"]
+            },
+            {
+              "teams": ["cruelty",  "g1"]
+            },
+            {
+              "teams": ["navi",  "complexity"]
+            },
+            {
+              "teams": ["knights",  "bbg"]
+            }
+          ]
+        },
+        {
+          "time": "15:45",
+          "items": [
+            {
+              "teams": ["pioneers",  "bbg"]
+            },
+            {
+              "teams": ["faze",  "complexity"]
+            },
+            {
+              "teams": ["cloud9",  "ssgOld"]
+            },
+            {
+              "teams": ["eunited",  "g1"]
+            }
+          ]
+        },
+        {
+          "time": "16:00",
+          "items": [
+            {
+              "text": "Winners Quarter Finals",
+              "span": 2
+            },
+            {
+              "text": "Elimination Round 1",
+              "span": 2
+            }
+          ]
+        },
+        {
+          "time": "17:15",
+          "items": [
+            {
+              "text": "Winners Quarter Finals",
+              "span": 2
+            },
+            {
+              "text": "Elimination Round 1",
+              "span": 2
+            }
+          ]
+        }
+      ],
+      "streams": ["halo", "xbox", "red", "blue"],
+      "include": ["pools"]
+    },
+    {
+      "date": "2022-05-01",
+      "name": "Championship Sunday",
+      "events": [
+        {
+          "time": "11:30",
+          "items": [
+            {
+              "text": "Broadcast Begins",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "11:40",
+          "items": [
+            {
+              "text": "Kansas City Pre-Show",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "text": "Winners Semi Finals",
+              "teams": ["optic",  "eunited"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "13:15",
+          "items": [
+            {
+              "text": "Winners Semi Finals",
+              "teams": ["cloud9",  "sentinels"],
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "14:30",
+          "items": [
+            {
+              "text": "Elimination Quarter Finals",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "15:45",
+          "items": [
+            {
+              "text": "Winners Finals",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "17:00",
+          "items": [
+            {
+              "text": "Elimination Finals",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "18:15",
+          "items": [
+            {
+              "text": "Grand Finals",
+              "span": 4
+            }
+          ]
+        }
+      ],
+      "streams": ["halo", "xbox", "red", "blue"],
+      "include": ["pools"]
+    }
+  ],
+  "pools": [
+    {
+      "name": "A",
+      "teams": [
+      "cloud9",
+      "acend",
+      "xset",
+      "chiefs",
+      "ssgOld"
+    ]},
+    {
+      "name": "B",
+      "teams": [
+      "optic",
+      "faze",
+      "fnatic",
+      "navi",
+      "complexity"
+    ]},
+    {
+      "name": "C",
+      "teams": [
+      "eunited",
+      "quadrant",
+      "g2",
+      "cruelty",
+      "g1"
+    ]},
+    {
+      "name": "D",
+      "teams": [
+      "sentinels",
+      "pioneers",
+      "knights",
+      "jlingz",
+      "bbg"
+    ]}
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "id": "hcs/2022/worlds",
+  "title": "Halo World Championship 2022",
+  "link": "https://liquipedia.net/halo/Halo_World_Championship/2022",
+  "timezone": "America/Los_Angeles",
+  "streams": [
+    {
+      "id": "halo",
+      "name": "Halo",
+      "link": "https://www.twitch.tv/halo",
+      "span": 1
+    },
+    {
+      "id": "xbox",
+      "name": "Xbox",
+      "link": "https://www.twitch.tv/xbox",
+      "span": 1
+    },
+    {
+      "id": "red",
+      "name": "HCS_Red",
+      "link": "https://www.twitch.tv/hcs_red",
+      "span": 1
+    },
+    {
+      "id": "blue",
+      "name": "HCS_Blue",
+      "link": "https://www.twitch.tv/hcs_blue",
+      "span": 1
+    }
+  ],
+  "days": [
+    {
+      "id": "play-in",
+      "date": "2022-10-20",
+      "streams": [
+        "halo",
+        "xbox"
+      ],
+      "events": [
+        {
+          "time": "11:45",
+          "items": [
+            {
+              "text": "HALOWC Pre-Show",
+              "span": 4,
+              "textClass": "text-lg font-bold"
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["ssg", "jlingz"]
+            },
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["fnatic", "divineMind"]
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "items": [
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["complexity","chiefs"]
+            },
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["acend","altar"]
+            }
+          ]
+        },
+        {
+          "time": "15:00",
+          "items": [
+            {
+              "text": "Winners Semifinals",
+              "teams": [
+                "fnatic",
+                "ssg",
+                "divineMind",
+                "jlingz"
+              ]
+            },
+            {
+              "text": "Elimination Round 1"
+            }
+          ]
+        },
+        {
+          "time": "16:30",
+          "items": [
+            {
+              "text": "Winners Semifinals",
+              "teams": [
+              "acend",
+              "altar",
+              "complexity",
+              "chiefs"
+              ]
+            },
+            {
+              "text": "Elimination Round 1"
+            }
+          ]
+        },
+        {
+          "time": "18:00",
+          "items": [
+            {
+              "text": "Elimination Round 2"
+            },
+            {
+              "text": ""
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "items": [
+            {
+              "text": "Elimination Round 2"
+            },
+            {
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "include": [
+        "participants"
+      ]
+    },
+    {
+      "id": "day-1",
+      "date": "2022-10-21",
+      "events": [
+        {
+          "time": "11:45",
+          "items": [
+            {
+              "text": "HALOWC Pre-Show",
+              "span": 4
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "items": [
+            {
+              "teams": ["faze", "g2"]
+            },
+            {
+              "teams": ["cloud9", "war"]
+            },
+            {
+              "teams": ["g1", "jlingz"]
+            },
+            {
+              "teams": ["tss", "fnatic"]
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "items": [
+            {
+              "teams": ["eunited",  "navi"]
+            },
+            {
+              "teams": ["oxygen",  "native"]
+            },
+            {
+              "teams": ["optic",  "complexity"]
+            },
+            {
+              "teams": ["sentinels",  "acend"]
+            }
+          ]
+        },
+        {
+          "time": "15:00",
+          "items": [
+            {
+              "teams": ["g1",  "war"]
+            },
+            {
+              "teams": ["cloud9",  "jlingz"]
+            },
+            {
+              "teams": ["faze",  "tss"]
+            },
+            {
+              "teams": ["g2",  "fnatic"]
+            }
+          ]
+        },
+        {
+          "time": "16:30",
+          "items": [
+            {
+              "teams": ["optic",  "native"]
+            },
+            {
+              "teams": ["sentinels",  "navi"]
+            },
+            {
+              "teams": ["eunited",  "acend"]
+            },
+            {
+              "teams": ["oxygen",  "complexity"]
+            }
+          ]
+        },
+        {
+          "time": "18:00",
+          "items": [
+            {
+              "teams": ["cloud9",  "g1"]
+            },
+            {
+              "teams": ["g2",  "tss"]
+            },
+            {
+              "teams": ["faze",  "fnatic"]
+            },
+            {
+              "teams": ["war",  "jlingz"]
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "items": [
+            {
+              "teams": ["sentinels",  "eunited"]
+            },
+            {
+              "teams": ["navi",  "acend"]
+            },
+            {
+              "teams": ["optic",  "oxygen"]
+            },
+            {
+              "teams": ["native",  "complexity"]
+            }
+          ]
+        }
+      ],
+      "include": [
+        "pools"
+      ],
+      "streams": [
+        "halo",
+        "xbox",
+        "red",
+        "blue"
+      ]
+    },
+    {
+      "id": "day-2",
+      "date": "2022-10-22",
+      "include": [
+        "pools"
+      ],
+      "streams": [
+        "halo",
+        "xbox",
+        "red",
+        "blue"
+      ]
+    },
+    {
+      "id": "day-3",
+      "date": "2022-10-23",
+      "include": [
+        "pools"
+      ],
+      "streams": [
+        "halo",
+        "xbox",
+        "red",
+        "blue"
+      ]
+    }
+  ],
+  "pools": [
+    {
+      "id": "pool-a",
+      "name": "A",
+      "teams": [
+        "optic",
+        "oxygen",
+        "native",
+        "complexity"
+      ]
+    },
+    {
+      "id": "pool-b",
+      "name": "B",
+      "teams": [
+        "cloud9",
+        "g1",
+        "war",
+        "jlingz"
+      ]
+    },
+    {
+      "id": "pool-c",
+      "name": "C",
+      "teams": [
+        "faze",
+        "g2",
+        "tss",
+        "fnatic"
+      ]
+    },
+    {
+      "id": "pool-d",
+      "name": "D",
+      "teams": [
+        "sentinels",
+        "eunited",
+        "navi",
+        "acend"
+      ]
+    }
+  ],
+  "participants": {
+    "id": "play-in-teams",
+    "name": "Play-in Teams",
+    "teams": [
+      "fnatic",
+      "complexity",
+      "ssg",
+      "altar",
+      "acend",
+      "jlingz",
+      "chiefs",
+      "divineMind"
+    ]
+  }
+}

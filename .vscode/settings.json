@@ -1,0 +1,45 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#f847f9",
+    "activityBar.background": "#f847f9",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#5d5c03",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#f847f9",
+    "statusBar.background": "#f616f7",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#f847f9",
+    "statusBarItem.remoteBackground": "#f616f7",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#f616f7",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#f616f799",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.remoteColor": "#f616f7",
+  "yaml.schemas": {
+    "/home/brandonlee/workspace/tournament-schedule/.vscode/schemas/teams.schema.json": "packages/api-server/**/teams.yaml",
+    "/home/brandonlee/workspace/tournament-schedule/.vscode/schemas/tournament.schema.json": "packages/api-server/**/*.event.yaml"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "*.event.json"
+      ],
+      "url": "./.vscode/schemas/tournament.schema.json"
+    }
+  ],
+  "eslint.workingDirectories": [
+    "packages/client",
+    "packages/api-server"
+  ],
+  "eslint.packageManager": "yarn",
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

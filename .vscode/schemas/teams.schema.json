@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://brandonlee781.github.io/hcs-tournament-schedule/teams.schema.json",
+  "title": "HCS Teams",
+  "description": "Simple Information about HCS Halo Infinite teams",
+  "type": "object",
+  "patternProperties": {
+    "^.*$": {
+      "$ref": "team.schema.json"
+    }
+  }
+}
