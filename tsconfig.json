@@ -24,5 +24,5 @@
     }
   },
   "include": ["src", "./auto-imports.d.ts", "./src/react-i18next.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "../api-server" }]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
