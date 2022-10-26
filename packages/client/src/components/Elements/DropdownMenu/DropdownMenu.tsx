@@ -18,11 +18,7 @@ const DropdownMenuActivator = ({
     return (
       <>
         <span>{label}</span>
-        <svg
-          className="w-5 h-5 ml-2 -mr-1"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
+        <svg className="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
           <path
             fillRule="evenodd"
             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -64,24 +60,17 @@ export const DropdownMenu = ({
 
   const activator = Children.toArray(children).find(child => {
     if (isValidElement(child)) {
-      return (
-        (child.type as unknown as () => void).name === 'DropdownMenuActivator'
-      )
+      return (child.type as unknown as () => void).name === 'DropdownMenuActivator'
     }
   })
   const menu = Children.toArray(children).find(child => {
     if (isValidElement(child)) {
-      return (
-        (child.type as unknown as () => void).name !== 'DropdownMenuActivator'
-      )
+      return (child.type as unknown as () => void).name !== 'DropdownMenuActivator'
     }
   })
 
   return (
-    <div
-      ref={menuRef}
-      className={`relative inline-block text-left dropdown z-3 ${className}`}
-    >
+    <div ref={menuRef} className={`relative inline-block text-left dropdown z-3 ${className}`}>
       <span className="flex items-center justify-center">{activator}</span>
       <div
         className={`dropdown-menu z-3 transition-all duration-300 transform origin-top-right -translate-y-2 scale-95 ${

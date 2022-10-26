@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
 
+import { TournamentDayProvider } from '@/features/tournament'
 import { trpc } from '@/lib/trpc'
 
 import { ThemeProvider } from './ThemeProvider'
@@ -23,7 +24,9 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <TournamentDayProvider>{children}</TournamentDayProvider>
+        </ThemeProvider>
       </QueryClientProvider>
     </trpc.Provider>
   )

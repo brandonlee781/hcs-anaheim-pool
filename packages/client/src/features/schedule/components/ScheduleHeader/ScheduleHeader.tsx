@@ -2,6 +2,7 @@ import { TournamentDay } from 'api-server/src/features/Tournament'
 import { useSpring, animated } from 'react-spring'
 import DarkMode from 'virtual:icons/mdi/theme-light-dark'
 
+import { Card } from '@/components/Elements/Card'
 import { LanguageMenu } from '@/components/Elements/LanguageMenu'
 import { Team } from '@/features/teams'
 import { useTournament } from '@/features/tournament'
@@ -19,23 +20,15 @@ export const ScheduleHeader = ({ days }: ScheduleHeaderProps) => {
   const rowRef = useRef<HTMLDivElement>(null)
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([])
 
-  const { theme, toggleDarkMode } = useContext(ThemeContext)
+  const { toggleDarkMode } = useContext(ThemeContext)
   const { tournament, day, setDay } = useTournament()
 
   const [springs, api] = useSpring(() => ({ from: { x: 8 } }))
   const [sliderWidth, setSliderWidth] = useState(0)
 
-  useEffect(() => {
-    const el = linkRefs.current[day]
-    const width = el ? el.clientWidth : 88
-    setSliderWidth(width)
-  }, [tournament, linkRefs, day, i18n.language])
-
-  const clickDay = (newIndex: number) => {
-    setDay(newIndex)
-
+  const moveSlider = (index: number) => {
     const oldEl = linkRefs.current[day]
-    const newEl = linkRefs.current[newIndex]
+    const newEl = linkRefs.current[index]
 
     if (oldEl && newEl && rowRef.current) {
       const parentLeft = rowRef.current.getBoundingClientRect().left
@@ -58,10 +51,20 @@ export const ScheduleHeader = ({ days }: ScheduleHeaderProps) => {
     }
   }
 
+  const clickDay = (newIndex: number) => {
+    setDay(newIndex)
+    moveSlider(newIndex)
+  }
+
+  useEffect(() => {
+    const el = linkRefs.current[day]
+    const width = el ? el.clientWidth : 88
+    setSliderWidth(width)
+    moveSlider(day)
+  }, [tournament, linkRefs, day, i18n.language, moveSlider])
+
   return (
-    <div
-      className={`header-bar py-2 px-4 h-12 w-full flex flex-row flex-nowrap items-center justify-between rounded-md ${theme.cardStyle} ${theme.tableHeadStyle}`}
-    >
+    <Card className="h-12">
       <nav className="row-start-2 col-span-2 md:(row-start-1 col-start-2 col-span-1 justify-self-center) overflow-y-hidden">
         <div
           ref={rowRef}
@@ -72,9 +75,9 @@ export const ScheduleHeader = ({ days }: ScheduleHeaderProps) => {
               <a
                 key={index}
                 ref={el => (linkRefs.current[index] = el || null)}
-                className={`cursor-pointer p-2 mx-2 whitespace-nowrap text-center rounded-md ${
-                  theme.buttonStyle
-                } ${day === index ? 'active bg-red' : ''}`}
+                className={`cursor-pointer p-2 mx-2 whitespace-nowrap text-center rounded-md hover:opacity-80 ${
+                  day === index ? 'active bg-red' : ''
+                }`}
                 role="button"
                 tabIndex={index}
                 onClick={() => clickDay(index)}
@@ -85,7 +88,7 @@ export const ScheduleHeader = ({ days }: ScheduleHeaderProps) => {
             )
           })}
           <animated.div
-            className={`${styles.slider} h-1 rounded-sm absolute bg-purple-600 bottom-0`}
+            className={`${styles.slider} h-1 rounded-sm absolute bottom-0 *themeGradient !bg-gradient-to-r`}
             style={{
               width: sliderWidth + 'px',
               ...springs,
@@ -103,6 +106,6 @@ export const ScheduleHeader = ({ days }: ScheduleHeaderProps) => {
         </button>
         <LanguageMenu />
       </div>
-    </div>
+    </Card>
   )
 }

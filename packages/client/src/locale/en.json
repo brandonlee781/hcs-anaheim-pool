@@ -30,7 +30,7 @@
     "no-data": "This days schedule will be updated as soon as it is released."
   },
   "event": {
-    "stream": "{name} Stream",
+    "stream": "{{ name }} Stream",
     "open-team": "Open Bracket Team",
     "play-in-title": "Play In Teams"
   },

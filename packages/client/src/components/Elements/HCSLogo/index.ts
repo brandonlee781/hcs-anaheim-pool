@@ -1,0 +1,1 @@
+export { HCSLogo } from './HCSLogo'

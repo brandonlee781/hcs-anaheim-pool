@@ -11,9 +11,9 @@
       "span": 1
     },
     {
-      "id": "xbox",
-      "name": "Xbox",
-      "link": "https://www.twitch.tv/xbox",
+      "id": "hcs",
+      "name": "HCS",
+      "link": "https://www.twitch.tv/hcs",
       "span": 1
     },
     {
@@ -35,21 +35,23 @@
       "date": "2022-10-20",
       "streams": [
         "halo",
-        "xbox"
+        "hcs"
       ],
       "events": [
         {
           "time": "11:45",
+          "duration": 15,
           "items": [
             {
               "text": "HALOWC Pre-Show",
-              "span": 4,
+              "span": 2,
               "textClass": "text-lg font-bold"
             }
           ]
         },
         {
           "time": "12:00",
+          "duration": 90,
           "items": [
             {
               "text": "Winners Quarterfinals",
@@ -63,6 +65,7 @@
         },
         {
           "time": "13:30",
+          "duration": 90,
           "items": [
             {
               "text": "Winners Quarterfinals",
@@ -76,6 +79,7 @@
         },
         {
           "time": "15:00",
+          "duration": 90,
           "items": [
             {
               "text": "Winners Semifinals",
@@ -93,6 +97,7 @@
         },
         {
           "time": "16:30",
+          "duration": 90,
           "items": [
             {
               "text": "Winners Semifinals",
@@ -110,6 +115,7 @@
         },
         {
           "time": "18:00",
+          "duration": 90,
           "items": [
             {
               "text": "Elimination Round 2"
@@ -121,6 +127,7 @@
         },
         {
           "time": "19:30",
+          "duration": 90,
           "items": [
             {
               "text": "Elimination Round 2"
@@ -136,20 +143,23 @@
       ]
     },
     {
-      "id": "day-1",
+      "id": "friday",
       "date": "2022-10-21",
       "events": [
         {
           "time": "11:45",
+          "duration": 15,
           "items": [
             {
               "text": "HALOWC Pre-Show",
-              "span": 4
+              "span": 4,
+              "textClass": "text-lg font-bold"
             }
           ]
         },
         {
           "time": "12:00",
+          "duration": 90,
           "items": [
             {
               "teams": ["faze", "g2"]
@@ -167,6 +177,7 @@
         },
         {
           "time": "13:30",
+          "duration": 90,
           "items": [
             {
               "teams": ["eunited",  "navi"]
@@ -184,6 +195,7 @@
         },
         {
           "time": "15:00",
+          "duration": 90,
           "items": [
             {
               "teams": ["g1",  "war"]
@@ -201,6 +213,7 @@
         },
         {
           "time": "16:30",
+          "duration": 90,
           "items": [
             {
               "teams": ["optic",  "native"]
@@ -218,6 +231,7 @@
         },
         {
           "time": "18:00",
+          "duration": 90,
           "items": [
             {
               "teams": ["cloud9",  "g1"]
@@ -235,6 +249,7 @@
         },
         {
           "time": "19:30",
+          "duration": 90,
           "items": [
             {
               "teams": ["sentinels",  "eunited"]
@@ -256,35 +271,186 @@
       ],
       "streams": [
         "halo",
-        "xbox",
+        "hcs",
         "red",
         "blue"
       ]
     },
     {
-      "id": "day-2",
+      "id": "saturday",
       "date": "2022-10-22",
+      "events": [
+        {
+          "time": "11:45",
+          "duration": 15,
+          "items": [
+            {
+              "text": "HALOWC Pre-Show",
+              "span": 2,
+              "textClass": "text-lg font-bold"
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["optic","g1"]
+            },
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["sentinels", "g2"]
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["faze","eunited"]
+            },
+            {
+              "text": "Winners Quarterfinals",
+              "teams": ["cloud9", "native"]
+            }
+          ]
+        },
+        {
+          "time": "15:00",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Elimination Round 1",
+              "teams": ["optic", "g1", "fnatic"]
+            },
+            {
+              "text": "Elimination Round 1",
+              "teams": ["sentinels", "eunited", "oxygen"]
+            }
+          ]
+        },
+        {
+          "time": "16:30",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Elimination Round 1",
+              "teams": ["cloud9", "native", "acend"]
+            },
+            {
+              "text": "Elimination Round 1",
+              "teams": ["faze", "eunited", "jlingz"]
+            }
+          ]
+        },
+        {
+          "time": "18:00",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Winners Semifinals",
+              "textClass": "text-lg font-bold"
+            },
+            {
+              "text": "Winners Semifinals",
+              "textClass": "text-lg font-bold"
+            }
+          ]
+        },
+        {
+          "time": "19:30",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Winners Semifinals",
+              "textClass": "text-lg font-bold"
+            },
+            {
+              "text": "Winners Semifinals",
+              "textClass": "text-lg font-bold"
+            }
+          ]
+        }
+      ],
       "include": [
         "pools"
       ],
       "streams": [
         "halo",
-        "xbox",
-        "red",
-        "blue"
+        "hcs"
       ]
     },
     {
-      "id": "day-3",
+      "id": "champ-sunday",
       "date": "2022-10-23",
       "include": [
         "pools"
       ],
+      "events": [
+        {
+          "time": "11:45",
+          "duration": 15,
+          "items": [
+            {
+              "text": "HALOWC Pre-Show",
+              "textClass": "text-lg font-bold"
+            }
+          ]
+        },
+        {
+          "time": "12:00",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Elimination Quarterfinals",
+              "teams": ["sentinels", "cloud9"]
+            }
+          ]
+        },
+        {
+          "time": "13:30",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Winners Finals",
+              "teams": ["optic", "native"]
+            }
+          ]
+        },
+        {
+          "time": "15:00",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Elimination Finals"
+            }
+          ]
+        },
+        {
+          "time": "16:30",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Grand Finals"
+            }
+          ]
+        },
+        {
+          "time": "18:00",
+          "duration": 90,
+          "items": [
+            {
+              "text": "Grand Finals Reset"
+            }
+          ]
+        }
+      ],
       "streams": [
-        "halo",
-        "xbox",
-        "red",
-        "blue"
+        "halo"
       ]
     }
   ],

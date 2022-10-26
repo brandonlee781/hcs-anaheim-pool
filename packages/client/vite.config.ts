@@ -84,7 +84,7 @@ export default defineConfig({
         'react',
         'react-i18next',
         {
-          react: ['createContext'],
+          react: ['createContext', 'Fragment'],
         },
       ],
       eslintrc: {

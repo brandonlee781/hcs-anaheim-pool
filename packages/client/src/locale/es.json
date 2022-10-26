@@ -30,7 +30,7 @@
     "no-data": "El horario de este día se actualizará tan pronto como se publique."
   },
   "event": {
-    "stream": "{name} Transmisión",
+    "stream": "{{ name }} Transmisión",
     "open-team": "Equipo de Soporte Abierto",
     "play-in-title": "Jugar en Equipo"
   },

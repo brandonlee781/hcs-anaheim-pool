@@ -16,6 +16,7 @@ export type EventItem<T> = {
 
 export type TournamentEvent<T> = {
   time: string;
+  duration: number;
   items: EventItem<T>[]
 }
 

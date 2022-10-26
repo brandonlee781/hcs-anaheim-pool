@@ -3,6 +3,7 @@ import { Tournament } from 'api-server/src/features/Tournament'
 import { Team, teams, getTeam } from '@/features/teams'
 
 import getTournament from '../api/getTournaments'
+import { TournamentDayContext } from '../providers/TournamentDayProvider'
 
 const getOffset = (timeZone = 'UTC') => {
   const options: Intl.DateTimeFormatOptions = {
@@ -25,7 +26,7 @@ function getTime(timezone: string) {
 }
 
 export function useTournament() {
-  const [day, setDay] = useState(0)
+  const { day, setDay } = useContext(TournamentDayContext)
   const [tournamentName] = useState('hcs/2022/worlds')
   const { data, error, isLoading } = getTournament(tournamentName)
 
@@ -34,6 +35,7 @@ export function useTournament() {
     const timeFn = getTime(data.timezone)
 
     return {
+      id: data.id,
       title: data.title,
       link: data.link,
       timezone: data.timezone,

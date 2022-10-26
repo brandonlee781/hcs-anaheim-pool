@@ -1,0 +1,10 @@
+.calendar {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .calendar {
+    max-height: var(--content-height);
+    overflow-y: scroll;
+  }
+}

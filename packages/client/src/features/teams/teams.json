@@ -13,7 +13,7 @@
     "name": "ACEND",
     "color": "#6738ec",
     "region": "EU",
-    "image": "acend.png"
+    "image": "acend-white.png"
   },
   "chiefs": {
     "name": "Chiefs",
@@ -41,7 +41,7 @@
   },
   "fnatic": {
     "name": "Fnatic",
-    "color": "#ff5900",
+    "color": "#2a311f",
     "region": "NA",
     "image": "fnatic.png"
   },
@@ -83,7 +83,7 @@
   },
   "jlingz": {
     "name": "JLINGZ esports",
-    "color": "#4c4c4c",
+    "color": "#aaaaaa",
     "region": "EU",
     "image": "jlingz.png"
   },
@@ -125,7 +125,7 @@
   },
   "g1": {
     "name": "Gamers First",
-    "color": "#eee",
+    "color": "#eeeeee",
     "region": "NA",
     "image": "gamers_first.png"
   },
@@ -293,7 +293,7 @@
   },
   "tss": {
     "name": "TSS Esports",
-    "color": "#fef102",
+    "color": "#111111",
     "region": "NA",
     "image": "tss.png"
   },

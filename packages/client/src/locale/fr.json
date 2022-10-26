@@ -30,7 +30,7 @@
     "no-data" : "Le programme de cette journée sera mis à jour dès qu'il sera publié."
   },
   "event" : {
-    "stream" : "{name} Direct",
+    "stream" : "{{ name }} Direct",
     "open-team" : "Équipe de support ouvert",
     "play-in-title": "Jouer en équipe"
   },

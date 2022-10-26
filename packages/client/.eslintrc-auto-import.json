@@ -1,5 +1,6 @@
 {
   "globals": {
+    "Fragment": true,
     "createContext": true,
     "createRef": true,
     "forwardRef": true,

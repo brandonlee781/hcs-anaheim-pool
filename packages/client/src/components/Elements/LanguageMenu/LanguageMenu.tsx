@@ -38,12 +38,7 @@ export const LanguageMenu = () => {
   }
 
   return (
-    <DropdownMenu
-      menuRef={translateMenu}
-      className="ml-4 h-4 w-4"
-      open={open}
-      width={64}
-    >
+    <DropdownMenu menuRef={translateMenu} className="ml-4 h-4 w-4" open={open} width={64}>
       <DropdownMenu.Activator openFn={() => setOpen(!open)}>
         <Translate />
       </DropdownMenu.Activator>

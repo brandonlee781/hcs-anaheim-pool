@@ -1,9 +1,6 @@
 import { RefObject } from 'react'
 
-export default function useOnClickOutside(
-  ref: RefObject<any>,
-  handler: (...args: any[]) => any
-) {
+export default function useOnClickOutside(ref: RefObject<any>, handler: (...args: any[]) => any) {
   useEffect(
     () => {
       const listener = (event: Event) => {

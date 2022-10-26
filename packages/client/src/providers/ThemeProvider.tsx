@@ -27,9 +27,10 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       window.matchMedia('(prefers-color-scheme: dark)').matches
   )
   const [currentTheme, setCurrentTheme] = useState<Theme>(
-    window.localStorage.getItem(STYLE_KEY)
-      ? JSON.parse(window.localStorage.getItem(STYLE_KEY) || '')
-      : defaultStyle
+    defaultStyle
+    // window.localStorage.getItem(STYLE_KEY)
+    //   ? JSON.parse(window.localStorage.getItem(STYLE_KEY) || '')
+    //   : defaultStyle
   )
 
   useEffect(() => {
