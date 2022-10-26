@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
-import { Card } from '@/components/Elements/Card'
 import { Spinner } from '@/components/Elements/Spinner'
+import { TeamPool } from '@/features/teams'
 import { useTournament } from '@/features/tournament'
 import { MousePositionProvider } from '@/providers/MousePositionProvider'
 
@@ -14,6 +14,16 @@ import styles from './SchedulePage.module.css'
 export const SchedulePage = () => {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
   const { tournament, day, setDay, isLoading } = useTournament()
+
+  const pools = useMemo(() => {
+    if (!tournament?.days[day]) return []
+    const include = tournament.days[day].include
+    return (
+      tournament.pools?.filter(pool => {
+        return include?.includes(pool.key)
+      }) ?? []
+    )
+  }, [tournament, day])
 
   if (isLoading) {
     return (
@@ -44,11 +54,12 @@ export const SchedulePage = () => {
               }
               return null
             })}
-          <div className={clsx(styles.pools, 'pt-6 ml-2')}>
-            <Card className="h-full" />
-            <Card className="h-full" />
-            <Card className="h-full" />
-            <Card className="h-full" />
+          <div className={clsx(styles.pools, 'pt-6 ml-2', `pool-count-${pools.length}`)}>
+            {pools.map(pool => {
+              return (
+                <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />
+              )
+            })}
           </div>
         </div>
       </div>

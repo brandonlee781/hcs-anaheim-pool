@@ -7,6 +7,7 @@ import {
   eachHourOfInterval,
   addMinutes,
   isSameHour,
+  isSameDay,
 } from 'date-fns'
 
 import { Team } from '@/features/teams'
@@ -161,7 +162,7 @@ export const ScheduleCalendar = ({ day }: ScheduleCalendarProps) => {
             )
           })}
         </ScheduleCalendarGrid>
-        {day.events?.[0]?.time && (
+        {day.events?.[0]?.time && isSameDay(new Date(day.date), new Date()) && (
           <ScheduleCalendarCurrentTime
             heightRef={ref}
             first={timeslots[0]}

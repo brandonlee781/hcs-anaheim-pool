@@ -1,0 +1,6 @@
+.teamPoolWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2rem auto;
+  grid-auto-rows: auto;
+}

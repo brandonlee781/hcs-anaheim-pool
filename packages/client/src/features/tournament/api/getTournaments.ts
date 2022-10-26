@@ -21,6 +21,12 @@ type TournamentResponse = {
     }[]
     streams: { streams: Stream[] }[]
   }[]
+  pools: {
+    id: string
+    key: string
+    name: string
+    teams: string[]
+  }[]
 }
 
 export async function getTournament(id?: string) {
@@ -50,6 +56,12 @@ export async function getTournament(id?: string) {
             link
           )
         )
+      ),
+      pools (
+        id,
+        key,
+        name,
+        teams
       )
     `
     )

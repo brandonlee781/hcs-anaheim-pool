@@ -37,11 +37,12 @@ export type TournamentDay<T> = {
   date: string
   streams?: Stream[]
   events?: TournamentEvent<T>[]
-  include?: ('participants' | 'pools')[]
+  include?: string[]
 }
 
 export type Participants<T> = {
   id: string
+  key: string
   name: string
   teams: T[]
 }
@@ -53,5 +54,4 @@ export type Tournament<T = string> = {
   timezone: string
   days: TournamentDay<T>[]
   pools?: Participants<T>[]
-  participants?: Participants<T>
 }

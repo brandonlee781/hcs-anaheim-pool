@@ -81,19 +81,13 @@ export function useTournament() {
           }),
         }
       }),
-      // pools:
-      //   data.pools?.map(pool => {
-      //     return {
-      //       ...pool,
-      //       teams: pool.teams?.map(t => getTeam(t)),
-      //     }
-      //   }) || [],
-      // participants: data.participants
-      //   ? {
-      //       ...data.participants,
-      //       teams: data.participants?.teams?.map(t => getTeam(t)),
-      //     }
-      //   : undefined,
+      pools:
+        data.pools?.map(pool => {
+          return {
+            ...pool,
+            teams: pool.teams?.map(t => getTeam(t)),
+          }
+        }) || [],
     }
   }, [data, teams])
 

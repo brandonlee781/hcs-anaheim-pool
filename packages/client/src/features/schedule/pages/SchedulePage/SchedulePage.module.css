@@ -52,3 +52,8 @@
   }
 }
 
+.pools.pool-count-1 {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr !important;
+}
+
