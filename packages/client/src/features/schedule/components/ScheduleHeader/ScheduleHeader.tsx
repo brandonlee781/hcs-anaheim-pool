@@ -1,111 +1,46 @@
-import { TournamentDay } from 'api-server/src/features/Tournament'
-import { useSpring, animated } from 'react-spring'
-import DarkMode from 'virtual:icons/mdi/theme-light-dark'
+import clsx from 'clsx'
 
-import { Card } from '@/components/Elements/Card'
-import { LanguageMenu } from '@/components/Elements/LanguageMenu'
-import { Team } from '@/features/teams'
-import { useTournament } from '@/features/tournament'
-import { ThemeContext } from '@/providers/ThemeProvider'
+import { Button } from '@/components/Elements/Button'
+import { HCSLogo } from '@/components/Elements/HCSLogo'
 
-import styles from './ScheduleHeader.module.css'
+import Calendar from '~icons/mdi/calendar-outline'
+import ListView from '~icons/mdi/view-list-outline'
 
 type ScheduleHeaderProps = {
-  days: TournamentDay<Team>[]
+  title: string
+  view: 'calendar' | 'list'
+  setView: (val: 'calendar' | 'list') => void
 }
-
-export const ScheduleHeader = ({ days }: ScheduleHeaderProps) => {
-  const { t, i18n } = useTranslation()
-
-  const rowRef = useRef<HTMLDivElement>(null)
-  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([])
-
-  const { toggleDarkMode } = useContext(ThemeContext)
-  const { tournament, day, setDay } = useTournament()
-
-  const [springs, api] = useSpring(() => ({ from: { x: 8 } }))
-  const [sliderWidth, setSliderWidth] = useState(0)
-
-  const moveSlider = (index: number) => {
-    const oldEl = linkRefs.current[day]
-    const newEl = linkRefs.current[index]
-
-    if (oldEl && newEl && rowRef.current) {
-      const parentLeft = rowRef.current.getBoundingClientRect().left
-      const oldLeft = oldEl.getBoundingClientRect().left - parentLeft
-      const newLeft = newEl.getBoundingClientRect().left - parentLeft
-
-      api.start({
-        config: {
-          friction: 20,
-          tension: 210,
-          clamp: true,
-        },
-        from: {
-          x: oldLeft,
-        },
-        to: {
-          x: newLeft,
-        },
-      })
-    }
-  }
-
-  const clickDay = (newIndex: number) => {
-    setDay(newIndex)
-    moveSlider(newIndex)
-  }
-
-  useEffect(() => {
-    const el = linkRefs.current[day]
-    const width = el ? el.clientWidth : 88
-    setSliderWidth(width)
-    moveSlider(day)
-  }, [tournament, linkRefs, day, i18n.language, moveSlider])
-
+export const ScheduleHeader = ({ title, view, setView }: ScheduleHeaderProps) => {
   return (
-    <Card className="h-12">
-      <nav className="row-start-2 col-span-2 md:(row-start-1 col-start-2 col-span-1 justify-self-center) overflow-y-hidden">
-        <div
-          ref={rowRef}
-          className="w-full flex flex-row items-start md:(items-center) overflow-y-scroll scrollbar-hide relative"
-        >
-          {days?.map((d, index) => {
-            return (
-              <a
-                key={index}
-                ref={el => (linkRefs.current[index] = el || null)}
-                className={`cursor-pointer p-2 mx-2 whitespace-nowrap text-center rounded-md hover:opacity-80 ${
-                  day === index ? 'active bg-red' : ''
-                }`}
-                role="button"
-                tabIndex={index}
-                onClick={() => clickDay(index)}
-                onKeyDown={() => clickDay(index)}
-              >
-                {t(`days:${d.id}`)}
-              </a>
-            )
-          })}
-          <animated.div
-            className={`${styles.slider} h-1 rounded-sm absolute bottom-0 *themeGradient !bg-gradient-to-r`}
-            style={{
-              width: sliderWidth + 'px',
-              ...springs,
-            }}
-          ></animated.div>
-        </div>
-      </nav>
-      <div className="controls flex flex-nowrap justify-end items-center">
-        <button
-          className="cursor-pointer w-4 h-4"
-          onClick={() => toggleDarkMode()}
-          onKeyDown={() => toggleDarkMode()}
-        >
-          <DarkMode />
-        </button>
-        <LanguageMenu />
+    <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-flow flex-nowrap items-center">
+        <HCSLogo
+          className="h-24 w-auto mx-8"
+          primary="#ffffffaa"
+          background="#eeeeee44"
+          outline="transparent"
+        />
+        <div className="text-[2.5rem] font-super-bold">{title}</div>
       </div>
-    </Card>
+      <div className="h-full flex flex-row flex-nowrap items-end">
+        <Button
+          className={clsx('border-0 mr-2', view === 'list' ? '*themeGradient' : 'bg-gray-700/30')}
+          size="sm"
+          startIcon={<ListView />}
+          onClick={() => setView('list')}
+        >
+          List View
+        </Button>
+        <Button
+          className={clsx('border-0', view === 'calendar' ? '*themeGradient' : 'bg-gray-700/30')}
+          size="sm"
+          startIcon={<Calendar />}
+          onClick={() => setView('calendar')}
+        >
+          Calendar
+        </Button>
+      </div>
+    </div>
   )
 }

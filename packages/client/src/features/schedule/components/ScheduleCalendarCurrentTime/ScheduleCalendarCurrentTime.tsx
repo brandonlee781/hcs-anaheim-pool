@@ -34,7 +34,6 @@ export const ScheduleCalendarCurrentTime = ({ first, last, heightRef }: CurrentT
     const height = heightRef.current?.clientHeight || 0
     const diff = differenceInMinutes(dt, firstTime)
     const total = differenceInMinutes(lastTime, firstTime)
-    console.log(height)
 
     const minuteToPx = height / total
     const newTop = Math.max(0, Math.min(height, diff * minuteToPx))

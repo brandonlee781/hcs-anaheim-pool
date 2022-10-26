@@ -23,8 +23,8 @@ export const TeamLogo = forwardRef<
       <img
         className="h-10 w-10 object-scale-down"
         style={{ filter: `drop-shadow(2px 6px 8px ${adjustColor(team.color, 100)})` }}
-        src={new URL(`/src/assets/images/${team.image}`, import.meta.url).href}
-        alt=""
+        src={team?.image}
+        alt={`${team.name} logo`}
       />
     </div>
   )

@@ -1,5 +1,3 @@
-import { TournamentDay } from 'api-server/src/features/Tournament'
-import { Stream } from 'api-server/src/features/Tournament/types'
 import clsx from 'clsx'
 import {
   differenceInMinutes,
@@ -12,6 +10,7 @@ import {
 } from 'date-fns'
 
 import { Team } from '@/features/teams'
+import { TournamentDay } from '@/features/tournament'
 
 import { formatOptionalMinutes } from '../../utils/formatOptionalMinutes'
 import { ScheduleCalendarCurrentTime } from '../ScheduleCalendarCurrentTime/ScheduleCalendarCurrentTime'
@@ -64,10 +63,9 @@ const ScheduleCalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
 
 type ScheduleCalendarProps = {
   day: TournamentDay<Team>
-  streams: Stream[]
 }
 
-export const ScheduleCalendar = ({ day, streams }: ScheduleCalendarProps) => {
+export const ScheduleCalendar = ({ day }: ScheduleCalendarProps) => {
   const { t } = useTranslation()
   const timeslots = useMemo(() => {
     if (!day.events?.length) return []
@@ -98,15 +96,13 @@ export const ScheduleCalendar = ({ day, streams }: ScheduleCalendarProps) => {
       <div className={clsx('w-full h-full relative')}>
         <ScheduleCalendarGrid rows={1} cols={day.streams?.length} height={'1.5rem'}>
           <div></div>
-          {streams
-            .filter(s => day.streams?.includes(s.id))
-            .map(stream => (
-              <div key={stream.id} className="flex items-center justify-center text-xs h-6">
-                <a className="hover:underline" href={stream.link} target="_blank" rel="noreferrer">
-                  {t('event:stream', { name: stream.name })}
-                </a>
-              </div>
-            ))}
+          {day.streams?.map(stream => (
+            <div key={stream.id} className="flex items-center justify-center text-xs h-6">
+              <a className="hover:underline" href={stream.link} target="_blank" rel="noreferrer">
+                {t('event:stream', { name: stream.name })}
+              </a>
+            </div>
+          ))}
         </ScheduleCalendarGrid>
         <ScheduleCalendarGrid ref={ref} rows={gridRows} cols={day.streams?.length} className="mb-8">
           {timeslots.map((time, index) => {
@@ -165,7 +161,7 @@ export const ScheduleCalendar = ({ day, streams }: ScheduleCalendarProps) => {
             )
           })}
         </ScheduleCalendarGrid>
-        {day.events?.[0].time && (
+        {day.events?.[0]?.time && (
           <ScheduleCalendarCurrentTime
             heightRef={ref}
             first={timeslots[0]}

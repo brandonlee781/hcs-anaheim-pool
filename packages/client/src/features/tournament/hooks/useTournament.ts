@@ -1,9 +1,10 @@
-import { Tournament } from 'api-server/src/features/Tournament'
+import { useQuery } from '@tanstack/react-query'
 
-import { Team, teams, getTeam } from '@/features/teams'
+import { Team, useTeams, Region } from '@/features/teams'
 
-import getTournament from '../api/getTournaments'
+import { getTournament } from '../api/getTournaments'
 import { TournamentDayContext } from '../providers/TournamentDayProvider'
+import { Tournament } from '../types'
 
 const getOffset = (timeZone = 'UTC') => {
   const options: Intl.DateTimeFormatOptions = {
@@ -22,24 +23,46 @@ const getOffset = (timeZone = 'UTC') => {
 
 function getTime(timezone: string) {
   const offset = getOffset(timezone)
-  return (date: string, time: string) => `${date}T${time}:00${offset}`
+  return (date: string, time: string) => `${date}T${time}${offset}`
 }
 
 export function useTournament() {
   const { day, setDay } = useContext(TournamentDayContext)
-  const [tournamentName] = useState('hcs/2022/worlds')
-  const { data, error, isLoading } = getTournament(tournamentName)
+  const {
+    data,
+    error,
+    isLoading: tournamentLoading,
+  } = useQuery(['tournament'], () => getTournament())
+
+  const { data: teams, isLoading: teamsLoading } = useTeams()
 
   const tournament = useMemo<Tournament<Team> | null>(() => {
     if (!data) return null
-    const timeFn = getTime(data.timezone)
+    const timeFn = getTime(data.timezone || 'UTC')
+
+    const getTeam = (teamName: string): Team => {
+      const found = teams?.find(t => t.id === teamName)
+      if (found) {
+        return {
+          name: found.name,
+          color: found.color,
+          region: (found.region as Region) || null,
+          image: found.image || '',
+        }
+      }
+      return {
+        name: teamName,
+        color: '',
+        region: 'NA' as Region.NA,
+        image: '',
+      }
+    }
 
     return {
       id: data.id,
       title: data.title,
-      link: data.link,
-      timezone: data.timezone,
-      streams: data.streams,
+      liquipediaLink: data.liquipediaLink,
+      timezone: data.timezone || 'UTC',
 
       days: data.days.map(d => {
         return {
@@ -58,21 +81,28 @@ export function useTournament() {
           }),
         }
       }),
-      pools:
-        data.pools?.map(pool => {
-          return {
-            ...pool,
-            teams: pool.teams.map(team => getTeam(team)),
-          }
-        }) || [],
-      participants: data.participants
-        ? {
-            ...data.participants,
-            teams: data.participants?.teams.map(team => getTeam(team)),
-          }
-        : undefined,
+      // pools:
+      //   data.pools?.map(pool => {
+      //     return {
+      //       ...pool,
+      //       teams: pool.teams?.map(t => getTeam(t)),
+      //     }
+      //   }) || [],
+      // participants: data.participants
+      //   ? {
+      //       ...data.participants,
+      //       teams: data.participants?.teams?.map(t => getTeam(t)),
+      //     }
+      //   : undefined,
     }
-  }, [data])
+  }, [data, teams])
+
+  const isLoading = useMemo(() => {
+    let val = false
+    if (tournamentLoading) val = true
+    if (teamsLoading) val = true
+    return val
+  }, [tournamentLoading, teamsLoading])
 
   return {
     day,
