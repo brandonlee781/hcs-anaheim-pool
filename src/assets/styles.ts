@@ -9,6 +9,6 @@ export const defaultStyle = {
     'transition dark:text-gray-200 hover:(outline-gray-400 bg-gray-700 text-light-500) hover:dark:bg-gray-500',
   buttonActiveStyle:
     'dark:bg-gray-500 bg-gray-300 text-gray-200 bg-dark-900 hover:(text-gray-200 bg-dark-900)',
-  cardStyle: 'dark:bg-hcsMid-500 bg-gray-300',
+  cardStyle: 'dark:bg-hcsMid-500 bg-gray-200',
   footerStyle: '',
 }

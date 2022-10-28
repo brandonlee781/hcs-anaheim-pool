@@ -6,6 +6,7 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import SassDTS from 'vite-plugin-sass-dts'
 import WindiCSS from 'vite-plugin-windicss'
 
 // https://vitejs.dev/config/
@@ -92,5 +93,6 @@ export default defineConfig({
       },
       dts: true,
     }),
+    SassDTS(),
   ],
 })

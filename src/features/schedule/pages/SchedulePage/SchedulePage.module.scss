@@ -7,6 +7,12 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: max-content max-content;
+
+
+  &[data-pool-count='1'] .pools {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr !important;
+  }
 }
 
 .pools {
@@ -44,16 +50,10 @@
 
 @media (min-width: 1600px) {
   .content {
-    grid-template-columns: 1fr 35rem;
+    grid-template-columns: 1fr auto;
   }
   .pools {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
 }
-
-.pools.pool-count-1 {
-  grid-template-columns: 1fr !important;
-  grid-template-rows: 1fr !important;
-}
-

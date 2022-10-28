@@ -1,6 +1,8 @@
 import { supabase } from '@/lib/supabase'
 import { definitions } from '@/types/database'
 
+import { Team } from '../types'
+
 export async function getTeams() {
   const { data: teams, error: teamsError } = await supabase
     .from('teams')
@@ -13,19 +15,17 @@ export async function getTeams() {
 
   return teams.map(team => {
     const img = images?.find(i => i.id === team.image)
-    if (!img) {
-      return {
-        ...team,
-        img: `${
-          import.meta.env.VITE_SUPABASE_URL
-        }/storage/v1/object/public/team-images/images/halo.png`,
-      }
-    }
+    const image = img
+      ? `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/team-images/images/${
+          img?.name
+        }`
+      : `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/team-images/images/halo.svg`
+
     return {
       ...team,
-      image: `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/team-images/images/${
-        img?.name
-      }`,
-    }
+      color: team.color ?? '#8b5cf6',
+      secondaryColor: team['secondary-color'] ?? undefined,
+      image,
+    } as Team
   })
 }

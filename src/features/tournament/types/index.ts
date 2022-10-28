@@ -1,22 +1,18 @@
-export type Stream = {
-  id: string
-  name: string
-  link: string
-  span?: number
-}
+import { Team } from '@/features/teams'
+import { definitions } from '@/types/database'
 
-export type EventItem<T> = {
-  teams?: T[]
+export type Stream = definitions['streams']
+
+export type EventItem = {
+  teams?: Team[]
   text?: string
   span?: number
   textClass?: string
   stream?: string
 }
 
-export type TournamentEvent<T> = {
-  time: string
-  duration: number
-  items: EventItem<T>[]
+export type TournamentEvent = Omit<definitions['events'], 'items'> & {
+  items: EventItem[]
 }
 
 export enum TournamentDayIds {
@@ -31,27 +27,13 @@ export enum TournamentDayIds {
   'play-in' = 'play-in',
 }
 
-export type TournamentDay<T> = {
-  id: string
+export type TournamentDay = Omit<definitions['tournament-day'], 'name'> & {
   name: TournamentDayIds
-  date: string
-  streams?: Stream[]
-  events?: TournamentEvent<T>[]
-  include?: string[]
+  events: TournamentEvent[]
+  streams: Stream[]
 }
 
-export type Participants<T> = {
-  id: string
-  key: string
-  name: string
-  teams: T[]
-}
-
-export type Tournament<T = string> = {
-  id: string
-  title: string
-  liquipediaLink?: string
-  timezone: string
-  days: TournamentDay<T>[]
-  pools?: Participants<T>[]
+export type Tournament = definitions['tournament'] & {
+  days: TournamentDay[]
+  pools: (Omit<definitions['pools'], 'teams'> & { teams: Team[] })[]
 }

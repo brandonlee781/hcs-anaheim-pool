@@ -26,30 +26,33 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
   const [springs, api] = useSpring(() => ({ from: { x: 8 } }))
   const [sliderWidth, setSliderWidth] = useState(0)
 
-  const moveSlider = (index: number) => {
-    const oldEl = linkRefs.current[current]
-    const newEl = linkRefs.current[index]
+  const moveSlider = useCallback(
+    (index: number) => {
+      const oldEl = linkRefs.current[current]
+      const newEl = linkRefs.current[index]
 
-    if (oldEl && newEl && rowRef.current) {
-      const parentLeft = rowRef.current.getBoundingClientRect().left
-      const oldLeft = oldEl.getBoundingClientRect().left - parentLeft
-      const newLeft = newEl.getBoundingClientRect().left - parentLeft
+      if (oldEl && newEl && rowRef.current) {
+        const parentLeft = rowRef.current.getBoundingClientRect().left
+        const oldLeft = oldEl.getBoundingClientRect().left - parentLeft
+        const newLeft = newEl.getBoundingClientRect().left - parentLeft
 
-      api.start({
-        config: {
-          friction: 20,
-          tension: 210,
-          clamp: true,
-        },
-        from: {
-          x: oldLeft,
-        },
-        to: {
-          x: newLeft,
-        },
-      })
-    }
-  }
+        api.start({
+          config: {
+            friction: 20,
+            tension: 210,
+            clamp: true,
+          },
+          from: {
+            x: oldLeft,
+          },
+          to: {
+            x: newLeft,
+          },
+        })
+      }
+    },
+    [linkRefs, rowRef]
+  )
 
   const clickDay = (newIndex: number) => {
     setDay(newIndex)

@@ -1,32 +1,17 @@
 import { supabase } from '@/lib/supabase'
+import { definitions } from '@/types/database'
 
-import { EventItem, Stream, TournamentDayIds } from '../types'
+import { EventItem, TournamentDayIds } from '../types'
 
-type TournamentResponse = {
-  id: string
-  title: string
-  liquipediaLink?: string
-  timezone?: string
-  isPast: boolean
-  days: {
-    id: string
+type TournamentResponse = definitions['tournament'] & {
+  days: (Omit<definitions['tournament-day'], 'name'> & {
     name: TournamentDayIds
-    date: string
-    include: ('participants' | 'pools')[]
-    events: {
-      id: string
-      time: string
-      duration: number
+    events: (Omit<definitions['events'], 'items'> & {
       items: EventItem<string>[]
-    }[]
-    streams: { streams: Stream[] }[]
-  }[]
-  pools: {
-    id: string
-    key: string
-    name: string
-    teams: string[]
-  }[]
+    })[]
+    streams: { streams: definitions['streams'][] }[]
+  })[]
+  pools: (Omit<definitions['pools'], 'teams'> & { teams: string[] })[]
 }
 
 export async function getTournament(id?: string) {

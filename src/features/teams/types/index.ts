@@ -1,3 +1,5 @@
+import { definitions } from '@/types/database'
+
 export enum Region {
   'NA' = 'NA',
   'EU' = 'EU',
@@ -5,9 +7,7 @@ export enum Region {
   'MX' = 'MX',
 }
 
-export type Team = {
-  name: string
-  color: string
-  region: Region | null
-  image?: string
+export type Team = Omit<definitions['teams'], 'region'> & {
+  region: Region
+  secondaryColor?: string
 }

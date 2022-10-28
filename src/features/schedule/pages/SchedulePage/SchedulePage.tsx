@@ -9,7 +9,7 @@ import { ScheduleCalendar } from '../../components/ScheduleCalendar'
 import { ScheduleHeader } from '../../components/ScheduleHeader'
 import { ScheduleNav } from '../../components/ScheduleNav'
 
-import styles from './SchedulePage.module.css'
+import styles from './SchedulePage.module.scss'
 
 export const SchedulePage = () => {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
@@ -46,7 +46,7 @@ export const SchedulePage = () => {
       <div className="p-8 h-full w-full mx-auto">
         <ScheduleHeader title={tournament.title} view={view} setView={setView} />
         <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
-        <div className={clsx(styles.content)}>
+        <div className={clsx(styles.content)} data-pool-count={pools.length}>
           {view === 'calendar' &&
             tournament.days.map((d, index) => {
               if (index === day) {
@@ -54,7 +54,7 @@ export const SchedulePage = () => {
               }
               return null
             })}
-          <div className={clsx(styles.pools, 'pt-6 ml-2', `pool-count-${pools.length}`)}>
+          <div className={clsx(styles.pools, 'pt-6 ml-2')}>
             {pools.map(pool => {
               return (
                 <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />

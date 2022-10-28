@@ -34,7 +34,8 @@ export default defineConfig({
   alias: {
     btn: 'px-4 py-2 mr-2 rounded-md hover:outline hover:underline underline-offset-3',
     card: 'shadow border-b border-gray-200',
-    themeGradient: 'bg-gradient-to-br from-purple-600/70 to-purple-400/70',
+    themeGradient:
+      'bg-gradient-to-br from-purple-600/70 to-purple-400/70 light:(from-purple-800/80 to-purple-600/80)',
   },
   safelist: [
     range(50).map(i => `grid-rows-${i}`),

@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { Card } from '@/components/Elements/Card'
 
 import { Team } from '../../types'
+import { TeamPoolItem } from '../TeamPoolItem'
 
 import styles from './TeamPool.module.css'
 
@@ -17,14 +18,23 @@ export const TeamPool = ({ poolKey, teams, name }: TeamPoolProps) => {
     return <div></div>
   }
   const tName = poolKey.includes('pool') ? t('table:pool', { pool: name }) : name
+
+  const clickTeam = () => {}
   return (
-    <Card className={clsx('!p-0', styles.teamPoolWrapper)}>
-      <div className="border-b-2 dark:border-gray-800 h-full flex items-center justify-center">
-        <span>{tName}</span>
+    <Card className="!p-0">
+      <div className={clsx(styles.teamPoolWrapper)}>
+        <div className="border-b-2 dark:border-hcsDark-800 border-white flex items-center justify-center">
+          <span>{tName}</span>
+        </div>
+        {teams.map((team, index) => (
+          <TeamPoolItem
+            key={team.name}
+            {...team}
+            lastItem={index === teams.length - 1}
+            clickTeam={() => clickTeam()}
+          />
+        ))}
       </div>
-      {teams.map(team => (
-        <div key={team.name}>{team.name}</div>
-      ))}
     </Card>
   )
 }

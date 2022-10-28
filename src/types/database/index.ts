@@ -331,6 +331,8 @@ export interface paths {
           region?: parameters["rowFilter.teams.region"];
           image?: parameters["rowFilter.teams.image"];
           created_at?: parameters["rowFilter.teams.created_at"];
+          /** Optional color used for other uses */
+          "secondary-color"?: parameters["rowFilter.teams.secondary-color"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -387,6 +389,8 @@ export interface paths {
           region?: parameters["rowFilter.teams.region"];
           image?: parameters["rowFilter.teams.image"];
           created_at?: parameters["rowFilter.teams.created_at"];
+          /** Optional color used for other uses */
+          "secondary-color"?: parameters["rowFilter.teams.secondary-color"];
         };
         header: {
           /** Preference */
@@ -407,6 +411,8 @@ export interface paths {
           region?: parameters["rowFilter.teams.region"];
           image?: parameters["rowFilter.teams.image"];
           created_at?: parameters["rowFilter.teams.created_at"];
+          /** Optional color used for other uses */
+          "secondary-color"?: parameters["rowFilter.teams.secondary-color"];
         };
         body: {
           /** teams */
@@ -615,6 +621,111 @@ export interface paths {
       };
     };
   };
+  "/pools": {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.pools.id"];
+          name?: parameters["rowFilter.pools.name"];
+          teams?: parameters["rowFilter.pools.teams"];
+          tournament?: parameters["rowFilter.pools.tournament"];
+          created_at?: parameters["rowFilter.pools.created_at"];
+          /** Key used to select the pool. Used in tournament-day include array */
+          key?: parameters["rowFilter.pools.key"];
+          /** Filtering Columns */
+          select?: parameters["select"];
+          /** Ordering */
+          order?: parameters["order"];
+          /** Limiting and Pagination */
+          offset?: parameters["offset"];
+          /** Limiting and Pagination */
+          limit?: parameters["limit"];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters["range"];
+          /** Limiting and Pagination */
+          "Range-Unit"?: parameters["rangeUnit"];
+          /** Preference */
+          Prefer?: parameters["preferCount"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions["pools"][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** pools */
+          pools?: definitions["pools"];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters["select"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.pools.id"];
+          name?: parameters["rowFilter.pools.name"];
+          teams?: parameters["rowFilter.pools.teams"];
+          tournament?: parameters["rowFilter.pools.tournament"];
+          created_at?: parameters["rowFilter.pools.created_at"];
+          /** Key used to select the pool. Used in tournament-day include array */
+          key?: parameters["rowFilter.pools.key"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter.pools.id"];
+          name?: parameters["rowFilter.pools.name"];
+          teams?: parameters["rowFilter.pools.teams"];
+          tournament?: parameters["rowFilter.pools.tournament"];
+          created_at?: parameters["rowFilter.pools.created_at"];
+          /** Key used to select the pool. Used in tournament-day include array */
+          key?: parameters["rowFilter.pools.key"];
+        };
+        body: {
+          /** pools */
+          pools?: definitions["pools"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
 }
 
 export interface definitions {
@@ -628,9 +739,9 @@ export interface definitions {
      */
     id: string;
     /** Format: time without time zone */
-    time?: string;
+    time: string;
     /** Format: bigint */
-    duration?: number;
+    duration: number;
     /** Format: json */
     items?: unknown;
     /**
@@ -718,6 +829,11 @@ export interface definitions {
      * @default now()
      */
     created_at?: string;
+    /**
+     * Format: character varying
+     * @description Optional color used for other uses
+     */
+    "secondary-color"?: string;
   };
   /** @description Join table between tournament-day and streams */
   "tournament-day-to-streams": {
@@ -763,6 +879,35 @@ export interface definitions {
      * @default now()
      */
     created_at?: string;
+  };
+  pools: {
+    /**
+     * Format: uuid
+     * @description Note:
+     * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
+     */
+    id: string;
+    /** Format: character varying */
+    name: string;
+    /** Format: ARRAY */
+    teams?: unknown[];
+    /**
+     * Format: uuid
+     * @description Note:
+     * This is a Foreign Key to `tournament.id`.<fk table='tournament' column='id'/>
+     */
+    tournament?: string;
+    /**
+     * Format: timestamp with time zone
+     * @default now()
+     */
+    created_at?: string;
+    /**
+     * Format: character varying
+     * @description Key used to select the pool. Used in tournament-day include array
+     */
+    key: string;
   };
 }
 
@@ -858,6 +1003,11 @@ export interface parameters {
   "rowFilter.teams.image": string;
   /** Format: timestamp with time zone */
   "rowFilter.teams.created_at": string;
+  /**
+   * Format: character varying
+   * @description Optional color used for other uses
+   */
+  "rowFilter.teams.secondary-color": string;
   /** @description tournament-day-to-streams */
   "body.tournament-day-to-streams": definitions["tournament-day-to-streams"];
   /** Format: uuid */
@@ -878,6 +1028,23 @@ export interface parameters {
   "rowFilter.streams.link": string;
   /** Format: timestamp with time zone */
   "rowFilter.streams.created_at": string;
+  /** @description pools */
+  "body.pools": definitions["pools"];
+  /** Format: uuid */
+  "rowFilter.pools.id": string;
+  /** Format: character varying */
+  "rowFilter.pools.name": string;
+  /** Format: ARRAY */
+  "rowFilter.pools.teams": string;
+  /** Format: uuid */
+  "rowFilter.pools.tournament": string;
+  /** Format: timestamp with time zone */
+  "rowFilter.pools.created_at": string;
+  /**
+   * Format: character varying
+   * @description Key used to select the pool. Used in tournament-day include array
+   */
+  "rowFilter.pools.key": string;
 }
 
 export interface operations {}

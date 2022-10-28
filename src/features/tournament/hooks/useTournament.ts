@@ -36,21 +36,17 @@ export function useTournament() {
 
   const { data: teams, isLoading: teamsLoading } = useTeams()
 
-  const tournament = useMemo<Tournament<Team> | null>(() => {
+  const tournament = useMemo<Tournament | null>(() => {
     if (!data) return null
     const timeFn = getTime(data.timezone || 'UTC')
 
     const getTeam = (teamName: string): Team => {
       const found = teams?.find(t => t.id === teamName)
       if (found) {
-        return {
-          name: found.name,
-          color: found.color,
-          region: (found.region as Region) || null,
-          image: found.image || '',
-        }
+        return found
       }
       return {
+        id: '',
         name: teamName,
         color: '',
         region: 'NA' as Region.NA,
@@ -63,6 +59,7 @@ export function useTournament() {
       title: data.title,
       liquipediaLink: data.liquipediaLink,
       timezone: data.timezone || 'UTC',
+      isPast: data.isPast,
 
       days: data.days.map(d => {
         return {

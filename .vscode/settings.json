@@ -31,15 +31,14 @@
       "url": "./.vscode/schemas/tournament.schema.json"
     }
   ],
-  "eslint.workingDirectories": [
-    "packages/client",
-    "packages/api-server"
-  ],
   "eslint.packageManager": "yarn",
   "search.exclude": {
     "**/.yarn": true,
     "**/.pnp.*": true
   },
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "i18n-ally.localesPaths": [
+    "src/locale"
+  ]
 }

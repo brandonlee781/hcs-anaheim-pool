@@ -1,0 +1,16 @@
+
+.poolItemBg {
+  background: var(--hover-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  img {
+    position: absolute;
+    width: 12rem;
+    height: auto;
+    left: -4rem;
+    top: -4rem;
+    opacity: 0.2;
+  }
+}

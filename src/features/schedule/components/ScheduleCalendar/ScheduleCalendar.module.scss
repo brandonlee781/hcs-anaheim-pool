@@ -1,10 +1,9 @@
 .calendar {
   height: 100%;
-}
-
-@media (min-width: 768px) {
-  .calendar {
+  
+  @media (min-width: 768px) {
     max-height: var(--content-height);
     overflow-y: scroll;
   }
 }
+

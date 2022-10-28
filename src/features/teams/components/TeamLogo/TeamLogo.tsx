@@ -9,7 +9,7 @@ export const TeamLogo = forwardRef<
   HTMLDivElement,
   HtmlHTMLAttributes<HTMLDivElement> & { team: Team }
 >(({ team, className, style }, ref) => {
-  const color = adjustColor(team.color, 40)
+  const color = adjustColor(team.secondaryColor || team.color, 40)
   return (
     <div
       ref={ref}
@@ -22,8 +22,13 @@ export const TeamLogo = forwardRef<
     >
       <img
         className="h-10 w-10 object-scale-down"
-        style={{ filter: `drop-shadow(2px 6px 8px ${adjustColor(team.color, 100)})` }}
-        src={team?.image}
+        style={{
+          filter: `drop-shadow(2px 6px 8px ${adjustColor(team.secondaryColor || team.color, 100)})`,
+        }}
+        src={
+          team?.image ??
+          'https://wfctmtpqpbervzoaiugt.supabase.co/storage/v1/object/public/team-images/images/halo.svg'
+        }
         alt={`${team.name} logo`}
       />
     </div>

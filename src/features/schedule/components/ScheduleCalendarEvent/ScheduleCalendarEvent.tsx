@@ -1,20 +1,21 @@
-import { TournamentEvent } from 'api-server/src/features/Tournament/types'
 import clsx from 'clsx'
 import { addMinutes } from 'date-fns'
 
 import { Card } from '@/components/Elements/Card'
-import { Team } from '@/features/teams'
+import { HoverTeamContext } from '@/features/teams'
+import { TournamentEvent } from '@/features/tournament'
 
 import { formatOptionalMinutes } from '../../utils/formatOptionalMinutes'
 import { parseTime } from '../ScheduleCalendar/ScheduleCalendar'
 import { ScheduleMatch } from '../ScheduleMatch'
 
 type CalendarEventsProps = {
-  event: TournamentEvent<Team>
+  event: TournamentEvent
   offset: number
   length: number
 }
 export const ScheduleCalendarEvent = ({ event, offset, length }: CalendarEventsProps) => {
+  const { team } = useContext(HoverTeamContext)
   return (
     <>
       {event.items.map((item, index) => {
@@ -50,6 +51,7 @@ export const ScheduleCalendarEvent = ({ event, offset, length }: CalendarEventsP
               {...item}
               timeframe={`${startTime} - ${endTime}`}
               large={event.duration > 15}
+              highlight={item.teams?.find(i => i.name === team?.name)}
             />
           </Card>
         )
