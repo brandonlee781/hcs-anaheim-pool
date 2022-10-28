@@ -1,9 +1,15 @@
+@import '@/assets/variables';
+
 .calendar {
   height: 100%;
   
-  @media (min-width: 768px) {
+  @media (min-width: $lg) {
+    max-height: calc(65vh - 32px - 96px - 32px - 48px - 32px)
+  }
+  @media (min-width: $xl) {
     max-height: var(--content-height);
     overflow-y: scroll;
   }
+
 }
 
