@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 import { Spinner } from '@/components/Elements/Spinner'
-import { TeamPool } from '@/features/teams'
+import { TeamPool, Participants } from '@/features/teams'
 import { useTournament } from '@/features/tournament'
 import { MousePositionProvider } from '@/providers/MousePositionProvider'
 
@@ -41,6 +41,15 @@ export const SchedulePage = () => {
     )
   }
 
+  let poolEl: React.ReactNode
+  if (pools.length > 1) {
+    poolEl = pools.map(pool => {
+      return <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />
+    })
+  } else {
+    poolEl = <Participants {...pools[0]} />
+  }
+
   return (
     <MousePositionProvider>
       <div className="p-8 h-full w-full mx-auto">
@@ -54,13 +63,7 @@ export const SchedulePage = () => {
               }
               return null
             })}
-          <div className={clsx(styles.pools, 'pt-6 ml-2')}>
-            {pools.map(pool => {
-              return (
-                <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />
-              )
-            })}
-          </div>
+          <div className={clsx(styles.pools, 'pt-6 ml-2')}>{poolEl}</div>
         </div>
       </div>
     </MousePositionProvider>

@@ -7,9 +7,13 @@ import { createTeamGradient } from '../../utils/createTeamGradient'
 
 import styles from './TeamPoolItem.module.scss'
 
-type TeamPoolItemProps = Team & { lastItem: boolean; clickTeam: (t: Team) => void }
+type TeamPoolItemProps = Team & {
+  extraClass?: string
+  lastItem: boolean
+  clickTeam: (t: Team) => void
+}
 export const TeamPoolItem = (props: TeamPoolItemProps) => {
-  const { lastItem, clickTeam, ...team } = props
+  const { lastItem, clickTeam, extraClass, ...team } = props
   const { color, image, name, region } = team
 
   const { setTeam } = useContext(HoverTeamContext)
@@ -18,7 +22,8 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
     <div
       className={clsx(
         'relative flex-1 min-h-10 xl:min-h-5 2xl:w-70 group cursor-pointer',
-        !lastItem && 'border-b-1 dark:border-hcsDark-800 border-white'
+        !lastItem && 'border-b-1 dark:border-hcsDark-800 border-white',
+        extraClass
       )}
       style={
         {
