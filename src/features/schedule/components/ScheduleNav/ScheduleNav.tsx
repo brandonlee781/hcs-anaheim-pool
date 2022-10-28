@@ -3,14 +3,13 @@ import DarkMode from 'virtual:icons/mdi/theme-light-dark'
 
 import { Card } from '@/components/Elements/Card'
 import { LanguageMenu } from '@/components/Elements/LanguageMenu'
-import { Team } from '@/features/teams'
 import { TournamentDay } from '@/features/tournament'
 import { ThemeContext } from '@/providers/ThemeProvider'
 
 import styles from './ScheduleNav.module.css'
 
 type ScheduleNavProps = {
-  days: TournamentDay<Team>[]
+  days: TournamentDay[]
   current: number
   setDay: (num: number) => void
 }

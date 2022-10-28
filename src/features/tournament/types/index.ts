@@ -33,7 +33,9 @@ export type TournamentDay = Omit<definitions['tournament-day'], 'name'> & {
   streams: Stream[]
 }
 
+export type Pool = Omit<definitions['pools'], 'teams'> & { teams: Team[] }
+
 export type Tournament = definitions['tournament'] & {
   days: TournamentDay[]
-  pools: (Omit<definitions['pools'], 'teams'> & { teams: Team[] })[]
+  pools: Pool[]
 }

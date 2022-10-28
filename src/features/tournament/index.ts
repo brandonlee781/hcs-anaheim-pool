@@ -7,4 +7,5 @@ export type {
   TournamentEvent,
   EventItem,
   Stream,
+  Pool,
 } from './types'
