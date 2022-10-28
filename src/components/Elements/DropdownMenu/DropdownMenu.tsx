@@ -1,5 +1,8 @@
-import { Children, isValidElement } from 'react'
+import clsx from 'clsx'
+import React, { Children, isValidElement } from 'react'
+import { animated, useSpring } from 'react-spring'
 
+import useOnClickOutside from '@/hooks/useOnClickOutside'
 import { ThemeContext } from '@/providers/ThemeProvider'
 
 type DropdownMenuActivatorProps = {
@@ -47,46 +50,80 @@ type DropdownMenuProps = {
   activator?: React.ReactElement
   width?: number
   open: boolean
-  menuRef: React.MutableRefObject<any>
+  setOpen?: (val: boolean) => void
+  onClickOutside?: () => void
 }
 export const DropdownMenu = ({
   children,
   width = 120,
   open,
   className,
-  menuRef,
+  setOpen,
 }: DropdownMenuProps) => {
   const { theme } = useContext(ThemeContext)
+
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  useOnClickOutside(wrapperRef, () => {
+    if (setOpen) setOpen(false)
+  })
 
   const activator = Children.toArray(children).find(child => {
     if (isValidElement(child)) {
       return (child.type as unknown as () => void).name === 'DropdownMenuActivator'
     }
   })
-  const menu = Children.toArray(children).find(child => {
+  let menu = Children.toArray(children).find(child => {
     if (isValidElement(child)) {
       return (child.type as unknown as () => void).name !== 'DropdownMenuActivator'
     }
-  })
+  }) as React.ReactElement
+
+  const ref = useRef<HTMLElement>(null)
+  if (menu) {
+    menu = React.cloneElement(menu, { ...menu.props, ref })
+  }
+  useEffect(() => console.log(ref.current?.clientHeight), [open])
+  const [style, api] = useSpring(
+    () => ({
+      from: { height: '0px' },
+    }),
+    [open]
+  )
+  useEffect(() => {
+    api.start({
+      config: {
+        friction: 20,
+        tension: 210,
+        clamp: true,
+      },
+      from: {
+        height: open ? '0px' : `${ref.current?.clientHeight}px`,
+      },
+      to: {
+        height: open ? `${ref.current?.clientHeight}px` : '0px',
+      },
+    })
+  }, [open])
 
   return (
-    <div ref={menuRef} className={`relative inline-block text-left dropdown z-3 ${className}`}>
+    <div ref={wrapperRef} className={`relative inline-block text-left dropdown ${className}`}>
       <span className="flex items-center justify-center">{activator}</span>
-      <div
-        className={`dropdown-menu z-3 transition-all duration-300 transform origin-top-right -translate-y-2 scale-95 ${
-          open ? '' : 'opacity-0 invisible'
-        }`}
+      <animated.div
+        className={clsx(
+          `dropdown-menu`,
+          'absolute right-0 mt-2 origin-top-right divide-y shadow-lg outline-none overflow-hidden',
+          theme.tableDataStyle
+        )}
+        style={{
+          width: width + 'px',
+          ...style,
+        }}
+        data-open={open}
+        // hidden={!open}
+        role="menu"
       >
-        <div
-          className={`absolute right-0 mt-2 z-3 origin-top-right border divide-y shadow-lg outline-none ${theme.tableDataStyle}`}
-          style={{
-            width: width + 'px',
-          }}
-          role="menu"
-        >
-          {menu}
-        </div>
-      </div>
+        {menu}
+      </animated.div>
     </div>
   )
 }

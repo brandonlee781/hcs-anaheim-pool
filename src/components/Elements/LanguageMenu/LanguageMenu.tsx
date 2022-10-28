@@ -1,7 +1,6 @@
 import Translate from 'virtual:icons/mdi/translate'
 
 import { DropdownMenu } from '@/components/Elements/DropdownMenu'
-import useOnClickOutside from '@/hooks/useOnClickOutside'
 
 type MenuItemProps = {
   children: React.ReactNode
@@ -24,21 +23,16 @@ const MenuItem = ({ children, active, clickFn }: MenuItemProps) => {
 
 export const LanguageMenu = () => {
   const [open, setOpen] = useState(false)
-  const translateMenu = useRef()
-  useOnClickOutside(translateMenu, () => {
-    if (open) {
-      setOpen(false)
-    }
-  })
 
   const { i18n } = useTranslation()
 
   const setLang = (lang: string) => {
+    setOpen(false)
     i18n.changeLanguage(lang)
   }
 
   return (
-    <DropdownMenu menuRef={translateMenu} className="ml-4 h-4 w-4 z-100" open={open} width={64}>
+    <DropdownMenu className="ml-4 h-4 w-4 z-100" width={64} open={open} setOpen={setOpen}>
       <DropdownMenu.Activator openFn={() => setOpen(!open)}>
         <Translate />
       </DropdownMenu.Activator>
