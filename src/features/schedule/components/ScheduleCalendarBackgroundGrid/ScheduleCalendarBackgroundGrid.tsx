@@ -22,7 +22,7 @@ export const ScheduleCalendarBackgroundGrid = forwardRef<
       ref={ref}
       rows={rows}
       cols={streams?.length}
-      className={clsx(className, 'mb-20')}
+      className={clsx(className, 'lg:mb-10 xl:mb-20')}
     >
       {timeslots.map((time, index) => {
         const nextTime = timeslots[index + 1]

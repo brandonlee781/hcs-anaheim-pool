@@ -85,10 +85,9 @@ export const ScheduleCalendar = ({ day }: ScheduleCalendarProps) => {
         ))}
       </ScheduleCalendarGrid>
 
-      <div className={clsx('h-full overflow-scroll scrollbar-hide', styles.calendar)}>
-        <div className={clsx('w-full h-full relative mt-4 pb-10')}>
+      <div className={clsx('h-full lg:overflow-scroll scrollbar-hide', styles.calendar)}>
+        <div className={clsx('w-full h-full relative mt-4 lg:pb-10')}>
           <ScheduleCalendarBackgroundGrid
-            className="mb-25"
             ref={ref}
             timeslots={timeslots}
             rows={gridRows}
