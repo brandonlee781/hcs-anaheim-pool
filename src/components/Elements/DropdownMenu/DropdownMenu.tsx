@@ -82,7 +82,6 @@ export const DropdownMenu = ({
   if (menu) {
     menu = React.cloneElement(menu, { ...menu.props, ref })
   }
-  useEffect(() => console.log(ref.current?.clientHeight), [open])
   const [style, api] = useSpring(
     () => ({
       from: { height: '0px' },
