@@ -1,8 +1,8 @@
 import clsx from 'clsx'
-import { CSSProperties } from 'react'
+import { useSpring, animated } from 'react-spring'
 
 import { SplitTeamLogo, Team, TeamLogo, createTeamGradient } from '@/features/teams'
-import { EventItem } from '@/features/tournament'
+import { EventData } from '@/features/tournament'
 
 type HeadToHeadProps = {
   left: React.ReactNode
@@ -27,12 +27,12 @@ function hexToRgb(hex: string) {
   return r + ',' + g + ',' + b
 }
 
-type ScheduleMatchProps = EventItem & {
+type ScheduleMatchProps = EventData & {
   timeframe?: string
   large?: boolean
   highlight?: Team
 }
-export const ScheduleMatch = ({
+export const CalendarMatch = ({
   teams,
   text,
   textClass,
@@ -54,22 +54,39 @@ export const ScheduleMatch = ({
     document.documentElement.style.setProperty('--team-color', hexToRgb(highlight.color.slice(1)))
   }
 
+  const [springs, api] = useSpring(() => ({
+    from: { width: 5 },
+  }))
+
+  useEffect(() => {
+    if (highlight) {
+      api.start({
+        from: { width: 5 },
+        to: { width: 9 },
+      })
+    } else {
+      api.start({
+        from: { width: 9 },
+        to: { width: 5 },
+      })
+    }
+  }, [highlight])
+
   return (
     <div className={clsx('w-full h-full flex flex-row flex-nowrap items-end relative')}>
       {highlight && (
         <div
-          className="absolute h-3 w-3 top-4 right-4 rounded-full pulseColor"
+          className={clsx('absolute h-3 w-3 top-2 right-2 rounded-full pulseColor')}
           style={{ background: highlight?.color }}
         ></div>
       )}
-      <div
-        className={clsx('h-full w-[0.3rem] mr-2', !highlight && '*themeGradient !bg-gradient-to-b')}
-        style={
-          {
-            backgroundImage: highlight && highlightGradient,
-          } as CSSProperties
-        }
-      ></div>
+      <animated.div
+        className={clsx('h-full mr-2', !highlight && '*themeGradient !bg-gradient-to-b')}
+        style={{
+          background: highlight && highlightGradient,
+          ...springs,
+        }}
+      ></animated.div>
       <div
         className={clsx(
           'grid grid-cols-1 grid-rows-[1fr,24px,14px] items-end py-2 w-full h-full',

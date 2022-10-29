@@ -7,7 +7,7 @@ type CurrentTimeProps = {
   last: Date
   heightRef: RefObject<HTMLDivElement>
 }
-export const ScheduleCalendarCurrentTime = ({ first, last, heightRef }: CurrentTimeProps) => {
+export const CalendarCurrentTime = ({ first, last, heightRef }: CurrentTimeProps) => {
   const ref = useRef<HTMLDivElement>(null)
   const [dt, setDt] = useState(new Date())
 
@@ -41,7 +41,7 @@ export const ScheduleCalendarCurrentTime = ({ first, last, heightRef }: CurrentT
   }, [dt, firstTime, lastTime, heightRef])
 
   return (
-    <div ref={ref} className="absolute top-6 bottom-0 left-0 right-0 pointer-events-none">
+    <div ref={ref} className="absolute top-0 bottom-0 left-0 right-0 pointer-events-none">
       <div className="w-full h-full relative">
         <div
           className="absolute h-1 *themeGradient opacity-60 left-12 right-0"

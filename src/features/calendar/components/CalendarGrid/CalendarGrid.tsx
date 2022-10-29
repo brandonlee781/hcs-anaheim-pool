@@ -8,7 +8,7 @@ type CalendarGridProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   cols?: number
   height?: string
 }
-export const ScheduleCalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
+export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
   ({ className, children, rows = 1, cols = 1, height }, ref) => {
     return (
       <div

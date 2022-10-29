@@ -1,1 +1,0 @@
-export { ScheduleCalendarEvent } from './ScheduleCalendarEvent'
