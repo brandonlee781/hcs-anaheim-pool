@@ -3,16 +3,17 @@ import { definitions } from '@/types/database'
 
 export type Stream = definitions['streams']
 
-export type EventItem = {
-  teams?: Team[]
+export type EventData<T = Team> = {
+  teams?: T[]
   text?: string
   span?: number
   textClass?: string
   stream?: string
 }
 
-export type TournamentEvent = Omit<definitions['events'], 'items'> & {
-  items: EventItem[]
+export type TournamentEvent = Omit<definitions['events'], 'data' | 'streams'> & {
+  data: EventData
+  streams?: string[]
 }
 
 export enum TournamentDayIds {

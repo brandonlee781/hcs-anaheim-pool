@@ -19,9 +19,10 @@ export interface paths {
           id?: parameters["rowFilter.events.id"];
           time?: parameters["rowFilter.events.time"];
           duration?: parameters["rowFilter.events.duration"];
-          items?: parameters["rowFilter.events.items"];
+          data?: parameters["rowFilter.events.data"];
           day?: parameters["rowFilter.events.day"];
           created_at?: parameters["rowFilter.events.created_at"];
+          streams?: parameters["rowFilter.events.streams"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -75,9 +76,10 @@ export interface paths {
           id?: parameters["rowFilter.events.id"];
           time?: parameters["rowFilter.events.time"];
           duration?: parameters["rowFilter.events.duration"];
-          items?: parameters["rowFilter.events.items"];
+          data?: parameters["rowFilter.events.data"];
           day?: parameters["rowFilter.events.day"];
           created_at?: parameters["rowFilter.events.created_at"];
+          streams?: parameters["rowFilter.events.streams"];
         };
         header: {
           /** Preference */
@@ -95,9 +97,10 @@ export interface paths {
           id?: parameters["rowFilter.events.id"];
           time?: parameters["rowFilter.events.time"];
           duration?: parameters["rowFilter.events.duration"];
-          items?: parameters["rowFilter.events.items"];
+          data?: parameters["rowFilter.events.data"];
           day?: parameters["rowFilter.events.day"];
           created_at?: parameters["rowFilter.events.created_at"];
+          streams?: parameters["rowFilter.events.streams"];
         };
         body: {
           /** events */
@@ -743,7 +746,7 @@ export interface definitions {
     /** Format: bigint */
     duration: number;
     /** Format: json */
-    items?: unknown;
+    data?: unknown;
     /**
      * Format: uuid
      * @description Note:
@@ -755,6 +758,8 @@ export interface definitions {
      * @default now()
      */
     created_at?: string;
+    /** Format: ARRAY */
+    streams?: unknown[];
   };
   tournament: {
     /**
@@ -953,11 +958,13 @@ export interface parameters {
   /** Format: bigint */
   "rowFilter.events.duration": string;
   /** Format: json */
-  "rowFilter.events.items": string;
+  "rowFilter.events.data": string;
   /** Format: uuid */
   "rowFilter.events.day": string;
   /** Format: timestamp with time zone */
   "rowFilter.events.created_at": string;
+  /** Format: ARRAY */
+  "rowFilter.events.streams": string;
   /** @description tournament */
   "body.tournament": definitions["tournament"];
   /** Format: uuid */

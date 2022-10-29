@@ -68,12 +68,11 @@ export function useTournament() {
             return {
               ...ev,
               time: timeFn(d.date, ev.time),
-              items: ev.items.map(item => {
-                return {
-                  ...item,
-                  teams: item.teams?.map(t => getTeam(t)),
-                }
-              }),
+              streams: ev.streams as string[],
+              data: {
+                ...ev.data,
+                teams: ev.data.teams?.map(t => getTeam(t)),
+              },
             }
           }),
         }

@@ -5,7 +5,7 @@ export type {
   TournamentDay,
   TournamentDayIds,
   TournamentEvent,
-  EventItem,
+  EventData,
   Stream,
   Pool,
 } from './types'

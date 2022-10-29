@@ -1,13 +1,13 @@
 import { supabase } from '@/lib/supabase'
 import { definitions } from '@/types/database'
 
-import { EventItem, TournamentDayIds } from '../types'
+import { EventData, TournamentDayIds } from '../types'
 
 type TournamentResponse = definitions['tournament'] & {
   days: (Omit<definitions['tournament-day'], 'name'> & {
     name: TournamentDayIds
-    events: (Omit<definitions['events'], 'items'> & {
-      items: EventItem<string>[]
+    events: (Omit<definitions['events'], 'data'> & {
+      data: EventData<string>
     })[]
     streams: { streams: definitions['streams'][] }[]
   })[]
@@ -32,7 +32,8 @@ export async function getTournament(id?: string) {
           id,
           time,
           duration,
-          items
+          data,
+          streams
         ),
         streams:tournament-day-to-streams(
           streams (
