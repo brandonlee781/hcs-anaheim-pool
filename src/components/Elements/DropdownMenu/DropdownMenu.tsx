@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import React, { Children, isValidElement } from 'react'
 import { animated, useSpring } from 'react-spring'
 
-import useOnClickOutside from '@/hooks/useOnClickOutside'
+import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import { ThemeContext } from '@/providers/ThemeProvider'
 
 type DropdownMenuActivatorProps = {

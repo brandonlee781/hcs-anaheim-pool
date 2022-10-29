@@ -1,4 +1,4 @@
-const useMousePosition = () => {
+export const useMousePosition = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
@@ -11,4 +11,3 @@ const useMousePosition = () => {
   }, [])
   return mousePosition
 }
-export default useMousePosition

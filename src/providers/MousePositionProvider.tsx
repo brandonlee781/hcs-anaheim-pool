@@ -1,4 +1,4 @@
-import useMousePosition from '@/hooks/useMousePosition'
+import { useMousePosition } from '@/hooks/useMousePosition'
 
 export const MousePositionContext = createContext({ x: 0, y: 0 })
 
