@@ -48,7 +48,8 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
         'relative min-h-10 xl:min-h-5 2xl:w-70 group cursor-pointer',
         !lastItem && 'border-b-1 dark:border-hcsDark-800 border-white',
         clicked && !clickedTeam && 'bg-dark-100/40 text-gray-500/40',
-        extraClass
+        extraClass,
+        styles.poolItemWrapper
       )}
       style={spring}
       role="button"

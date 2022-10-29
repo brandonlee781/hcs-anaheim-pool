@@ -57,7 +57,7 @@ export const SchedulePage = () => {
         <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
         <div className={clsx(styles.content)} data-pool-count={pools.length}>
           {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
-          <div className={clsx(styles.pools, 'pt-6 ml-2')}>{poolEl}</div>
+          <div className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>{poolEl}</div>
         </div>
       </div>
     </MousePositionProvider>

@@ -3171,6 +3171,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-i18next: ^12.0.0
+    react-indiana-drag-scroll: next
     react-spring: ^9.5.5
     react-use: ^17.4.0
     sass: ^1.55.0
@@ -6704,6 +6705,16 @@ __metadata:
     react-native:
       optional: true
   checksum: f523d7ec5dcb7f5fd36efc9385639d01160071f4dadbbc5a3f1daa64b0f332f709347bdd3bc68f5aefbd72c8742233aa715b308b1ca87179ad501acc19c72068
+  languageName: node
+  linkType: hard
+
+"react-indiana-drag-scroll@npm:next":
+  version: 3.0.1-alpha
+  resolution: "react-indiana-drag-scroll@npm:3.0.1-alpha"
+  peerDependencies:
+    react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: a0be6662378576204da3ff0e5a832880f321aa6874d11a577cda073d808db29eeff7755274f5fb31413ffd048cf0ab840dd411abaa86f2a1790fe50635840ef0
   languageName: node
   linkType: hard
 

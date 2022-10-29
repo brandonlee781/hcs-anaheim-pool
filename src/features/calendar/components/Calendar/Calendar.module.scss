@@ -2,6 +2,7 @@
 
 .calendar {
   height: 100%;
+  cursor: grab;
   
   @media (min-width: $lg) {
     max-height: calc(65vh - 32px - 96px - 32px - 48px - 32px)

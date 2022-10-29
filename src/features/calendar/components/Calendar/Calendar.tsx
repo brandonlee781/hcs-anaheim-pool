@@ -9,6 +9,7 @@ import {
   addSeconds,
 } from 'date-fns'
 import { endOfHour } from 'date-fns/esm'
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 import { Stream, TournamentDay } from '@/features/tournament'
 import { usePrevious } from '@/hooks/usePrevious'
@@ -122,7 +123,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
         ))}
       </CalendarGrid>
 
-      <div className={clsx('h-full lg:overflow-scroll scrollbar-hide', styles.calendar)}>
+      <ScrollContainer className={clsx('h-full lg:overflow-scroll', styles.calendar)}>
         <div className={clsx('w-full h-full relative mt-4 lg:pb-10')}>
           <CalendarBackgroundGrid
             ref={ref}
@@ -167,7 +168,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
             />
           )}
         </div>
-      </div>
+      </ScrollContainer>
     </div>
   )
 }
