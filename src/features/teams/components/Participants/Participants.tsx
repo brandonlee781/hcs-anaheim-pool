@@ -23,7 +23,6 @@ export const Participants = ({ teams, name }: ParticipantsProps) => {
             key={team.name}
             {...team}
             lastItem={index === teams.length - 1}
-            clickTeam={() => {}}
           />
         ))}
       </div>
