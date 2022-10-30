@@ -7,6 +7,7 @@ import {
   eachHourOfInterval,
   format,
   addSeconds,
+  isSameDay,
 } from 'date-fns'
 import { endOfHour } from 'date-fns/esm'
 import { motion } from 'framer-motion'
@@ -92,10 +93,6 @@ export const Calendar = ({ days, day }: CalendarProps) => {
     setStreams(days[day].streams)
   }, [day])
 
-  const onExit = () => {
-    // setStreams(days[day].streams)
-  }
-
   return (
     <div className="overflow-hidden">
       <CalendarGrid className="shadow-md mb-1" rows={1} cols={streams?.length} height={'2.2rem'}>
@@ -130,14 +127,9 @@ export const Calendar = ({ days, day }: CalendarProps) => {
             cols={streams.length}
             className="absolute top-0 bottom-0 right-0 left-0"
           >
-            <CalendarEvents
-              events={days[day].events}
-              timeslots={timeslots}
-              streams={streams}
-              onExit={onExit}
-            />
+            <CalendarEvents events={days[day].events} timeslots={timeslots} streams={streams} />
           </CalendarGrid>
-          {days[day].events?.[0]?.time && (
+          {days[day].events?.[0]?.time && isSameDay(new Date(), new Date(days[day].date)) && (
             <CalendarCurrentTime
               heightRef={ref}
               first={timeslots[0]}
