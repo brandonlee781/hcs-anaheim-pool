@@ -26,8 +26,8 @@ export const DEFAULT_ITEM_LENGTH = 90 / INCREMENT // 90 minutes dividied by the 
 
 export const parseTime = (time: string) =>
   parse(
-    format(parse(time, "yyyy-MM-dd'T'HH:mm:ssXXX", new Date()), 'hh:mm:ss'),
-    'hh:mm:ss',
+    format(parse(time, "yyyy-MM-dd'T'HH:mm:ssXXX", new Date()), 'HH:mm:ss'),
+    'HH:mm:ss',
     new Date()
   )
 
@@ -71,8 +71,8 @@ export const Calendar = ({ days, day }: CalendarProps) => {
     const firstTime = uniqueTimes[0]
     const lastTime = uniqueTimes[uniqueTimes.length - 1]
 
-    const firstEvent = parse(format(firstTime, 'hh:mm:ss'), 'hh:mm:ss', new Date())
-    const lastEvent = parse(format(lastTime, 'hh:mm:ss'), 'hh:mm:ss', new Date())
+    const firstEvent = parse(format(firstTime, 'HH:mm:ss'), 'HH:mm:ss', new Date())
+    const lastEvent = parse(format(lastTime, 'HH:mm:ss'), 'HH:mm:ss', new Date())
 
     const start = startOfHour(firstEvent)
     const end = addHours(addSeconds(endOfHour(lastEvent), 1), 1)
@@ -97,7 +97,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
   useEffect(() => {
     if ((previousDay || 0) < day) {
       setConfig({
-        from: { x: 800 },
+        from: { x: 1000 },
         to: { x: 0 },
       })
     } else {
