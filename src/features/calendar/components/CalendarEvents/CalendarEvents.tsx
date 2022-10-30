@@ -2,10 +2,10 @@ import clsx from 'clsx'
 import { addMinutes } from 'date-fns'
 import { AnimatePresence, motion } from 'framer-motion'
 
+import { Stream, TournamentEvent, useTournament } from '@/features/tournament'
+
 import { getPosition, INCREMENT, parseTime } from '../Calendar/Calendar'
 import { CalendarEvent } from '../CalendarEvent'
-
-import { Stream, TournamentEvent } from '@/features/tournament'
 
 type Direction = 'right' | 'left'
 
@@ -29,16 +29,10 @@ type CalendarEventsProps = {
   events: TournamentEvent[]
   streams: Stream[]
   timeslots: Date[]
-  direction: 'left' | 'right'
   onExit: () => void
 }
-export const CalendarEvents = ({
-  events,
-  streams,
-  timeslots,
-  direction,
-  onExit,
-}: CalendarEventsProps) => {
+export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarEventsProps) => {
+  const { day, previousDay } = useTournament()
   const sortedEvents = events.sort((a, b) => {
     const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
 
@@ -48,6 +42,8 @@ export const CalendarEvents = ({
     const bStreamIdx = streams.findIndex(s => s.id === b.streams?.[0])
     return aStreamIdx - bStreamIdx
   })
+
+  const direction = day > previousDay ? 'left' : 'right'
   return (
     <AnimatePresence initial={false} mode="wait" onExitComplete={onExit} custom={direction}>
       {sortedEvents.map((event, index) => {

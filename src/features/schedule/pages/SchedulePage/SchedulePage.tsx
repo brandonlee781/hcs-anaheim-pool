@@ -1,15 +1,15 @@
 import clsx from 'clsx'
 
-import { ScheduleHeader } from '../../components/ScheduleHeader'
-import { ScheduleNav } from '../../components/ScheduleNav'
-
-import styles from './SchedulePage.module.scss'
-
 import { Spinner } from '@/components/Elements/Spinner'
 import { Calendar } from '@/features/calendar'
 import { TeamPool, Participants } from '@/features/teams'
 import { useTournament } from '@/features/tournament'
 import { MousePositionProvider } from '@/providers/MousePositionProvider'
+
+import { ScheduleHeader } from '../../components/ScheduleHeader'
+import { ScheduleNav } from '../../components/ScheduleNav'
+
+import styles from './SchedulePage.module.scss'
 
 export const SchedulePage = () => {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
