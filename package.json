@@ -67,5 +67,6 @@
     "vite-plugin-sass-dts": "^1.1.44",
     "vite-plugin-windicss": "^1.8.8",
     "vitest": "latest"
-  }
+  },
+  "packageManager": "yarn@3.2.4"
 }

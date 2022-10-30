@@ -1419,13 +1419,13 @@ __metadata:
   linkType: hard
 
 "@humanwhocodes/config-array@npm:^0.11.6":
-  version: 0.11.6
-  resolution: "@humanwhocodes/config-array@npm:0.11.6"
+  version: 0.11.7
+  resolution: "@humanwhocodes/config-array@npm:0.11.7"
   dependencies:
     "@humanwhocodes/object-schema": ^1.2.1
     debug: ^4.1.1
-    minimatch: ^3.0.4
-  checksum: 2fb7288638968dfeec27f06aef52f043726edd126ac47f24b54256902fdb35b3bf9863d4a4caf0423dccca5dd1354ca5899f3ac047b56774641ca0c4cbedb104
+    minimatch: ^3.0.5
+  checksum: cf506dc45d9488af7fbf108ea6ac2151ba1a25e6d2b94b9b4fc36d2c1e4099b89ff560296dbfa13947e44604d4ca4a90d97a4fb167370bf8dd01a6ca2b6d83ac
   languageName: node
   linkType: hard
 
@@ -2134,18 +2134,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.13.0":
-  version: 4.13.0
-  resolution: "@tanstack/query-core@npm:4.13.0"
-  checksum: 11cb95be4dc6e1ba3f0f4eb04c255eab7fa5eca3441d6e698e2c6d03c84c03efaf34d475594e259593d76f584af0c0e830c7d868a682d6dc0f61d1a439728d12
+"@tanstack/query-core@npm:4.13.4":
+  version: 4.13.4
+  resolution: "@tanstack/query-core@npm:4.13.4"
+  checksum: 5cef6289ef815bd87f100408f413170fde0d2a1ebce84d51cf7551f023bf2ec91b90c98d14bfd4ac9436cc879792c61266ec97b63300d02f943964dc1743a84d
   languageName: node
   linkType: hard
 
 "@tanstack/react-query@npm:^4.12.0":
-  version: 4.13.0
-  resolution: "@tanstack/react-query@npm:4.13.0"
+  version: 4.13.4
+  resolution: "@tanstack/react-query@npm:4.13.4"
   dependencies:
-    "@tanstack/query-core": 4.13.0
+    "@tanstack/query-core": 4.13.4
     use-sync-external-store: ^1.2.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2156,7 +2156,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: e538b585e4c2b4a8ff84c17509f4ce226e18e3e862553b6a9ca90e29c200db4ec7ab4f400f19ef4846a76c51babe0db120c54779054805fbecdcd29b369caf0e
+  checksum: d5a39459528cb9e1f194813901fbee6883c3d0d5c4c8bfe612a223d5dabb294bb82d66fde83caafafad221f7b3f03b03cabbb750323362fb7c9f86bf5986a93b
   languageName: node
   linkType: hard
 
@@ -2192,7 +2192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:latest":
+"@testing-library/jest-dom@latest":
   version: 5.16.5
   resolution: "@testing-library/jest-dom@npm:5.16.5"
   dependencies:
@@ -2209,7 +2209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-hooks@npm:latest":
+"@testing-library/react-hooks@latest":
   version: 8.0.1
   resolution: "@testing-library/react-hooks@npm:8.0.1"
   dependencies:
@@ -2231,7 +2231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:latest":
+"@testing-library/react@latest":
   version: 13.4.0
   resolution: "@testing-library/react@npm:13.4.0"
   dependencies:
@@ -2245,7 +2245,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:latest":
+"@testing-library/user-event@latest":
   version: 14.4.3
   resolution: "@testing-library/user-event@npm:14.4.3"
   peerDependencies:
@@ -2382,7 +2382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:latest":
+"@types/react-dom@latest, @types/react-dom@npm:^18.0.0":
   version: 18.0.8
   resolution: "@types/react-dom@npm:18.0.8"
   dependencies:
@@ -2391,7 +2391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:latest":
+"@types/react@latest, @types/react@npm:*":
   version: 18.0.24
   resolution: "@types/react@npm:18.0.24"
   dependencies:
@@ -2473,7 +2473,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:latest":
+"@typescript-eslint/eslint-plugin@latest":
   version: 5.41.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.41.0"
   dependencies:
@@ -2495,7 +2495,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:latest":
+"@typescript-eslint/parser@latest":
   version: 5.41.0
   resolution: "@typescript-eslint/parser@npm:5.41.0"
   dependencies:
@@ -2609,7 +2609,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/ui@npm:latest":
+"@vitest/ui@latest":
   version: 0.24.3
   resolution: "@vitest/ui@npm:0.24.3"
   dependencies:
@@ -3113,9 +3113,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001400":
-  version: 1.0.30001426
-  resolution: "caniuse-lite@npm:1.0.30001426"
-  checksum: e8b9c14ee33410d95b27da619f50648f373a7be712748970643f25d95fa80687b4755ba365f34a7a1cea00f9137193943aa6e742eedf0a4d7857f83809f49435
+  version: 1.0.30001427
+  resolution: "caniuse-lite@npm:1.0.30001427"
+  checksum: 7b21a7d1f10c07130cecb7e7c7c38fd031f3dbd49afaee53fa4bb07355f9765686cad14f6296fbb49838f525c35292278b2c5ee9109c363edea5e134514ab6bb
   languageName: node
   linkType: hard
 
@@ -4159,7 +4159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:latest":
+eslint-config-prettier@latest:
   version: 8.5.0
   resolution: "eslint-config-prettier@npm:8.5.0"
   peerDependencies:
@@ -4180,7 +4180,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:latest":
+eslint-import-resolver-typescript@latest:
   version: 3.5.2
   resolution: "eslint-import-resolver-typescript@npm:3.5.2"
   dependencies:
@@ -4221,7 +4221,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:latest":
+eslint-plugin-import@latest:
   version: 2.26.0
   resolution: "eslint-plugin-import@npm:2.26.0"
   dependencies:
@@ -4280,7 +4280,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:latest":
+eslint-plugin-prettier@latest:
   version: 4.2.1
   resolution: "eslint-plugin-prettier@npm:4.2.1"
   dependencies:
@@ -4304,7 +4304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:latest":
+eslint-plugin-react@latest:
   version: 7.31.10
   resolution: "eslint-plugin-react@npm:7.31.10"
   dependencies:
@@ -4328,7 +4328,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-testing-library@npm:latest":
+eslint-plugin-testing-library@latest:
   version: 5.9.1
   resolution: "eslint-plugin-testing-library@npm:5.9.1"
   dependencies:
@@ -5114,11 +5114,11 @@ __metadata:
   linkType: hard
 
 "i18next@npm:^22.0.2":
-  version: 22.0.3
-  resolution: "i18next@npm:22.0.3"
+  version: 22.0.4
+  resolution: "i18next@npm:22.0.4"
   dependencies:
     "@babel/runtime": ^7.17.2
-  checksum: 0ae40923e81f366c6e30126fad070b9188ee567374eb8046dc43ca9dd8bf3c4a3751c2e4c3f60f8d5cfcdb1925b884580cbb6cabfffba684f37c22a019d7f2b2
+  checksum: aa49e6e48583833ee673c0dd9568081a5e15fde9549aa3e47a99ad91d3fdb7469f8a315864fc45ec466b1e60caa00d5fc8371e47840068048b4ab79a69dc2b19
   languageName: node
   linkType: hard
 
@@ -5656,9 +5656,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:latest":
-  version: 20.0.1
-  resolution: "jsdom@npm:20.0.1"
+jsdom@latest:
+  version: 20.0.2
+  resolution: "jsdom@npm:20.0.2"
   dependencies:
     abab: ^2.0.6
     acorn: ^8.8.0
@@ -5691,7 +5691,7 @@ __metadata:
   peerDependenciesMeta:
     canvas:
       optional: true
-  checksum: 9fc0b66a866f58a28e95f5a39b167ea663dc01c9754a019c356cc517d27ff0216055f37ace69e0f4414c51084adca8d5ec71c1e6faee3b8df0941a494167c3a0
+  checksum: 1912e73ecbc7cb1e458b63c4976a1f1dd40c1cdb9f91559cfeccb08c68ad1b9918c6260bd021559ecb1a7c233fae0d0c3fdcbd2ce82df597ef9373d67c8934c0
   languageName: node
   linkType: hard
 
@@ -6054,7 +6054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^3.0.4, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
+"minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
   dependencies:
@@ -6839,7 +6839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-indiana-drag-scroll@npm:next":
+react-indiana-drag-scroll@next:
   version: 3.0.1-alpha
   resolution: "react-indiana-drag-scroll@npm:3.0.1-alpha"
   peerDependencies:
@@ -8320,7 +8320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:latest":
+vitest@latest:
   version: 0.24.3
   resolution: "vitest@npm:0.24.3"
   dependencies:
