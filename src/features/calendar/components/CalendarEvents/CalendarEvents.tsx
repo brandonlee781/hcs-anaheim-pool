@@ -9,18 +9,26 @@ import { CalendarEvent } from '../CalendarEvent'
 
 type Direction = 'right' | 'left'
 
+type VariantData = {
+  direction: Direction
+  index: number
+}
 const variants = {
-  enter: (direction: Direction) => {
+  enter: ({ direction, index }: VariantData) => {
     return {
       x: direction === 'left' ? '-100%' : '100%',
       opacity: 0,
+      transition: { type: 'spring', delay: index * 0.04 },
     }
   },
-  center: { x: 0, opacity: 1 },
-  exit: (direction: Direction) => {
+  center: ({ index }: VariantData) => {
+    return { x: 0, opacity: 1, transition: { type: 'spring', delay: index * 0.04 } }
+  },
+  exit: ({ direction }: VariantData) => {
     return {
       x: direction === 'left' ? '100%' : '-100%',
       opacity: 0,
+      transition: { type: 'spring' },
     }
   },
 }
@@ -45,7 +53,12 @@ export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarE
 
   const direction = day > previousDay ? 'left' : 'right'
   return (
-    <AnimatePresence initial={false} mode="wait" onExitComplete={onExit} custom={direction}>
+    <AnimatePresence
+      initial={false}
+      mode="popLayout"
+      onExitComplete={onExit}
+      custom={{ direction, index: 0 }}
+    >
       {sortedEvents.map((event, index) => {
         if (!event) return
         const start = parseTime(event.time)
@@ -68,8 +81,7 @@ export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarE
               `col-start-${col}`,
               `col-span-${colSpan}`
             )}
-            custom={direction}
-            transition={{ type: 'spring', delay: index * 0.04 }}
+            custom={{ direction, index }}
             variants={variants}
             initial={'enter'}
             animate={'center'}

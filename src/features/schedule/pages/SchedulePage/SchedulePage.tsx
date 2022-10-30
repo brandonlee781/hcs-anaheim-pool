@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 import { Spinner } from '@/components/Elements/Spinner'
 import { Calendar } from '@/features/calendar'
@@ -13,7 +14,7 @@ import styles from './SchedulePage.module.scss'
 
 export const SchedulePage = () => {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
-  const { tournament, day, previousDay, setDay, isLoading } = useTournament()
+  const { tournament, day, setDay, isLoading } = useTournament()
 
   const pools = useMemo(() => {
     if (!tournament?.days[day]) return []
@@ -56,10 +57,10 @@ export const SchedulePage = () => {
         <ScheduleHeader title={tournament.title} view={view} setView={setView} />
         <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
         <div className={clsx(styles.content)} data-pool-count={pools.length}>
-          {view === 'calendar' && (
-            <Calendar days={tournament.days} day={day} previousDay={previousDay} />
-          )}
-          <div className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>{poolEl}</div>
+          {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
+          <motion.div layout className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>
+            {poolEl}
+          </motion.div>
         </div>
       </div>
     </MousePositionProvider>

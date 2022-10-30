@@ -48,10 +48,9 @@ export const getPosition = (curr: Date, next: Date, s: Date) => {
 type CalendarProps = {
   days: TournamentDay[]
   day: number
-  previousDay: number
 }
 
-export const Calendar = ({ days, day, previousDay }: CalendarProps) => {
+export const Calendar = ({ days, day }: CalendarProps) => {
   const { t } = useTranslation()
 
   const timeslots = useMemo(() => {
@@ -91,10 +90,10 @@ export const Calendar = ({ days, day, previousDay }: CalendarProps) => {
 
   useEffect(() => {
     setStreams(days[day].streams)
-  }, [])
+  }, [day])
 
   const onExit = () => {
-    setStreams(days[day].streams)
+    // setStreams(days[day].streams)
   }
 
   return (
@@ -135,7 +134,6 @@ export const Calendar = ({ days, day, previousDay }: CalendarProps) => {
               events={days[day].events}
               timeslots={timeslots}
               streams={streams}
-              direction={previousDay && previousDay < day ? 'left' : 'right'}
               onExit={onExit}
             />
           </CalendarGrid>
