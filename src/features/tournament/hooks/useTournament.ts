@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { Team, useTeams, Region } from '@/features/teams'
-
 import { getTournament } from '../api/getTournaments'
 import { TournamentDayContext } from '../providers/TournamentDayProvider'
 import { Tournament } from '../types'
+
+import { Team, useTeams, Region } from '@/features/teams'
 
 const getOffset = (timeZone = 'UTC') => {
   const options: Intl.DateTimeFormatOptions = {
@@ -27,7 +27,7 @@ function getTime(timezone: string) {
 }
 
 export function useTournament() {
-  const { day, setDay } = useContext(TournamentDayContext)
+  const { day, previousDay, setDay } = useContext(TournamentDayContext)
   const {
     data,
     error,
@@ -96,6 +96,7 @@ export function useTournament() {
 
   return {
     day,
+    previousDay,
     setDay,
     tournament,
     teams,

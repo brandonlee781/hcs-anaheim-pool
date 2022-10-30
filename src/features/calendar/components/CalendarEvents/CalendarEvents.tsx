@@ -2,18 +2,43 @@ import clsx from 'clsx'
 import { addMinutes } from 'date-fns'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Stream, TournamentEvent } from '@/features/tournament'
-
 import { getPosition, INCREMENT, parseTime } from '../Calendar/Calendar'
 import { CalendarEvent } from '../CalendarEvent'
+
+import { Stream, TournamentEvent } from '@/features/tournament'
+
+type Direction = 'right' | 'left'
+
+const variants = {
+  enter: (direction: Direction) => {
+    return {
+      x: direction === 'left' ? '-100%' : '100%',
+      opacity: 0,
+    }
+  },
+  center: { x: 0, opacity: 1 },
+  exit: (direction: Direction) => {
+    return {
+      x: direction === 'left' ? '100%' : '-100%',
+      opacity: 0,
+    }
+  },
+}
 
 type CalendarEventsProps = {
   events: TournamentEvent[]
   streams: Stream[]
   timeslots: Date[]
+  direction: 'left' | 'right'
   onExit: () => void
 }
-export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarEventsProps) => {
+export const CalendarEvents = ({
+  events,
+  streams,
+  timeslots,
+  direction,
+  onExit,
+}: CalendarEventsProps) => {
   const sortedEvents = events.sort((a, b) => {
     const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
 
@@ -24,7 +49,7 @@ export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarE
     return aStreamIdx - bStreamIdx
   })
   return (
-    <AnimatePresence initial={false} mode="wait" onExitComplete={onExit}>
+    <AnimatePresence initial={false} mode="wait" onExitComplete={onExit} custom={direction}>
       {sortedEvents.map((event, index) => {
         if (!event) return
         const start = parseTime(event.time)
@@ -47,10 +72,12 @@ export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarE
               `col-start-${col}`,
               `col-span-${colSpan}`
             )}
+            custom={direction}
             transition={{ type: 'spring', delay: index * 0.04 }}
-            initial={{ x: '-100%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '100%', opacity: 0 }}
+            variants={variants}
+            initial={'enter'}
+            animate={'center'}
+            exit={'exit'}
           >
             <CalendarEvent event={event} />
           </motion.div>

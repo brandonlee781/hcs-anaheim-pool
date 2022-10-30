@@ -1,19 +1,19 @@
 import clsx from 'clsx'
 
+import { ScheduleHeader } from '../../components/ScheduleHeader'
+import { ScheduleNav } from '../../components/ScheduleNav'
+
+import styles from './SchedulePage.module.scss'
+
 import { Spinner } from '@/components/Elements/Spinner'
 import { Calendar } from '@/features/calendar'
 import { TeamPool, Participants } from '@/features/teams'
 import { useTournament } from '@/features/tournament'
 import { MousePositionProvider } from '@/providers/MousePositionProvider'
 
-import { ScheduleHeader } from '../../components/ScheduleHeader'
-import { ScheduleNav } from '../../components/ScheduleNav'
-
-import styles from './SchedulePage.module.scss'
-
 export const SchedulePage = () => {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
-  const { tournament, day, setDay, isLoading } = useTournament()
+  const { tournament, day, previousDay, setDay, isLoading } = useTournament()
 
   const pools = useMemo(() => {
     if (!tournament?.days[day]) return []
@@ -56,7 +56,9 @@ export const SchedulePage = () => {
         <ScheduleHeader title={tournament.title} view={view} setView={setView} />
         <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
         <div className={clsx(styles.content)} data-pool-count={pools.length}>
-          {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
+          {view === 'calendar' && (
+            <Calendar days={tournament.days} day={day} previousDay={previousDay} />
+          )}
           <div className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>{poolEl}</div>
         </div>
       </div>

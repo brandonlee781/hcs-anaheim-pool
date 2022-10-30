@@ -12,14 +12,15 @@ import { endOfHour } from 'date-fns/esm'
 import { motion } from 'framer-motion'
 import ScrollContainer from 'react-indiana-drag-scroll'
 
-import { Stream, TournamentDay } from '@/features/tournament'
-
 import { CalendarBackgroundGrid } from '../CalendarBackgroundGrid'
 import { CalendarCurrentTime } from '../CalendarCurrentTime'
 import { CalendarEvents } from '../CalendarEvents'
 import { CalendarGrid } from '../CalendarGrid'
 
 import styles from './Calendar.module.scss'
+
+import { Stream, TournamentDay } from '@/features/tournament'
+import { usePrevious } from '@/hooks/usePrevious'
 
 export const INCREMENT = 30
 export const DEFAULT_ITEM_LENGTH = 90 / INCREMENT // 90 minutes dividied by the increment
@@ -48,9 +49,10 @@ export const getPosition = (curr: Date, next: Date, s: Date) => {
 type CalendarProps = {
   days: TournamentDay[]
   day: number
+  previousDay: number
 }
 
-export const Calendar = ({ days, day }: CalendarProps) => {
+export const Calendar = ({ days, day, previousDay }: CalendarProps) => {
   const { t } = useTranslation()
 
   const timeslots = useMemo(() => {
@@ -134,6 +136,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
               events={days[day].events}
               timeslots={timeslots}
               streams={streams}
+              direction={previousDay && previousDay < day ? 'left' : 'right'}
               onExit={onExit}
             />
           </CalendarGrid>
