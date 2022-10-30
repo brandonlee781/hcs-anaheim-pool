@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useSpring, animated } from 'react-spring'
+import { motion } from 'framer-motion'
 
 import { SplitTeamLogo, Team, TeamLogo, createTeamGradient } from '@/features/teams'
 import { EventData } from '@/features/tournament'
@@ -54,24 +54,6 @@ export const CalendarMatch = ({
     document.documentElement.style.setProperty('--team-color', hexToRgb(highlight.color.slice(1)))
   }
 
-  const [springs, api] = useSpring(() => ({
-    from: { width: 5 },
-  }))
-
-  useEffect(() => {
-    if (highlight) {
-      api.start({
-        from: { width: 5 },
-        to: { width: 9 },
-      })
-    } else {
-      api.start({
-        from: { width: 9 },
-        to: { width: 5 },
-      })
-    }
-  }, [highlight])
-
   return (
     <div className={clsx('w-full h-full flex flex-row flex-nowrap items-end relative')}>
       {highlight && (
@@ -80,13 +62,14 @@ export const CalendarMatch = ({
           style={{ background: highlight?.color }}
         ></div>
       )}
-      <animated.div
+      <motion.div
+        layout
         className={clsx('h-full mr-2', !highlight && '*themeGradient !bg-gradient-to-b')}
         style={{
           background: highlight && highlightGradient,
-          ...springs,
+          width: highlight ? 9 : 5,
         }}
-      ></animated.div>
+      ></motion.div>
       <div
         className={clsx(
           'grid grid-cols-1 grid-rows-[1fr,24px,14px] items-end py-2 w-full h-full',

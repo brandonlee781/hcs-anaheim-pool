@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { CSSProperties } from 'react'
-import { useSpring, animated } from 'react-spring'
 
 import { HoverTeamContext } from '../../providers/HoverTeamProvider'
 import { Team } from '../../types'
@@ -24,26 +24,17 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
   const clickedTeam = clicked && team.id === t?.id
   const gradient = createTeamGradient(color)
 
-  const [spring, api] = useSpring(() => ({
-    from: { flexGrow: DEFAULT_FLEX_GROW },
-  }))
+  // const [spring, api] = useSpring(() => ({
+  //   from: { flexGrow: DEFAULT_FLEX_GROW },
+  // }))
 
-  useEffect(() => {
-    if (clickedTeam) {
-      api.start({
-        from: { flexGrow: DEFAULT_FLEX_GROW },
-        to: { flexGrow: EXPANDED_FLEX_GROW },
-      })
-    } else {
-      api.start({
-        from: { flexGrow: EXPANDED_FLEX_GROW },
-        to: { flexGrow: DEFAULT_FLEX_GROW },
-      })
-    }
-  }, [clickedTeam])
+  const variants = {
+    default: { flexGrow: DEFAULT_FLEX_GROW },
+    expanded: { flexGrow: EXPANDED_FLEX_GROW },
+  }
 
   return (
-    <animated.div
+    <motion.div
       className={clsx(
         'relative min-h-10 xl:min-h-5 2xl:w-70 group cursor-pointer',
         !lastItem && 'border-b-1 dark:border-hcsDark-800 border-white',
@@ -51,7 +42,8 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
         extraClass,
         styles.poolItemWrapper
       )}
-      style={spring}
+      animate={clickedTeam ? 'expanded' : 'default'}
+      variants={variants}
       role="button"
       tabIndex={0}
       onFocus={() => setTeam(team)}
@@ -85,6 +77,6 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
         </div>
         <div className="text-xs light:text-dark-500 ml-auto">{region}</div>
       </div>
-    </animated.div>
+    </motion.div>
   )
 }

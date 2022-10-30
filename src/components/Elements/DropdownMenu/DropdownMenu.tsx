@@ -1,6 +1,6 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import React, { Children, isValidElement } from 'react'
-import { animated, useSpring } from 'react-spring'
 
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import { ThemeContext } from '@/providers/ThemeProvider'
@@ -82,32 +82,18 @@ export const DropdownMenu = ({
   if (menu) {
     menu = React.cloneElement(menu, { ...menu.props, ref })
   }
-  const [style, api] = useSpring(
-    () => ({
-      from: { height: '0px' },
-    }),
-    [open]
-  )
-  useEffect(() => {
-    api.start({
-      config: {
-        friction: 20,
-        tension: 210,
-        clamp: true,
-      },
-      from: {
-        height: open ? '0px' : `${ref.current?.clientHeight}px`,
-      },
-      to: {
-        height: open ? `${ref.current?.clientHeight}px` : '0px',
-      },
-    })
-  }, [open])
+
+  const variants = {
+    open: { height: ref.current?.clientHeight },
+    closed: { height: 0 },
+  }
 
   return (
     <div ref={wrapperRef} className={`relative inline-block text-left dropdown ${className}`}>
       <span className="flex items-center justify-center">{activator}</span>
-      <animated.div
+      <motion.div
+        animate={open ? 'open' : 'closed'}
+        variants={variants}
         className={clsx(
           `dropdown-menu`,
           'absolute right-0 mt-2 origin-top-right divide-y shadow-lg outline-none overflow-hidden',
@@ -115,14 +101,13 @@ export const DropdownMenu = ({
         )}
         style={{
           width: width + 'px',
-          ...style,
         }}
         data-open={open}
         // hidden={!open}
         role="menu"
       >
         {menu}
-      </animated.div>
+      </motion.div>
     </div>
   )
 }

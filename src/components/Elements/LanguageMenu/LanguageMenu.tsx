@@ -14,7 +14,7 @@ const MenuItem = ({ children, active, clickFn }: MenuItemProps) => {
         active ? 'bg-purple-600 hover:dark:bg-purple-800' : ''
       }`}
     >
-      <button onClick={clickFn} onKeyDown={clickFn}>
+      <button className="h-full w-full" onClick={clickFn} onKeyDown={clickFn}>
         {children}
       </button>
     </li>

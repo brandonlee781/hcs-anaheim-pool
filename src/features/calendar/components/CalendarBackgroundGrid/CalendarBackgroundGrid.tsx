@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { HtmlHTMLAttributes } from 'react'
 
 import { Stream } from '@/features/tournament'
@@ -42,7 +43,8 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
                 </span>
               </div>
               {streams?.map((stream, i) => (
-                <div
+                <motion.div
+                  layout
                   className={clsx(
                     'w-full flex',
                     `row-start-${offset}`,
@@ -52,7 +54,7 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
                     i > 0 && 'border-l-0'
                   )}
                   key={`timeslot-lines-${i}`}
-                ></div>
+                ></motion.div>
               ))}
             </Fragment>
           )

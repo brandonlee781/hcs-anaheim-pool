@@ -9,10 +9,10 @@ import {
   addSeconds,
 } from 'date-fns'
 import { endOfHour } from 'date-fns/esm'
+import { motion } from 'framer-motion'
 import ScrollContainer from 'react-indiana-drag-scroll'
 
 import { Stream, TournamentDay } from '@/features/tournament'
-import { usePrevious } from '@/hooks/usePrevious'
 
 import { CalendarBackgroundGrid } from '../CalendarBackgroundGrid'
 import { CalendarCurrentTime } from '../CalendarCurrentTime'
@@ -86,44 +86,37 @@ export const Calendar = ({ days, day }: CalendarProps) => {
 
   const ref = useRef<HTMLDivElement>(null)
 
-  const [currentDayId, setCurrentDayId] = useState('')
   const [streams, setStreams] = useState<Stream[]>([])
-  const previousDay = usePrevious(day)
-  const [config, setConfig] = useState<{ to?: { x: number }; from?: { x: number } }>({
-    from: { x: -1200 },
-    to: { x: 0 },
-  })
 
   useEffect(() => {
-    if ((previousDay || 0) < day) {
-      setConfig({
-        from: { x: 1000 },
-        to: { x: 0 },
-      })
-    } else {
-      setConfig({
-        from: { x: -1200 },
-        to: { x: 0 },
-      })
-    }
-    setCurrentDayId(days[day].id)
     setStreams(days[day].streams)
-  }, [days, day])
+  }, [])
+
+  const onExit = () => {
+    setStreams(days[day].streams)
+  }
 
   return (
     <div className="overflow-hidden">
       <CalendarGrid className="shadow-md mb-1" rows={1} cols={streams?.length} height={'2.2rem'}>
         <div></div>
         {streams?.map(stream => (
-          <div key={stream.id} className="flex items-center justify-center text-xs">
+          <motion.div
+            layout
+            transition={{ type: 'spring', damping: 20 }}
+            key={stream.id}
+            className="flex items-center justify-center text-xs"
+          >
             <a className="hover:underline" href={stream.link} target="_blank" rel="noreferrer">
               {t('event:stream', { name: stream.name })}
             </a>
-          </div>
+          </motion.div>
         ))}
       </CalendarGrid>
 
-      <ScrollContainer className={clsx('h-full lg:overflow-scroll', styles.calendar)}>
+      <ScrollContainer
+        className={clsx('h-full lg:overflow-scroll scrollbar-hide', styles.calendar)}
+      >
         <div className={clsx('w-full h-full relative mt-4 lg:pb-10')}>
           <CalendarBackgroundGrid
             ref={ref}
@@ -137,28 +130,12 @@ export const Calendar = ({ days, day }: CalendarProps) => {
             cols={streams.length}
             className="absolute top-0 bottom-0 right-0 left-0"
           >
-            {days.map(d => {
-              if (currentDayId === d.id) {
-                const events = d.events.sort((a, b) => {
-                  const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
-
-                  if (val > 0) return 1
-                  if (val < 0) return -1
-                  const aStreamIdx = streams.findIndex(s => s.id === a.streams?.[0])
-                  const bStreamIdx = streams.findIndex(s => s.id === b.streams?.[0])
-                  return aStreamIdx - bStreamIdx
-                })
-                return (
-                  <CalendarEvents
-                    key={d.id}
-                    events={events}
-                    timeslots={timeslots}
-                    streams={streams}
-                    config={config}
-                  />
-                )
-              }
-            })}
+            <CalendarEvents
+              events={days[day].events}
+              timeslots={timeslots}
+              streams={streams}
+              onExit={onExit}
+            />
           </CalendarGrid>
           {days[day].events?.[0]?.time && (
             <CalendarCurrentTime

@@ -1,4 +1,4 @@
-import { useSpring, animated } from 'react-spring'
+import { motion } from 'framer-motion'
 import DarkMode from 'virtual:icons/mdi/theme-light-dark'
 
 import { Card } from '@/components/Elements/Card'
@@ -22,32 +22,17 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
 
   const { toggleDarkMode } = useContext(ThemeContext)
 
-  const [springs, api] = useSpring(() => ({ from: { x: 8 } }))
   const [sliderWidth, setSliderWidth] = useState(0)
+  const [sliderX, setSliderX] = useState(8)
 
   const moveSlider = useCallback(
     (index: number) => {
-      const oldEl = linkRefs.current[current]
       const newEl = linkRefs.current[index]
 
-      if (oldEl && newEl && rowRef.current) {
+      if (newEl && rowRef.current) {
         const parentLeft = rowRef.current.getBoundingClientRect().left
-        const oldLeft = oldEl.getBoundingClientRect().left - parentLeft
         const newLeft = newEl.getBoundingClientRect().left - parentLeft
-
-        api.start({
-          config: {
-            friction: 20,
-            tension: 210,
-            clamp: true,
-          },
-          from: {
-            x: oldLeft,
-          },
-          to: {
-            x: newLeft,
-          },
-        })
+        setSliderX(newLeft)
       }
     },
     [linkRefs, rowRef]
@@ -89,13 +74,14 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
               </a>
             )
           })}
-          <animated.div
+          <motion.div
+            initial={{ x: 8 }}
+            animate={{ x: sliderX, transition: { duration: 0.3 } }}
             className={`${styles.slider} h-1 rounded-sm absolute bottom-0 *themeGradient !bg-gradient-to-r`}
             style={{
               width: sliderWidth + 'px',
-              ...springs,
             }}
-          ></animated.div>
+          ></motion.div>
         </div>
       </nav>
       <div className="controls flex flex-nowrap justify-end items-center">

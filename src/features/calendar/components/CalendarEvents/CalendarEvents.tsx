@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { addMinutes } from 'date-fns'
-import { useSprings, animated } from 'react-spring'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { Stream, TournamentEvent } from '@/features/tournament'
 
@@ -11,22 +11,21 @@ type CalendarEventsProps = {
   events: TournamentEvent[]
   streams: Stream[]
   timeslots: Date[]
-  config: { to?: { x: number }; from?: { x: number } }
+  onExit: () => void
 }
-export const CalendarEvents = ({ events, streams, timeslots, config }: CalendarEventsProps) => {
-  const [springs] = useSprings(
-    events.length,
-    index => ({
-      ...config,
-      delay: 70 * index,
-    }),
-    [events, config]
-  )
+export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarEventsProps) => {
+  const sortedEvents = events.sort((a, b) => {
+    const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
 
+    if (val > 0) return 1
+    if (val < 0) return -1
+    const aStreamIdx = streams.findIndex(s => s.id === a.streams?.[0])
+    const bStreamIdx = streams.findIndex(s => s.id === b.streams?.[0])
+    return aStreamIdx - bStreamIdx
+  })
   return (
-    <>
-      {springs.map((props, index) => {
-        const event = events[index]
+    <AnimatePresence initial={false} mode="wait" onExitComplete={onExit}>
+      {sortedEvents.map((event, index) => {
         if (!event) return
         const start = parseTime(event.time)
         const end = addMinutes(start, Math.max(event.duration, INCREMENT))
@@ -39,7 +38,7 @@ export const CalendarEvents = ({ events, streams, timeslots, config }: CalendarE
         const colSpan = event.streams?.length || 1
 
         return (
-          <animated.div
+          <motion.div
             key={event.id}
             className={clsx(
               'm-1',
@@ -48,12 +47,15 @@ export const CalendarEvents = ({ events, streams, timeslots, config }: CalendarE
               `col-start-${col}`,
               `col-span-${colSpan}`
             )}
-            style={props}
+            transition={{ type: 'spring', delay: index * 0.04 }}
+            initial={{ x: '-100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '100%', opacity: 0 }}
           >
             <CalendarEvent event={event} />
-          </animated.div>
+          </motion.div>
         )
       })}
-    </>
+    </AnimatePresence>
   )
 }

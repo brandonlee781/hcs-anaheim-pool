@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom'
-import { Globals } from '@react-spring/web'
 import { vi } from 'vitest'
 
 import { fireEvent, render, screen, waitFor } from '@/utils/test-utils'
@@ -7,11 +6,6 @@ import { fireEvent, render, screen, waitFor } from '@/utils/test-utils'
 import { DropdownMenu } from './DropdownMenu'
 
 describe('DropdownMenu', async () => {
-  beforeAll(() => {
-    Globals.assign({
-      skipAnimation: true,
-    })
-  })
   it('should render the input', () => {
     render(
       <DropdownMenu open={true}>
