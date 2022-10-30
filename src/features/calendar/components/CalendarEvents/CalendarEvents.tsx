@@ -37,9 +37,8 @@ type CalendarEventsProps = {
   events: TournamentEvent[]
   streams: Stream[]
   timeslots: Date[]
-  onExit: () => void
 }
-export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarEventsProps) => {
+export const CalendarEvents = ({ events, streams, timeslots }: CalendarEventsProps) => {
   const { day, previousDay } = useTournament()
   const sortedEvents = events.sort((a, b) => {
     const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
@@ -53,12 +52,7 @@ export const CalendarEvents = ({ events, streams, timeslots, onExit }: CalendarE
 
   const direction = day > previousDay ? 'left' : 'right'
   return (
-    <AnimatePresence
-      initial={false}
-      mode="popLayout"
-      onExitComplete={onExit}
-      custom={{ direction, index: 0 }}
-    >
+    <AnimatePresence initial={false} mode="popLayout" custom={{ direction, index: 0 }}>
       {sortedEvents.map((event, index) => {
         if (!event) return
         const start = parseTime(event.time)
