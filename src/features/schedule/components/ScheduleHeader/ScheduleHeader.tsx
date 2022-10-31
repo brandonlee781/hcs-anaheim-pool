@@ -4,7 +4,7 @@ import { Button } from '@/components/Elements/Button'
 import { HCSLogo } from '@/components/Elements/HCSLogo'
 
 import Calendar from '~icons/mdi/calendar-outline'
-import ListView from '~icons/mdi/view-list-outline'
+import TableView from '~icons/mdi/table'
 
 type ScheduleHeaderProps = {
   title: string
@@ -36,10 +36,10 @@ export const ScheduleHeader = ({ title, view, setView }: ScheduleHeaderProps) =>
             view === 'list' ? '*themeGradient' : 'bg-gray-700/30 light:bg-gray-700/70'
           )}
           size="sm"
-          startIcon={<ListView />}
+          startIcon={<TableView />}
           onClick={() => setView('list')}
         >
-          List View
+          Table View
         </Button>
         <Button
           className={clsx(

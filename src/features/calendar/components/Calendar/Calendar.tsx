@@ -94,7 +94,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
   }, [day])
 
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <CalendarGrid className="shadow-md mb-1" rows={1} cols={streams?.length} height={'2.2rem'}>
         <div></div>
         {streams?.map(stream => (
@@ -112,31 +112,24 @@ export const Calendar = ({ days, day }: CalendarProps) => {
       </CalendarGrid>
 
       <ScrollContainer
-        className={clsx('h-full lg:overflow-y-scroll scrollbar-hide', styles.calendar)}
+        className={clsx('h-full w-full relative pt-4 lg:overflow-y-scroll', styles.calendar)}
       >
-        <div className={clsx('w-full h-full relative mt-4 lg:pb-10')}>
-          <CalendarBackgroundGrid
-            ref={ref}
-            timeslots={timeslots}
-            rows={gridRows}
-            streams={streams}
-          />
+        <CalendarBackgroundGrid ref={ref} timeslots={timeslots} rows={gridRows} streams={streams} />
 
-          <CalendarGrid
-            rows={gridRows}
-            cols={streams.length}
-            className="absolute top-0 bottom-0 right-0 left-0"
-          >
-            <CalendarEvents events={days[day].events} timeslots={timeslots} streams={streams} />
-          </CalendarGrid>
-          {days[day].events?.[0]?.time && isSameDay(new Date(), new Date(days[day].date)) && (
-            <CalendarCurrentTime
-              heightRef={ref}
-              first={timeslots[0]}
-              last={timeslots[timeslots.length - 1]}
-            />
-          )}
-        </div>
+        <CalendarGrid
+          rows={gridRows}
+          cols={streams.length}
+          className="absolute top-4 bottom-0 right-0 left-0"
+        >
+          <CalendarEvents events={days[day].events} timeslots={timeslots} streams={streams} />
+        </CalendarGrid>
+        {days[day].events?.[0]?.time && isSameDay(new Date(), new Date(days[day].date)) && (
+          <CalendarCurrentTime
+            heightRef={ref}
+            first={timeslots[0]}
+            last={timeslots[timeslots.length - 1]}
+          />
+        )}
       </ScrollContainer>
     </div>
   )

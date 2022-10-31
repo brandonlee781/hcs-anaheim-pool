@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
 
 import { Spinner } from '@/components/Elements/Spinner'
 import { Calendar } from '@/features/calendar'
@@ -44,9 +43,9 @@ export const SchedulePage = () => {
 
   let poolEl: React.ReactNode
   if (pools.length > 1) {
-    poolEl = pools.map(pool => {
-      return <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />
-    })
+    poolEl = pools.map(pool => (
+      <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />
+    ))
   } else {
     poolEl = <Participants {...pools[0]} />
   }
@@ -58,9 +57,7 @@ export const SchedulePage = () => {
         <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
         <div className={clsx(styles.content)} data-pool-count={pools.length}>
           {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
-          <motion.div layout className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>
-            {poolEl}
-          </motion.div>
+          <div className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>{poolEl}</div>
         </div>
       </div>
     </MousePositionProvider>
