@@ -94,7 +94,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
   }, [day])
 
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <CalendarGrid className="shadow-md mb-1" rows={1} cols={streams?.length} height={'2.2rem'}>
         <div></div>
         {streams?.map(stream => (
@@ -112,7 +112,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
       </CalendarGrid>
 
       <ScrollContainer
-        className={clsx('h-full lg:overflow-scroll scrollbar-hide', styles.calendar)}
+        className={clsx('h-full lg:overflow-y-scroll scrollbar-hide', styles.calendar)}
       >
         <div className={clsx('w-full h-full relative mt-4 lg:pb-10')}>
           <CalendarBackgroundGrid

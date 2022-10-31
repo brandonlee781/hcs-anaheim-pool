@@ -35,7 +35,6 @@
     max-height: var(--content-height);
     grid-template-columns: 1fr;
     grid-template-rows: 60% 1fr;
-    overflow: hidden;
   }
   .pools {
     grid-template-columns: repeat(4, 1fr);

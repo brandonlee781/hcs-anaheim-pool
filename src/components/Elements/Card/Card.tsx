@@ -10,7 +10,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className
       ref={ref}
       className={clsx(
         className,
-        'py-2 px-4',
+        'py-2 px-4 h-full w-full',
         'flex flex-row flex-nowrap items-center justify-between',
         'rounded-md',
         theme.cardStyle
