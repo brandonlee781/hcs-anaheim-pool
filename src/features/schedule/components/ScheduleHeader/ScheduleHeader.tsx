@@ -29,10 +29,10 @@ export const ScheduleHeader = ({ title, view, setView }: ScheduleHeaderProps) =>
         />
         <div className="text-[2.5rem] font-super-bold">{title}</div>
       </div>
-      <div className="h-full flex flex-row flex-nowrap items-end">
+      <div className="h-full flex flex-col lg:flex-row flex-nowrap items-end">
         <Button
           className={clsx(
-            'border-0 mr-2 text-white',
+            'border-0 max-w-30 mb-2 lg:(mr-2 mb-0 max-w-full) text-white',
             view === 'list' ? '*themeGradient' : 'bg-gray-700/30 light:bg-gray-700/70'
           )}
           size="sm"
@@ -43,7 +43,7 @@ export const ScheduleHeader = ({ title, view, setView }: ScheduleHeaderProps) =>
         </Button>
         <Button
           className={clsx(
-            'border-0 text-white',
+            'border-0 max-w-30 text-white',
             view === 'calendar' ? '*themeGradient' : 'bg-gray-700/30 light:bg-gray-700/70'
           )}
           size="sm"

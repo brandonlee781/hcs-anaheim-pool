@@ -1,45 +1,57 @@
+/* eslint-disable prettier/prettier */
 import clsx from 'clsx'
-import { addMinutes } from 'date-fns'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Stream, TournamentEvent, useTournament } from '@/features/tournament'
+import { Card } from '@/components/Elements/Card'
+import { Stream, TournamentEvent } from '@/features/tournament'
 
-import { getPosition, INCREMENT, parseTime } from '../Calendar/Calendar'
+import { useTimeslots } from '../../hooks/useTimeslots'
+import { parseTime } from '../../utils/parseTime'
 import { CalendarEvent } from '../CalendarEvent'
+import { CalendarGrid } from '../CalendarGrid'
 
-type Direction = 'right' | 'left'
+import AlertIcon from '~icons/mdi/alert-box-outline'
 
 type VariantData = {
-  direction: Direction
-  index: number
+  column: number
+  row: number
+  count: number
 }
+const ANIMATION_DELAY = 0.6
 const variants = {
-  enter: ({ direction, index }: VariantData) => {
+  enter: ({ column, row, count }: VariantData) => {
+    let delay = (column + row + 1) * (ANIMATION_DELAY / count)
+    if (column < 0 || row < 0) {
+      delay = 0
+    }
     return {
-      x: direction === 'left' ? '-100%' : '100%',
       opacity: 0,
-      transition: { type: 'spring', delay: index * 0.04 },
+      transition: { type: 'spring', delay },
     }
   },
-  center: ({ index }: VariantData) => {
-    return { x: 0, opacity: 1, transition: { type: 'spring', delay: index * 0.04 } }
-  },
-  exit: ({ direction }: VariantData) => {
+  center: ({ column, row, count }: VariantData) => {
+    let delay = (column + row + 1) * (ANIMATION_DELAY / count)
+    if (column < 0 || row < 0) {
+      delay = 0
+    }
     return {
-      x: direction === 'left' ? '100%' : '-100%',
-      opacity: 0,
-      transition: { type: 'spring' },
+      opacity: 1,
+      transition: { type: 'spring', delay },
     }
   },
+  exit: {
+    opacity: 0,
+  }
 }
 
 type CalendarEventsProps = {
   events: TournamentEvent[]
   streams: Stream[]
-  timeslots: Date[]
+  onExit?: () => void
 }
-export const CalendarEvents = ({ events, streams, timeslots }: CalendarEventsProps) => {
-  const { day, previousDay } = useTournament()
+export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
+  const { t } = useTranslation()
+  const { rows, columns, getPosition } = useTimeslots()
   const sortedEvents = events.sort((a, b) => {
     const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
 
@@ -50,41 +62,60 @@ export const CalendarEvents = ({ events, streams, timeslots }: CalendarEventsPro
     return aStreamIdx - bStreamIdx
   })
 
-  const direction = day > previousDay ? 'left' : 'right'
-  return (
-    <AnimatePresence initial={false} mode="popLayout" custom={{ direction, index: 0 }}>
-      {sortedEvents.map((event, index) => {
-        if (!event) return
-        const start = parseTime(event.time)
-        const end = addMinutes(start, Math.max(event.duration, INCREMENT))
-        const { offset: row, length: rowSpan } = getPosition(start, end, timeslots[0])
-        const colIdx = streams.findIndex(st => event.streams?.includes(st.id))
-        let col = 2
-        if (colIdx > 0) {
-          col += colIdx
-        }
-        const colSpan = event.streams?.length || 1
+  if (!sortedEvents.length) {
+    const gridRow = `2 / span ${rows / 4}`
+    const gridColumn = `${(columns / 3) + 1} / span ${(columns / 2)}`
 
-        return (
-          <motion.div
-            key={event.id}
-            className={clsx(
-              'm-1',
-              `row-start-${row}`,
-              `row-span-${rowSpan}`,
-              `col-start-${col}`,
-              `col-span-${colSpan}`
-            )}
-            custom={{ direction, index }}
-            variants={variants}
-            initial={'enter'}
-            animate={'center'}
-            exit={'exit'}
-          >
-            <CalendarEvent event={event} />
-          </motion.div>
-        )
-      })}
-    </AnimatePresence>
+    return (
+      <CalendarGrid
+        rows={rows}
+        cols={columns}
+        className="absolute top-4 bottom-0 right-0 left-0"
+      >
+        <Card className="max-w-100 mx-auto" style={{ gridRow, gridColumn }}>
+          <AlertIcon className="h-20 w-20 text-yellow-400" />
+          { t('table:no-data') }
+        </Card>
+      </CalendarGrid>
+    )
+  }
+
+  return (
+    <CalendarGrid
+      rows={rows}
+      cols={columns}
+      className="absolute top-4 bottom-0 right-0 left-0"
+    >
+      <AnimatePresence mode="wait">
+        {sortedEvents.map((event) => {
+          if (!event) return
+          const {
+            rowStart,
+            rowSpan,
+            colStart,
+            colSpan
+          } = getPosition(event, streams)
+
+          return (
+            <motion.div
+              key={event.id}
+              className={clsx('m-1')}
+              style={{
+                gridRow: `${rowStart} / span ${rowSpan}`,
+                gridColumn: `${colStart} / span ${colSpan}`
+              }}
+              custom={{ column: colStart-colSpan-1, row: (rowStart-rowSpan) / rowSpan, count: sortedEvents.length }}
+              variants={variants}
+              initial={'enter'}
+              animate={'center'}
+              exit={'exit'}
+            >
+              <CalendarEvent event={event} />
+            </motion.div>
+          )
+        })}
+      </AnimatePresence>
+
+    </CalendarGrid>
   )
 }

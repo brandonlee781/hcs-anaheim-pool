@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 import { Spinner } from '@/components/Elements/Spinner'
 import { Calendar } from '@/features/calendar'
@@ -15,15 +16,21 @@ export const SchedulePage = () => {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
   const { tournament, day, setDay, isLoading } = useTournament()
 
-  const pools = useMemo(() => {
-    if (!tournament?.days[day]) return []
-    const include = tournament.days[day].include
-    return (
-      tournament.pools?.filter(pool => {
-        return include?.includes(pool.key)
-      }) ?? []
-    )
-  }, [tournament, day])
+  // const pools = useMemo(() => {
+  //   if (!tournament?.days[day]) return []
+  //   const include = tournament.days[day].include
+  //   return (
+  //     tournament.pools?.filter(pool => {
+  //       return include?.includes(pool.key)
+  //     }) ?? []
+  //   )
+  // }, [tournament, day])
+
+  const includes = tournament?.days[day].include
+  const pools =
+    tournament?.pools.filter(pool => {
+      return includes?.includes(pool.key)
+    }) ?? []
 
   if (isLoading) {
     return (
@@ -56,8 +63,12 @@ export const SchedulePage = () => {
         <ScheduleHeader title={tournament.title} view={view} setView={setView} />
         <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
         <div className={clsx(styles.content)} data-pool-count={pools.length}>
-          {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
-          <div className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>{poolEl}</div>
+          <motion.div layout>
+            {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
+          </motion.div>
+          <motion.div layout className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>
+            {poolEl}
+          </motion.div>
         </div>
       </div>
     </MousePositionProvider>

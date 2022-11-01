@@ -6,7 +6,7 @@ import { HoverTeamContext } from '@/features/teams'
 import { TournamentEvent } from '@/features/tournament'
 
 import { formatOptionalMinutes } from '../../utils/formatOptionalMinutes'
-import { parseTime } from '../Calendar/Calendar'
+import { parseTime } from '../../utils/parseTime'
 import { CalendarMatch } from '../CalendarMatch'
 
 type CalendarEventsProps = {

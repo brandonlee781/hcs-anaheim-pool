@@ -63,7 +63,7 @@ export const CalendarMatch = ({
         ></div>
       )}
       <motion.div
-        layout
+        layout="size"
         className={clsx('h-full mr-2', !highlight && '*themeGradient !bg-gradient-to-b')}
         style={{
           background: highlight && highlightGradient,

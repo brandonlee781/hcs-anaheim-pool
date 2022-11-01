@@ -7,7 +7,7 @@ function App() {
   return (
     <AppProvider>
       <div className="App">
-        <div className="flex flex-row flex-nowrap h-full w-full max-w-[1400px] mx-auto">
+        <div className="flex flex-row flex-nowrap h-full w-full max-w-[1500px] mx-auto">
           {/* <Sidebar /> */}
           <SchedulePage />
         </div>

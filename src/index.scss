@@ -3,6 +3,10 @@ html {
   font-family: "Roboto", sans-serif !important;
 }
 
+* {
+  border: 1px solid red;
+}
+
 .click-through {
   pointer-events: none;
 }

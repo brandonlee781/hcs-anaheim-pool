@@ -7,16 +7,17 @@ type CalendarGridProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   rows: number
   cols?: number
   height?: string
+  leadingWidth?: string
 }
 export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
-  ({ className, children, rows = 1, cols = 1, height }, ref) => {
+  ({ className, children, rows = 1, cols = 1, height, leadingWidth = '3rem' }, ref) => {
     return (
       <div
         ref={ref}
         className={clsx('grid', className)}
         style={{
           gridTemplateRows: `repeat(${rows}, ${height || GRID_ITEM_HEIGHT})`,
-          gridTemplateColumns: `3rem repeat(${cols}, 1fr)`,
+          gridTemplateColumns: `${leadingWidth} repeat(${cols}, 1fr)`,
         }}
       >
         {children}

@@ -1,40 +1,40 @@
 import clsx from 'clsx'
+import { differenceInMinutes } from 'date-fns'
 import { motion } from 'framer-motion'
 import { HtmlHTMLAttributes } from 'react'
 
 import { Stream } from '@/features/tournament'
 
+import { useTimeslots } from '../../hooks/useTimeslots'
 import { formatOptionalMinutes } from '../../utils/formatOptionalMinutes'
-import { getPosition, INCREMENT } from '../Calendar/Calendar'
 import { CalendarGrid } from '../CalendarGrid'
 
 type CalendarBackgroundGridProps = {
-  rows: number
-  timeslots: Date[]
   streams?: Stream[]
 } & HtmlHTMLAttributes<HTMLDivElement>
 
 export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgroundGridProps>(
-  ({ rows, timeslots, streams, className }, ref) => {
+  ({ className, streams }, ref) => {
+    const { rows, columns, timeslots, getRow } = useTimeslots()
     return (
       <CalendarGrid
         ref={ref}
         rows={rows}
-        cols={streams?.length}
+        cols={columns}
         className={clsx(className, 'lg:mb-10 xl:mb-20')}
       >
         {timeslots.map((time, index) => {
-          const nextTime = timeslots[index + 1]
+          const duration = Math.abs(differenceInMinutes(time, timeslots[index + 1]))
+          const { rowStart, rowSpan } = getRow(time, duration)
+          const colSpan = columns / (streams?.length || 1)
 
-          const next = nextTime ?? timeslots[timeslots.length - 1]
-          const { offset, length } = getPosition(time, next, timeslots[0])
           return (
             <Fragment key={index}>
               <div
                 className={clsx(
-                  'w-full flex col-start-1 relative',
-                  `row-start-${offset}`,
-                  `row-span-${nextTime ? length : 60 / INCREMENT}`
+                  'timeslots-time w-full flex col-start-1 relative',
+                  `row-start-${rowStart}`,
+                  `row-span-${rowSpan}`
                 )}
                 key={`timeslot-time-${index}`}
               >
@@ -46,13 +46,19 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
                 <motion.div
                   layout
                   className={clsx(
-                    'w-full flex',
-                    `row-start-${offset}`,
-                    `row-span-${nextTime ? length : 60 / INCREMENT}`,
+                    'timeslots-lines w-full flex',
+                    `row-start-${rowStart}`,
+                    `row-span-${rowSpan}`,
+                    `col-start-2`,
+                    `col-span-${colSpan}`,
                     'border-gray-600 border-1',
                     index > 0 && 'border-t-0',
                     i > 0 && 'border-l-0'
                   )}
+                  style={{
+                    gridRow: `${rowStart} / span ${rowSpan}`,
+                    gridColumn: `2 / span ${colSpan * (i + 1)}`,
+                  }}
                   key={`timeslot-lines-${i}`}
                 ></motion.div>
               ))}
@@ -63,3 +69,5 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
     )
   }
 )
+
+CalendarBackgroundGrid.displayName = 'CalendarBackgroundGrid'

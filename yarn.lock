@@ -2223,6 +2223,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4.14.187":
+  version: 4.14.187
+  resolution: "@types/lodash@npm:4.14.187"
+  checksum: 5f8a4fe6d8a6785b8ecbd9efdc8b7d3341b873f63c5390ad0f269a517508e92c1b1d7d43e97bdfb6bba5bba9a8501b30a54f791ef4c30b854382745c75c607d4
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 18.11.7
   resolution: "@types/node@npm:18.11.7"
@@ -3102,6 +3109,7 @@ __metadata:
     "@testing-library/react": latest
     "@testing-library/react-hooks": latest
     "@testing-library/user-event": latest
+    "@types/lodash": ^4.14.187
     "@types/react": latest
     "@types/react-dom": latest
     "@typescript-eslint/eslint-plugin": latest
@@ -3125,6 +3133,7 @@ __metadata:
     framer-motion: ^7.6.2
     i18next: ^22.0.2
     jsdom: latest
+    lodash: ^4.17.21
     prettier: ^2.3.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -5788,7 +5797,7 @@ jsdom@latest:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.15, lodash@npm:^4.17.20":
+"lodash@npm:^4.17.15, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7

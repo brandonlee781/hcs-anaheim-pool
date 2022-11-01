@@ -1,13 +1,19 @@
-import { differenceInMinutes, getHours, getMinutes, setMinutes } from 'date-fns'
+import { differenceInMinutes, getHours, getMinutes, isSameDay, setMinutes } from 'date-fns'
 import { setHours } from 'date-fns/esm'
 import { RefObject } from 'react'
 
+import { TournamentDay } from '@/features/tournament'
+
+import { useTimeslots } from '../../hooks/useTimeslots'
+
 type CurrentTimeProps = {
-  first: Date
-  last: Date
   heightRef: RefObject<HTMLDivElement>
+  displayDay: TournamentDay
 }
-export const CalendarCurrentTime = ({ first, last, heightRef }: CurrentTimeProps) => {
+export const CalendarCurrentTime = ({ heightRef, displayDay }: CurrentTimeProps) => {
+  const { timeslots } = useTimeslots()
+  const first = timeslots[0]
+  const last = timeslots[timeslots.length - 1]
   const ref = useRef<HTMLDivElement>(null)
   const [dt, setDt] = useState(new Date())
 
@@ -40,8 +46,12 @@ export const CalendarCurrentTime = ({ first, last, heightRef }: CurrentTimeProps
     setTop(newTop)
   }, [dt, firstTime, lastTime, heightRef])
 
+  if (!isSameDay(new Date(displayDay.date), new Date())) {
+    return null
+  }
+
   return (
-    <div ref={ref} className="absolute top-0 bottom-0 left-0 right-0 pointer-events-none">
+    <div ref={ref} className="absolute top-4 bottom-0 left-0 right-0 pointer-events-none">
       <div className="w-full h-full relative">
         <div
           className="absolute h-1 *themeGradient opacity-60 left-12 right-0"

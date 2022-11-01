@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { ThemeContext } from '@/providers/ThemeProvider'
 
 type CardProps = React.HTMLAttributes<HTMLDivElement>
-export const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className }, ref) => {
+export const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className, style }, ref) => {
   const { theme } = useContext(ThemeContext)
   return (
     <div
@@ -15,6 +15,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className
         'rounded-md',
         theme.cardStyle
       )}
+      style={style}
     >
       {children}
     </div>
