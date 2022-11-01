@@ -51,7 +51,7 @@ type CalendarEventsProps = {
 }
 export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
   const { t } = useTranslation()
-  const { rows, columns, getPosition } = useTimeslots()
+  const { rows, columns, getPosition, gridPosition } = useTimeslots()
   const sortedEvents = events.sort((a, b) => {
     const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
 
@@ -70,7 +70,7 @@ export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
       <CalendarGrid
         rows={rows}
         cols={columns}
-        className="absolute top-4 bottom-0 right-0 left-0"
+        className={clsx(gridPosition)}
       >
         <Card className="max-w-100 mx-auto" style={{ gridRow, gridColumn }}>
           <AlertIcon className="h-20 w-20 text-yellow-400" />
@@ -84,7 +84,7 @@ export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
     <CalendarGrid
       rows={rows}
       cols={columns}
-      className="absolute top-4 bottom-0 right-0 left-0"
+      className={clsx(gridPosition)}
     >
       <AnimatePresence mode="wait">
         {sortedEvents.map((event) => {

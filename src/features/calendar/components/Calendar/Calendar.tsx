@@ -29,12 +29,13 @@ export const Calendar = ({ days, day }: CalendarProps) => {
 
   return (
     <CalendarGridProvider days={days} columns={12}>
-      <div className="overflow-hidden">
-        <CalendarStreamLinks streams={streams} />
+      <div className="w-[100vw] pr-20 lg:(w-full pr-0)">
+        <CalendarStreamLinks className="hidden md:grid" streams={streams} />
 
         <ScrollContainer
-          className={clsx('h-full w-full relative pt-4 lg:overflow-y-scroll', styles.calendar)}
+          className={clsx('h-full w-full relative pt-4 !lg:overflow-y-scroll', styles.calendar)}
         >
+          <CalendarStreamLinks className="md:hidden h-7" streams={streams} />
           <CalendarBackgroundGrid ref={ref} streams={streams} />
 
           <CalendarEvents events={days[day].events} streams={streams} />

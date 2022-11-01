@@ -6,6 +6,9 @@
 
 .content {
   height: 100%;
+  max-width: calc(100vw - 32px);
+  overflow-x: hidden;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: max-content max-content;
@@ -23,23 +26,24 @@
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  max-width: calc(100vw - 96px);
   @media (max-height: 730px) {
     overflow: scroll;
   }
 }
-
-
 
 @media (min-width: $lg) {
   .content {
     max-height: var(--content-height);
     grid-template-columns: 1fr;
     grid-template-rows: 60% 1fr;
+    // overflow-x: auto;
     overflow-y: hidden;
   }
   .pools {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
+    max-width: 100%;
   }
 }
 

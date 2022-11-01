@@ -45,7 +45,7 @@ const getPosition = (
 }
 
 export function useTimeslots() {
-  const { hours, columns } = useContext(CalendarGridContext)
+  const { hours, columns, gridPosition } = useContext(CalendarGridContext)
 
   const rows = Math.abs(differenceInMinutes(hours[0], hours[hours.length - 1]) / INCREMENT)
 
@@ -61,5 +61,6 @@ export function useTimeslots() {
     getPosition: (event: TournamentEvent, streams: Stream[]) =>
       getPosition(event, columns, streams, hours[0]),
     getRow: (timeStart: Date, duration: number) => getRow(timeStart, duration, hours[0]),
+    gridPosition,
   }
 }

@@ -16,11 +16,13 @@ type CalendarGridContextData = {
   days: TournamentDay[]
   hours: Date[]
   columns: number
+  gridPosition: string
 }
 export const CalendarGridContext = createContext<CalendarGridContextData>({
   days: [],
   hours: [],
   columns: 1,
+  gridPosition: '',
 })
 
 type CalendarGridProviderProps = {
@@ -53,8 +55,10 @@ export const CalendarGridProvider = ({ children, days, columns }: CalendarGridPr
 
   const hours = eachHourOfInterval({ start, end })
 
+  const gridPosition = 'absolute top-12 md:top-4 bottom-0 right-0 left-0'
+
   return (
-    <CalendarGridContext.Provider value={{ days, hours, columns }}>
+    <CalendarGridContext.Provider value={{ days, hours, columns, gridPosition }}>
       {children}
     </CalendarGridContext.Provider>
   )

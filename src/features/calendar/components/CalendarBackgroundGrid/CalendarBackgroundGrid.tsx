@@ -21,7 +21,7 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
         ref={ref}
         rows={rows}
         cols={columns}
-        className={clsx(className, 'lg:mb-10 xl:mb-20')}
+        className={clsx('background-grid', className, 'lg:mb-10 xl:mb-20')}
       >
         {timeslots.map((time, index) => {
           const duration = Math.abs(differenceInMinutes(time, timeslots[index + 1]))

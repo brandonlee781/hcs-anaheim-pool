@@ -28,7 +28,7 @@ export const CalendarEvent = ({ event }: CalendarEventsProps) => {
   return (
     <Card
       className={clsx(
-        `!p-0 rounded-tl-none rounded-bl-none flex flex-row flex-nowrap h-full w-full`,
+        `!p-0 rounded-tl-none rounded-bl-none flex flex-row flex-nowrap w-full h-full`,
         event.data.textClass
       )}
     >

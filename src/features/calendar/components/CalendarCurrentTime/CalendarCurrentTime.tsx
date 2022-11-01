@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { differenceInMinutes, getHours, getMinutes, isSameDay, setMinutes } from 'date-fns'
 import { setHours } from 'date-fns/esm'
 import { RefObject } from 'react'
@@ -11,7 +12,7 @@ type CurrentTimeProps = {
   displayDay: TournamentDay
 }
 export const CalendarCurrentTime = ({ heightRef, displayDay }: CurrentTimeProps) => {
-  const { timeslots } = useTimeslots()
+  const { timeslots, gridPosition } = useTimeslots()
   const first = timeslots[0]
   const last = timeslots[timeslots.length - 1]
   const ref = useRef<HTMLDivElement>(null)
@@ -51,7 +52,7 @@ export const CalendarCurrentTime = ({ heightRef, displayDay }: CurrentTimeProps)
   }
 
   return (
-    <div ref={ref} className="absolute top-4 bottom-0 left-0 right-0 pointer-events-none">
+    <div ref={ref} className={clsx(gridPosition, 'pointer-events-none')}>
       <div className="w-full h-full relative">
         <div
           className="absolute h-1 *themeGradient opacity-60 left-12 right-0"

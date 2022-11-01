@@ -55,10 +55,10 @@ export const CalendarMatch = ({
   }
 
   return (
-    <div className={clsx('w-full h-full flex flex-row flex-nowrap items-end relative')}>
+    <div className={clsx('h-full w-full flex flex-row flex-nowrap items-end relative')}>
       {highlight && (
         <div
-          className={clsx('absolute h-3 w-3 top-2 right-2 rounded-full pulseColor')}
+          className={clsx('absolute h-3 w-3 bottom-2 right-2 rounded-full pulseColor')}
           style={{ background: highlight?.color }}
         ></div>
       )}
