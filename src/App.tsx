@@ -1,7 +1,8 @@
 import './App.css'
-import { Sidebar } from './components/Layout/Sidebar'
-import { SchedulePage } from './features/schedule'
-import { AppProvider } from './providers/AppProvider'
+import { RouterProvider } from 'react-router-dom'
+
+import { AppProvider } from '@/providers/AppProvider'
+import { router } from '@/routes'
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <div className="App">
         <div className="flex flex-row flex-nowrap h-full w-full max-w-[1500px] mx-auto">
           {/* <Sidebar /> */}
-          <SchedulePage />
+          <RouterProvider router={router} />
         </div>
       </div>
     </AppProvider>

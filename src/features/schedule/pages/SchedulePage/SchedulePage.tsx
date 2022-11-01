@@ -5,7 +5,6 @@ import { Spinner } from '@/components/Elements/Spinner'
 import { Calendar } from '@/features/calendar'
 import { TeamPool, Participants } from '@/features/teams'
 import { useTournament } from '@/features/tournament'
-import { MousePositionProvider } from '@/providers/MousePositionProvider'
 
 import { ScheduleHeader } from '../../components/ScheduleHeader'
 import { ScheduleNav } from '../../components/ScheduleNav'
@@ -15,16 +14,6 @@ import styles from './SchedulePage.module.scss'
 export const SchedulePage = () => {
   const [view, setView] = useState<'calendar' | 'list'>('calendar')
   const { tournament, day, setDay, isLoading } = useTournament()
-
-  // const pools = useMemo(() => {
-  //   if (!tournament?.days[day]) return []
-  //   const include = tournament.days[day].include
-  //   return (
-  //     tournament.pools?.filter(pool => {
-  //       return include?.includes(pool.key)
-  //     }) ?? []
-  //   )
-  // }, [tournament, day])
 
   const includes = tournament?.days[day].include
   const pools =
@@ -58,19 +47,17 @@ export const SchedulePage = () => {
   }
 
   return (
-    <MousePositionProvider>
-      <div className="p-8 h-full w-full mx-auto">
-        <ScheduleHeader title={tournament.title} view={view} setView={setView} />
-        <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
-        <div className={clsx(styles.content)} data-pool-count={pools.length}>
-          <motion.div layout>
-            {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
-          </motion.div>
-          <motion.div layout className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>
-            {poolEl}
-          </motion.div>
-        </div>
+    <div className="p-8 h-full w-full mx-auto">
+      <ScheduleHeader title={tournament.title} view={view} setView={setView} />
+      <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
+      <div className={clsx(styles.content)} data-pool-count={pools.length}>
+        <motion.div layout>
+          {view === 'calendar' && <Calendar days={tournament.days} day={day} />}
+        </motion.div>
+        <motion.div layout className={clsx(styles.pools, 'pt-6 ml-2 scrollbar-hide')}>
+          {poolEl}
+        </motion.div>
       </div>
-    </MousePositionProvider>
+    </div>
   )
 }
