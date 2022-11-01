@@ -92,6 +92,7 @@ export const DropdownMenu = ({
     <div ref={wrapperRef} className={`relative inline-block text-left dropdown ${className}`}>
       <span className="flex items-center justify-center">{activator}</span>
       <motion.div
+        initial={{ height: 0 }}
         animate={open ? 'open' : 'closed'}
         variants={variants}
         className={clsx(
