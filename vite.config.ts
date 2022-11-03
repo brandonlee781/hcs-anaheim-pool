@@ -8,7 +8,7 @@ import Icons from 'unplugin-icons/vite'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import SassDTS from 'vite-plugin-sass-dts'
-import WindiCSS from 'vite-plugin-windicss'
+// import WindiCSS from 'vite-plugin-windicss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,13 +25,13 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    WindiCSS({
-      transformCSS: 'pre',
-      scan: {
-        dirs: ['src'], // all files in the cwd
-        fileExtensions: ['tsx', 'js', 'ts'], // also enabled scanning for js/ts
-      },
-    }),
+    // WindiCSS({
+    //   transformCSS: 'pre',
+    //   scan: {
+    //     dirs: ['src'], // all files in the cwd
+    //     fileExtensions: ['tsx', 'js', 'ts'], // also enabled scanning for js/ts
+    //   },
+    // }),
     Icons({
       compiler: 'jsx',
       jsx: 'react',
