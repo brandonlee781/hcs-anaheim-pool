@@ -1,0 +1,19 @@
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
+  box-sizing: border-box;
+  border-width: 8px;
+  border-style: solid;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  .mobile-row {
+    display: flex;
+    flex-flow: column wrap;
+  }
+}

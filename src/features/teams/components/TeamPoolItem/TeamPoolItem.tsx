@@ -9,7 +9,7 @@ import { createTeamGradient } from '../../utils/createTeamGradient'
 const DEFAULT_FLEX_GROW = 1
 const EXPANDED_FLEX_GROW = 2
 
-import styles from './TeamPoolItem.module.scss'
+import styles from './TeamPoolItem.module.css'
 
 type TeamPoolItemProps = Team & {
   extraClass?: string
@@ -24,10 +24,6 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
   const clickedTeam = clicked && team.id === t?.id
   const gradient = createTeamGradient(color)
 
-  // const [spring, api] = useSpring(() => ({
-  //   from: { flexGrow: DEFAULT_FLEX_GROW },
-  // }))
-
   const variants = {
     default: { flexGrow: DEFAULT_FLEX_GROW },
     expanded: { flexGrow: EXPANDED_FLEX_GROW },
@@ -36,8 +32,8 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
   return (
     <motion.div
       className={clsx(
-        'relative min-h-10 xl:min-h-5 2xl:w-70 group cursor-pointer',
-        !lastItem && 'border-b-1 dark:border-hcsDark-800 border-white',
+        'relative w-full min-h-[3rem] lg:min-h-fit group cursor-pointer',
+        !lastItem && 'border-b-2 dark:border-hcsDark-800 border-white',
         clicked && !clickedTeam && 'bg-dark-100/40 text-gray-500/40',
         extraClass,
         styles.poolItemWrapper
@@ -72,10 +68,15 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
         </div>
       </div>
       <div className={clsx('absolute pr-4 flex items-center', 'top-0 bottom-0 right-0 left-0 z-3')}>
-        <div className="text-sm font-bold light:text-dark-300 tracking-wide 2xl:(text-xl font-extrabold) ml-3">
+        <div
+          className={clsx(
+            'text-sm font-bold text-dark-300 tracking-wide 2xl:text-xl 2xl:font-extrabold ml-3',
+            styles['teamName']
+          )}
+        >
           {name}
         </div>
-        <div className="text-xs light:text-dark-500 ml-auto">{region}</div>
+        <div className="text-xs text-dark-500 ml-auto">{region}</div>
       </div>
     </motion.div>
   )

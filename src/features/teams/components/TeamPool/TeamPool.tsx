@@ -18,7 +18,7 @@ export const TeamPool = ({ poolKey, teams, name }: TeamPoolProps) => {
   const tName = poolKey.includes('pool') ? t('table:pool', { pool: name }) : name
 
   return (
-    <Card className="!p-0">
+    <Card className="!p-0 h-full w-full">
       <div className={clsx('h-full w-full flex flex-col')}>
         <div className="border-b-2 dark:border-hcsDark-800 border-white flex items-center justify-center">
           <span>{tName}</span>

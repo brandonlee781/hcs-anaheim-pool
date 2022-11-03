@@ -40,16 +40,16 @@ export const SplitTeamLogo = forwardRef<HTMLDivElement, SplitTeamLogoProps>(
   ({ teams, className }, ref) => {
     const [team1, team2] = teams
     return (
-      <div ref={ref} className={clsx('relative h-12', team2 ? 'w-22' : 'w-12', className)}>
+      <div ref={ref} className={clsx('relative h-12', team2 ? 'w-[5.5rem]' : 'w-12', className)}>
         <TeamLogo
           team={team1}
-          className={clsx('absolute top-0 bottom-0 right-0', team2 && '!w-22 pr-10')}
+          className={clsx('absolute top-0 bottom-0 right-0', team2 && '!w-[5.5rem] pr-10')}
           style={{ clipPath: team1 && team2 ? 'polygon(0 0, 75% 0, 25% 100%, 0% 100%)' : '' }}
         />
         {team2 && (
           <TeamLogo
             team={team2}
-            className="absolute top-0 bottom-0 right-0 !w-22 pl-10"
+            className="absolute top-0 bottom-0 right-0 !w-[5.5rem] pl-10"
             style={{ clipPath: 'polygon(75% 0, 100% 1%, 100% 100%, 25% 100%)' }}
           />
         )}

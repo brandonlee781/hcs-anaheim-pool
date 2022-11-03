@@ -84,7 +84,7 @@ export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
     <CalendarGrid
       rows={rows}
       cols={columns}
-      className={clsx(gridPosition)}
+      className={clsx('calendar-events', gridPosition)}
     >
       <AnimatePresence mode="wait">
         {sortedEvents.map((event) => {

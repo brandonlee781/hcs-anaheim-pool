@@ -8,15 +8,15 @@ import TableView from '~icons/mdi/table'
 
 type ScheduleHeaderProps = {
   title: string
-  view: 'calendar' | 'list'
-  setView: (val: 'calendar' | 'list') => void
+  view: 'calendar' | 'table'
+  setView: (val: 'calendar' | 'table') => void
 }
 export const ScheduleHeader = ({ title, view, setView }: ScheduleHeaderProps) => {
   return (
     <div className="flex items-center justify-between mb-8">
       <div className="flex flex-flow flex-nowrap items-center">
         <HCSLogo
-          className="light:hidden h-24 w-auto mx-8"
+          className="hidden dark:inline-block h-24 w-auto mx-8"
           primary="#ffffffcc"
           background="#ffffff99"
           outline="transparent"
@@ -32,19 +32,19 @@ export const ScheduleHeader = ({ title, view, setView }: ScheduleHeaderProps) =>
       <div className="h-full flex flex-col lg:flex-row flex-nowrap items-end">
         <Button
           className={clsx(
-            'border-0 max-w-30 mb-2 lg:(mr-2 mb-0 max-w-full) text-white',
-            view === 'list' ? '*themeGradient' : 'bg-gray-700/30 light:bg-gray-700/70'
+            'border-0 max-w-30 mb-2 lg:mr-2 lg:mb-0 lg:max-w-full text-white',
+            view === 'table' ? 'themeGradient' : 'dark:bg-gray-700/30 bg-gray-700/70'
           )}
           size="sm"
           startIcon={<TableView />}
-          onClick={() => setView('list')}
+          onClick={() => setView('table')}
         >
           Table View
         </Button>
         <Button
           className={clsx(
             'border-0 max-w-30 text-white',
-            view === 'calendar' ? '*themeGradient' : 'bg-gray-700/30 light:bg-gray-700/70'
+            view === 'calendar' ? 'themeGradient' : 'dark:bg-gray-700/30 bg-gray-700/70'
           )}
           size="sm"
           startIcon={<Calendar />}

@@ -21,7 +21,7 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
         ref={ref}
         rows={rows}
         cols={columns}
-        className={clsx('background-grid', className, 'lg:mb-10 xl:mb-20')}
+        className={clsx('background-grid min-h-full', className, 'lg:mb-10 xl:mb-20')}
       >
         {timeslots.map((time, index) => {
           const duration = Math.abs(differenceInMinutes(time, timeslots[index + 1]))
@@ -31,11 +31,10 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
           return (
             <Fragment key={index}>
               <div
-                className={clsx(
-                  'timeslots-time w-full flex col-start-1 relative',
-                  `row-start-${rowStart}`,
-                  `row-span-${rowSpan}`
-                )}
+                className={clsx('timeslots-time w-full flex col-start-1 relative')}
+                style={{
+                  gridRow: `${rowStart} / span ${rowSpan}`,
+                }}
                 key={`timeslot-time-${index}`}
               >
                 <span className="absolute right-1 -top-2 w-12 text-right text-xs font-bold dark:text-gray-300">
@@ -47,11 +46,7 @@ export const CalendarBackgroundGrid = forwardRef<HTMLDivElement, CalendarBackgro
                   layout
                   className={clsx(
                     'timeslots-lines w-full flex',
-                    `row-start-${rowStart}`,
-                    `row-span-${rowSpan}`,
-                    `col-start-2`,
-                    `col-span-${colSpan}`,
-                    'border-gray-600 border-1',
+                    'border-gray-600 border',
                     index > 0 && 'border-t-0',
                     i > 0 && 'border-l-0'
                   )}

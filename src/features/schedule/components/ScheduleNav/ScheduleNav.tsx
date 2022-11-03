@@ -52,10 +52,10 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
 
   return (
     <Card className="h-12">
-      <nav className="row-start-2 col-span-2 md:(row-start-1 col-start-2 col-span-1 justify-self-center) overflow-y-hidden">
+      <nav className="row-start-2 col-span-2 md:row-start-1 md:col-start-2 md:col-span-1 md:justify-self-center overflow-y-hidden">
         <div
           ref={rowRef}
-          className="w-full flex flex-row items-start md:(items-center) overflow-y-scroll scrollbar-hide relative"
+          className="w-full flex flex-row items-start md:items-center overflow-y-scroll scrollbar-hide relative"
         >
           {days?.map((d, index) => {
             return (
@@ -77,7 +77,7 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
           <motion.div
             initial={{ x: 8 }}
             animate={{ x: sliderX, transition: { duration: 0.3 } }}
-            className={`${styles.slider} h-1 rounded-sm absolute bottom-0 *themeGradient !bg-gradient-to-r`}
+            className={`${styles.slider} h-1 rounded-sm absolute bottom-0 themeGradient !bg-gradient-to-r`}
             style={{
               width: sliderWidth + 'px',
             }}

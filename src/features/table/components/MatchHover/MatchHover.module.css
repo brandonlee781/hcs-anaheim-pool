@@ -1,0 +1,86 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.inner-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.right,
+.left {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 8px;
+  opacity: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+.right:global(.displayLogos),
+.left:global(.displayLogos) {
+  opacity: 0.3;
+}
+.right {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-clip-path: polygon(60% 0, 100% 0%, 100% 100%, 40% 100%);
+  clip-path: polygon(60% 0, 100% 0%, 100% 100%, 40% 100%);
+
+  justify-content: flex-end;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
+  clip-path: polygon(0 0, 60% 0, 40% 100%, 0 100%);
+}
+
+.left.top {
+  bottom: 50%;
+  -webkit-clip-path: polygon(0 0, 60% 0, 50% 100%, 0 100%);
+  clip-path: polygon(0 0, 60% 0, 50% 100%, 0 100%);
+}
+.left.bottom {
+  top: 50%;
+  -webkit-clip-path: polygon(0 0, 50% 0, 40% 100%, 0 100%);
+  clip-path: polygon(0 0, 50% 0, 40% 100%, 0 100%);
+}
+
+.right.top {
+  bottom: 50%;
+  clip-path: polygon(60% 0, 100% 0%, 100% 100%, 50% 100%);
+}
+.right.bottom {
+  top: 50%;
+  clip-path: polygon(50% 0, 100% 0%, 100% 100%, 40% 100%);
+}
+
+.left img,
+.right img {
+  position: absolute;
+  top: calc(50% - 1rem);
+  height: 2rem;
+  width: auto;
+  object-fit: scale-down;
+  filter: drop-shadow(4px 8px 10px black);
+  z-index: 4;
+}
+
+.left img {
+  left: 1rem;
+}
+.right img {
+  right: 1rem;
+}

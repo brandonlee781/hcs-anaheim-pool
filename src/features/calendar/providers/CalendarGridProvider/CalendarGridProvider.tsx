@@ -55,7 +55,7 @@ export const CalendarGridProvider = ({ children, days, columns }: CalendarGridPr
 
   const hours = eachHourOfInterval({ start, end })
 
-  const gridPosition = 'absolute top-12 md:top-4 bottom-0 right-0 left-0'
+  const gridPosition = 'absolute top-12 lg:top-4 bottom-0 right-0 left-0'
 
   return (
     <CalendarGridContext.Provider value={{ days, hours, columns, gridPosition }}>

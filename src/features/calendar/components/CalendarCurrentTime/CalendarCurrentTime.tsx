@@ -55,11 +55,11 @@ export const CalendarCurrentTime = ({ heightRef, displayDay }: CurrentTimeProps)
     <div ref={ref} className={clsx(gridPosition, 'pointer-events-none')}>
       <div className="w-full h-full relative">
         <div
-          className="absolute h-1 *themeGradient opacity-60 left-12 right-0"
+          className="absolute h-1 themeGradient opacity-60 left-12 right-0"
           style={{ top }}
         ></div>
         <i
-          className="absolute *themeGradient left-9 opacity-60 h-4 w-4"
+          className="absolute themeGradient left-9 opacity-60 h-4 w-4"
           style={{
             top: top - 6.25,
             clipPath: 'polygon(100% 46%, 0 0, 0 100%)',

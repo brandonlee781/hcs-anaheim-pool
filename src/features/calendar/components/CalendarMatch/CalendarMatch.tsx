@@ -12,7 +12,7 @@ const HeadToHead = ({ left, right }: HeadToHeadProps) => {
   return (
     <div className="flex flex-row flex-nowrap items-center">
       {left}
-      <span className="mx-1 font-xs mx-2">vs</span>
+      <span className="font-xs mx-2">vs</span>
       {right}
     </div>
   )
@@ -64,7 +64,7 @@ export const CalendarMatch = ({
       )}
       <motion.div
         layout="size"
-        className={clsx('h-full mr-2', !highlight && '*themeGradient !bg-gradient-to-b')}
+        className={clsx('h-full mr-2', !highlight && 'themeGradient !bg-gradient-to-b')}
         style={{
           background: highlight && highlightGradient,
           width: highlight ? 9 : 5,

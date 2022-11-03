@@ -9,7 +9,7 @@ import { CalendarCurrentTime } from '../CalendarCurrentTime'
 import { CalendarEvents } from '../CalendarEvents'
 import { CalendarStreamLinks } from '../CalendarStreamLinks'
 
-import styles from './Calendar.module.scss'
+import styles from './Calendar.module.css'
 
 // 90 minutes dividied by the increment
 
@@ -29,13 +29,11 @@ export const Calendar = ({ days, day }: CalendarProps) => {
 
   return (
     <CalendarGridProvider days={days} columns={12}>
-      <div className="w-[100vw] pr-20 lg:(w-full pr-0)">
-        <CalendarStreamLinks className="hidden md:grid" streams={streams} />
+      <div className="w-screen pr-16 lg:w-full lg:pr-0">
+        <CalendarStreamLinks className="hidden lg:grid" streams={streams} />
 
-        <ScrollContainer
-          className={clsx('h-full w-full relative pt-4 !lg:overflow-y-scroll', styles.calendar)}
-        >
-          <CalendarStreamLinks className="md:hidden h-7" streams={streams} />
+        <ScrollContainer className={clsx('h-full w-full relative pt-4', styles.calendar)}>
+          <CalendarStreamLinks className="lg:hidden h-7" streams={streams} />
           <CalendarBackgroundGrid ref={ref} streams={streams} />
 
           <CalendarEvents events={days[day].events} streams={streams} />
