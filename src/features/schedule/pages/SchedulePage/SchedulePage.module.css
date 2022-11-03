@@ -1,11 +1,9 @@
-@import '@/assets/variables';
-
 :root {
-  --content-height: calc(100vh - 32px - 96px - 32px - 48px - 32px);  // screen height - top padding - name - name margin - schedule header - bottom padding
+  /* screen height - top padding - name - name margin - schedule header - bottom padding */
+  --content-height: calc(100vh - 32px - 96px - 32px - 48px - 32px);
 }
 
 .content {
-  height: 100%;
   max-width: calc(100vw - 32px);
   overflow-x: hidden;
 
@@ -26,44 +24,65 @@
   gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  max-width: calc(100vw - 96px);
+  max-width: calc(100vw - 72px);
+
   @media (max-height: 730px) {
     overflow: scroll;
   }
 }
 
-@media (min-width: $lg) {
+.content:global(.with-table) .pools {
+  margin-left: 0 !important;
+  max-width: calc(100vw - 64px);
+}
+
+@media screen(md) {
   .content {
+  }
+}
+
+@media screen(lg) {
+  .content {
+    height: 100%;
     max-height: var(--content-height);
     grid-template-columns: 1fr;
-    grid-template-rows: 60% 1fr;
-    // overflow-x: auto;
+    grid-template-rows: max-content auto;
     overflow-y: hidden;
+  }
+  .content:global(.with-table) {
+    max-height: 100%;
+    grid-template-rows: auto auto;
   }
   .pools {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
-    max-width: 100%;
   }
 }
 
-@media (min-width: $xl) {
-  .content {
+@media screen(xl) {
+  .content:not(:global(.with-table)) {
     grid-template-columns: 1fr 20rem;
     grid-template-rows: 1fr;
   }
-  .pools {
+  .content:not(:global(.with-table)) .pools {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
   }
 }
 
-@media (min-width: $xxl) {
-  .content {
-    grid-template-columns: 1fr auto;
+@media screen(2xl) {
+  .content:not(:global(.with-table)) {
+    grid-template-columns: 1fr minmax(500px, 20%);
   }
-  .pools {
+
+  .content:not(:global(.with-table)) .pools {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+  .content:global(.with-table) {
+    .pools {
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }

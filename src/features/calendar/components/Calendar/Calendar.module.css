@@ -1,0 +1,15 @@
+.calendar {
+  height: 100%;
+  width: 100%;
+  cursor: grab;
+  
+  @media screen(lg) {
+    max-height: calc(75vh - 32px - 96px - 32px - 48px - 32px);
+  }
+  @media screen(xl) {
+    max-height: var(--content-height);
+    overflow-y: scroll;
+  }
+
+}
+
