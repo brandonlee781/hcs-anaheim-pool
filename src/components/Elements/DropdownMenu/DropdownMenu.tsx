@@ -97,7 +97,7 @@ export const DropdownMenu = ({
         variants={variants}
         className={clsx(
           `dropdown-menu`,
-          'absolute right-0 mt-2 origin-top-right divide-y shadow-lg outline-none overflow-hidden',
+          'absolute right-0 mt-2 origin-top-right divide-y shadow-lg outline-none overflow-hidden z-10',
           theme.tableDataStyle
         )}
         style={{

@@ -23,6 +23,11 @@ export async function getTournament(id?: string) {
       title,
       liquipediaLink,
       timezone,
+      location,
+      prizePool,
+      isOnline,
+      startDate,
+      endDate,
       days:tournament-day(
         id,
         name,

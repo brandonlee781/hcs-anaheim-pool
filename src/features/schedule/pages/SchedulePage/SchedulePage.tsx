@@ -45,12 +45,21 @@ export const SchedulePage = () => {
       <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />
     ))
   } else {
-    poolEl = <Participants {...pools[0]} />
+    poolEl = <Participants {...pools[0]} isTable={view === 'table'} />
   }
 
   return (
     <div className="p-8 h-full w-full mx-auto">
-      <ScheduleHeader title={tournament.title} view={view} setView={setView} />
+      <ScheduleHeader
+        title={tournament.title}
+        location={tournament.location}
+        prizePool={tournament.prizePool}
+        startDate={tournament.startDate}
+        endDate={tournament.endDate}
+        isOnline={tournament.isOnline}
+        view={view}
+        setView={setView}
+      />
       <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
       <div
         className={clsx('', styles.content, view === 'table' && 'with-table')}

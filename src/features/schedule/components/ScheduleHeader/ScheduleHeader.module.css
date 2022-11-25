@@ -1,0 +1,6 @@
+.titleGrid {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1.5rem;
+  grid-template-columns: fit-content(35%) auto auto;
+}

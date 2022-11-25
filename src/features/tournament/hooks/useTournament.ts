@@ -56,10 +56,16 @@ export function useTournament() {
 
     return {
       id: data.id,
-      title: data.title,
       liquipediaLink: data.liquipediaLink,
       timezone: data.timezone || 'UTC',
       isPast: data.isPast,
+
+      title: data.title,
+      location: data.location,
+      prizePool: data.prizePool,
+      isOnline: data.isOnline,
+      startDate: data.startDate,
+      endDate: data.endDate,
 
       days: data.days.map(d => {
         return {

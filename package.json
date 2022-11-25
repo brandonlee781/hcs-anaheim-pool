@@ -12,7 +12,7 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "generate-api-types": "yarn dlx openapi-typescript \"https://wfctmtpqpbervzoaiugt.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmY3RtdHBxcGJlcnZ6b2FpdWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjY3ODk1MzgsImV4cCI6MTk4MjM2NTUzOH0.HKh0Eiu5ZnKwpMNr_Bzgy14LqbqIypnFnwd78Q7ryqw\" --output src/types/database/index.ts"
+    "generate-api-types": "yarn dlx openapi-typescript@5.4.0 \"https://wfctmtpqpbervzoaiugt.supabase.co/rest/v1/?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndmY3RtdHBxcGJlcnZ6b2FpdWd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjY3ODk1MzgsImV4cCI6MTk4MjM2NTUzOH0.HKh0Eiu5ZnKwpMNr_Bzgy14LqbqIypnFnwd78Q7ryqw\" --output src/types/database/index.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.4",

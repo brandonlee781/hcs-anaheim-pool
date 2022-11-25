@@ -128,6 +128,11 @@ export interface paths {
           created_at?: parameters["rowFilter.tournament.created_at"];
           /** Flag to determine if tournament is in the past */
           isPast?: parameters["rowFilter.tournament.isPast"];
+          location?: parameters["rowFilter.tournament.location"];
+          prizePool?: parameters["rowFilter.tournament.prizePool"];
+          isOnline?: parameters["rowFilter.tournament.isOnline"];
+          startDate?: parameters["rowFilter.tournament.startDate"];
+          endDate?: parameters["rowFilter.tournament.endDate"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -185,6 +190,11 @@ export interface paths {
           created_at?: parameters["rowFilter.tournament.created_at"];
           /** Flag to determine if tournament is in the past */
           isPast?: parameters["rowFilter.tournament.isPast"];
+          location?: parameters["rowFilter.tournament.location"];
+          prizePool?: parameters["rowFilter.tournament.prizePool"];
+          isOnline?: parameters["rowFilter.tournament.isOnline"];
+          startDate?: parameters["rowFilter.tournament.startDate"];
+          endDate?: parameters["rowFilter.tournament.endDate"];
         };
         header: {
           /** Preference */
@@ -206,6 +216,11 @@ export interface paths {
           created_at?: parameters["rowFilter.tournament.created_at"];
           /** Flag to determine if tournament is in the past */
           isPast?: parameters["rowFilter.tournament.isPast"];
+          location?: parameters["rowFilter.tournament.location"];
+          prizePool?: parameters["rowFilter.tournament.prizePool"];
+          isOnline?: parameters["rowFilter.tournament.isOnline"];
+          startDate?: parameters["rowFilter.tournament.startDate"];
+          endDate?: parameters["rowFilter.tournament.endDate"];
         };
         body: {
           /** tournament */
@@ -786,6 +801,16 @@ export interface definitions {
      * @default true
      */
     isPast: boolean;
+    /** Format: character varying */
+    location?: string;
+    /** Format: double precision */
+    prizePool?: number;
+    /** Format: boolean */
+    isOnline?: boolean;
+    /** Format: date */
+    startDate: string;
+    /** Format: date */
+    endDate: string;
   };
   /** @description Tournament Schedule data */
   "tournament-day": {
@@ -982,6 +1007,16 @@ export interface parameters {
    * @description Flag to determine if tournament is in the past
    */
   "rowFilter.tournament.isPast": string;
+  /** Format: character varying */
+  "rowFilter.tournament.location": string;
+  /** Format: double precision */
+  "rowFilter.tournament.prizePool": string;
+  /** Format: boolean */
+  "rowFilter.tournament.isOnline": string;
+  /** Format: date */
+  "rowFilter.tournament.startDate": string;
+  /** Format: date */
+  "rowFilter.tournament.endDate": string;
   /** @description tournament-day */
   "body.tournament-day": definitions["tournament-day"];
   /** Format: uuid */
