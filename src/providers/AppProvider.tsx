@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+import { AuthProvider } from '@/features/auth'
 import { HoverTeamProvider } from '@/features/teams'
 import { TournamentDayProvider } from '@/features/tournament'
 
@@ -16,7 +17,9 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     <QueryClientProvider client={queryClient}>
       <HoverTeamProvider>
         <ThemeProvider>
-          <TournamentDayProvider>{children}</TournamentDayProvider>
+          <AuthProvider>
+            <TournamentDayProvider>{children}</TournamentDayProvider>
+          </AuthProvider>
         </ThemeProvider>
       </HoverTeamProvider>
     </QueryClientProvider>

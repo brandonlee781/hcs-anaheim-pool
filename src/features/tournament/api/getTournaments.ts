@@ -9,7 +9,7 @@ type TournamentResponse = definitions['tournament'] & {
     events: (Omit<definitions['events'], 'data'> & {
       data: EventData<string>
     })[]
-    streams: { streams: definitions['streams'][] }[]
+    streams: string[]
   })[]
   pools: (Omit<definitions['pools'], 'teams'> & { teams: string[] })[]
 }
@@ -40,24 +40,24 @@ export async function getTournament(id?: string) {
           data,
           streams
         ),
-        streams:tournament-day-to-streams(
-          streams (
-            id,
-            name,
-            link
-          )
-        )
+        streams
       ),
       pools (
         id,
         key,
         name,
-        teams
+        teams,
+        created_at
       )
     `
     )
     .match(id ? { id } : { isPast: false })
     .single()
+
+  const allStreams = Array.from(
+    new Set(data?.days.map(d => d.streams).reduce((a, b) => a.concat(b), []) ?? [])
+  )
+  const { data: streams } = await supabase.from('streams').select().in('id', allStreams)
 
   if (error) {
     throw new Error(error.message)
@@ -68,7 +68,9 @@ export async function getTournament(id?: string) {
     days: data.days.map(day => {
       return {
         ...day,
-        streams: day.streams.map(s => s.streams).reduce((a, b) => a.concat(b), []),
+        streams: day.streams.map(stream => {
+          return streams?.find(s => stream === s?.id)
+        }),
       }
     }),
   }

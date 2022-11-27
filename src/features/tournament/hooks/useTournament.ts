@@ -26,33 +26,33 @@ function getTime(timezone: string) {
   return (date: string, time: string) => `${date}T${time}${offset}`
 }
 
-export function useTournament() {
+export const getTeam = (teamName: string, teams?: Team[]): Team => {
+  const found = teams?.find(t => t.id === teamName)
+  if (found) {
+    return found
+  }
+  return {
+    id: '',
+    name: teamName,
+    color: '',
+    region: 'NA' as Region.NA,
+    image: '',
+  }
+}
+
+export function useTournament(id?: string) {
   const { day, previousDay, setDay } = useContext(TournamentDayContext)
   const {
     data,
     error,
     isLoading: tournamentLoading,
-  } = useQuery(['tournament'], () => getTournament())
+  } = useQuery(['tournament'], () => getTournament(id))
 
   const { data: teams, isLoading: teamsLoading } = useTeams()
 
   const tournament = useMemo<Tournament | null>(() => {
     if (!data) return null
     const timeFn = getTime(data.timezone || 'UTC')
-
-    const getTeam = (teamName: string): Team => {
-      const found = teams?.find(t => t.id === teamName)
-      if (found) {
-        return found
-      }
-      return {
-        id: '',
-        name: teamName,
-        color: '',
-        region: 'NA' as Region.NA,
-        image: '',
-      }
-    }
 
     return {
       id: data.id,
@@ -77,7 +77,7 @@ export function useTournament() {
               streams: ev.streams as string[],
               data: {
                 ...ev.data,
-                teams: ev.data.teams?.map(t => getTeam(t)),
+                teams: ev.data.teams?.map(t => getTeam(t, teams)),
               },
             }
           }),
@@ -87,7 +87,7 @@ export function useTournament() {
         data.pools?.map(pool => {
           return {
             ...pool,
-            teams: pool.teams?.map(t => getTeam(t)),
+            teams: pool.teams?.map(t => getTeam(t, teams)),
           }
         }) || [],
     }

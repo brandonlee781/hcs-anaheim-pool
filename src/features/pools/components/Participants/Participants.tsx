@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { Card } from '@/components/Elements/Card'
+import { TeamPoolItem } from '@/features/pools'
+import { Team } from '@/features/teams'
 import type { Pool } from '@/features/tournament'
-
-import { TeamPoolItem } from '../TeamPoolItem'
 
 type ParticipantsProps = Pool
 export const Participants = ({
@@ -29,7 +29,7 @@ export const Participants = ({
           <div className="border-b-2 dark:border-hcsDark-800 border-white flex items-center justify-center col-span-2 md:col-span-4">
             <span>{name}</span>
           </div>
-          {teams.map((team, index) => (
+          {teams.map((team: Team, index: number) => (
             <TeamPoolItem
               extraClass="border-r-1 border-hcsDark-800"
               key={team.name}

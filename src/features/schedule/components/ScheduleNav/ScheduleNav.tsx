@@ -1,3 +1,4 @@
+import { isBefore } from 'date-fns'
 import { motion } from 'framer-motion'
 import DarkMode from 'virtual:icons/mdi/theme-light-dark'
 
@@ -57,23 +58,31 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
           ref={rowRef}
           className="w-full flex flex-row items-start md:items-center overflow-y-scroll scrollbar-hide relative"
         >
-          {days?.map((d, index) => {
-            return (
-              <a
-                key={index}
-                ref={el => (linkRefs.current[index] = el || null)}
-                className={`cursor-pointer p-2 mx-2 whitespace-nowrap text-center rounded-md hover:opacity-80 ${
-                  current === index ? 'active bg-red' : ''
-                }`}
-                role="button"
-                tabIndex={index}
-                onClick={() => clickDay(index)}
-                onKeyDown={() => clickDay(index)}
-              >
-                {t(`days:${d.name}`)}
-              </a>
-            )
-          })}
+          {days
+            ?.sort((a, b) => {
+              const aDate = new Date(a.date)
+              const bDate = new Date(b.date)
+              if (isBefore(aDate, bDate)) return -1
+              if (isBefore(bDate, aDate)) return 1
+              return 0
+            })
+            ?.map((d, index) => {
+              return (
+                <a
+                  key={index}
+                  ref={el => (linkRefs.current[index] = el || null)}
+                  className={`cursor-pointer p-2 mx-2 whitespace-nowrap text-center rounded-md hover:opacity-80 ${
+                    current === index ? 'active bg-red' : ''
+                  }`}
+                  role="button"
+                  tabIndex={index}
+                  onClick={() => clickDay(index)}
+                  onKeyDown={() => clickDay(index)}
+                >
+                  {t(`days:${d.name}`)}
+                </a>
+              )
+            })}
           <motion.div
             initial={{ x: 8 }}
             animate={{ x: sliderX, transition: { duration: 0.3 } }}

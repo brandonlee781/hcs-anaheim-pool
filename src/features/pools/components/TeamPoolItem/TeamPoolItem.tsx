@@ -2,9 +2,7 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { CSSProperties } from 'react'
 
-import { HoverTeamContext } from '../../providers/HoverTeamProvider'
-import { Team } from '../../types'
-import { createTeamGradient } from '../../utils/createTeamGradient'
+import { createTeamGradient, HoverTeamContext, Team } from '@/features/teams'
 
 const DEFAULT_FLEX_GROW = 1
 const EXPANDED_FLEX_GROW = 2

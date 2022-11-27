@@ -1,3 +1,4 @@
+import { Pool } from '@/features/pools'
 import { Team } from '@/features/teams'
 import { definitions } from '@/types/database'
 
@@ -33,8 +34,6 @@ export type TournamentDay = Omit<definitions['tournament-day'], 'name'> & {
   events: TournamentEvent[]
   streams: Stream[]
 }
-
-export type Pool = Omit<definitions['pools'], 'teams'> & { teams: Team[] }
 
 export type Tournament = definitions['tournament'] & {
   days: TournamentDay[]

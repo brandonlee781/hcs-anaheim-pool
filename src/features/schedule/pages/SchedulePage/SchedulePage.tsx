@@ -4,8 +4,8 @@ import { useSessionStorage } from 'react-use'
 
 import { Spinner } from '@/components/Elements/Spinner'
 import { Calendar } from '@/features/calendar'
+import { Participants, TeamPool } from '@/features/pools'
 import { ScheduleTable } from '@/features/table'
-import { TeamPool, Participants } from '@/features/teams'
 import { useTournament } from '@/features/tournament'
 
 import { ScheduleHeader } from '../../components/ScheduleHeader'

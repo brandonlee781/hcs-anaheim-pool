@@ -1,0 +1,14 @@
+.tournamentForm {
+  display: grid;
+  gap: 8px;
+  grid-template-areas:
+    'title title link link'
+    'location prizePool startDate endDate';
+}
+
+.tournamentForm div:nth-child(1) {
+  grid-area: title;
+}
+.tournamentForm div:nth-child(2) {
+  grid-area: link;
+}

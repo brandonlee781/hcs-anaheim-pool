@@ -3173,6 +3173,7 @@ __metadata:
     prettier: ^2.3.0
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-hook-form: ^7.39.5
     react-i18next: ^12.0.0
     react-indiana-drag-scroll: ^2.2.0
     react-router-dom: ^6.4.2
@@ -6886,6 +6887,15 @@ __metadata:
   peerDependencies:
     react: ">=16.13.1"
   checksum: f36270a5d775a25c8920f854c0d91649ceea417b15b5bc51e270a959b0476647bb79abb4da3be7dd9a4597b029214e8fe43ea914a7f16fa7543c91f784977f1b
+  languageName: node
+  linkType: hard
+
+"react-hook-form@npm:^7.39.5":
+  version: 7.39.5
+  resolution: "react-hook-form@npm:7.39.5"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: 91bc9543c17b9924c0786fbc4fed6b9d85db52843cdb053de81c9a7c8ad5cb9b28a39615b1b67196f6bdf49fa92c14cd924238c2555be0c23591273713041f88
   languageName: node
   linkType: hard
 

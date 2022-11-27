@@ -9,3 +9,4 @@ export type {
   Stream,
   Pool,
 } from './types'
+export { TournamentRoutes } from './routes'
