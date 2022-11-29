@@ -40,3 +40,19 @@ export type Tournament = definitions['tournament'] & {
   days: TournamentDay[]
   pools: Pool[]
 }
+
+export type TournamentEventResponse = Omit<definitions['events'], 'data' | 'streams'> & {
+  data: EventData<string>
+  streams?: string[]
+}
+export type TournamentDayResponse = Omit<definitions['tournament-day'], 'name' | 'include'> & {
+  name: TournamentDayIds
+  events: TournamentEventResponse[]
+  include: string[]
+  streams: string[]
+}
+export type TournamentPoolResponse = Omit<definitions['pools'], 'teams'> & { teams: string[] }
+export type TournamentResponse = definitions['tournament'] & {
+  days: TournamentDayResponse[]
+  pools: TournamentPoolResponse[]
+}

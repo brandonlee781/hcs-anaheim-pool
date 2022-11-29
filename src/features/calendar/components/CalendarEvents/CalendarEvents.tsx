@@ -45,14 +45,14 @@ const variants = {
 }
 
 type CalendarEventsProps = {
-  events: TournamentEvent[]
+  events?: TournamentEvent[]
   streams: Stream[]
   onExit?: () => void
 }
 export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
   const { t } = useTranslation()
   const { rows, columns, getPosition, gridPosition } = useTimeslots()
-  const sortedEvents = events.sort((a, b) => {
+  const sortedEvents = events?.sort((a, b) => {
     const val = parseTime(a.time).getTime() - parseTime(b.time).getTime()
 
     if (val > 0) return 1
@@ -62,7 +62,7 @@ export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
     return aStreamIdx - bStreamIdx
   })
 
-  if (!sortedEvents.length) {
+  if (!sortedEvents?.length) {
     const gridRow = `2 / span ${rows / 4}`
     const gridColumn = `${(columns / 3) + 1} / span ${(columns / 2)}`
 

@@ -12,6 +12,7 @@ import SassDTS from 'vite-plugin-sass-dts'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/hcs-tournament-schedule/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -41,10 +42,10 @@ export default defineConfig({
     }),
     VitePWA({
       base: '/hcs-tournament-schedule/',
-      srcDir: 'src',
-      filename: 'sw.ts',
-      strategies: 'injectManifest',
-      includeAssets: ['favicon.ico', 'robots.txt'],
+      // srcDir: 'src',
+      // filename: 'sw.ts',
+      strategies: 'generateSW',
+      // includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
         name: 'HCS Tournament Schedule',
         short_name: 'HCS Schedule',
@@ -85,6 +86,12 @@ export default defineConfig({
             type: 'image/svg',
           },
         ],
+      },
+      devOptions: {
+        enabled: true,
+        /* when using generateSW the PWA plugin will switch to classic */
+        type: 'module',
+        navigateFallback: 'index.html',
       },
     }),
     AutoImport({

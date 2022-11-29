@@ -1,22 +1,8 @@
 import { supabase } from '@/lib/supabase'
-import { definitions } from '@/types/database'
 
-import { EventData, TournamentDayIds } from '../types'
+import { TournamentResponse } from '../types'
 
 import { getStreams } from './getStreams'
-
-export type TournamentResponse = definitions['tournament'] & {
-  days: (Omit<definitions['tournament-day'], 'name' | 'include'> & {
-    name: TournamentDayIds
-    events: (Omit<definitions['events'], 'data' | 'streams'> & {
-      data: EventData<string>
-      streams?: string[]
-    })[]
-    include: string[]
-    streams: string[]
-  })[]
-  pools: (Omit<definitions['pools'], 'teams'> & { teams: string[] })[]
-}
 
 export async function getTournament(id?: string) {
   const { data, error } = await supabase

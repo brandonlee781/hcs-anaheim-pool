@@ -43,7 +43,7 @@ export const ScheduleHeader = ({
       <div className="md:flex md:flex-flow md:flex-nowrap items-center">
         <HCSLogo
           className="hidden md:dark:inline-block h-12 md:h-24 w-auto mx-8"
-          primary="#ffffffcc"
+          primary="transparent"
           background="#ffffff99"
           outline="transparent"
         />

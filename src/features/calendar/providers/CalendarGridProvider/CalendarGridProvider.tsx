@@ -33,6 +33,7 @@ type CalendarGridProviderProps = {
 export const CalendarGridProvider = ({ children, days, columns }: CalendarGridProviderProps) => {
   const timeArray = days
     .map(d => d.events)
+    .filter(Boolean)
     .reduce((a, b) => a.concat(b), [])
     .map(e => e.time)
     .sort()

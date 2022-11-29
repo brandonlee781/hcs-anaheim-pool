@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 
 import { Card } from '@/components/Elements/Card'
+import { Team } from '@/features/teams'
 
-import { Team } from '../../types'
 import { TeamPoolItem } from '../TeamPoolItem'
 
 type TeamPoolProps = {

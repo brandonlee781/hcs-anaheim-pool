@@ -1,14 +1,18 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import { EventData, Stream, TournamentEvent, TournamentResponse } from '@/features/tournament'
+import {
+  Stream,
+  TournamentEvent,
+  TournamentResponse,
+  TournamentEventResponse,
+} from '@/features/tournament'
 import { supabase } from '@/lib/supabase'
-import { definitions } from '@/types/database'
 
 export type EventPayload = Omit<Partial<TournamentEvent>, 'streams' | 'data'> & {
   streams: Stream[]
 } & TournamentEvent['data']
 
-type EventResponse = Omit<definitions['events'], 'data'> & { data: EventData<string> }
+type EventResponse = TournamentEventResponse
 
 export async function updateEvent(id: string, payload: EventPayload): Promise<EventResponse> {
   const pPayload = {

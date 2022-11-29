@@ -8,7 +8,7 @@ import { TournamentsPage } from '../pages/TournamentsPage'
 export const TournamentRoutes = () => {
   const { user } = useContext(AuthContext)
 
-  if (!user) return
+  if (!user) return <Routes></Routes>
 
   return (
     <Routes>

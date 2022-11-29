@@ -4,6 +4,8 @@ import { RouterProvider } from 'react-router-dom'
 import { AppProvider } from '@/providers/AppProvider'
 import { router } from '@/routes'
 
+import { ReloadPrompt } from './components/Elements/ReloadPrompt'
+
 function App() {
   return (
     <AppProvider>
@@ -13,6 +15,7 @@ function App() {
           <RouterProvider router={router} />
         </div>
       </div>
+      <ReloadPrompt />
     </AppProvider>
   )
 }

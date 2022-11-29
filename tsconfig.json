@@ -17,6 +17,7 @@
     "jsx": "react-jsx",
     "types": [
       "unplugin-icons/types/react",
+      "vite-plugin-pwa/client"
     ],
     "baseUrl": ".",
     "paths": {

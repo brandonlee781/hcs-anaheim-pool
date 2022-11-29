@@ -2,9 +2,8 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { Card } from '@/components/Elements/Card'
-import { TeamPoolItem } from '@/features/pools'
+import { TeamPoolItem, Pool } from '@/features/pools'
 import { Team } from '@/features/teams'
-import type { Pool } from '@/features/tournament'
 
 type ParticipantsProps = Pool
 export const Participants = ({
