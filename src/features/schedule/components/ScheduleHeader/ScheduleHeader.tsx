@@ -57,24 +57,24 @@ export const ScheduleHeader = ({
           <div className="touranment-title col-span-full text-[2.5rem] font-super-bold w-full">
             {title}
           </div>
-          <div className="md:flex md:flex-nowrap items-center w-full">
+          <div className="flex flex-wrap md:flex-nowrap items-center w-full">
             {!isOnline ? (
-              <div className="location flex text-sm items-center mr-4">
+              <div className="location flex min-w-fit text-sm items-center mr-4">
                 <Location className="mr-1" />
                 <span>{location}</span>
               </div>
             ) : (
-              <div className="location location-online flex text-sm items-center mr-4">
+              <div className="location location-online flex min-w-fit text-sm items-center mr-4">
                 <Earth className="mr-1" />
                 Online
               </div>
             )}
 
-            <div className="prizePool flex text-sm items-center mr-4">
+            <div className="prizePool flex min-w-fit text-sm items-center mr-4">
               <Trophy className="mr-1" />
               <span>{formatter.format(prizePool)}</span>
             </div>
-            <div className="tournament-dates flex text-sm items-center mr-4">
+            <div className="tournament-dates flex min-w-fit text-sm items-center mr-4">
               <CalendarStar className="mr-1" />
               <span>
                 {formatStart} - {formatEnd}
