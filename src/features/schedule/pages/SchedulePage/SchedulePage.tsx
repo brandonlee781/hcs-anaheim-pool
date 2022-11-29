@@ -64,7 +64,7 @@ export const SchedulePage = () => {
       />
       <ScheduleNav days={tournament.days} current={day} setDay={setDay} />
       <div
-        className={clsx('', styles.content, view === 'table' && 'with-table')}
+        className={clsx('scrollbar-hide', styles.content, view === 'table' && 'with-table')}
         data-pool-count={pools.length}
       >
         <motion.div layout className="content-wrapper lg:max-w-full">

@@ -4,8 +4,6 @@
 }
 
 .content {
-  max-width: calc(100vw - 32px);
-  overflow-x: hidden;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -22,8 +20,9 @@
   max-height: var(--content-height);
   display: grid;
   gap: 0.5rem;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   max-width: calc(100vw - 72px);
 
   @media (max-height: 730px) {
@@ -38,6 +37,12 @@
 
 @media screen(md) {
   .content {
+    max-width: calc(100vw - 32px);
+    overflow-x: hidden;
+  }
+  .pools {
+    grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   }
 }
 

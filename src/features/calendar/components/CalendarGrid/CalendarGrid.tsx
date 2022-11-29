@@ -14,7 +14,7 @@ export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
     return (
       <div
         ref={ref}
-        className={clsx('grid w-full min-w-[1024px] lg:min-w-full', className)}
+        className={clsx('grid w-full min-w-[800px] lg:min-w-full', className)}
         style={{
           gridTemplateRows: `repeat(${rows}, ${height || GRID_ITEM_HEIGHT})`,
           gridTemplateColumns: `${leadingWidth} repeat(${cols}, 1fr)`,
@@ -25,3 +25,5 @@ export const CalendarGrid = forwardRef<HTMLDivElement, CalendarGridProps>(
     )
   }
 )
+
+CalendarGrid.displayName = 'CalendarGrid'
