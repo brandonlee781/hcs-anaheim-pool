@@ -16,7 +16,7 @@ export const ScheduleTableData = forwardRef<HTMLTableCellElement, ScheduleTableD
       <td
         ref={ref}
         className={clsx(
-          'p-2 whitespace-nowrap relative border-4 border-hcsDark-800 last:border-0',
+          'p-2 whitespace-nowrap relative border-4 first:border-l-0 first:border-b-0 dark:border-hcsDark-800 border-white last:border-0',
           className
         )}
         colSpan={colSpan}

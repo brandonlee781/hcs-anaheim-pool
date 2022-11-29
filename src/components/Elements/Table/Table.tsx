@@ -24,7 +24,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ headers, headerEls, children, className }, ref) => {
     return (
       <div className={clsx('flex flex-col h-full', className)}>
-        <div className="h-full overflow-x-auto shadow-md rounded-lg">
+        <div className="h-full overflow-x-auto rounded-lg bg-transparent">
           <div className="inline-block min-w-full h-full align-middle">
             <div className="overflow-hidden h-full">
               <table
