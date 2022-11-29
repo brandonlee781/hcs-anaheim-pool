@@ -49,7 +49,7 @@ export const TournamentPage = () => {
     }
   }
   return (
-    <div className="wrapper w-full h-full p-4 mb-[10rem]">
+    <div className="wrapper w-screen h-full p-4 mb-[10rem]">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-nowrap w-full justify-between mb-4">
           <Button to="/tournament">Back</Button>

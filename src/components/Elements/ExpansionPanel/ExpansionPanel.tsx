@@ -35,7 +35,7 @@ type ExpansionPanelProps = {
 export const ExpansionPanel = ({ title, children }: ExpansionPanelProps) => {
   const [open, setOpen] = useState(false)
   return (
-    <div className="w-full">
+    <div className="max-w-full">
       <div className="my-2 bg-gray-50 dark:bg-gray-700 flex flex-col border border-gray-200 rounded">
         <ExpansionPanelTitle title={title} open={open} onClick={() => setOpen(!open)} />
         <AnimatePresence initial={false}>

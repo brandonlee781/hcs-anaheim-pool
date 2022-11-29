@@ -114,7 +114,7 @@ export const PoolsForm = ({ pools, tournamentId }: PoolsFormProps) => {
 
   return (
     <ExpansionPanel title="Pools">
-      <div className="grid grid-cols-4 gap-2 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 p-4">
         {formPools
           ?.sort((a, b) => {
             const timeA = new Date(a.data.created_at!)

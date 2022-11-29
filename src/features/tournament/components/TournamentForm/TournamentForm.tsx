@@ -5,8 +5,6 @@ import { Input } from '@/components/Elements/Form/Input'
 
 import { Tournament } from '../../types'
 
-import styles from './TournamentForm.module.css'
-
 import Earth from '~icons/mdi/earth'
 
 type TournamentFormProps = Pick<
@@ -46,7 +44,7 @@ export const TournamentForm = ({
   }
 
   return (
-    <div className={clsx('grid grid-cols-12 grid-rows-2 gap-2')}>
+    <div className={clsx('grid grid-cols-1 grid-auto-rows md:grid-cols-12 md:grid-rows-2 gap-2')}>
       <Input
         {...register('title')}
         defaultValue={title}
