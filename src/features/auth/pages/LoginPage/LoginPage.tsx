@@ -14,7 +14,10 @@ export const LoginPage = () => {
 
     try {
       setLoading(true)
-      const { error } = await supabase.auth.signInWithOtp({ email })
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: 'https://brandonlee781.github.io/hcs-tournament-schedule/' },
+      })
       if (error) throw error
       alert('Check your email for the login link!')
     } catch (error: any) {
