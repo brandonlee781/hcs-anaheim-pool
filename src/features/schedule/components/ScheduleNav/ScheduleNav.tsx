@@ -56,7 +56,7 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
       <nav className="row-start-2 col-span-2 md:row-start-1 md:col-start-2 md:col-span-1 md:justify-self-center overflow-y-hidden">
         <div
           ref={rowRef}
-          className="w-full flex flex-row items-start md:items-center overflow-y-scroll scrollbar-hide relative"
+          className="w-full flex flex-row items-start md:items-center overflow-x-scroll scrollbar-hide relative"
         >
           {days
             ?.sort((a, b) => {
@@ -93,9 +93,9 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
           ></motion.div>
         </div>
       </nav>
-      <div className="controls flex flex-nowrap justify-end items-center">
+      <div className="controls fixed top-4 right-8 md:relative flex flex-nowrap justify-end items-center">
         <button
-          className="cursor-pointer w-4 h-4"
+          className="md:top-0 md:right-0 cursor-pointer w-4 h-4"
           onClick={() => toggleDarkMode()}
           onKeyDown={() => toggleDarkMode()}
         >
