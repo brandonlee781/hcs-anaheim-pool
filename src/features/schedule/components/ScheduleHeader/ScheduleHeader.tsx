@@ -39,40 +39,42 @@ export const ScheduleHeader = ({
   const formatStart = startDate ? format(parse(startDate, 'yyyy-MM-dd', new Date()), 'MMM dd') : ''
   const formatEnd = endDate ? format(parse(endDate, 'yyyy-MM-dd', new Date()), 'MMM dd') : ''
   return (
-    <div className="flex items-center justify-between mb-8">
-      <div className="flex flex-flow flex-nowrap items-center">
+    <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-4">
+      <div className="md:flex md:flex-flow md:flex-nowrap items-center">
         <HCSLogo
-          className="hidden dark:inline-block h-24 w-auto mx-8"
+          className="hidden md:dark:inline-block h-12 md:h-24 w-auto mx-8"
           primary="#ffffffcc"
           background="#ffffff99"
           outline="transparent"
         />
         <HCSLogo
-          className="dark:hidden h-24 w-auto mx-8"
+          className="hidden md:inline-block md:dark:hidden h-12 md:h-24 w-auto mx-8"
           primary="#000000aa"
           background="#33333344"
           outline="transparent"
         />
         <div className="flex flex-col w-full">
-          <div className="col-span-full text-[2.5rem] font-super-bold w-full">{title}</div>
-          <div className="flex flex-nowrap items-center w-full">
+          <div className="touranment-title col-span-full text-[2.5rem] font-super-bold w-full">
+            {title}
+          </div>
+          <div className="md:flex md:flex-nowrap items-center w-full">
             {!isOnline ? (
-              <div className="flex text-sm items-center mr-4">
+              <div className="location flex text-sm items-center mr-4">
                 <Location className="mr-1" />
                 <span>{location}</span>
               </div>
             ) : (
-              <div className="flex text-sm items-center mr-4">
+              <div className="location location-online flex text-sm items-center mr-4">
                 <Earth className="mr-1" />
                 Online
               </div>
             )}
 
-            <div className="flex text-sm items-center mr-4">
+            <div className="prizePool flex text-sm items-center mr-4">
               <Trophy className="mr-1" />
               <span>{formatter.format(prizePool)}</span>
             </div>
-            <div className="flex text-sm items-center mr-4">
+            <div className="tournament-dates flex text-sm items-center mr-4">
               <CalendarStar className="mr-1" />
               <span>
                 {formatStart} - {formatEnd}
@@ -81,10 +83,10 @@ export const ScheduleHeader = ({
           </div>
         </div>
       </div>
-      <div className="h-full flex flex-col lg:flex-row flex-nowrap items-end">
+      <div className="flex lg:flex-col xl:flex-row justify-end mt-4 lg:mt-0">
         <Button
           className={clsx(
-            'border-0 max-w-30 mb-2 lg:mr-2 lg:mb-0 lg:max-w-full text-white',
+            'border-0 max-w-30 mr-2 lg:mb-2 lg:mr-0 lg:max-w-full xl:m-0 xl:mr-2 text-white',
             view === 'table' ? 'themeGradient' : 'dark:bg-gray-700/30 bg-gray-700/70'
           )}
           size="sm"
