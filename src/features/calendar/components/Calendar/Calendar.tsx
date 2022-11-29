@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import ScrollContainer from 'react-indiana-drag-scroll'
+import 'react-indiana-drag-scroll/dist/style.css'
 
 import { Stream, TournamentDay } from '@/features/tournament'
 
@@ -32,7 +33,9 @@ export const Calendar = ({ days, day }: CalendarProps) => {
       <div className="w-screen pr-16 lg:w-full lg:pr-0">
         <CalendarStreamLinks className="hidden lg:grid" streams={streams} />
 
-        <ScrollContainer className={clsx('h-full w-full relative pt-4', styles.calendar)}>
+        <ScrollContainer
+          className={clsx('h-full w-full relative pt-4 hide-scrollbar', styles.calendar)}
+        >
           <CalendarStreamLinks className="lg:hidden h-7" streams={streams} />
           <CalendarBackgroundGrid ref={ref} streams={streams} />
 
