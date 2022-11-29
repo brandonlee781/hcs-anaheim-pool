@@ -44,6 +44,8 @@ const DropdownMenuActivator = ({
   )
 }
 
+DropdownMenuActivator.displayName = 'DropdownMenuActivator'
+
 type DropdownMenuProps = {
   children: React.ReactNode
   className?: string
@@ -69,12 +71,12 @@ export const DropdownMenu = ({
 
   const activator = Children.toArray(children).find(child => {
     if (isValidElement(child)) {
-      return (child.type as unknown as () => void).name === 'DropdownMenuActivator'
+      return child.type === DropdownMenuActivator
     }
   })
   let menu = Children.toArray(children).find(child => {
     if (isValidElement(child)) {
-      return (child.type as unknown as () => void).name !== 'DropdownMenuActivator'
+      return child.type !== DropdownMenuActivator
     }
   }) as React.ReactElement
 
