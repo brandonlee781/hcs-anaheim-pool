@@ -1,6 +1,6 @@
-import Translate from 'virtual:icons/mdi/translate'
-
 import { DropdownMenu } from '@/components/Elements/DropdownMenu'
+
+import Translate from '~icons/mdi/translate'
 
 type MenuItemProps = {
   children: React.ReactNode
