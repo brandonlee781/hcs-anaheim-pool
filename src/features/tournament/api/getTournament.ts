@@ -6,11 +6,13 @@ import { EventData, TournamentDayIds } from '../types'
 import { getStreams } from './getStreams'
 
 export type TournamentResponse = definitions['tournament'] & {
-  days: (Omit<definitions['tournament-day'], 'name'> & {
+  days: (Omit<definitions['tournament-day'], 'name' | 'include'> & {
     name: TournamentDayIds
-    events: (Omit<definitions['events'], 'data'> & {
+    events: (Omit<definitions['events'], 'data' | 'streams'> & {
       data: EventData<string>
+      streams?: string[]
     })[]
+    include: string[]
     streams: string[]
   })[]
   pools: (Omit<definitions['pools'], 'teams'> & { teams: string[] })[]
@@ -71,9 +73,11 @@ export async function getTournament(id?: string) {
     days: data.days.map(day => {
       return {
         ...day,
-        streams: day.streams.map(stream => {
-          return streams?.find(s => stream === s?.id)
-        }),
+        streams: day.streams
+          .map(stream => {
+            return streams?.find(s => stream === s?.id)
+          })
+          .filter(Boolean),
       }
     }),
   }
