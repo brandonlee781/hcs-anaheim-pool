@@ -40,8 +40,6 @@ export const TeamPoolItem = (props: TeamPoolItemProps) => {
       variants={variants}
       role="button"
       tabIndex={0}
-      onFocus={() => setTeam(team)}
-      onBlur={() => setTeam(team)}
       onMouseEnter={() => setTeam(team)}
       onMouseLeave={() => setTeam(null)}
       onClick={() => setTeam(team, true)}
