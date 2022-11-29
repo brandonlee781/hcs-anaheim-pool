@@ -1,33 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
-import { getTimezoneOffset } from 'date-fns-tz'
+import { isBefore } from 'date-fns'
 
 import { Team, useTeams, Region } from '@/features/teams'
 
 import { getTournament } from '../api/getTournament'
 import { TournamentDayContext } from '../providers/TournamentDayProvider'
 import { Tournament } from '../types'
-
-const getOffset = (timeZone = 'UTC') => {
-  const options: Intl.DateTimeFormatOptions = {
-    timeZone,
-    timeZoneName: 'longOffset' as const,
-  }
-  const dateText = Intl.DateTimeFormat([], options).format(new Date())
-
-  // Scraping the numbers we want from the text
-  // The default value '+0' is needed when the timezone is missing the number part.
-  // Ex. Africa/Bamako --> GMT
-  const timezoneString = dateText.split(' ')[1].slice(3) || '+0'
-
-  return timezoneString
-}
-
-function getTime(timezone: string) {
-  const offset = getOffset(timezone)
-  return (date: string, time: string) => {
-    return `${date}T${time}${offset}`
-  }
-}
 
 export const getTeam = (teamName: string, teams?: Team[]): Team => {
   const found = teams?.find(t => t.id === teamName)
@@ -55,7 +33,6 @@ export function useTournament(id?: string) {
 
   const tournament = useMemo<Tournament | null>(() => {
     if (!data) return null
-    const timeFn = getTime(data.timezone || 'UTC')
 
     return {
       id: data.id,
@@ -70,29 +47,42 @@ export function useTournament(id?: string) {
       startDate: data.startDate,
       endDate: data.endDate,
 
-      days: data.days.map(d => {
-        return {
-          ...d,
-          events: d.events?.map(ev => {
-            return {
-              ...ev,
-              // time: timeFn(d.date, ev.time),
-              streams: ev.streams as string[],
-              data: {
-                ...ev.data,
-                teams: ev.data.teams?.map(t => getTeam(t, teams)),
-              },
-            }
-          }),
-        }
-      }),
-      pools:
-        data.pools?.map(pool => {
+      days: data.days
+        .sort((a, b) => {
+          const aDate = new Date(a.date)
+          const bDate = new Date(b.date)
+          if (isBefore(aDate, bDate)) return -1
+          if (isBefore(bDate, aDate)) return 1
+          return 0
+        })
+        .map(d => {
           return {
-            ...pool,
-            teams: pool.teams?.map(t => getTeam(t, teams)),
+            ...d,
+            events: d.events?.map(ev => {
+              return {
+                ...ev,
+                streams: ev.streams as string[],
+                data: {
+                  ...ev.data,
+                  teams: ev.data.teams?.map(t => getTeam(t, teams)),
+                },
+              }
+            }),
           }
-        }) || [],
+        }),
+      pools:
+        data.pools
+          ?.sort((a, b) => {
+            if (a.key < b.key) return -1
+            if (a.key > b.key) return 1
+            return 0
+          })
+          ?.map(pool => {
+            return {
+              ...pool,
+              teams: pool.teams?.map(t => getTeam(t, teams)),
+            }
+          }) || [],
     }
   }, [data, teams])
 
