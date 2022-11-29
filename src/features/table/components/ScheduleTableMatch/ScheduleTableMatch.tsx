@@ -12,15 +12,19 @@ const TableHeadToHead = forwardRef<HTMLDivElement, TableHeadToHeadProps>(
       <div
         ref={ref}
         className={clsx(
-          'match-teams row-start-2 row-span-1 col-start-1 col-span-2',
+          'match-teams row-start-2 row-span-1 col-start-1',
           'text-md font-semibold tracking-wider lead min-w-full',
           'flex flex-row items-center justify-center md:flex-col lg:flex-row',
           className
         )}
       >
-        <span className="text-right w-40">{left}</span>
+        <span className="text-right" style={{ width: 'calc(50% - 4px)' }}>
+          {left}
+        </span>
         <span className="mx-2">vs</span>
-        <span className="text-left w-40">{right}</span>
+        <span className="text-left" style={{ width: 'calc(50% - 4px)' }}>
+          {right}
+        </span>
       </div>
     )
   }
@@ -37,7 +41,7 @@ const TableSplitTeamMatch = forwardRef<HTMLDivElement, TableSplitTeamMatchProps>
       <div
         ref={ref}
         className={clsx(
-          'match-teams row-start-2 row-span-1 col-start-1 col-span-2',
+          'match-teams row-start-2 row-span-1 col-start-1',
           'text-md font-semibold tracking-wider lead min-w-full',
           className
         )}
@@ -61,11 +65,11 @@ export const ScheduleTableMatch = ({ teams }: ScheduleTableMatchProps) => {
     const Left = () => (
       <TableSplitTeamMatch
         teams={[team1, team2]}
-        className="col-span-1 col-start-1 row-start-2 flex flex-col flex-nowrap items-center"
+        className="col-start-1 row-start-2 flex flex-col flex-nowrap items-center"
       />
     )
     const Right = () => (
-      <div className="col-start-3 col-span-1 row-start-2 flex flex-col flex-nowrap justify-center">
+      <div className="col-start-3 row-start-2 flex flex-col flex-nowrap justify-center">
         {team3.name}
       </div>
     )
@@ -83,13 +87,13 @@ export const ScheduleTableMatch = ({ teams }: ScheduleTableMatchProps) => {
     const Left = () => (
       <TableSplitTeamMatch
         teams={[team1, team2]}
-        className="col-span-1 col-start-1 row-start-2 flex flex-col flex-nowrap items-center"
+        className="col-start-1 row-start-2 flex flex-col flex-nowrap items-center"
       />
     )
     const Right = () => (
       <TableSplitTeamMatch
         teams={[team3, team4]}
-        className="col-span-1 col-start-1 row-start-2 flex flex-col flex-nowrap items-center"
+        className="col-start-1 row-start-2 flex flex-col flex-nowrap items-center"
       />
     )
     return (

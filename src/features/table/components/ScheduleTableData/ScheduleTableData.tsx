@@ -24,8 +24,7 @@ export const ScheduleTableData = forwardRef<HTMLTableCellElement, ScheduleTableD
         <div className={styles.background} style={{ borderColor: highlightColor }}></div>
         <div
           className={clsx(
-            'h-full w-full text-sm font-medium data-slot underline decoration-3 md:no-underline',
-            styles['mobile-row']
+            'h-full w-full text-sm font-medium data-slot underline decoration-3 md:no-underline'
           )}
           style={{ textDecorationColor: highlightColor }}
         >

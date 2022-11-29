@@ -93,7 +93,7 @@ export const ScheduleNav = ({ days, current, setDay }: ScheduleNavProps) => {
           ></motion.div>
         </div>
       </nav>
-      <div className="controls fixed top-4 right-8 md:relative md:top-0 md:right-0 flex flex-nowrap justify-end items-center">
+      <div className="controls z-50 fixed top-4 right-8 md:relative md:top-0 md:right-0 flex flex-nowrap justify-end items-center">
         <button
           className="md:top-0 md:right-0 cursor-pointer w-4 h-4"
           onClick={() => toggleDarkMode()}

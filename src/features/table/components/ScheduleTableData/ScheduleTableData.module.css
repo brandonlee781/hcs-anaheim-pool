@@ -11,9 +11,9 @@
   pointer-events: none;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .mobile-row {
     display: flex;
     flex-flow: column wrap;
   }
-}
+} */

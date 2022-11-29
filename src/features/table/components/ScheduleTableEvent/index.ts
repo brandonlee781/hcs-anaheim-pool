@@ -1,1 +1,1 @@
-export { ScheduleTableEvent } from './ScheduleTableEvent'
+export { ScheduleTableEvent, ScheduleMobileEvent } from './ScheduleTableEvent'

@@ -1,1 +1,1 @@
-export { ScheduleTableTime } from './ScheduleTableTime'
+export { ScheduleTableTime, ScheduleMobileTime } from './ScheduleTableTime'

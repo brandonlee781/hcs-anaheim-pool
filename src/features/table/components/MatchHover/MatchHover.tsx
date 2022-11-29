@@ -77,7 +77,7 @@ export const MatchHover = ({ teams }: MatchHoverProps) => {
   }
 
   return (
-    <div className={clsx(styles.wrapper)}>
+    <div className={clsx(styles.wrapper, 'pointer-events-none')}>
       <div className={clsx(styles['inner-wrapper'])}>
         {show &&
           teams.map((team, index) => {
