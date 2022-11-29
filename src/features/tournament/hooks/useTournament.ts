@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
+import { getTimezoneOffset } from 'date-fns-tz'
 
 import { Team, useTeams, Region } from '@/features/teams'
 
-import { getTournament } from '../api/getTournaments'
+import { getTournament } from '../api/getTournament'
 import { TournamentDayContext } from '../providers/TournamentDayProvider'
 import { Tournament } from '../types'
 
@@ -23,7 +24,9 @@ const getOffset = (timeZone = 'UTC') => {
 
 function getTime(timezone: string) {
   const offset = getOffset(timezone)
-  return (date: string, time: string) => `${date}T${time}${offset}`
+  return (date: string, time: string) => {
+    return `${date}T${time}${offset}`
+  }
 }
 
 export const getTeam = (teamName: string, teams?: Team[]): Team => {
@@ -46,7 +49,7 @@ export function useTournament(id?: string) {
     data,
     error,
     isLoading: tournamentLoading,
-  } = useQuery(['tournament'], () => getTournament(id))
+  } = useQuery(['tournament', id], () => getTournament(id))
 
   const { data: teams, isLoading: teamsLoading } = useTeams()
 
@@ -73,7 +76,7 @@ export function useTournament(id?: string) {
           events: d.events?.map(ev => {
             return {
               ...ev,
-              time: timeFn(d.date, ev.time),
+              // time: timeFn(d.date, ev.time),
               streams: ev.streams as string[],
               data: {
                 ...ev.data,

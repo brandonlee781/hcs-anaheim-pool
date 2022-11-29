@@ -37,16 +37,40 @@ export const MatchHover = ({ teams }: MatchHoverProps) => {
     }
 
     if (teams.length === 4) {
-      if (index % 2 === 0) {
-        // if the item is even; ie 0 or 2
-        horizontal = styles.left
-      } else {
-        // if item is odd; ie 1 or 3
-        horizontal = styles.right
+      switch (index) {
+        case 0:
+          horizontal = styles.left
+          vertical = styles.top
+          break
+        case 1:
+          horizontal = styles.left
+          vertical = styles.bottom
+          break
+        case 2:
+          horizontal = styles.right
+          vertical = styles.top
+          break
+        case 3:
+          horizontal = styles.right
+          vertical = styles.bottom
+          break
+        default:
+          horizontal = styles.left
+          vertical = styles.top
       }
-      if (isVertical && index >= 2) {
-        vertical = styles.bottom
-      }
+      // if (index === 0) {
+      // }
+
+      // if (index % 2 === 0) {
+      //   // if the item is even; ie 0 or 2
+      //   horizontal = styles.left
+      // } else {
+      //   // if item is odd; ie 1 or 3
+      //   horizontal = styles.right
+      // }
+      // if (isVertical && index >= 2) {
+      //   vertical = styles.bottom
+      // }
     }
 
     return [horizontal, isVertical ? vertical : null]

@@ -24,6 +24,8 @@ export const LoginPage = () => {
     }
   }
 
+  const updateEmail = async (val: string) => setEmail(val)
+
   return (
     <div className="w-full h-full flex items-center justify-center">
       <Card className="w-80 h-[12rem] !p-8">
@@ -35,7 +37,7 @@ export const LoginPage = () => {
               label="Email"
               placeholder="Email"
               value={email}
-              onChange={val => setEmail(val)}
+              onChange={e => updateEmail(e.target.value)}
             />
             <Button type="submit" className="mt-4">
               Submit

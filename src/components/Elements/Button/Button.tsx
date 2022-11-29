@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { Spinner } from '../Spinner'
 
@@ -18,6 +19,7 @@ type IconProps =
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: keyof typeof sizes
   isLoading?: boolean
+  to?: string
 } & IconProps
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -29,10 +31,20 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading = false,
       startIcon,
       endIcon,
+      to,
+      onClick,
       ...props
     },
     ref
   ) => {
+    const navigate = useNavigate()
+    const clickButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (to) {
+        navigate(to)
+      }
+      onClick?.(e)
+    }
+
     return (
       <button
         ref={ref}
@@ -43,6 +55,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         {...props}
+        onClick={e => clickButton(e)}
       >
         {isLoading && <Spinner size="sm" className="text-current" />}
         {!isLoading && startIcon}

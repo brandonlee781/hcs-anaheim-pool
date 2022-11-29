@@ -11,10 +11,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
         role={onClick ? 'button' : 'article'}
         ref={ref}
         className={clsx(
-          className,
-          'py-2 px-4 h-full w-full',
+          'py-2 px-4',
           'flex flex-row flex-nowrap items-center justify-between',
           'rounded-md',
+          className,
           theme.cardStyle
         )}
         style={style}
@@ -26,3 +26,5 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     )
   }
 )
+
+Card.displayName = 'Card'

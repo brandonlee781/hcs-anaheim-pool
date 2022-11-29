@@ -6,6 +6,7 @@ export const ScheduleRoutes = () => {
   return (
     <Routes>
       <Route path="" element={<SchedulePage />} />
+      <Route path="/:id" element={<SchedulePage />} />
     </Routes>
   )
 }

@@ -1,8 +1,8 @@
-import { User } from '@supabase/supabase-js'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useParams } from 'react-router-dom'
 
 import { Button } from '@/components/Elements/Button'
+import { EventForm } from '@/features/events'
 import { PoolsForm } from '@/features/pools'
 
 import { TournamentForm } from '../../components/TournamentForm'
@@ -10,10 +10,7 @@ import { useTournament } from '../../hooks/useTournament'
 import { useUpdateTournament } from '../../hooks/useUpdateTournament'
 import { Tournament } from '../../types'
 
-type TournamentPageProps = {
-  user: User
-}
-export const TournamentPage = ({ user }: TournamentPageProps) => {
+export const TournamentPage = () => {
   const { register, handleSubmit, reset, setValue } = useForm()
   const { id } = useParams()
   const { tournament, isLoading } = useTournament(id)
@@ -28,6 +25,7 @@ export const TournamentPage = ({ user }: TournamentPageProps) => {
       startDate: tournament?.startDate,
       endDate: tournament?.endDate,
       isOnline: tournament?.isOnline,
+      timezone: tournament?.timezone,
     })
   }
 
@@ -51,17 +49,23 @@ export const TournamentPage = ({ user }: TournamentPageProps) => {
     }
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full p-4">
-      <div className="flex flex-nowrap w-full justify-end">
-        <Button onClick={checkBeforeReset} className="mr-2 text-yellow-500 border-yellow-500">
-          Reset
-        </Button>
-        <Button type="submit" className="border-green-500 text-green-500">
-          Submit
-        </Button>
-      </div>
-      <TournamentForm {...tournament} register={register} setValue={setValue} />
+    <div className="wrapper w-full h-full p-4 mb-[10rem]">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-nowrap w-full justify-between mb-4">
+          <Button to="/tournament">Back</Button>
+          <div className="flex">
+            <Button onClick={checkBeforeReset} className="mr-2 text-yellow-500 border-yellow-500">
+              Reset
+            </Button>
+            <Button type="submit" className="border-green-500 text-green-500">
+              Submit
+            </Button>
+          </div>
+        </div>
+        <TournamentForm {...tournament} register={register} setValue={setValue} />
+      </form>
       <PoolsForm pools={tournament.pools} tournamentId={tournament.id} />
-    </form>
+      <EventForm tournamentId={tournament.id} days={tournament.days} pools={tournament.pools} />
+    </div>
   )
 }

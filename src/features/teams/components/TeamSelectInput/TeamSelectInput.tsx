@@ -6,13 +6,16 @@ import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import Chevron from '~icons/mdi/chevron-down'
 
 type TeamSelectInputProps = {
+  value?: Team
   onTeamClick: (team: Team) => void
 }
 
-export const TeamSelectInput = ({ onTeamClick }: TeamSelectInputProps) => {
+export const TeamSelectInput = ({ value, onTeamClick }: TeamSelectInputProps) => {
   const [open, setOpen] = useState(false)
   const [filter, setFilter] = useState('')
   const { data: teams } = useTeams()
+
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const wrapperRef = useRef<HTMLDivElement>(null)
   useOnClickOutside(wrapperRef, () => {
@@ -22,7 +25,14 @@ export const TeamSelectInput = ({ onTeamClick }: TeamSelectInputProps) => {
   const clickTeam = (team: Team) => {
     onTeamClick(team)
     setOpen(false)
+    setFilter('')
   }
+
+  useEffect(() => {
+    if (open) {
+      inputRef.current?.focus()
+    }
+  }, [open])
 
   return (
     <div ref={wrapperRef} className="w-full flex flex-col items-center">
@@ -31,10 +41,12 @@ export const TeamSelectInput = ({ onTeamClick }: TeamSelectInputProps) => {
           <div className="w-full">
             <div className="my-2 p-1 bg-gray-50 dark:bg-gray-700 flex border border-gray-200 rounded">
               <input
+                ref={inputRef}
                 value={filter}
-                placeholder="Search Teams by Name"
+                placeholder={value?.name ?? 'Search Teams by Name'}
                 className="p-1 px-2 appearance-none outline-none w-full text-gray-800 dark:text-gray-50 bg-transparent"
                 onChange={e => setFilter(e.target.value)}
+                onFocus={() => setOpen(true)}
               />
               <div className="text-gray-300  w-8 py-1 pl-2 pr-1 border-l flex items-center border-gray-200">
                 <button
@@ -53,7 +65,11 @@ export const TeamSelectInput = ({ onTeamClick }: TeamSelectInputProps) => {
             <div className="absolute shadow bg-white dark:bg-gray-700 top-full z-40 w-full left-0 rounded max-h-40 overflow-y-auto">
               <div className="flex flex-col w-full">
                 {teams
-                  ?.filter(t => t.name.toLowerCase().includes(filter.toLowerCase()))
+                  ?.filter(
+                    t =>
+                      t.name.toLowerCase().includes(filter.toLowerCase()) ||
+                      t.id.toLowerCase().includes(filter.toLowerCase())
+                  )
                   ?.sort((a, b) => {
                     if (a.id > b.id) return 1
                     if (a.id < b.id) return -1

@@ -6,8 +6,6 @@ import { MatchHover } from '../MatchHover'
 import { ScheduleTableData } from '../ScheduleTableData'
 import { ScheduleTableMatch } from '../ScheduleTableMatch'
 
-import styles from './ScheduleTableEvent.module.css'
-
 type ScheduleTableEventProps = {
   event: TournamentEvent & { span: number }
 }

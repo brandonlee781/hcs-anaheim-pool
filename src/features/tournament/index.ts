@@ -7,6 +7,7 @@ export type {
   TournamentEvent,
   EventData,
   Stream,
-  Pool,
 } from './types'
 export { TournamentRoutes } from './routes'
+export { useStreams } from './api/getStreams'
+export type { TournamentResponse } from './api/getTournament'

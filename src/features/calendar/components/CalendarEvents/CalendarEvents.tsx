@@ -72,7 +72,7 @@ export const CalendarEvents = ({ events, streams }: CalendarEventsProps) => {
         cols={columns}
         className={clsx(gridPosition)}
       >
-        <Card className="max-w-100 mx-auto" style={{ gridRow, gridColumn }}>
+        <Card className="max-w-100 card mx-auto" style={{ gridRow, gridColumn }}>
           <AlertIcon className="h-20 w-20 text-yellow-400" />
           { t('table:no-data') }
         </Card>

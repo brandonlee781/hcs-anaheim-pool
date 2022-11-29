@@ -29,10 +29,11 @@ export enum TournamentDayIds {
   'play-in' = 'play-in',
 }
 
-export type TournamentDay = Omit<definitions['tournament-day'], 'name'> & {
+export type TournamentDay = Omit<definitions['tournament-day'], 'name' | 'include'> & {
   name: TournamentDayIds
-  events: TournamentEvent[]
+  events?: TournamentEvent[]
   streams: Stream[]
+  include: string[]
 }
 
 export type Tournament = definitions['tournament'] & {

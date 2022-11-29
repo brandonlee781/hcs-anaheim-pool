@@ -5,9 +5,9 @@ import { UseFormRegister } from 'react-hook-form'
 type InputProps = React.ButtonHTMLAttributes<HTMLInputElement> &
   Partial<ReturnType<UseFormRegister<any>>> & {
     id?: string
-    label: string
+    label?: string
     value?: string
-    inputType?: 'text' | 'password' | 'number' | 'date'
+    inputType?: 'text' | 'password' | 'number' | 'date' | 'time' | 'datetime-local'
     wrapperClassName?: string
     appendIcon?: React.ReactNode
     clickAppendIcon?: () => void
@@ -34,12 +34,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const inputId = id ?? uniqueId()
     return (
       <div className={clsx('w-full', wrapperClassName)}>
-        <label
-          htmlFor={inputId}
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >
-          {label}
-        </label>
+        {label && (
+          <label
+            htmlFor={inputId}
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            {label}
+          </label>
+        )}
         <div className="relative">
           <input
             ref={ref}

@@ -18,12 +18,12 @@ export function useCreatePool() {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: ({ tournamentId }: { tournamentId: string }) => createPool(tournamentId),
-    onSuccess(pool: Pool[]) {
-      const tournament = queryClient.getQueryData<Tournament>(['tournament'])
+    onSuccess(pool: Pool) {
+      const tournament = queryClient.getQueryData<Tournament>(['tournament', pool.tournament])
 
       const oldPools = tournament?.pools || []
 
-      queryClient.setQueryData(['tournament'], {
+      queryClient.setQueryData(['tournament', pool.tournament], {
         ...tournament,
         pools: [...oldPools, pool],
       })

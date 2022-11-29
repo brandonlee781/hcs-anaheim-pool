@@ -30,12 +30,12 @@ export function useUpdatePool() {
     mutationFn: ({ id, payload }: PoolMutation) => updatePool(id, payload),
     onSuccess(pools: Pool[]) {
       const [pool] = pools
-      const tournament = queryClient.getQueryData<Tournament>(['tournament'])
+      const tournament = queryClient.getQueryData<Tournament>(['tournament', pool.tournament])
 
       // eslint-disable-next-line no-unsafe-optional-chaining
       const oldPools = tournament?.pools?.filter(p => p.id !== pool.id) || []
 
-      queryClient.setQueryData(['tournament'], {
+      queryClient.setQueryData(['tournament', pool.tournament], {
         ...tournament,
         pools: [...oldPools, pool],
       })

@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 type ProtectedRouteProps = {
   isAllowed: boolean
@@ -10,8 +10,9 @@ export const ProtectedRoute = ({
   redirectPath = '/',
   children,
 }: ProtectedRouteProps) => {
+  const navigate = useNavigate()
   if (!isAllowed) {
-    return <Navigate to={redirectPath} replace />
+    return navigate(redirectPath)
   }
 
   return children ? children : <Outlet />

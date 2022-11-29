@@ -21,13 +21,12 @@ export const ScheduleTable = ({ days, day }: ScheduleTableProps) => {
   }))
   headers.unshift({ text: 'timeslot' })
 
-  const timeslots = Array.from(new Set(events.map(ev => ev.time)))
+  const timeslots = Array.from(new Set(events?.map(ev => ev.time)))
 
   const rows = timeslots
     .map(time => {
       const rowEvents = events
-        .filter(ev => ev.time === time)
-
+        ?.filter(ev => ev.time === time)
         .map(ev => {
           const matchingStreams = streams.filter(s => ev.streams?.includes(s.id || ''))
           return {
@@ -54,9 +53,12 @@ export const ScheduleTable = ({ days, day }: ScheduleTableProps) => {
         return (
           <Table.TableRow key={index}>
             <ScheduleTableTime time={time} />
-            {evs.map(ev => (
-              <ScheduleTableEvent key={ev.id} event={ev} />
-            ))}
+            {streams.map(stream => {
+              const streamEvent = evs?.find(e => e.streams?.[0] === stream.id)
+              if (streamEvent) {
+                return <ScheduleTableEvent key={streamEvent.id} event={streamEvent} />
+              }
+            })}
           </Table.TableRow>
         )
       })}

@@ -19,7 +19,7 @@ export const Participants = ({
       animate={{ opacity: 1 }}
       className="h-full w-full"
     >
-      <Card className="!p-0">
+      <Card className="!p-0 h-full">
         <div
           className={clsx(
             'h-full w-full grid grid-cols-2 grid-rows-[2rem,auto] md:grid-cols-4',

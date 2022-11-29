@@ -20,11 +20,11 @@ export function useDeletePool() {
   return useMutation({
     mutationFn: ({ id }: { id: string }) => deletePool(id),
     onSuccess(pool: Pool) {
-      const tournament = queryClient.getQueryData<Tournament>(['tournament'])
+      const tournament = queryClient.getQueryData<Tournament>(['tournament', pool.tournament])
 
       const updatedPools = tournament?.pools.filter(p => p.id !== pool.id)
 
-      queryClient.setQueryData(['tournament'], {
+      queryClient.setQueryData(['tournament', pool.tournament], {
         ...tournament,
         pools: updatedPools,
       })

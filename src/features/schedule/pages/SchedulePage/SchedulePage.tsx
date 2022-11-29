@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import { useParams } from 'react-router-dom'
 import { useSessionStorage } from 'react-use'
 
 import { Spinner } from '@/components/Elements/Spinner'
@@ -14,8 +15,9 @@ import { ScheduleNav } from '../../components/ScheduleNav'
 import styles from './SchedulePage.module.css'
 
 export const SchedulePage = () => {
+  const { id } = useParams()
   const [view, setView] = useSessionStorage<'calendar' | 'table'>('hcs-schedule-view', 'calendar')
-  const { tournament, day, setDay, isLoading } = useTournament()
+  const { tournament, day, setDay, isLoading } = useTournament(id)
 
   const includes = tournament?.days[day].include
   const pools =

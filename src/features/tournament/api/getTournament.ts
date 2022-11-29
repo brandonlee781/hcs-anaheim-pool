@@ -3,7 +3,9 @@ import { definitions } from '@/types/database'
 
 import { EventData, TournamentDayIds } from '../types'
 
-type TournamentResponse = definitions['tournament'] & {
+import { getStreams } from './getStreams'
+
+export type TournamentResponse = definitions['tournament'] & {
   days: (Omit<definitions['tournament-day'], 'name'> & {
     name: TournamentDayIds
     events: (Omit<definitions['events'], 'data'> & {
@@ -57,7 +59,8 @@ export async function getTournament(id?: string) {
   const allStreams = Array.from(
     new Set(data?.days.map(d => d.streams).reduce((a, b) => a.concat(b), []) ?? [])
   )
-  const { data: streams } = await supabase.from('streams').select().in('id', allStreams)
+
+  const streams = await getStreams(allStreams)
 
   if (error) {
     throw new Error(error.message)
