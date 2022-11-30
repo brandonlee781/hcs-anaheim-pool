@@ -134,68 +134,93 @@ const EventListItem = ({ event, date, dayId, tournamentId, streams }: EventListI
     }
   }
 
+  const [show, setShow] = useState(true)
+  const toggleShow = () => {
+    setShow(!show)
+  }
+
   return (
-    <Card className="!w-full">
-      <form onSubmit={handleSubmit(submitEvent)} className="w-full flex-col">
-        <div className="w-full mb-2 flex flex-row-reverse justify-between">
-          <div className="flex">
-            {(formState.isDirty || teamsDirty) && (
-              <>
-                <Button size="xs" className="!p-1 !px-0 mr-1" onClick={() => resetEvent()}>
-                  <Reset />
+    <div className="w-full">
+      <Card className="!w-full">
+        <form onSubmit={handleSubmit(submitEvent)} className="w-full flex-col">
+          <div className="w-full flex flex-row-reverse items-center justify-between">
+            <div className="flex">
+              {(formState.isDirty || teamsDirty) && (
+                <>
+                  <Button size="xs" className="!p-1 !px-0 mr-1" onClick={() => resetEvent()}>
+                    <Reset />
+                  </Button>
+                  <Button type="submit" size="xs" className="!p-1 !px-0">
+                    <Save />
+                  </Button>
+                </>
+              )}
+              {event?.id && (
+                <Button size="xs" className="!p-1 !px-0 ml-1" onClick={() => deleteTeam()}>
+                  <Trash />
                 </Button>
-                <Button type="submit" size="xs" className="!p-1 !px-0">
-                  <Save />
-                </Button>
-              </>
-            )}
-            {event?.id && (
-              <Button size="xs" className="!p-1 !px-0 ml-1" onClick={() => deleteTeam()}>
-                <Trash />
-              </Button>
-            )}
+              )}
+            </div>
+            <button type="button" onClick={toggleShow}>
+              {event.id}
+            </button>
           </div>
-          {event.id}
-        </div>
-        <div className="w-full flex flex-row mb-2">
-          <Input
-            inputType="time"
-            label="Time"
-            {...register('time')}
-            wrapperClassName="mr-2"
-            required
-          />
-          <Input inputType="number" label="Duration" {...register('duration')} required />
-        </div>
-        <Input label="Text" {...register('text')} className="mb-2" />
-        <Input label="Text Class" {...register('textClass')} className="mb-2" />
-        <div className="w-full mb-2">
-          <MultiSelect
-            name="streams"
-            placeholder="Streams"
-            label="Streams"
-            control={control}
-            required
-            items={event?.streams?.map(s => ({ id: s, name: s })) ?? []}
-            options={streams ?? []}
-            getOptionLabel={option => option.name}
-            getOptionValue={option => option.id}
-          />
-        </div>
-        <div className="">
-          <div className="flex flex-row flex-nowrap items-center">
-            <TeamSelectInput value={formTeams?.[0]} onTeamClick={team => updateTeams(team, 0)} />
-            <span className="mx-2">vs</span>
-            <TeamSelectInput value={formTeams?.[1]} onTeamClick={team => updateTeams(team, 1)} />
-          </div>
-          <div className="flex flex-row flex-nowrap items-center">
-            <TeamSelectInput value={formTeams?.[2]} onTeamClick={team => updateTeams(team, 2)} />
-            <span className="mx-2">vs</span>
-            <TeamSelectInput value={formTeams?.[3]} onTeamClick={team => updateTeams(team, 3)} />
-          </div>
-        </div>
-      </form>
-    </Card>
+          {show && (
+            <div className="w-full h-full mt-2">
+              <div className="w-full flex flex-row mb-2">
+                <Input
+                  inputType="time"
+                  label="Time"
+                  {...register('time')}
+                  wrapperClassName="mr-2"
+                  required
+                />
+                <Input inputType="number" label="Duration" {...register('duration')} required />
+              </div>
+              <Input label="Text" {...register('text')} className="mb-2" />
+              <Input label="Text Class" {...register('textClass')} className="mb-2" />
+              <div className="w-full mb-2">
+                <MultiSelect
+                  name="streams"
+                  placeholder="Streams"
+                  label="Streams"
+                  control={control}
+                  required
+                  items={event?.streams?.map(s => ({ id: s, name: s })) ?? []}
+                  options={streams ?? []}
+                  getOptionLabel={option => option.name}
+                  getOptionValue={option => option.id}
+                />
+              </div>
+              <div className="">
+                <div className="flex flex-row flex-nowrap items-center">
+                  <TeamSelectInput
+                    value={formTeams?.[0]}
+                    onTeamClick={team => updateTeams(team, 0)}
+                  />
+                  <span className="mx-2">vs</span>
+                  <TeamSelectInput
+                    value={formTeams?.[1]}
+                    onTeamClick={team => updateTeams(team, 1)}
+                  />
+                </div>
+                <div className="flex flex-row flex-nowrap items-center">
+                  <TeamSelectInput
+                    value={formTeams?.[2]}
+                    onTeamClick={team => updateTeams(team, 2)}
+                  />
+                  <span className="mx-2">vs</span>
+                  <TeamSelectInput
+                    value={formTeams?.[3]}
+                    onTeamClick={team => updateTeams(team, 3)}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </form>
+      </Card>
+    </div>
   )
 }
 

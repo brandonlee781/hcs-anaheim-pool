@@ -88,7 +88,7 @@ export const EventForm = ({ days, pools, tournamentId }: EventFormProps) => {
     <div className="mb-[10rem]">
       <ExpansionPanel title="Events">
         <div className="p-4">
-          <div className="flex flex-col items-start md:flex-row md:items-center">
+          <div className="flex flex-row flex-wrap items-start md:items-center">
             {days
               ?.sort((a, b) => {
                 const aDate = new Date(a.date)
@@ -127,16 +127,20 @@ export const EventForm = ({ days, pools, tournamentId }: EventFormProps) => {
           </div>
           <form
             onSubmit={handleSubmit(editDay)}
-            className="flex flex-col md:flex-row md:flex-nowrap md:items-center p-4 my-4 border rounded-lg border-gray-50"
+            className="flex flex-row flex-wrap md:flex-nowrap md:items-center p-4 my-4 border rounded-lg border-gray-50"
           >
-            <Input wrapperClassName="w-[10rem] mr-2" label="Name" {...register('name')} />
             <Input
-              wrapperClassName="w-[10rem] mr-2"
+              wrapperClassName="w-1/2 md:w-[10rem] md:mr-2"
+              label="Name"
+              {...register('name')}
+            />
+            <Input
+              wrapperClassName="w-1/2 md:w-[10rem] md:mr-2"
               label="Date"
               inputType="date"
               {...register('date')}
             />
-            <div className="mr-2">
+            <div className="mr-2 w-full md:w-1/2">
               <MultiSelect
                 name="streams"
                 placeholder="Streams"
@@ -147,7 +151,7 @@ export const EventForm = ({ days, pools, tournamentId }: EventFormProps) => {
                 getOptionValue={option => option.id}
               />
             </div>
-            <div className="mr-2">
+            <div className="mr-2 w-full md:w-1/2">
               <MultiSelect
                 name="include"
                 placeholder="Pools"
