@@ -125,57 +125,61 @@ export const EventForm = ({ days, pools, tournamentId }: EventFormProps) => {
               </Button>
             </div>
           </div>
-          <form
-            onSubmit={handleSubmit(editDay)}
-            className="flex flex-row flex-wrap md:flex-nowrap md:items-center p-4 my-4 border rounded-lg border-gray-50"
-          >
-            <Input
-              wrapperClassName="w-1/2 md:w-[10rem] md:mr-2"
-              label="Name"
-              {...register('name')}
-            />
-            <Input
-              wrapperClassName="w-1/2 md:w-[10rem] md:mr-2"
-              label="Date"
-              inputType="date"
-              {...register('date')}
-            />
-            <div className="mr-2 w-full md:w-1/2">
-              <MultiSelect
-                name="streams"
-                placeholder="Streams"
-                label="Streams"
-                control={control}
-                options={streams ?? []}
-                getOptionLabel={option => option.name || option || 'N/A'}
-                getOptionValue={option => option.id}
+          {currentDay?.id && (
+            <form
+              onSubmit={handleSubmit(editDay)}
+              className="flex flex-row flex-wrap md:flex-nowrap md:items-center p-4 my-4 border rounded-lg border-gray-50"
+            >
+              <Input
+                wrapperClassName="w-1/2 md:w-[10rem] md:mr-2"
+                label="Name"
+                {...register('name')}
               />
-            </div>
-            <div className="mr-2 w-full md:w-1/2">
-              <MultiSelect
-                name="include"
-                placeholder="Pools"
-                label="Pools"
-                control={control}
-                options={pools}
-                getOptionLabel={option => option.name || option}
-                getOptionValue={option => option.key}
+              <Input
+                wrapperClassName="w-1/2 md:w-[10rem] md:mr-2"
+                label="Date"
+                inputType="date"
+                {...register('date')}
               />
-            </div>
-            <Button type="submit" size="sm" className="mt-7 mr-2">
-              Submit
-            </Button>
-            <Button size="sm" className="mt-7" onClick={() => deleteDay()}>
-              Delete
-            </Button>
-          </form>
-          <EventList
-            events={currentDay?.events ?? []}
-            date={currentDay?.date ?? ''}
-            dayId={currentDay?.id ?? ''}
-            tournamentId={tournament?.id ?? ''}
-            streams={currentDay?.streams ?? []}
-          />
+              <div className="mr-2 w-full md:w-1/2">
+                <MultiSelect
+                  name="streams"
+                  placeholder="Streams"
+                  label="Streams"
+                  control={control}
+                  options={streams ?? []}
+                  getOptionLabel={option => option.name || option || 'N/A'}
+                  getOptionValue={option => option.id}
+                />
+              </div>
+              <div className="mr-2 w-full md:w-1/2">
+                <MultiSelect
+                  name="include"
+                  placeholder="Pools"
+                  label="Pools"
+                  control={control}
+                  options={pools}
+                  getOptionLabel={option => option.name || option}
+                  getOptionValue={option => option.key}
+                />
+              </div>
+              <Button type="submit" size="sm" className="mt-7 mr-2">
+                Submit
+              </Button>
+              <Button size="sm" className="mt-7" onClick={() => deleteDay()}>
+                Delete
+              </Button>
+            </form>
+          )}
+          {currentDay && (
+            <EventList
+              events={currentDay?.events ?? []}
+              date={currentDay?.date ?? ''}
+              dayId={currentDay?.id ?? ''}
+              tournamentId={tournament?.id ?? ''}
+              streams={currentDay?.streams ?? []}
+            />
+          )}
         </div>
       </ExpansionPanel>
     </div>
