@@ -46,8 +46,10 @@ export const SchedulePage = () => {
     poolEl = pools.map(pool => (
       <TeamPool key={pool.key} poolKey={pool.key} name={pool.name} teams={pool.teams} />
     ))
-  } else {
+  } else if (pools.length === 1) {
     poolEl = <Participants {...pools[0]} isTable={view === 'table'} />
+  } else {
+    poolEl = <span></span>
   }
 
   return (
