@@ -48,6 +48,16 @@ export const CalendarGridProvider = ({ children, days, columns }: CalendarGridPr
   const firstTime = uniqueTimes[0]
   const lastTime = uniqueTimes[uniqueTimes.length - 1]
 
+  const gridPosition = 'absolute top-12 lg:top-4 bottom-0 right-0 left-0'
+
+  if (!firstTime || !lastTime) {
+    return (
+      <CalendarGridContext.Provider value={{ days, hours: [], columns, gridPosition }}>
+        {children}
+      </CalendarGridContext.Provider>
+    )
+  }
+
   const firstEvent = parse(format(firstTime, 'HH:mm:ss'), 'HH:mm:ss', new Date())
   const lastEvent = parse(format(lastTime, 'HH:mm:ss'), 'HH:mm:ss', new Date())
 
@@ -55,8 +65,6 @@ export const CalendarGridProvider = ({ children, days, columns }: CalendarGridPr
   const end = addHours(addSeconds(endOfHour(lastEvent), 1), 1)
 
   const hours = eachHourOfInterval({ start, end })
-
-  const gridPosition = 'absolute top-12 lg:top-4 bottom-0 right-0 left-0'
 
   return (
     <CalendarGridContext.Provider value={{ days, hours, columns, gridPosition }}>
