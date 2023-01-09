@@ -19,7 +19,7 @@ export const SchedulePage = () => {
   const [view, setView] = useSessionStorage<'calendar' | 'table'>('hcs-schedule-view', 'calendar')
   const { tournament, day, setDay, isLoading } = useTournament(id)
 
-  const includes = tournament?.days[day].include
+  const includes = tournament?.days[day]?.include || []
   const pools =
     tournament?.pools.filter(pool => {
       return includes?.includes(pool.key)
