@@ -86,6 +86,12 @@ export function useTournament(id?: string) {
     }
   }, [data, teams])
 
+  useEffect(() => {
+    if (!tournament?.days?.length || tournament?.days?.length > day) {
+      setDay(0)
+    }
+  }, [tournament])
+
   const isLoading = useMemo(() => {
     let val = false
     if (tournamentLoading) val = true
