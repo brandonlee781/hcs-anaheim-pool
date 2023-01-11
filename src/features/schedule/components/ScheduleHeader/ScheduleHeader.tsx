@@ -1,8 +1,9 @@
 import clsx from 'clsx'
 import { format, parse } from 'date-fns'
 
+import snowdownLogo from '@/assets/icons/spartan_snowdown.png'
 import { Button } from '@/components/Elements/Button'
-import { HCSLogo } from '@/components/Elements/HCSLogo'
+// import { HCSLogo } from '@/components/Elements/HCSLogo'
 
 import Calendar from '~icons/mdi/calendar-outline'
 import CalendarStar from '~icons/mdi/calendar-star'
@@ -41,7 +42,12 @@ export const ScheduleHeader = ({
   return (
     <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-4">
       <div className="md:flex md:flex-flow md:flex-nowrap items-center">
-        <HCSLogo
+        <img
+          src={snowdownLogo}
+          alt="Spartan Snowdown Logo"
+          className="hidden md:dark:inline-block h-12 md:h-24 w-auto mx-8"
+        />
+        {/* <HCSLogo
           className="hidden md:dark:inline-block h-12 md:h-24 w-auto mx-8"
           primary="transparent"
           background="#ffffff99"
@@ -52,7 +58,7 @@ export const ScheduleHeader = ({
           primary="#000000aa"
           background="#33333344"
           outline="transparent"
-        />
+        /> */}
         <div className="flex flex-col w-full">
           <div className="touranment-title col-span-full text-[2.5rem] font-super-bold w-full">
             {title}
