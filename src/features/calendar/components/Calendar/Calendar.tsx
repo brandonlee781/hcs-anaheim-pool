@@ -6,7 +6,7 @@ import { Stream, TournamentDay } from '@/features/tournament'
 
 import { CalendarGridProvider } from '../../providers/CalendarGridProvider'
 import { CalendarBackgroundGrid } from '../CalendarBackgroundGrid'
-import { CalendarCurrentTime } from '../CalendarCurrentTime'
+// import { CalendarCurrentTime } from '../CalendarCurrentTime'
 import { CalendarEvents } from '../CalendarEvents'
 import { CalendarStreamLinks } from '../CalendarStreamLinks'
 
@@ -41,7 +41,7 @@ export const Calendar = ({ days, day }: CalendarProps) => {
 
           <CalendarEvents events={days[day].events} streams={streams} />
 
-          <CalendarCurrentTime displayDay={days[day]} heightRef={ref} />
+          {/* <CalendarCurrentTime displayDay={days[day]} heightRef={ref} /> */}
         </ScrollContainer>
       </div>
     </CalendarGridProvider>
