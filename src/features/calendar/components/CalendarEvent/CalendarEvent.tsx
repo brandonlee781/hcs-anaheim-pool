@@ -35,7 +35,7 @@ export const CalendarEvent = ({ event }: CalendarEventsProps) => {
       <CalendarMatch
         {...event.data}
         timeframe={`${startTime} - ${endTime}`}
-        large={event.duration > 15}
+        large={event.duration >= 60}
         highlight={event.data.teams?.find(i => i.name === team?.name)}
       />
     </Card>
